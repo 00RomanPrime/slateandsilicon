@@ -225,7 +225,7 @@ section {
 .metric-item {
     display: flex;
     flex-direction: column;
-} /* <--- MAKE SURE THIS BRACE IS HERE */
+}
 
 #foundry { 
     padding: 100px 5%;

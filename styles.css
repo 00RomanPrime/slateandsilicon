@@ -223,23 +223,23 @@ section {
   border-top: 1px solid rgba(176,212,222,0.1);
 }
 
+#foundry {
+    padding: 100px 5%;
+    background: #0a0a0a;
+}
+
 .hero-metrics {
     display: flex;
-    gap: 48 px;
-    margin-top: 64 px;
-    padding-top: 40 px;
-    border-top: 1 px solid rgba(176, 212, 222, 0.1);
+    gap: 48px;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(176, 212, 222, 0.1);
 }
 
 .metric-item {
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-
-#foundry {
-    padding: 100px 5%;
-    background: #0a0a0a;
 }
 
 .metric-lbl {
@@ -274,6 +274,7 @@ section {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 300;
     line-height: 1.1;
+    color: var(--text-main);
 }
 
 /* PILLAR GRID */

@@ -238,6 +238,111 @@ section {
   text-transform: uppercase;
   color: var(--text-muted);
 }
+/* PILLAR GRID - Add this section */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.pillar-card {
+  border: 1px solid var(--cyan-border);
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.pillar-card:hover {
+  border-color: var(--cyan);
+  background: rgba(176, 212, 222, 0.05);
+}
+
+.pillar-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pillar-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  color: var(--foundry-white);
+  margin: 0;
+}
+
+.pillar-body {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.pillar-tag {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--cyan-border);
+  color: var(--cyan);
+  padding: 6px 12px;
+  align-self: flex-start;
+}
+
+/* Section Header Styling */
+.section-header {
+  margin-bottom: 80px;
+}
+
+.section-id {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-id::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: var(--foundry-white);
+  margin-bottom: 24px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+.section-desc .callout {
+  text-decoration: underline;
+  color: var(--foundry-white);
+}
 /* ABOUT SECTION */
 #about {
   background: var(--bunker);
@@ -444,5 +549,14 @@ footer a:hover {
   .hero-metrics {
     flex-direction: column;
     gap: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .pillar-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: clamp(36px, 10vw, 60px);
   }
 }

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About / Manifesto — Slate & Silicon</title>
+  <meta name="description" content="We didn't lose our focus. It was engineered out of us. The Slate & Silicon manifesto — why we exist, who we're for, and what we're building.">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow+Condensed:wght@300;700;900&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+
+    .manifesto-hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 6rem 2.5rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .manifesto-hero h1 {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+      margin-bottom: 2rem;
+      animation: up 0.7s ease both 0.15s;
+    }
+
+    .manifesto-hero .lead {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 58ch;
+      line-height: 1.8;
+      animation: up 0.7s ease both 0.3s;
+      border-left: 2px solid var(--cyan);
+      padding-left: 1.5rem;
+    }
+
+    @keyframes up {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .manifesto-body { max-width: 680px; }
+
+    .manifesto-body p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1.75rem;
+    }
+
+    .manifesto-body p strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .pullquote {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin: 3rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--cyan);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .beliefs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--cyan-border);
+      border: 1px solid var(--cyan-border);
+      margin-top: 2.5rem;
+    }
+
+    .belief-card { background: var(--bunker); padding: 2rem; }
+
+    .belief-num {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .belief-statement {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 0.65rem;
+      line-height: 1.2;
+    }
+
+    .belief-expand { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+    .for-list { list-style: none; margin-top: 2rem; }
+
+    .for-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(176,212,222,0.07);
+      align-items: start;
+    }
+    .for-item:last-child { border-bottom: none; }
+
+    .for-check { font-family: var(--mono); font-size: 0.6rem; color: var(--cyan); padding-top: 2px; }
+
+    .for-text { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    .for-text strong {
+      color: var(--white);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.2rem;
+      font-family: var(--display);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .not-block {
+      background: var(--surface2);
+      border: 1px solid var(--cyan-border);
+      border-left: 2px solid rgba(176,212,222,0.3);
+      padding: 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .not-title {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--slate);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .not-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .not-list li {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--slate);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .not-list li::before { content: '✕'; color: rgba(176,212,222,0.25); }
+
+    .about-sidebar { position: sticky; top: 6rem; }
+
+    .sidebar-block { border: 1px solid var(--cyan-border); padding: 1.5rem; margin-bottom: 1.5rem; }
+
+    .sidebar-title {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(176,212,222,0.08);
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0.85rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(176,212,222,0.05);
+      align-items: start;
+    }
+    .tl-item:last-child { border-bottom: none; }
+
+    .tl-year { font-family: var(--mono); font-size: 0.52rem; color: var(--cyan); letter-spacing: 0.06em; padding-top: 2px; }
+    .tl-text { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+    .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+
+    .platform-link {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      color: var(--muted);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(176,212,222,0.08);
+      padding: 6px 8px;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .platform-link:hover { color: var(--cyan); border-color: var(--cyan-border); background: var(--cyan-dim); }
+
+    @media (max-width: 900px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .about-sidebar { position: static; }
+      .beliefs { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .manifesto-hero { padding: 4rem 1.25rem 3rem; min-height: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="z">
+  <a href="/" class="logo">Slate <em>&</em> Silicon</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/foundry/">The Foundry</a></li>
+    <li><a href="/about/" class="active">About</a></li>
+    <li><a href="/store/">The Store</a></li>
+    <li><a href="/log/">The Log</a></li>
+  </ul>
+  <a href="/detox-planner/" class="nav-cta">→ Free Planner</a>
+  <button class="nav-toggle" aria-label="Toggle navigation"
+    onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ MANIFESTO HERO ══ -->
+<div class="manifesto-hero z">
+  <p class="tag" style="animation: up 0.7s ease both 0s;">Manifesto // Why We Exist</p>
+  <h1>We didn't lose our focus. It was taken.</h1>
+  <p class="lead">This is not a wellness brand. This is not a productivity hack. This is a systems document for people who are done pretending the problem is personal.</p>
+</div>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker z">
+  <div class="ticker-track">
+    <span class="ticker-item">The machinery of focus <b>//</b></span>
+    <span class="ticker-item">The beauty of presence <b>//</b></span>
+    <span class="ticker-item">Gen-X // Digital natives by force <b>//</b></span>
+    <span class="ticker-item">Not a wellness brand <b>//</b></span>
+    <span class="ticker-item">A systems document <b>//</b></span>
+    <span class="ticker-item">The problem is not personal <b>//</b></span>
+    <span class="ticker-item">The machinery of focus <b>//</b></span>
+    <span class="ticker-item">The beauty of presence <b>//</b></span>
+    <span class="ticker-item">Gen-X // Digital natives by force <b>//</b></span>
+    <span class="ticker-item">Not a wellness brand <b>//</b></span>
+    <span class="ticker-item">A systems document <b>//</b></span>
+    <span class="ticker-item">The problem is not personal <b>//</b></span>
+  </div>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="z">
+  <div class="section">
+    <div class="about-layout">
+
+      <div>
+
+        <!-- MANIFESTO -->
+        <div class="manifesto-body reveal">
+          <p class="tag">The Problem // Diagnosed</p>
+
+          <p>You remember what it felt like to read a book for three hours without checking anything. You remember being <strong>bored</strong> — genuinely, productively bored — and what came out of that boredom. You remember having a thought, sitting with it, and letting it develop into something.</p>
+
+          <p>That didn't go away because you got older. It didn't go away because you got lazier, or softer, or less disciplined. It went away because <strong>billions of dollars were spent engineering it out of you.</strong> Notification systems. Infinite scroll. Variable reward loops. Color psychology. Every dark pattern in the book, running 24 hours a day on a device you carry in your pocket.</p>
+
+          <div class="pullquote">The design worked.<br>That's the whole story.</div>
+
+          <p>We are the generation that remembers both worlds. We grew up analog. We went online by choice — or by necessity — and we watched the shift happen in real time. We felt our attention spans contract. We noticed the morning scroll replacing the morning paper. We recognized the phantom phone check for what it was: <strong>a trained behavior, not a character flaw.</strong></p>
+
+          <p>Slate & Silicon exists because the solution being sold to us — more apps, more systems, more productivity tools — is the same thing as the problem. <strong>You do not fix a distraction problem with another screen.</strong></p>
+
+          <p>The framework is simple. Two components. The Lab: the mechanical, daily work of rebuilding attention. Focus drills. Friction architecture. Digital detox protocols. The Expanse: the reward for the work. High-fidelity presence. What the world looks like when you're actually in it.</p>
+
+          <p>We run experiments. We document the results. We share the data. <strong>No inspiration. No hustle porn. No morning routine flexing.</strong> Just a community of people who remember what deep focus felt like and are methodically working to get it back.</p>
+
+          <div class="pullquote">The lab is open.<br>Come run the tests.</div>
+        </div>
+
+        <hr class="rule" style="margin: 3rem 0;">
+
+        <!-- BELIEFS -->
+        <div class="reveal">
+          <p class="tag">Core Beliefs // The Operating System</p>
+          <h2>What we<br>operate on.</h2>
+          <div class="beliefs">
+            <div class="belief-card">
+              <p class="belief-num">BELIEF-01</p>
+              <p class="belief-statement">Attention is infrastructure</p>
+              <p class="belief-expand">Everything you want to build — career, relationships, creative work — runs on your ability to focus. Let the infrastructure degrade and everything built on top of it degrades with it.</p>
+            </div>
+            <div class="belief-card">
+              <p class="belief-num">BELIEF-02</p>
+              <p class="belief-statement">Willpower is the wrong tool</p>
+              <p class="belief-expand">Willpower is finite. It depletes. Designing systems that don't require it is not laziness — it's engineering. Build friction into distraction. Build ease into focus.</p>
+            </div>
+            <div class="belief-card">
+              <p class="belief-num">BELIEF-03</p>
+              <p class="belief-statement">The problem is structural</p>
+              <p class="belief-expand">You are not weak. The platforms are very, very good at what they do. Recognizing that is not an excuse — it's the accurate diagnosis that leads to the correct solution.</p>
+            </div>
+            <div class="belief-card">
+              <p class="belief-num">BELIEF-04</p>
+              <p class="belief-statement">Analog is not nostalgia</p>
+              <p class="belief-expand">Paper, silence, physical space — these are not romantic throwbacks. They are high-performance environments for cognitive work. Use the right tool for the job.</p>
+            </div>
+            <div class="belief-card">
+              <p class="belief-num">BELIEF-05</p>
+              <p class="belief-statement">Data over feeling</p>
+              <p class="belief-expand">Run the experiment. Measure the output. Don't trust how you feel about your productivity — track it. The heatmap doesn't lie. Your self-assessment might.</p>
+            </div>
+            <div class="belief-card">
+              <p class="belief-num">BELIEF-06</p>
+              <p class="belief-statement">Presence is the point</p>
+              <p class="belief-expand">The Lab exists to fund The Expanse. Deep work is not the goal — it's the mechanism. The goal is being fully present for your actual life. That's what we're rebuilding toward.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="rule" style="margin: 3rem 0;">
+
+        <!-- WHO IT'S FOR -->
+        <div class="reveal">
+          <p class="tag">Audience // Who This Is For</p>
+          <h2>You belong here<br>if —</h2>
+          <ul class="for-list">
+            <li class="for-item">
+              <span class="for-check">→</span>
+              <div class="for-text">
+                <strong>You remember the before</strong>
+                You're Gen-X or older millennial. You had a life before smartphones and you remember what sustained attention felt like. You're not romanticizing it — you just want it back.
+              </div>
+            </li>
+            <li class="for-item">
+              <span class="for-check">→</span>
+              <div class="for-text">
+                <strong>You're done with inspiration content</strong>
+                You've read the books. You've tried the apps. You don't need another motivational framework — you need a system that actually runs.
+              </div>
+            </li>
+            <li class="for-item">
+              <span class="for-check">→</span>
+              <div class="for-text">
+                <strong>You think in systems</strong>
+                You're a builder, an engineer, a creator, or a knowledge worker. You understand that the environment shapes the output. You want to design the environment.
+              </div>
+            </li>
+            <li class="for-item">
+              <span class="for-check">→</span>
+              <div class="for-text">
+                <strong>You're skeptical of the solution being sold</strong>
+                More apps. More subscriptions. More screens. You noticed that the productivity industry has the same business model as the distraction industry. You're looking for something different.
+              </div>
+            </li>
+          </ul>
+
+          <div class="not-block">
+            <p class="not-title">// This is probably not for you if —</p>
+            <ul class="not-list">
+              <li>You're looking for a dopamine hit disguised as self-improvement</li>
+              <li>You want someone to tell you you're already doing great</li>
+              <li>You need another app to track your screen time</li>
+              <li>You think the answer is hustle harder, not design smarter</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="about-sidebar reveal">
+
+        <div class="sidebar-block">
+          <p class="sidebar-title">// The Timeline</p>
+          <div class="tl-item"><span class="tl-year">1985</span><span class="tl-text">Grew up analog. Boredom was standard issue. Attention spans were long.</span></div>
+          <div class="tl-item"><span class="tl-year">1999</span><span class="tl-text">First dial-up connection. The internet was a destination, not a constant.</span></div>
+          <div class="tl-item"><span class="tl-year">2007</span><span class="tl-text">Smartphone arrives. The shift begins. Slow at first, then all at once.</span></div>
+          <div class="tl-item"><span class="tl-year">2012</span><span class="tl-text">Infinite scroll patented. The feed becomes the default mode of consumption.</span></div>
+          <div class="tl-item"><span class="tl-year">2020</span><span class="tl-text">Four years home. Screen time doubles. The cost becomes impossible to ignore.</span></div>
+          <div class="tl-item"><span class="tl-year">2024</span><span class="tl-text">Slate & Silicon initialized. The lab opens. EXP-01 begins.</span></div>
+        </div>
+
+        <div class="sidebar-block">
+          <p class="sidebar-title">// Find Us</p>
+          <div class="platform-grid">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="platform-link">Instagram</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="platform-link">TikTok</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="platform-link">YouTube</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="platform-link">LinkedIn</a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="platform-link">Pinterest</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="platform-link">Facebook</a>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <p class="sidebar-title">// Status</p>
+          <div class="status"><div class="dot"></div> Laboratory: Operational</div>
+          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> EXP-04 Active: 847 Participants</div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER CTA ══ -->
+<div class="section-alt z">
+  <div class="footer-cta">
+    <div class="reveal">
+      <p class="tag">First Move</p>
+      <h2>The lab is open.<br><span class="cyan">Come run the tests.</span></h2>
+      <p class="body-text">Start with the Detox Planner. Seven days. Three sectors. No app. It's the entry point to everything else we're building here.</p>
+      <div class="form">
+        <input type="email" placeholder="engineer@domain.com">
+        <button>→ Download Free</button>
+      </div>
+      <p class="form-note" style="text-align:center; margin-top:1rem;">No account. No algorithm. No noise.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="z">
+  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

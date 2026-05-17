@@ -818,3 +818,8 @@ body {
   color: var(--blue);
   font-size: 0.65rem;
 }
+
+.hidden-exp {
+  opacity: 0.25;
+  pointer-events: none;
+}

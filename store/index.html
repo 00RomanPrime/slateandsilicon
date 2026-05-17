@@ -9,40 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 <style>
-  /* ── TRUST ROW ── */
-    .trust-row {
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 2rem 0;
-      border-top: 1px solid var(--cyan-border);
-      border-bottom: 1px solid var(--cyan-border);
-      margin-top: 2.5rem;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .trust-icon {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--cyan);
-    }
-
-    .trust-text {
-      font-family: var(--mono);
-      font-size: 0.52rem;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      line-height: 1.4;
-    }
-</style>
-
 </head>
 
 <body>
@@ -81,14 +47,15 @@
 <main>
 
 <!-- TRUST ROW -->
-  <div class="trust-row reveal">
-    <div class="trust-item"><span class="trust-icon">↓</span><span class="trust-text">Instant PDF download<br>No account needed</span></div>
-    <div class="trust-item"><span class="trust-icon">∞</span><span class="trust-text">Unlimited prints<br>One purchase</span></div>
-    <div class="trust-item"><span class="trust-icon">○</span><span class="trust-text">Works fully offline<br>No internet required</span></div>
-    <div class="trust-item"><span class="trust-icon">←</span><span class="trust-text">30-day refund<br>No questions asked</span></div>
-  </div>
-
-  <!-- FEATURED -->
+  <section class="section">
+    <div class="trust-row">
+      <div class="trust-item"><span>↓</span><p>Instant download</p></div>
+      <div class="trust-item"><span>∞</span><p>Unlimited use</p></div>
+      <div class="trust-item"><span>○</span><p>Works offline</p></div>
+    </div>
+  </section>
+  
+<!-- FEATURED -->
   <section class="section">
 
     <div class="section-header">

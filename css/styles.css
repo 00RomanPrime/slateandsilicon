@@ -697,6 +697,15 @@ body {
   background: rgba(232,226,214,.015);
 }
 
+.featured-card {
+  text-decoration: none;
+}
+
+.featured-card h3,
+.featured-card p,
+.featured-card span {
+  text-decoration: none;
+}
 .featured-card:hover {
   background: rgba(127,167,184,.05);
 }

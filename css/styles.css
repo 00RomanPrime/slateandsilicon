@@ -641,3 +641,12 @@ body {
   font-size: 12px;
   color: #6A6A6A;
 }
+
+/* Fix CTA inside content (not nav) */
+.section .nav-cta,
+.copy-stack .nav-cta {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  align-self: flex-start;
+}

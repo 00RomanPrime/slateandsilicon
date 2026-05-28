@@ -1,5 +1,7 @@
-/*==Font: IBM Plex Sans + DM Mono==
- <link rel="stylesheet" href="/css/style.css">===*/
+/*==============================================
+  Font: IBM Plex Sans + DM Mono
+  <link rel="stylesheet" href="/css/style.css">
+  ==============================================*/
 
 /* ── GOOGLE FONTS ── */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap');
@@ -82,24 +84,55 @@ ul   { list-style: none; }
   padding: var(--space-lg) var(--page-pad) var(--space-xl);
 }
 
-/* ── NAVIGATION ── */
-.site-nav {
+/* ── NAVIGATION ──
+   .nav-bar   = full-width sticky outer shell
+   .nav-inner = max-width inner row: logo | links | cta
+   ── */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--warm-dark);
+  border-bottom: 1px solid var(--rule);
+  /* subtle backdrop so content scrolling underneath reads cleanly */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.nav-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 24px var(--page-pad);
+  padding: 0 var(--page-pad);
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--rule);
+  gap: 24px;
 }
 
-.nav-logo img { height: 26px; width: auto; }
+/* Logo — always left */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
+.nav-logo img {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+
+/* Links — center */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 28px;
   list-style: none;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-links a {
@@ -110,12 +143,15 @@ ul   { list-style: none; }
   text-transform: uppercase;
   color: var(--ash);
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-links a:hover  { color: var(--paper); }
 .nav-links a.active { color: var(--amber); }
 
+/* CTA — always right */
 .nav-cta {
+  flex-shrink: 0;
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 400;
@@ -123,9 +159,10 @@ ul   { list-style: none; }
   text-transform: uppercase;
   color: var(--amber);
   border: 1px solid var(--amber-dim);
-  padding: 9px 18px;
+  padding: 8px 16px;
   transition: all 0.2s ease;
   white-space: nowrap;
+  display: inline-block;
 }
 
 .nav-cta:hover {
@@ -787,14 +824,17 @@ hr, .rule {
   .grid-2,
   .grid-3 { grid-template-columns: 1fr; }
 
-  .site-nav {
+  .nav-inner {
+    height: auto;
+    padding: 14px var(--page-pad);
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
   }
 
   .nav-links {
     flex-wrap: wrap;
     gap: 16px;
+    justify-content: flex-start;
   }
 
   .nav-cta { display: none; }

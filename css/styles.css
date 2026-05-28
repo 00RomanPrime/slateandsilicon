@@ -125,7 +125,7 @@ p { color: var(--muted); }
   margin-bottom: 1.2rem;
 }
 .eyebrow::before, .tag::before { content: ''; width: 2.2rem; height: 1px; background: var(--blue-line); }
-.mono { font-family: var(--mono); }
+.mono { font-family: var(--mono); font-size: 0.92em; letter-spacing: 0.04em; }
 .cyan { color: var(--blue); }
 .muted { color: var(--muted); }
 .rule { border: 0; border-top: 1px solid var(--line); }

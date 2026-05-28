@@ -3,103 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slate & Silicon — A digital detox laboratory.</title>
-  <meta name="description" content="Slate & Silicon is a digital detox laboratory for rebuilding attention.">
-
-  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/system.css?v=3">
+  <meta name="description" content="Slate & Silicon — Cognitive recovery for people exhausted by modern internet culture.">
+  <title>Slate & Silicon — Cognitive Recovery</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="home lab-theme">
+<body>
 
-<nav class="site-nav">
-  <a href="/" class="logo">
-    <img src="/logo/logo-light.svg" alt="Slate & Silicon">
-  </a>
-  <ul class="nav-links">
-    <li><a href="/start-here/">Start Here</a></li>
-    <li><a href="/laboratory/">Laboratory</a></li>
-    <li><a href="/store/">The Store</a></li>
-    <li><a href="/about/">About</a></li>
-  </ul>
-  <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
-</nav>
+  <div class="grain"></div>
 
-<main>
+  <!-- ── NAV ── -->
+  <nav class="site-nav fade-in delay-1">
+    <a href="/" class="nav-logo" aria-label="Slate & Silicon home">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/start-here/" class="active">Start Here</a></li>
+      <li><a href="/laboratory/">Laboratory</a></li>
+      <li><a href="/store/">The Store</a></li>
+      <li><a href="/about/">About</a></li>
+    </ul>
+    <a href="/detox-planner/" class="nav-cta">Get the Planner</a>
+  </nav>
 
-<section class="lab-hero quiet-section">
-  <div class="container">
-    <div class="copy-stack">
-      <p class="eyebrow">Digital Detox Laboratory</p>
-      <h1>Your focus didn’t disappear. It was engineered out of you.</h1>
-      <p class="subtle">For people who remember what their mind felt like before it was constantly interrupted.</p>
-      <a href="/detox-planner/" class="inline-cta strong">Get the Reset →</a>
+  <!-- ── HERO ── -->
+  <main>
+    <div class="page">
+
+      <section class="hero fade-up delay-2">
+        <span class="label">Cognitive Recovery</span>
+        <h1>Your focus didn't disappear.<br><em>It was engineered out of you.</em></h1>
+        <p class="body-lg mt-md max-prose">
+          For people who remember what their mind felt like before it was
+          constantly interrupted — and want that back.
+        </p>
+        <div class="mt-md" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/detox-planner/" class="btn btn-primary">Start the Reset →</a>
+          <a href="/about/" class="btn btn-ghost">Read the Manifesto</a>
+        </div>
+      </section>
+
+      <hr class="rule fade-in delay-3">
+
+      <!-- ── DIAGNOSIS ── -->
+      <section class="fade-up delay-3">
+        <span class="label">System Diagnosis</span>
+        <div class="grid-3" style="margin-top: 0;">
+
+          <div class="card-flat">
+            <span class="section-num">01</span>
+            <h3>You were not built for something that never stops.</h3>
+          </div>
+
+          <div class="card-flat">
+            <span class="section-num">02</span>
+            <h3>You don't lose focus all at once. It fragments.</h3>
+          </div>
+
+          <div class="card-flat">
+            <span class="section-num">03</span>
+            <h3>This isn't laziness. It's exhaustion that doesn't look like rest.</h3>
+          </div>
+
+        </div>
+      </section>
+
+      <hr class="rule">
+
+      <!-- ── FOUNDER ANCHOR ── -->
+      <section class="fade-up" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+        <div>
+          <span class="label">Why This Exists</span>
+          <h2>I thought I had a discipline problem.</h2>
+        </div>
+        <div class="body-md">
+          <p>
+            I got off work early one afternoon. I had plans. Real ones —
+            watch something, play some games, decompress. A few hours
+            became an all-nighter. By the time the sun came through the
+            window, a full workday was an hour and a half away.
+          </p>
+          <p>
+            I hadn't rested. I hadn't been entertained. I had just
+            <em>been online.</em> Aimlessly. Without ever deciding to be.
+          </p>
+          <p>
+            When I finally got quiet enough to ask honest questions,
+            I found the answer: this wasn't a character flaw.
+            <strong>This was engineering.</strong>
+          </p>
+          <a href="/about/" class="btn btn-outline mt-md" style="display:inline-block;">Read the full story →</a>
+        </div>
+      </section>
+
+      <hr class="rule">
+
+      <!-- ── THE LABORATORY ── -->
+      <section class="fade-up">
+        <span class="label">The Laboratory</span>
+        <h2 class="mb-md">Not advice. Not content. <em>Experiments.</em></h2>
+
+        <div class="step-sequence">
+          <a href="/laboratory/" class="step">
+            <span class="step-num">EXP-01</span>
+            <div>
+              <h3>Signal Audit</h3>
+              <p>Track where your attention actually goes. Map your 24-hour attention cycle before you try to change anything.</p>
+            </div>
+          </a>
+          <a href="/laboratory/" class="step">
+            <span class="step-num">EXP-02</span>
+            <div>
+              <h3>Notification Fast</h3>
+              <p>Remove all non-essential input for 24 hours. Measure the cognitive residue that clears when the feed goes quiet.</p>
+            </div>
+          </a>
+          <a href="/laboratory/" class="step">
+            <span class="step-num">EXP-03</span>
+            <div>
+              <h3>Single Task Block</h3>
+              <p>One tab. One task. One hour. The simplest deep work protocol you'll run — and the hardest to maintain.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-md">
+          <a href="/laboratory/" class="btn btn-outline">Enter the Laboratory →</a>
+        </div>
+      </section>
+
+      <hr class="rule">
+
+      <!-- ── THE EXPANSE ── -->
+      <section class="fade-up" style="text-align:center; max-width: 520px; margin: 0 auto;">
+        <span class="label">The Expanse</span>
+        <h2>Nothing optimized.<br>Nothing tracked.</h2>
+        <p class="body-md mt-md">
+          Just space to see what comes back when the noise is gone.
+          The quiet on the other side of all of this.
+        </p>
+      </section>
+
+      <hr class="rule">
+
+      <!-- ── DETOX CTA ── -->
+      <section class="fade-up">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+          <div>
+            <span class="label">Issued Tool — SYS-01</span>
+            <h2>7-Day Detox Planner</h2>
+            <p class="body-md mt-md">
+              Seven days without the patterns that are running you.
+              No app. No account. One analog tool to start observing
+              what's already happening.
+            </p>
+            <div class="mt-md" style="display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="/detox-planner/" class="btn btn-primary">Get the Planner</a>
+              <a href="/store/" class="btn btn-ghost">View all tools</a>
+            </div>
+          </div>
+          <div>
+            <div class="stat-grid" style="grid-template-columns:1fr 1fr;">
+              <div class="stat-block">
+                <span class="stat-number">7</span>
+                <span class="stat-label">Days</span>
+              </div>
+              <div class="stat-block">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Sectors</span>
+              </div>
+              <div class="stat-block">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Apps required</span>
+              </div>
+              <div class="stat-block">
+                <span class="stat-number">Free</span>
+                <span class="stat-label">Entry point</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="rule">
+
+      <!-- ── CLOSING NOTE ── -->
+      <section class="fade-up" style="text-align:center; padding: var(--space-lg) 0;">
+        <p class="body-lg max-prose" style="margin:0 auto;">
+          You don't need more information.
+          You need a moment where nothing is pulling on you.
+        </p>
+        <div class="mt-md">
+          <a href="/detox-planner/" class="btn btn-primary">Get the Planner</a>
+        </div>
+        <p class="mono-xs mt-md text-ash">No account. No algorithm. No noise.</p>
+      </section>
+
     </div>
-  </div>
-</section>
-  
-<section class="quiet-section">
-  <div class="container">
-    <p class="eyebrow">System Diagnosis</p>
+  </main>
 
-    <div class="diagnosis-stack">
-      <div class="diagnosis-item">
-        <span>01</span>
-        <h3>You were not built for something<br><br>that never stops.</h3>
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="site-footer">
+      <a href="/" class="footer-logo">
+        <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+      </a>
+      <div class="footer-grid">
+        <ul class="footer-social">
+          <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.linkedin.com/company/slateandsilicon" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+        </ul>
+        <ul class="footer-legal">
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
       </div>
-
-      <div class="diagnosis-item">
-        <span>02</span>
-        <h3>You don’t lose focus all at once.<br><br>It fragments.</h3>
-      </div>
-
-      <div class="diagnosis-item">
-        <span>03</span>
-        <h3>This isn’t laziness.<br><br>It’s exhaustion that<br><br>doesn’t look like rest.</h3>
-      </div>
+      <p class="footer-copy">© 2025 Slate & Silicon. All rights reserved.</p>
     </div>
-
-    </div>
-</section>
-
-<section class="quiet-section">
-  <div class="container">
-    <p class="eyebrow">The Laboratory</p>
-    <h2>Not advice. Not content. Experiments.</h2>
-    <p>Each one is designed to interrupt a pattern you didn’t realize was running.</p>
-  </div>
-</section>
-
-<section class="quiet-section">
-  <div class="container">
-    <p class="eyebrow">The Expanse</p>
-    <h2>Nothing optimized. Nothing tracked.</h2>
-    <p>Just space to see what comes back when the noise is gone.</p>
-  </div>
-</section>
-
-<section class="quiet-section">
-  <div class="container">
-    <p class="eyebrow">Issued Tool</p>
-    <h2>Detox Planner</h2>
-    <p>Seven days without the patterns that are running you.</p>
-  </div>
-</section>
-
-<section class="quiet-section">
-  <div class="container">
-    <p class="eyebrow">Final Note</p>
-    <h2>You don’t need more information.<br><br>
-        You need a moment where nothing is pulling on you.</h2>
-    <a href="/detox-planner/" class="content-cta">Get the Planner</a>
-  </div>
-</section>
-
-</main>
+  </footer>
 
 </body>
 </html>

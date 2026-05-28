@@ -1,7 +1,10 @@
-/*==============================================
-  Font: IBM Plex Sans + DM Mono
-  <link rel="stylesheet" href="/css/style.css">
-  ==============================================*/
+/* ============================================================
+   SLATE & SILICON — UNIFIED DESIGN SYSTEM
+   style.css — Single source of truth for all pages
+   Font: IBM Plex Sans + DM Mono
+   Drop into /css/style.css and link from every page:
+   <link rel="stylesheet" href="/css/style.css">
+   ============================================================ */
 
 /* ── GOOGLE FONTS ── */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap');

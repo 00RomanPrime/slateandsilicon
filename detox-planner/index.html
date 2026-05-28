@@ -3,32 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A collection of small experiments for reducing digital noise and rebuilding attention. Field diagnostics, protocols, and a 30-day system for cognitive recovery.">
-<title>The Laboratory — Slate &amp; Silicon</title>
-<link rel="stylesheet" href="/css/style.css">
+<meta name="description" content="Seven days. Three sectors. No screen required. The Slate & Silicon 7-Day Detox Planner — a structured reset for fragmented attention.">
+<title>7-Day Detox Planner — Slate &amp; Silicon</title>
 <style>
 
-/* =============================================
-   LABORATORY PAGE — ADDITIONAL STYLES
-   Extends base style.css. Drop into /laboratory/
-   ============================================= */
-
-.lab-ticker {
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  padding: 0.6rem 0;
-  margin-bottom: 5rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.3);
-  font-family: monospace;
+/* ─── RESET ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0b0b0b;
+  color: #e8e4dc;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-.lab-ticker-inner {
+a { color: inherit; text-decoration: none; }
+
+/* ─── LAYOUT ────────────────────────────────── */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ─── NAV ───────────────────────────────────── */
+nav {
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  max-width: 100%;
+}
+
+.nav-logo img {
+  height: 28px;
+  opacity: 0.9;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Courier New', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: rgba(255,255,255,0.7); }
+
+@media (max-width: 520px) {
+  .nav-links { display: none; }
+}
+
+/* ─── TICKER ────────────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 0.55rem 0;
+}
+
+.ticker-inner {
   display: inline-block;
-  animation: ticker 40s linear infinite;
+  animation: ticker 35s linear infinite;
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.18);
+  text-transform: uppercase;
 }
 
 @keyframes ticker {
@@ -36,953 +86,542 @@
   to   { transform: translateX(-50%); }
 }
 
-/* ─── SECTION HEADERS ─────────────────────── */
-
-.section-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.3);
-  font-family: monospace;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.section-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 1rem;
-}
-
-.section-desc {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.5);
-  max-width: 52ch;
-  line-height: 1.7;
-  margin-bottom: 3rem;
-}
-
-/* ─── FIELD DIAGNOSTICS ───────────────────── */
-
-.diagnostics-block {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-left: 2px solid rgba(255,200,100,0.4);
-  padding: 2.5rem;
-  margin-bottom: 5rem;
-}
-
-.diagnostics-header {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.diag-badge {
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  font-family: monospace;
-  background: rgba(255,200,100,0.1);
-  color: rgba(255,200,100,0.8);
-  border: 1px solid rgba(255,200,100,0.2);
-  padding: 0.2rem 0.6rem;
-  text-transform: uppercase;
-}
-
-.diagnostics-title {
-  font-size: 1.4rem;
-  font-weight: 300;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
-}
-
-.diagnostics-desc {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 2rem;
-  max-width: 58ch;
-  line-height: 1.65;
-}
-
-.diag-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-@media (max-width: 640px) {
-  .diag-grid { grid-template-columns: 1fr; }
-}
-
-.diag-card {
-  border: 1px solid rgba(255,255,255,0.07);
-  padding: 1.5rem;
-  background: rgba(0,0,0,0.2);
-  position: relative;
-  transition: border-color 0.2s ease;
-}
-
-.diag-card:hover {
-  border-color: rgba(255,200,100,0.2);
-}
-
-.diag-id {
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  font-family: monospace;
-  color: rgba(255,200,100,0.6);
-  margin-bottom: 0.75rem;
-  display: block;
-}
-
-.diag-name {
-  font-size: 1.05rem;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
-}
-
-.diag-instruction {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.diag-time {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  font-family: monospace;
-  color: rgba(255,255,255,0.2);
-  text-transform: uppercase;
-}
-
-/* ─── PHASE BLOCK ─────────────────────────── */
-
-.phase-block {
-  margin-bottom: 4rem;
-}
-
-.phase-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
+/* ─── HERO ──────────────────────────────────── */
+.hero {
+  padding: 6rem 0 4rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-.phase-number {
+.hero-label {
+  font-family: 'Courier New', monospace;
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  font-family: monospace;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.25);
   text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.phase-name {
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  font-family: monospace;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
-}
-
-.phase-days {
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  font-family: monospace;
-  color: rgba(255,255,255,0.2);
-  margin-left: auto;
-  white-space: nowrap;
-}
-
-.phase-difficulty {
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  font-family: monospace;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.3);
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.phase-difficulty.low {
-  border-color: rgba(100,200,150,0.2);
-  color: rgba(100,200,150,0.6);
-}
-
-.phase-difficulty.medium {
-  border-color: rgba(255,200,100,0.2);
-  color: rgba(255,200,100,0.6);
-}
-
-.phase-difficulty.high {
-  border-color: rgba(220,100,80,0.2);
-  color: rgba(220,100,80,0.6);
-}
-
-.phase-difficulty.full {
-  border-color: rgba(180,130,255,0.2);
-  color: rgba(180,130,255,0.6);
-}
-
-/* ─── EXPERIMENT CARDS ────────────────────── */
-
-.exp-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.05);
-}
-
-@media (max-width: 640px) {
-  .exp-grid { grid-template-columns: 1fr; }
-}
-
-.exp-card {
-  background: #0d0d0d;
-  padding: 1.75rem;
-  position: relative;
-  transition: background 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.exp-card:hover {
-  background: rgba(255,255,255,0.02);
-}
-
-.exp-card.locked {
-  pointer-events: none;
-}
-
-.exp-card-top {
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
-}
-
-.exp-id {
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  font-family: monospace;
-  color: rgba(255,255,255,0.25);
-  text-transform: uppercase;
-}
-
-.exp-status {
-  font-size: 0.55rem;
-  letter-spacing: 0.12em;
-  font-family: monospace;
-  padding: 0.18rem 0.5rem;
-  text-transform: uppercase;
-  border: 1px solid;
-}
-
-.exp-status.active {
-  border-color: rgba(100,200,150,0.3);
-  color: rgba(100,200,150,0.8);
-  background: rgba(100,200,150,0.04);
-}
-
-.exp-status.pending {
-  border-color: rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.25);
-}
-
-.exp-status.loading {
-  border-color: rgba(255,200,100,0.3);
-  color: rgba(255,200,100,0.7);
-  background: rgba(255,200,100,0.04);
-}
-
-.exp-name {
-  font-size: 1.05rem;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-}
-
-.exp-name.pending-text {
-  color: rgba(255,255,255,0.35);
-}
-
-.exp-desc {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.35);
-  line-height: 1.65;
-  margin-bottom: 1.25rem;
-}
-
-.exp-meta {
-  display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
-.exp-tag {
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  font-family: monospace;
-  color: rgba(255,255,255,0.2);
-  text-transform: uppercase;
+.hero-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  max-width: 120px;
 }
 
-.exp-arrow {
-  position: absolute;
-  bottom: 1.75rem;
-  right: 1.75rem;
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.2);
-  font-family: monospace;
-  transition: color 0.2s ease, transform 0.2s ease;
+.hero-headline {
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  color: #ede9e1;
 }
 
-.exp-card:hover .exp-arrow {
-  color: rgba(255,255,255,0.6);
-  transform: translateX(3px);
+.hero-headline em {
+  font-style: italic;
+  color: rgba(237,233,225,0.55);
 }
 
-/* ─── PHASE 04 INTEGRATE ──────────────────── */
-
-.integrate-block {
-  background: rgba(180,130,255,0.03);
-  border: 1px solid rgba(180,130,255,0.1);
-  padding: 2.5rem;
-  margin-bottom: 5rem;
+.hero-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.75;
+  max-width: 50ch;
+  margin-bottom: 3rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
-.integrate-stack {
+/* ─── CTA BLOCK ─────────────────────────────── */
+.cta-block {
   display: flex;
+  align-items: center;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
 }
 
-.stack-pill {
+.btn-primary {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background: #e8e4dc;
+  color: #0b0b0b;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.15s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.cta-note {
+  font-family: 'Courier New', monospace;
   font-size: 0.6rem;
   letter-spacing: 0.1em;
-  font-family: monospace;
-  padding: 0.3rem 0.7rem;
-  border: 1px solid rgba(180,130,255,0.15);
-  color: rgba(180,130,255,0.5);
+  color: rgba(255,255,255,0.2);
   text-transform: uppercase;
 }
 
-/* ─── LAB STATS ───────────────────────────── */
+/* ─── WHAT'S INSIDE ─────────────────────────── */
+.inside-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
 
-.lab-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.05);
+.section-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
   margin-bottom: 3rem;
 }
 
-.stat-cell {
-  background: #0d0d0d;
-  padding: 1.5rem;
+.sectors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 3rem;
 }
 
-.stat-label {
-  font-size: 0.6rem;
+@media (max-width: 560px) {
+  .sectors-grid { grid-template-columns: 1fr; }
+}
+
+.sector-card {
+  background: #0b0b0b;
+  padding: 1.75rem 1.5rem;
+}
+
+.sector-id {
+  font-family: 'Courier New', monospace;
+  font-size: 0.55rem;
   letter-spacing: 0.15em;
-  font-family: monospace;
   color: rgba(255,255,255,0.2);
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   display: block;
 }
 
-.stat-value {
-  font-size: 1.5rem;
-  font-weight: 300;
-  letter-spacing: -0.02em;
+.sector-name {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+  color: #e8e4dc;
 }
 
-/* ─── PROTOCOL NOTES ──────────────────────── */
-
-.protocol-notes {
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding-top: 2rem;
-  margin-bottom: 4rem;
+.sector-desc {
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.65;
+  letter-spacing: 0.02em;
 }
 
-.protocol-rule {
+/* ─── WHAT CHANGES ──────────────────────────── */
+.changes-list {
+  list-style: none;
+  margin-top: 0;
+}
+
+.changes-list li {
   display: flex;
-  gap: 1.5rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
   align-items: baseline;
 }
 
-.rule-id {
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  font-family: monospace;
+.change-marker {
+  font-family: 'Courier New', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
   color: rgba(255,255,255,0.2);
   text-transform: uppercase;
-  min-width: 5rem;
+  min-width: 3rem;
   flex-shrink: 0;
 }
 
-.rule-text {
-  font-size: 0.85rem;
+.change-text {
+  font-size: 0.88rem;
   color: rgba(255,255,255,0.45);
   line-height: 1.6;
 }
 
-/* ─── EMAIL CAPTURE ───────────────────────── */
+/* ─── PROTOCOL BLOCK ────────────────────────── */
+.protocol-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
 
-.log-block {
-  background: rgba(255,255,255,0.02);
+.protocol-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.06);
-  padding: 2.5rem;
-  margin-bottom: 5rem;
+}
+
+@media (max-width: 480px) {
+  .protocol-grid { grid-template-columns: 1fr; }
+}
+
+.protocol-card {
+  background: #0b0b0b;
+  padding: 1.5rem;
+}
+
+.protocol-num {
+  font-family: 'Courier New', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.18);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.protocol-text {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+/* ─── PULL QUOTE ────────────────────────────── */
+.quote-block {
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   text-align: center;
 }
 
-.log-title {
-  font-size: 1.5rem;
-  font-weight: 300;
+.quote-text {
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 400;
   letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.55);
+  max-width: 34ch;
+  margin: 0 auto 1.5rem;
 }
 
-.log-desc {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 1.5rem;
+.quote-text strong {
+  color: #e8e4dc;
+  font-weight: 400;
+}
+
+.quote-attr {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.18);
+  text-transform: uppercase;
+}
+
+/* ─── FINAL CTA ─────────────────────────────── */
+.final-cta {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.final-headline {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  color: #ede9e1;
+}
+
+.final-sub {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 2.5rem;
+  line-height: 1.65;
   max-width: 42ch;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.65;
+}
+
+.price-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.price-tag {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.25rem 0.7rem;
+}
+
+/* ─── FOOTER ────────────────────────────────── */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: rgba(255,255,255,0.5); }
+
+.footer-copy {
+  font-family: 'Courier New', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.12);
+  text-transform: uppercase;
 }
 
 </style>
 </head>
 <body>
 
-<!-- ── NAV (matches existing site) ──────────────────────────── -->
-<header>
-  <nav>
-    <a href="/" class="logo">
-      <img src="/logo/logo-light.svg" alt="Slate &amp; Silicon">
-    </a>
-    <ul>
-      <li><a href="/start-here/">Start Here</a></li>
-      <li><a href="/log/">The Log</a></li>
-      <li><a href="/store/">The Store</a></li>
-      <li><a href="/about/">About</a></li>
-    </ul>
-  </nav>
-</header>
+<!-- ── NAV ──────────────────────────────────────────── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo/logo-light.svg" alt="Slate &amp; Silicon">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/start-here/">Start Here</a></li>
+    <li><a href="/laboratory/">Laboratory</a></li>
+    <li><a href="/store/">The Store</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+</nav>
 
-<!-- ── HERO ─────────────────────────────────────────────────── -->
-<main>
-<section style="padding: 5rem 0 2rem;">
-  <p class="section-label">Laboratory // Active System</p>
-  <h1 class="section-title">The<br>Laboratory.</h1>
-  <p class="section-desc">
-    Small experiments for reducing digital noise and rebuilding attention.
-    Run the test. Measure the output. Report the findings.
-    This is not inspiration content — it's systems documentation.
-  </p>
-</section>
-
-<!-- ── TICKER ───────────────────────────────────────────────── -->
-<div class="lab-ticker" aria-hidden="true">
-  <span class="lab-ticker-inner">
-    Run the test // Measure the output // Report the findings //
-    DIAG-01 // 5 Minutes of Silence // DIAG-02 // 10 Minutes No Phone //
-    EXP-01 // Signal Audit // EXP-02 // Attention Audit //
-    EXP-03 // The Expanse Hour // EXP-04 // Grayscale 24 //
-    EXP-05 // App Deletion // EXP-06 // Analog Anchor //
-    EXP-07 // 18:00 Shutdown // EXP-08 // Notification Kill //
-    EXP-09 // Phone Distance // EXP-10 // Screen Time Lock //
-    EXP-11 // Analog Morning // EXP-12 // Social Fast //
-    Run the test // Measure the output // Report the findings //
-    DIAG-01 // 5 Minutes of Silence // DIAG-02 // 10 Minutes No Phone //
-    EXP-01 // Signal Audit // EXP-02 // Attention Audit //
-    EXP-03 // The Expanse Hour // EXP-04 // Grayscale 24 //
-    EXP-05 // App Deletion // EXP-06 // Analog Anchor //
-    EXP-07 // 18:00 Shutdown // EXP-08 // Notification Kill //
-    EXP-09 // Phone Distance // EXP-10 // Screen Time Lock //
-    EXP-11 // Analog Morning // EXP-12 // Social Fast //
+<!-- ── TICKER ────────────────────────────────────────── -->
+<div class="ticker-wrap" aria-hidden="true">
+  <span class="ticker-inner">
+    Seven days // No apps // No accounts // No noise //
+    Sector 01: Awareness // Sector 02: Reduction // Sector 03: The Expanse //
+    Free download // Print and use // No screen required //
+    Seven days // No apps // No accounts // No noise //
+    Sector 01: Awareness // Sector 02: Reduction // Sector 03: The Expanse //
+    Free download // Print and use // No screen required //
   </span>
 </div>
 
-<!-- ── FIELD DIAGNOSTICS ─────────────────────────────────────── -->
-<section>
-  <div class="diagnostics-block">
-    <div class="diagnostics-header">
-      <span class="diag-badge">Field Diagnostics</span>
-      <span class="diag-badge" style="background:rgba(255,255,255,0.03); color:rgba(255,255,255,0.3); border-color:rgba(255,255,255,0.08);">No Setup Required</span>
-    </div>
-    <h2 class="diagnostics-title">Start here.<br>Before the experiments.</h2>
-    <p class="diagnostics-desc">
-      These are not experiments. They are diagnostic moments.
-      No protocol. No tracking. No commitment.
-      Run one right now. Notice what shows up.
-      That observation is the starting point for everything else.
+<!-- ── HERO ──────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-label">SYS-04 // Free Download // Print-Ready PDF</p>
+    <h1 class="hero-headline">
+      Seven days.<br>
+      <em>No app required.</em>
+    </h1>
+    <p class="hero-sub">
+      A structured reset for fragmented attention.<br>
+      Three sectors. One analog tool.<br>
+      Run the protocol. Observe what changes.
     </p>
+    <div class="cta-block">
+      <a href="https://slate-silicon.kit.com/b85027b5ea" class="btn-primary">
+        Get the Free Planner
+      </a>
+      <span class="cta-note">Free // PDF // No account required</span>
+    </div>
+  </div>
+</section>
 
-    <div class="diag-grid">
+<!-- ── WHAT'S INSIDE ──────────────────────────────────── -->
+<section class="inside-section">
+  <div class="container">
+    <p class="section-label">// What's Inside</p>
 
-      <div class="diag-card">
-        <span class="diag-id">DIAG-01 // Pre-Experiment Diagnostic</span>
-        <p class="diag-name">5 Minutes of Silence</p>
-        <p class="diag-instruction">
-          Set a timer for 5 minutes. No phone. No screen. No audio.
-          Sit. Notice what pulls on you. Notice what your mind reaches for.
-          You are not trying to relax. You are reading the signal.
+    <div class="sectors-grid">
+      <div class="sector-card">
+        <span class="sector-id">Sector 01</span>
+        <p class="sector-name">Awareness</p>
+        <p class="sector-desc">
+          Map where your attention actually goes.
+          Track your inputs before you try to reduce them.
+          You cannot reduce what you cannot see.
         </p>
-        <span class="diag-time">Duration: 5 min // Observation only</span>
       </div>
-
-      <div class="diag-card">
-        <span class="diag-id">DIAG-02 // Pre-Experiment Diagnostic</span>
-        <p class="diag-name">10 Minutes, No Phone</p>
-        <p class="diag-instruction">
-          Leave your phone in another room. Not silenced — removed.
-          Wait 10 minutes. Track the impulse to check it.
-          Most people don't avoid this. They avoid what it reveals.
+      <div class="sector-card">
+        <span class="sector-id">Sector 02</span>
+        <p class="sector-name">Reduction</p>
+        <p class="sector-desc">
+          Remove one input per day.
+          No overhaul. No willpower required.
+          Friction reduces automatically when inputs are removed.
         </p>
-        <span class="diag-time">Duration: 10 min // Observation only</span>
       </div>
-
+      <div class="sector-card">
+        <span class="sector-id">Sector 03</span>
+        <p class="sector-name">The Expanse</p>
+        <p class="sector-desc">
+          One hour daily. No screen. No agenda.
+          Observe what comes back when the noise is gone.
+          This is not productivity. It is recovery.
+        </p>
+      </div>
     </div>
 
-    <p style="font-size:0.75rem; color:rgba(255,255,255,0.2); margin-top:1.5rem; font-family:monospace; letter-spacing:0.05em;">
-      If either diagnostic produced discomfort → you are in the right place. Proceed to EXP-01.
+    <p class="section-label" style="margin-bottom:1.5rem; margin-top:3rem;">// What changes in 7 days</p>
+    <ul class="changes-list">
+      <li>
+        <span class="change-marker">Day 01</span>
+        <span class="change-text">You notice how often you reach for the phone without a reason.</span>
+      </li>
+      <li>
+        <span class="change-marker">Day 02</span>
+        <span class="change-text">The phantom check reflex becomes visible for the first time.</span>
+      </li>
+      <li>
+        <span class="change-marker">Day 03</span>
+        <span class="change-text">Silence starts to feel less like absence and more like space.</span>
+      </li>
+      <li>
+        <span class="change-marker">Day 04</span>
+        <span class="change-text">Your attention starts to settle before switching. This is the baseline returning.</span>
+      </li>
+      <li>
+        <span class="change-marker">Day 05</span>
+        <span class="change-text">The urge to fill every gap decreases. You can sit with an unfinished thought.</span>
+      </li>
+      <li>
+        <span class="change-marker">Day 06</span>
+        <span class="change-text">Work blocks feel longer. They are not. Your ability to stay in them has changed.</span>
+      </li>
+      <li>
+        <span class="change-marker">Day 07</span>
+        <span class="change-text">You have a baseline. The real work starts here.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ───────────────────────────────────── -->
+<section class="protocol-section">
+  <div class="container">
+    <p class="section-label">// The Protocol</p>
+    <div class="protocol-grid">
+      <div class="protocol-card">
+        <span class="protocol-num">Step 01 // Print</span>
+        <p class="protocol-text">
+          Download the PDF. Print it.
+          This is an analog tool deliberately.
+          No app. No screen. No notifications pulling you back in.
+        </p>
+      </div>
+      <div class="protocol-card">
+        <span class="protocol-num">Step 02 // Run</span>
+        <p class="protocol-text">
+          Follow the daily prompts across all three sectors.
+          One page per day. Five minutes of logging.
+          The work happens in the hours between.
+        </p>
+      </div>
+      <div class="protocol-card">
+        <span class="protocol-num">Step 03 // Observe</span>
+        <p class="protocol-text">
+          Do not try to fix anything in the first three days.
+          Observe only. The data you collect determines what needs changing.
+        </p>
+      </div>
+      <div class="protocol-card">
+        <span class="protocol-num">Step 04 // Report</span>
+        <p class="protocol-text">
+          At Day 7 you have a baseline.
+          Bring your findings to The Laboratory.
+          The next phase begins with that data.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PULL QUOTE ─────────────────────────────────────── -->
+<section class="quote-block">
+  <div class="container">
+    <p class="quote-text">
+      Most people don't have a discipline problem.<br>
+      <strong>They have a recovery problem.</strong>
+    </p>
+    <p class="quote-attr">Slate &amp; Silicon // Core Principle</p>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ──────────────────────────────────────── -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="final-headline">
+      The lab is open.<br>Start the reset.
+    </h2>
+    <p class="final-sub">
+      Seven days. Three sectors. One analog tool.<br>
+      No subscription. No account. No noise.
+    </p>
+    <a href="https://slate-silicon.kit.com/b85027b5ea" class="btn-primary">
+      Download the Free Planner
+    </a>
+    <div class="price-note">
+      <span class="price-tag">Free // PDF</span>
+      <span class="price-tag">Print &amp; Use</span>
+      <span class="price-tag">No Screen Required</span>
+    </div>
+
+    <p style="margin-top:3rem; font-family:'Courier New',monospace; font-size:0.7rem; letter-spacing:0.06em; color:rgba(255,255,255,0.2);">
+      Ready for the full system?
+      <a href="/store/detox-planner/" style="color:rgba(255,255,255,0.4); border-bottom:1px solid rgba(255,255,255,0.15); padding-bottom:1px;">
+        The 30-Day Protocol →
+      </a>
     </p>
   </div>
 </section>
 
-<!-- ── PHASE 01: DETOX ───────────────────────────────────────── -->
-<section class="phase-block">
-  <div class="phase-header">
-    <span class="phase-number">Phase 01</span>
-    <span class="phase-name">Detox</span>
-    <span class="phase-difficulty low">Low Friction</span>
-    <span class="phase-days">Days 1–7</span>
-  </div>
-
-  <p style="font-size:0.82rem; color:rgba(255,255,255,0.35); margin-bottom:1.5rem; line-height:1.65; max-width:58ch;">
-    This phase is diagnostic. You are not trying to fix anything yet.
-    You are establishing your baseline and observing what is already running.
-    Run EXP-01 first. Do not skip ahead.
-  </p>
-
-  <div class="exp-grid">
-
-    <a href="/lab/exp-01/" class="exp-card">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-01</span>
-        <span class="exp-status active">Active</span>
-      </div>
-      <p class="exp-name">7-Day Detox Planner</p>
-      <p class="exp-desc">
-        Run the baseline protocol. Establish your attention baseline
-        before introducing any new friction. Required first run.
-        Do not proceed to EXP-02 until this is complete.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Diagnostic</span>
-        <span class="exp-tag">7 days</span>
-        <span class="exp-tag">Start Here</span>
-      </div>
-      <span class="exp-arrow">→</span>
-    </a>
-
-    <a href="/lab/exp-02/" class="exp-card">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-02</span>
-        <span class="exp-status active">Active</span>
-      </div>
-      <p class="exp-name">Attention Audit</p>
-      <p class="exp-desc">
-        Map your 24-hour attention cycle and identify your leakage windows.
-        Complete the Focus Heatmap honestly.
-        Most operators are surprised by the 8pm window.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Diagnostic</span>
-        <span class="exp-tag">24 hr</span>
-        <span class="exp-tag">Phase 01, Day 2</span>
-      </div>
-      <span class="exp-arrow">→</span>
-    </a>
-
-    <a href="/lab/exp-03/" class="exp-card">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-03</span>
-        <span class="exp-status active">Active</span>
-      </div>
-      <p class="exp-name">The Expanse Hour</p>
-      <p class="exp-desc">
-        One full hour daily. No screen, no agenda, no productivity objective.
-        Walk, sit, observe. This is not rest.
-        Operators who skip this phase report higher burnout rates by Week 3.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Analog</span>
-        <span class="exp-tag">60 min daily</span>
-        <span class="exp-tag">Phase 01</span>
-      </div>
-      <span class="exp-arrow">→</span>
-    </a>
-
-    <a href="/lab/exp-04/" class="exp-card">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-04</span>
-        <span class="exp-status active">Active</span>
-      </div>
-      <p class="exp-name">Grayscale 24</p>
-      <p class="exp-desc">
-        Set your phone to black and white for 24 continuous hours.
-        Test the neural pull of color icons.
-        This is a controlled variable test, not a lifestyle commitment.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Behavioral</span>
-        <span class="exp-tag">24 hr</span>
-        <span class="exp-tag">Phase 01, Day 4</span>
-      </div>
-      <span class="exp-arrow">→</span>
-    </a>
-
-  </div>
-</section>
-
-<!-- ── PHASE 02: REBUILD ─────────────────────────────────────── -->
-<section class="phase-block">
-  <div class="phase-header">
-    <span class="phase-number">Phase 02</span>
-    <span class="phase-name">Rebuild</span>
-    <span class="phase-difficulty medium">Medium Friction</span>
-    <span class="phase-days">Days 8–14</span>
-  </div>
-
-  <p style="font-size:0.82rem; color:rgba(255,255,255,0.35); margin-bottom:1.5rem; line-height:1.65; max-width:58ch;">
-    Introduce one new friction technique per day. By Day 14 you are running
-    4 concurrent protocols. Do not remove a protocol once it is started.
-    Complete Phase 01 before proceeding.
-  </p>
-
-  <div class="exp-grid">
-
-    <a href="/lab/exp-05/" class="exp-card">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-05</span>
-        <span class="exp-status loading">Loading</span>
-      </div>
-      <p class="exp-name">App Deletion</p>
-      <p class="exp-desc">
-        Delete all social apps from your home screen.
-        Browser-only access if needed. The login friction breaks the impulse loop.
-        Most impulse checks abort before login completes.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Behavioral</span>
-        <span class="exp-tag">7 days</span>
-        <span class="exp-tag">Phase 02, Day 8</span>
-      </div>
-      <span class="exp-arrow">→</span>
-    </a>
-
-    <a href="/lab/exp-06/" class="exp-card">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-06</span>
-        <span class="exp-status loading">Loading</span>
-      </div>
-      <p class="exp-name">The Analog Anchor</p>
-      <p class="exp-desc">
-        All notes and task-capture done on paper for one full week.
-        No digital notes. Test whether analog slows the thought
-        or deepens it. The answer surprises most operators.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Analog</span>
-        <span class="exp-tag">7 days</span>
-        <span class="exp-tag">Phase 02, Days 8–14</span>
-      </div>
-      <span class="exp-arrow">→</span>
-    </a>
-
-    <a href="/lab/exp-07/" class="exp-card">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-07</span>
-        <span class="exp-status loading">Loading</span>
-      </div>
-      <p class="exp-name">18:00 Shutdown</p>
-      <p class="exp-desc">
-        All screens off at 20:00. No exceptions. Not reading, not watching,
-        not checking. The shutdown is a structural boundary — not a reward.
-        It protects next-day cognitive capacity.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Protocol</span>
-        <span class="exp-tag">Daily</span>
-        <span class="exp-tag">Phase 02</span>
-      </div>
-      <span class="exp-arrow">→</span>
-    </a>
-
-    <a href="/lab/exp-08/" class="exp-card">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-08</span>
-        <span class="exp-status loading">Loading</span>
-      </div>
-      <p class="exp-name">Notification Kill</p>
-      <p class="exp-desc">
-        All push notifications disabled. Email checked at 9am, 1pm, 5pm only.
-        The first 72 hours produce phantom notification anxiety.
-        This is the withdrawal curve. It drops.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Behavioral</span>
-        <span class="exp-tag">Ongoing</span>
-        <span class="exp-tag">Phase 02, Day 9</span>
-      </div>
-      <span class="exp-arrow">→</span>
-    </a>
-
-  </div>
-</section>
-
-<!-- ── PHASE 03: REINFORCE ───────────────────────────────────── -->
-<section class="phase-block">
-  <div class="phase-header">
-    <span class="phase-number">Phase 03</span>
-    <span class="phase-name">Reinforce</span>
-    <span class="phase-difficulty high">High Friction</span>
-    <span class="phase-days">Days 15–21</span>
-  </div>
-
-  <p style="font-size:0.82rem; color:rgba(255,255,255,0.35); margin-bottom:1.5rem; line-height:1.65; max-width:58ch;">
-    Stress-test the system. Run 3 experiments concurrently. Identify breaking points.
-    This is the hardest phase. The first 72 hours of EXP-12 produces withdrawal symptoms.
-    This is expected. Document it.
-  </p>
-
-  <div class="exp-grid">
-
-    <div class="exp-card locked">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-09</span>
-        <span class="exp-status pending">Unlocks Day 15</span>
-      </div>
-      <p class="exp-name pending-text">Phone Distance</p>
-      <p class="exp-desc">
-        Phone stored in a separate room during all work blocks.
-        Not silenced — removed entirely. A silent phone on the desk
-        still degrades focus by 20%. Remove the variable.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Structural</span>
-        <span class="exp-tag">Ongoing</span>
-        <span class="exp-tag">Phase 03, Day 15</span>
-      </div>
-    </div>
-
-    <div class="exp-card locked">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-10</span>
-        <span class="exp-status pending">Unlocks Day 16</span>
-      </div>
-      <p class="exp-name pending-text">Screen Time Lock</p>
-      <p class="exp-desc">
-        Set hard daily screen time limits via OS parental controls.
-        Treat yourself as the user being protected.
-        The override prompt is the moment of awareness.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Structural</span>
-        <span class="exp-tag">Daily</span>
-        <span class="exp-tag">Phase 03, Day 16</span>
-      </div>
-    </div>
-
-    <div class="exp-card locked">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-11</span>
-        <span class="exp-status pending">Unlocks Day 17</span>
-      </div>
-      <p class="exp-name pending-text">Analog Morning</p>
-      <p class="exp-desc">
-        Zero screen contact for the first 60 minutes of every day.
-        Paper, pen, silence, and the ledger only.
-        The morning is the highest-leverage window. Protect it.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Analog</span>
-        <span class="exp-tag">60 min daily</span>
-        <span class="exp-tag">Phase 03</span>
-      </div>
-    </div>
-
-    <div class="exp-card locked">
-      <div class="exp-card-top">
-        <span class="exp-id">EXP-12</span>
-        <span class="exp-status pending">Unlocks Day 15</span>
-      </div>
-      <p class="exp-name pending-text">Social Media Fast</p>
-      <p class="exp-desc">
-        Complete abstention from all social platforms for 7 days.
-        No read-only exceptions. This is the highest-impact and
-        hardest experiment in the protocol. Do not start before Phase 03.
-      </p>
-      <div class="exp-meta">
-        <span class="exp-tag">Behavioral</span>
-        <span class="exp-tag">7 days</span>
-        <span class="exp-tag">Phase 03, Days 15–21</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── PHASE 04: INTEGRATE ───────────────────────────────────── -->
-<section class="phase-block">
-  <div class="phase-header">
-    <span class="phase-number">Phase 04</span>
-    <span class="phase-name">Integrate</span>
-    <span class="phase-difficulty full">Full Stack</span>
-    <span class="phase-days">Days 22–30</span>
-  </div>
-
-  <div class="integrate-block">
-    <p style="font-size:0.65rem; letter-spacing:0.15em; font-family:monospace; color:rgba(180,130,255,0.5); text-transform:uppercase; margin-bottom:1rem;">Phase 04 // Integration Protocol</p>
-    <h3 style="font-size:1.3rem; font-weight:300; letter-spacing:-0.01em; margin-bottom:0.75rem; line-height:1.3;">
-      The system becomes automatic.<br>The Expanse deepens.
-    </h3>
-    <p style="font-size:0.83rem; color:rgba(255,255,255,0.35); line-height:1.7; max-width:55ch; margin-bottom:1.75rem;">
-      By Day 30, the friction techniques are no longer friction.
-      They are the default state.
-      Full 12-experiment stack active. Daily Ledger filled every day.
-      The Expanse logged every evening. Day 30: complete the 30-Day Debrief.
-    </p>
-    <p style="font-size:0.75rem; color:rgba(255,255,255,0.25); font-family:monospace; letter-spacing:0.06em; margin-bottom:1.25rem; text-transform:uppercase;">Active Stack in Phase 04</p>
-    <div class="integrate-stack">
-      <span class="stack-pill">DIAG-01</span>
-      <span class="stack-pill">DIAG-02</span>
-      <span class="stack-pill">EXP-01</span>
-      <span class="stack-pill">EXP-02</span>
-      <span class="stack-pill">EXP-03</span>
-      <span class="stack-pill">EXP-04</span>
-      <span class="stack-pill">EXP-05</span>
-      <span class="stack-pill">EXP-06</span>
-      <span class="stack-pill">EXP-07</span>
-      <span class="stack-pill">EXP-08</span>
-      <span class="stack-pill">EXP-09</span>
-      <span class="stack-pill">EXP-10</span>
-      <span class="stack-pill">EXP-11</span>
-      <span class="stack-pill">EXP-12</span>
-    </div>
-    <p style="font-size:0.75rem; color:rgba(180,130,255,0.4); font-family:monospace; margin-top:1.5rem;">
-      The 30-Day Protocol is available in The Store →
-      <a href="/store/detox-planner/" style="color:rgba(180,130,255,0.7); text-decoration:none;">Get the full system</a>
-    </p>
-  </div>
-</section>
-
-<!-- ── LAB STATS ─────────────────────────────────────────────── -->
-<section style="margin-bottom:4rem;">
-  <p class="section-label" style="margin-bottom:1.5rem;">// Lab Status</p>
-  <div class="lab-stats">
-    <div class="stat-cell">
-      <span class="stat-label">Field Diagnostics</span>
-      <span class="stat-value">2</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-label">Active Experiments</span>
-      <span class="stat-value">4</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-label">Total Experiments</span>
-      <span class="stat-value">12</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-label">Protocol Duration</span>
-      <span class="stat-value">30d</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-label">The Log</span>
-      <span class="stat-value" style="font-size:1rem; padding-top:0.3rem;">Tuesdays</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROTOCOL RULES ────────────────────────────────────────── -->
-<section>
-  <p class="section-label">// Protocol Notes</p>
-  <div class="protocol-notes">
-    <div class="protocol-rule">
-      <span class="rule-id">Rule 01</span>
-      <span class="rule-text">Run one experiment at a time. Stacking protocols before Phase 02 contaminates the data.</span>
-    </div>
-    <div class="protocol-rule">
-      <span class="rule-id">Rule 02</span>
-      <span class="rule-text">Observe for a minimum of 72 hours before drawing conclusions. Your first reaction is not your finding.</span>
-    </div>
-    <div class="protocol-rule">
-      <span class="rule-id">Rule 03</span>
-      <span class="rule-text">Do not remove an active protocol. If it's running, it runs. Stopping early means the data is incomplete.</span>
-    </div>
-    <div class="protocol-rule">
-      <span class="rule-id">Rule 04</span>
-      <span class="rule-text">Start with the diagnostics. Even if you think you already know your baseline, run them. You don't.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── EMAIL / LOG CTA ───────────────────────────────────────── -->
-<section>
-  <div class="log-block">
-    <p style="font-size:0.65rem; letter-spacing:0.18em; font-family:monospace; color:rgba(255,255,255,0.2); text-transform:uppercase; margin-bottom:1rem;">Join The Laboratory</p>
-    <h2 class="log-title">Run the experiments.<br>Report back.</h2>
-    <p class="log-desc">
-      Every Tuesday a new dispatch drops in The Log.
-      Field data from active experiments, protocol updates,
-      and one thing to run this week. No inspiration. Just systems.
-    </p>
-    <a href="https://slate-silicon.kit.com/b85027b5ea" style="display:inline-block; padding:0.75rem 2rem; border:1px solid rgba(255,255,255,0.15); font-size:0.8rem; letter-spacing:0.1em; font-family:monospace; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; transition:all 0.2s ease;">
-      Get the Free Planner
-    </a>
-    <p style="font-size:0.65rem; color:rgba(255,255,255,0.15); margin-top:1rem; font-family:monospace; letter-spacing:0.06em;">
-      No account. No algorithm. No noise.
-    </p>
-  </div>
-</section>
-
-</main>
-
-<!-- ── FOOTER (matches existing site) ───────────────────────── -->
+<!-- ── FOOTER ─────────────────────────────────────────── -->
 <footer>
-  <a href="/" class="footer-logo">
-    <img src="/logo/logo-light.svg" alt="Slate &amp; Silicon">
-  </a>
-  <nav class="footer-nav">
+  <div class="footer-links">
     <a href="https://www.instagram.com/slate.silicon/">Instagram</a>
     <a href="https://www.facebook.com/slate.silicon/">Facebook</a>
     <a href="https://tiktok.com/@slate.silicon">TikTok</a>
     <a href="https://www.youtube.com/@slate.silicon">YouTube</a>
-    <a href="https://www.linkedin.com/company/slateandsilicon">LinkedIn</a>
     <a href="https://www.pinterest.com/slateandsilicon/">Pinterest</a>
     <a href="/privacy/">Privacy</a>
     <a href="/terms/">Terms</a>
     <a href="/contact/">Contact</a>
-  </nav>
+  </div>
   <p class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</p>
 </footer>
 

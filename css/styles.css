@@ -176,10 +176,7 @@ p { color: var(--muted); }
   width: auto;
 }
 
-.logo em {
-    color: #007bff;
-    font-family: serif;
-}
+
 
 .nav-links {
     display: flex;

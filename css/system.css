@@ -1,43 +1,46 @@
-/* UPDATED SYSTEM.CSS */
-:root{--bg:#111315;--text:#d6d1c7;--muted:#9b9890;--slate:#626866;--blue:#8aa8b4;--blue-strong:#7fa7b8;--line:rgba(255,255,255,0.08);--line-strong:rgba(255,255,255,0.14);
---space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;--space-5:48px;--space-6:64px;--space-7:96px;}
-body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;}
+/* SYSTEM.CSS — Slate & Silicon */
+/* Aligned to styles.css reskin. Variables deferred to styles.css :root. */
 
-p,h1,h2,h3{margin:0}
-a{text-decoration:none}
+body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
 
-h1{font-size:clamp(2.6rem,5vw,5rem);line-height:.95;letter-spacing:-.02em}
-h2{font-size:clamp(1.8rem,3vw,3rem);line-height:1}
-.body-text{font-size:1rem;color:var(--muted);max-width:60ch}
+p, h1, h2, h3 { margin: 0; }
+a { text-decoration: none; }
 
-.container{max-width:1100px;margin:0 auto;padding:0 var(--space-4)}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-4, 32px);
+}
 
-section{padding:var(--space-6) 0}
-section+section{border-top:1px solid var(--line)}
+.body-text {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 60ch;
+}
 
-.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.45}
+/* Diagnosis stack — homepage */
+.diagnosis-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 24px;
+}
 
-.site-nav{display:flex;justify-content:space-between;align-items:center;height:52px;padding:0 16px;background:rgba(17,19,21,0.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.logo img{height:22px;width:auto;display:block}
-.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
-.nav-links a{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.nav-links a:hover,.nav-links a.active{color:var(--blue)}
-.nav-cta{background:var(--blue);color:#0b0c0d;padding:.5rem .9rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;height:28px}
+.diagnosis-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
-.lab-hero{padding-top:var(--space-7);padding-bottom:var(--space-6)}
-.copy-stack{max-width:640px;display:flex;flex-direction:column;gap:var(--space-3)}
-.subtle{max-width:52ch;opacity:.7}
+.subtle-note {
+  margin-top: 20px;
+  opacity: .5;
+  font-size: 13px;
+}
 
-.diagnosis-stack{display:flex;flex-direction:column;gap:24px;margin-top:24px}
-.diagnosis-item{display:flex;flex-direction:column;gap:6px}
-.diagnosis-item span{font-size:11px;opacity:.5}
-
-.inline-cta{font-size:14px;letter-spacing:1px;opacity:.6}
-.inline-cta.strong{opacity:.95;font-weight:600}
-
-.subtle-note{margin-top:20px;opacity:.5;font-size:13px}
-
-@media(max-width:768px){
-.lab-hero{padding-top:var(--space-6)}
-.copy-stack{gap:var(--space-2)}
+@media (max-width: 768px) {
+  .lab-hero { padding-top: var(--space-6, 64px); }
+  .copy-stack { gap: var(--space-2, 16px); }
 }

@@ -6,6 +6,8 @@
   <title>The Laboratory — Slate & Silicon</title>
   <meta name="description" content="A collection of small experiments for reducing digital noise and rebuilding attention. Run the test. Measure the output. Report the findings.">
 
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ84PSHRX9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,11 +16,19 @@
     gtag('config', 'G-XZ84PSHRX9');
   </script>
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
   <style>
+    /* ── LABORATORY — PAGE LAYER ───────────────────────────
+       Cyan is PERMITTED here on experiment codes, IDs,
+       status indicators, and lab stat values only.
+       Structural chrome (borders, sidebar titles, dividers)
+       uses brand line variables — not cyan.
+    ──────────────────────────────────────────────────────── */
 
     .lab-layout {
       display: grid;
@@ -27,13 +37,13 @@
       align-items: start;
     }
 
-    /* Experiment list */
+    /* Experiment list — structural border uses --line, not cyan */
     .exp-list {
       display: flex;
       flex-direction: column;
       gap: 1px;
-      background: var(--cyan-border);
-      border: 1px solid var(--cyan-border);
+      background: var(--line);
+      border: 1px solid var(--line);
       margin-top: 2.5rem;
     }
 
@@ -45,8 +55,10 @@
       gap: 1.5rem;
       align-items: start;
       text-decoration: none;
-      transition: background 0.2s;
+      color: inherit;
+      transition: background .25s var(--ease);
     }
+
     .exp-item:hover { background: var(--surface); }
 
     .exp-id-block {
@@ -56,74 +68,81 @@
       padding-top: 2px;
     }
 
+    /* EXP codes — cyan correct here, this is the lab layer */
     .exp-id {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.58rem;
       color: var(--cyan);
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       background: var(--cyan-dim);
-      border: 1px solid var(--cyan-border);
+      border: 1px solid var(--cyan-line);
       padding: 3px 7px;
       white-space: nowrap;
     }
 
     .exp-status {
       font-family: var(--mono);
-      font-size: 0.42rem;
+      font-size: 0.48rem;
       color: var(--slate);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-top: 0.5rem;
     }
 
+    /* Active status — cyan correct, system indicator */
     .exp-status.active { color: var(--cyan); }
 
     .exp-title {
       font-family: var(--display);
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 1.6vw, 1.3rem);
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: -0.01em;
       color: var(--white);
       margin-bottom: 0.5rem;
       line-height: 1.15;
     }
 
     .exp-desc {
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       color: var(--muted);
       line-height: 1.65;
       margin-bottom: 0.85rem;
     }
 
+    /* Arrow — cyan correct, directional indicator in lab context */
     .exp-arrow {
       font-family: var(--mono);
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       color: var(--cyan);
-      transition: transform 0.2s;
+      transition: transform .2s var(--ease);
       padding-top: 2px;
     }
+
     .exp-item:hover .exp-arrow { transform: translateX(4px); }
 
     /* Sidebar */
     .lab-sidebar { position: sticky; top: 6rem; }
 
+    /* Sidebar block — amber border, surface background */
     .sidebar-block {
-      border: 1px solid var(--cyan-border);
+      border: 1px solid var(--line);
+      background: rgba(232,226,214,.016);
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
 
+    /* Sidebar title — amber, navigational label not a code */
     .sidebar-title {
       font-family: var(--mono);
-      font-size: 0.52rem;
-      color: var(--cyan);
-      letter-spacing: 0.12em;
+      font-size: 0.58rem;
+      color: var(--blue);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(176,212,222,0.08);
+      border-bottom: 1px solid var(--line);
     }
 
     .sidebar-stat {
@@ -131,42 +150,57 @@
       justify-content: space-between;
       align-items: center;
       padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(176,212,222,0.05);
+      border-bottom: 1px solid var(--line);
     }
+
     .sidebar-stat:last-child { border-bottom: none; }
 
     .sidebar-stat-label {
       font-family: var(--mono);
-      font-size: 0.52rem;
+      font-size: 0.55rem;
       color: var(--muted);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
+    /* Stat values — cyan correct, lab data readout */
     .sidebar-stat-val {
       font-family: var(--display);
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--cyan);
     }
 
     .protocol-note {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       color: var(--muted);
       line-height: 1.65;
       padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(176,212,222,0.05);
+      border-bottom: 1px solid var(--line);
     }
+
     .protocol-note:last-child { border-bottom: none; }
 
+    /* Protocol rule labels — cyan correct, lab protocol codes */
     .protocol-note strong {
       display: block;
       font-family: var(--mono);
-      font-size: 0.46rem;
+      font-size: 0.55rem;
       color: var(--cyan);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Status row — inherits .dot and .status from styles.css */
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
     }
 
     @media (max-width: 900px) {
@@ -178,7 +212,6 @@
       .exp-item { grid-template-columns: 1fr; gap: 0.75rem; }
       .exp-arrow { display: none; }
     }
-
   </style>
 </head>
 <body>
@@ -186,31 +219,29 @@
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-container">
-
     <a href="/" class="logo">
       <img src="/logo/logo-light.svg" alt="Slate & Silicon">
     </a>
-
     <div class="nav-right">
       <ul class="nav-links">
-	<li><a href="/start-here/">Start Here</a></li>
-  <li><a href="/log/">The Log</a></li>
-  <li><a href="/store/">The Store</a></li>
-  <li><a href="/about/">About</a></li>
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/log/">The Log</a></li>
+        <li><a href="/store/">The Store</a></li>
+        <li><a href="/about/">About</a></li>
       </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
     </div>
-
   </div>
 </nav>
 
-<!-- ══ PAGE HERO ══ -->
+<!-- PAGE HERO -->
 <div class="page-hero z">
   <p class="tag">Laboratory // Active Experiments</p>
   <h1>The<br>Laboratory.</h1>
   <p class="body-text">A collection of small experiments for reducing digital noise and rebuilding attention. Run the test. Measure the output. Report the findings. This is not inspiration content — it's systems documentation.</p>
 </div>
 
-<!-- ══ TICKER ══ -->
+<!-- TICKER -->
 <div class="ticker z">
   <div class="ticker-track">
     <span class="ticker-item">Run the test <b>//</b></span>
@@ -230,7 +261,7 @@
   </div>
 </div>
 
-<!-- ══ MAIN ══ -->
+<!-- MAIN -->
 <div class="z">
   <div class="section">
     <div class="lab-layout">
@@ -263,7 +294,7 @@
             <a href="/lab/exp-02/" class="exp-item">
               <div class="exp-id-block">
                 <span class="exp-id">EXP-02</span>
-                <span class="exp-status active">Loading</span>
+                <span class="exp-status">Loading</span>
               </div>
               <div class="experiment-card hidden-exp">
                 <h3 class="exp-title">Notification Fast</h3>
@@ -280,7 +311,7 @@
             <a href="/lab/exp-03/" class="exp-item">
               <div class="exp-id-block">
                 <span class="exp-id">EXP-03</span>
-                <span class="exp-status active">Pending</span>
+                <span class="exp-status">Pending</span>
               </div>
               <div class="experiment-card hidden-exp">
                 <h3 class="exp-title">Single Task Block</h3>
@@ -297,7 +328,7 @@
             <a href="/lab/exp-04/" class="exp-item">
               <div class="exp-id-block">
                 <span class="exp-id">EXP-04</span>
-                <span class="exp-status active">Pending</span>
+                <span class="exp-status">Pending</span>
               </div>
               <div class="experiment-card hidden-exp">
                 <h3 class="exp-title">Evening Shutdown</h3>
@@ -314,7 +345,7 @@
             <a href="/lab/exp-05/" class="exp-item">
               <div class="exp-id-block">
                 <span class="exp-id">EXP-05</span>
-                <span class="exp-status active">Pending</span>
+                <span class="exp-status">Pending</span>
               </div>
               <div class="experiment-card hidden-exp">
                 <h3 class="exp-title">Analog Morning</h3>
@@ -338,7 +369,7 @@
           <p class="tag">Baseline // Run This First</p>
           <h2>Start with<br>the reset.</h2>
           <p class="body-text" style="margin-top: 1rem; margin-bottom: 2rem;">If you haven't run the baseline yet, begin there. The Detox Planner is the entry point to everything else we're building here.</p>
-          <a href="/store/7day-detox/" class="btn btn-fill">Get the Planner</a>
+          <a href="/detox-planner/" class="btn btn-fill">Get the Planner</a>
         </div>
 
       </div>
@@ -347,14 +378,23 @@
       <aside class="lab-sidebar reveal">
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Lab Stats</p>
-          <div class="sidebar-stat"><span class="sidebar-stat-label">Active Experiments</span><span class="sidebar-stat-val">5</span></div>
-          <div class="sidebar-stat"><span class="sidebar-stat-label">Subscribers</span><span class="sidebar-stat-val">6</span></div>
-          <div class="sidebar-stat"><span class="sidebar-stat-label">Since</span><span class="sidebar-stat-val">2024</span></div>
+          <p class="sidebar-title">Lab Stats</p>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Active Experiments</span>
+            <span class="sidebar-stat-val">5</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Subscribers</span>
+            <span class="sidebar-stat-val">6</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Since</span>
+            <span class="sidebar-stat-val">2024</span>
+          </div>
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Protocol Notes</p>
+          <p class="sidebar-title">Protocol Notes</p>
           <div class="protocol-note">
             <strong>Rule 01</strong>
             Run one experiment at a time. Stacking protocols contaminates the data.
@@ -370,7 +410,7 @@
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Status</p>
+          <p class="sidebar-title">Status</p>
           <div class="status"><div class="dot"></div> Laboratory: Operational</div>
           <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> The Log: every Tuesday</div>
           <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> EXP-04 collecting data</div>
@@ -381,12 +421,12 @@
   </div>
 </div>
 
-<!-- ══ FOOTER CTA ══ -->
+<!-- FOOTER CTA -->
 <div class="section-alt z">
   <div class="footer-cta">
     <div class="reveal">
       <p class="tag">Join The Laboratory</p>
-      <h2>Run the experiments.<br><span class="cyan">Report back.</span></h2>
+      <h2>Run the experiments.<br>Report back.</h2>
       <p class="body-text">Every week a new dispatch drops in The Log. Field data from active experiments, protocol updates, and one thing to run this week. No inspiration. Just systems.</p>
       <script async data-uid="68998098aa" src="https://slate-silicon.kit.com/68998098aa/index.js"></script>
       <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
@@ -394,15 +434,14 @@
   </div>
 </div>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer class="z">
   <a href="/" class="footer-logo">Slate &amp; Silicon</a>
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
-    <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/terms/">Terms</a></li>

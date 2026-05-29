@@ -5,76 +5,387 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Log — Slate & Silicon</title>
   <meta name="description" content="The Slate & Silicon newsletter archive. Weekly experiment dispatches, field notes, and community accountability for people rebuilding their attention.">
-  
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
   <style>
-    .log-layout { display:grid; grid-template-columns:1fr 300px; gap:5rem; align-items:start; }
-    .issue-list { display:flex; flex-direction:column; gap:1px; background:var(--cyan-border); border:1px solid var(--cyan-border); margin-top:2.5rem; }
-    .issue-card { background:var(--bunker); padding:1.75rem; display:grid; grid-template-columns:80px 1fr auto; gap:1.75rem; align-items:start; text-decoration:none; transition:background 0.2s; }
-    .issue-card:hover { background:var(--surface); }
-    .issue-card.featured { grid-template-columns:1fr; background:var(--surface); border-left:2px solid var(--cyan); padding:2rem; }
-    .issue-num-block { display:flex; flex-direction:column; align-items:flex-start; padding-top:2px; }
-    .issue-num { font-family:var(--display); font-weight:900; font-size:2.5rem; line-height:1; color:var(--cyan); opacity:0.2; }
-    .issue-label { font-family:var(--mono); font-size:0.42rem; color:var(--cyan); letter-spacing:0.1em; text-transform:uppercase; margin-top:2px; }
-    .issue-meta { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.65rem; flex-wrap:wrap; }
-    .issue-date { font-family:var(--mono); font-size:0.5rem; color:var(--slate); letter-spacing:0.08em; }
-    .issue-tag { font-family:var(--mono); font-size:0.46rem; color:var(--cyan); border:1px solid var(--cyan-border); background:var(--cyan-dim); padding:2px 7px; letter-spacing:0.08em; text-transform:uppercase; }
-    .issue-title { font-family:var(--display); font-weight:700; font-size:1.1rem; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); margin-bottom:0.5rem; line-height:1.15; }
-    .issue-card.featured .issue-title { font-size:1.5rem; }
-    .issue-excerpt { font-size:0.8rem; color:var(--muted); line-height:1.65; }
-    .issue-card.featured .issue-excerpt { max-width:60ch; margin-bottom:1.25rem; }
-    .issue-action { display:flex; flex-direction:column; align-items:flex-end; gap:0.5rem; padding-top:2px; }
-    .issue-read { font-family:var(--mono); font-size:0.48rem; color:var(--slate); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap; }
-    .issue-arrow { font-family:var(--mono); font-size:0.7rem; color:var(--cyan); transition:transform 0.2s; }
-    .issue-card:hover .issue-arrow { transform:translateX(4px); }
-    .featured-top { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; }
-    .featured-badge { font-family:var(--mono); font-size:0.48rem; color:var(--cyan); border:1px solid var(--cyan-border); background:var(--cyan-dim); padding:3px 8px; letter-spacing:0.1em; text-transform:uppercase; }
-    .featured-issue-num { font-family:var(--mono); font-size:0.48rem; color:var(--slate); letter-spacing:0.08em; }
-    .featured-meta { display:flex; align-items:center; gap:1.5rem; margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid rgba(176,212,222,0.07); flex-wrap:wrap; }
-    .featured-meta-item { font-family:var(--mono); font-size:0.5rem; color:var(--muted); letter-spacing:0.07em; text-transform:uppercase; }
-    .archive-label { font-family:var(--mono); font-size:0.52rem; color:var(--slate); letter-spacing:0.12em; text-transform:uppercase; padding:0.85rem 1.75rem; background:var(--surface); border-bottom:1px solid var(--cyan-border); border-top:1px solid var(--cyan-border); margin-top:1px; }
-    .log-sidebar { position:sticky; top:6rem; }
-    .sidebar-block { border:1px solid var(--cyan-border); padding:1.5rem; margin-bottom:1.5rem; }
-    .sidebar-title { font-family:var(--mono); font-size:0.52rem; color:var(--cyan); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1.25rem; padding-bottom:0.75rem; border-bottom:1px solid rgba(176,212,222,0.08); }
-    .sidebar-stat { display:flex; justify-content:space-between; align-items:center; padding:0.6rem 0; border-bottom:1px solid rgba(176,212,222,0.05); }
-    .sidebar-stat:last-child { border-bottom:none; }
-    .sidebar-stat-label { font-family:var(--mono); font-size:0.52rem; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
-    .sidebar-stat-val { font-family:var(--display); font-weight:700; font-size:1.1rem; color:var(--cyan); }
-    .topic-row { display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0; border-bottom:1px solid rgba(176,212,222,0.05); cursor:pointer; }
-    .topic-row:last-child { border-bottom:none; }
-    .topic-row:hover .topic-name { color:var(--cyan); }
-    .topic-name { font-family:var(--mono); font-size:0.52rem; color:var(--muted); letter-spacing:0.07em; text-transform:uppercase; transition:color 0.2s; }
-    .topic-count { font-family:var(--mono); font-size:0.48rem; color:var(--slate); letter-spacing:0.06em; }
-    .sidebar-subscribe p { font-size:0.78rem; color:var(--muted); line-height:1.65; margin-bottom:1rem; }
-    .load-more { text-align:center; padding:2rem 0; border-top:1px solid var(--cyan-border); }
-    .load-btn { font-family:var(--mono); font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); border:1px solid rgba(176,212,222,0.15); background:transparent; padding:0.75rem 1.75rem; cursor:pointer; transition:all 0.2s; }
-    .load-btn:hover { color:var(--cyan); border-color:var(--cyan-border); }
-    @media (max-width:900px) { .log-layout { grid-template-columns:1fr; } .log-sidebar { position:static; } }
-    @media (max-width:720px) { .issue-card { grid-template-columns:48px 1fr; } .issue-action { display:none; } .issue-card.featured { padding:1.5rem; } }
+    /* ── THE LOG — PAGE LAYER ───────────────────────────────
+       Editorial / newsletter layer. Amber throughout.
+       No cyan — this is not the lab experiment layer.
+    ──────────────────────────────────────────────────────── */
+
+    .log-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* Issue list — structural border uses --line */
+    .issue-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 2.5rem;
+    }
+
+    .issue-card {
+      background: var(--bunker);
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 1.75rem;
+      align-items: start;
+      text-decoration: none;
+      color: inherit;
+      transition: background .25s var(--ease);
+    }
+
+    .issue-card:hover { background: var(--surface); }
+
+    /* Featured card — amber left border */
+    .issue-card.featured {
+      grid-template-columns: 1fr;
+      background: var(--surface);
+      border-left: 2px solid var(--blue);
+      padding: 2rem;
+    }
+
+    .issue-num-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+
+    /* Large ghost issue number — amber at low opacity */
+    .issue-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--blue);
+      opacity: 0.2;
+    }
+
+    .issue-label {
+      font-family: var(--mono);
+      font-size: 0.48rem;
+      color: var(--blue);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .issue-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .issue-date {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      color: var(--slate);
+      letter-spacing: 0.08em;
+    }
+
+    /* Issue tags — amber, editorial layer */
+    .issue-tag {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--blue);
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 2px 7px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .issue-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      line-height: 1.15;
+    }
+
+    .issue-card.featured .issue-title {
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+    }
+
+    .issue-excerpt {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .issue-card.featured .issue-excerpt {
+      max-width: 60ch;
+      margin-bottom: 1.25rem;
+    }
+
+    .issue-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      padding-top: 2px;
+    }
+
+    .issue-read {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--slate);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Arrow — amber, editorial context */
+    .issue-arrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--blue);
+      transition: transform .2s var(--ease);
+    }
+
+    .issue-card:hover .issue-arrow { transform: translateX(4px); }
+
+    .featured-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Featured badge — amber */
+    .featured-badge {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--blue);
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 3px 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .featured-issue-num {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--slate);
+      letter-spacing: 0.08em;
+    }
+
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .featured-meta-item {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      color: var(--muted);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .featured-meta-item.cta {
+      color: var(--blue);
+    }
+
+    /* Archive month label */
+    .archive-label {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      color: var(--slate);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.75rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+      margin-top: 1px;
+    }
+
+    /* Load more */
+    .load-more {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .load-btn {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      padding: 0.75rem 1.75rem;
+      cursor: pointer;
+      transition: color .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .load-btn:hover {
+      color: var(--blue);
+      border-color: var(--blue-line);
+    }
+
+    /* Sidebar */
+    .log-sidebar { position: sticky; top: 6rem; }
+
+    .sidebar-block {
+      border: 1px solid var(--line);
+      background: rgba(232,226,214,.016);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-title {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--blue);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sidebar-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sidebar-stat:last-child { border-bottom: none; }
+
+    .sidebar-stat-label {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Stat values — amber, data readout in editorial context */
+    .sidebar-stat-val {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--blue);
+    }
+
+    /* Topic browser */
+    .topic-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .topic-row:last-child { border-bottom: none; }
+
+    .topic-row:hover .topic-name { color: var(--blue); }
+
+    .topic-name {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color .2s var(--ease);
+    }
+
+    .topic-count {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--slate);
+      letter-spacing: 0.06em;
+    }
+
+    .sidebar-subscribe p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 900px) {
+      .log-layout { grid-template-columns: 1fr; }
+      .log-sidebar { position: static; }
+    }
+
+    @media (max-width: 720px) {
+      .issue-card { grid-template-columns: 48px 1fr; }
+      .issue-action { display: none; }
+      .issue-card.featured { padding: 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
-<nav class="z">
-    <div class="nav-container">
-        <a href="/start-here/" class="logo">Slate <em>&</em> Silicon</a>
-        <ul class="nav-links">
-            <li><a href="/laboratory/">Laboratory</a></li>
-            <li><a href="/store/">The Store</a></li>
-            <li><a href="/about/">About</a></li>
-        </ul>
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/store/">The Store</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
     </div>
+  </div>
 </nav>
 
+<!-- PAGE HERO -->
 <div class="page-hero z">
   <p class="tag">Dispatch Archive // Weekly</p>
   <h1>The<br>Log.</h1>
   <p class="body-text">Every issue is a field report. Active experiments, data from the community, protocol updates, and one thing to try this week. No filler. No fluff. Transmitted every Tuesday.</p>
 </div>
 
+<!-- TICKER -->
 <div class="ticker z">
   <div class="ticker-track">
     <span class="ticker-item">Transmitted every Tuesday <b>//</b></span>
@@ -94,13 +405,14 @@
   </div>
 </div>
 
+<!-- MAIN -->
 <div class="z">
   <div class="section">
     <div class="log-layout">
 
       <div>
 
-        <!-- LATEST -->
+        <!-- LATEST DISPATCH -->
         <div class="reveal">
           <p class="tag">Latest Dispatch</p>
           <div class="issue-list">
@@ -119,7 +431,7 @@
                 <span class="featured-meta-item">8 min read</span>
                 <span class="featured-meta-item">7 participants</span>
                 <span class="featured-meta-item">34% avg reduction</span>
-                <span class="featured-meta-item" style="color:var(--cyan);">→ Read this issue</span>
+                <span class="featured-meta-item cta">→ Read this issue</span>
               </div>
             </a>
           </div>
@@ -130,7 +442,7 @@
           <p class="tag">Archive // All Issues</p>
           <div class="issue-list">
 
-            <div class="archive-label">// May 2025</div>
+            <div class="archive-label">May 2025</div>
 
             <a href="#" class="issue-card">
               <div class="issue-num-block"><span class="issue-num">23</span><span class="issue-label">Issue</span></div>
@@ -142,7 +454,7 @@
               <div class="issue-action"><span class="issue-read">6 min</span><span class="issue-arrow">→</span></div>
             </a>
 
-            <div class="archive-label">// April 2025</div>
+            <div class="archive-label">April 2025</div>
 
             <a href="#" class="issue-card">
               <div class="issue-num-block"><span class="issue-num">22</span><span class="issue-label">Issue</span></div>
@@ -174,7 +486,7 @@
               <div class="issue-action"><span class="issue-read">6 min</span><span class="issue-arrow">→</span></div>
             </a>
 
-            <div class="archive-label">// March 2025</div>
+            <div class="archive-label">March 2025</div>
 
             <a href="#" class="issue-card">
               <div class="issue-num-block"><span class="issue-num">19</span><span class="issue-label">Issue</span></div>
@@ -219,16 +531,16 @@
       <aside class="log-sidebar reveal">
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Join The Log</p>
+          <p class="sidebar-title">Join The Log</p>
           <div class="sidebar-subscribe">
             <p>Every Tuesday. One experiment dispatch. Field data, protocol updates, and one thing to run this week.</p>
           </div>
           <script async data-uid="68998098aa" src="https://slate-silicon.kit.com/68998098aa/index.js"></script>
-        <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
+          <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Log Stats</p>
+          <p class="sidebar-title">Log Stats</p>
           <div class="sidebar-stat"><span class="sidebar-stat-label">Total Issues</span><span class="sidebar-stat-val">4</span></div>
           <div class="sidebar-stat"><span class="sidebar-stat-label">Subscribers</span><span class="sidebar-stat-val">60</span></div>
           <div class="sidebar-stat"><span class="sidebar-stat-label">Open Rate</span><span class="sidebar-stat-val">61%</span></div>
@@ -236,7 +548,7 @@
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Browse By Topic</p>
+          <p class="sidebar-title">Browse By Topic</p>
           <div class="topic-row"><span class="topic-name">Experiments</span><span class="topic-count">8 issues</span></div>
           <div class="topic-row"><span class="topic-name">Blueprints</span><span class="topic-count">6 issues</span></div>
           <div class="topic-row"><span class="topic-name">Tool Reviews</span><span class="topic-count">4 issues</span></div>
@@ -245,7 +557,7 @@
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Transmission Status</p>
+          <p class="sidebar-title">Transmission Status</p>
           <div class="status"><div class="dot"></div> Next issue: Tuesday</div>
           <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> 2 issues transmitted</div>
           <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> 61% open rate</div>
@@ -256,26 +568,27 @@
   </div>
 </div>
 
+<!-- FOOTER CTA -->
 <div class="section-alt z">
   <div class="footer-cta">
     <div class="reveal">
-      <p class="tag">Join 600+ Readers</p>
-      <h2>Every Tuesday.<br><span class="cyan">One dispatch.</span></h2>
+      <p class="tag">Join 60+ Readers</p>
+      <h2>Every Tuesday.<br>One dispatch.</h2>
       <p class="body-text">Field data from active experiments. Protocol updates. One thing to run this week. No filler. No fluff. Transmitted every Tuesday — unsubscribe any time.</p>
       <script async data-uid="68998098aa" src="https://slate-silicon.kit.com/68998098aa/index.js"></script>
-        <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
+      <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
     </div>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="z">
   <a href="/" class="footer-logo">Slate &amp; Silicon</a>
-      <ul class="footer-links">
+  <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
-    <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/terms/">Terms</a></li>

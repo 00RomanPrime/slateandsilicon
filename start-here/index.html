@@ -5,11 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Start Here — Slate & Silicon</title>
   <meta name="description" content="Start here with Slate & Silicon: a structured digital detox system for rebuilding attention.">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
   <style>
+    /* ── START HERE — PAGE LAYER ───────────────────────────
+       Extends styles.css. Uses only brand variables.
+       Amber throughout. Cyan is lab layer only — not here.
+    ──────────────────────────────────────────────────────── */
 
     .start-layout {
       display: grid;
@@ -18,55 +27,52 @@
       align-items: start;
     }
 
-    /* Protocol cards — 3-col grid matching card-grid pattern */
+    /* Protocol cards */
     .protocol-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: var(--cyan-border);
-      border: 1px solid var(--cyan-border);
+      background: var(--line);
+      border: 1px solid var(--line);
       margin-top: 2.5rem;
     }
 
     .protocol-card {
       background: var(--bunker);
       padding: 1.75rem;
-      transition: background 0.2s;
+      transition: background .25s var(--ease);
     }
+
     .protocol-card:hover { background: var(--surface); }
 
     .protocol-card small {
       display: block;
       font-family: var(--mono);
-      font-size: 0.5rem;
-      color: var(--cyan);
-      letter-spacing: 0.12em;
+      font-size: 0.6rem;
+      color: var(--blue);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 0.85rem;
     }
 
     .protocol-card h3 {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
+      font-size: clamp(1.1rem, 1.6vw, 1.4rem);
       margin-bottom: 0.6rem;
     }
 
     .protocol-card p {
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       color: var(--muted);
       line-height: 1.65;
     }
 
-    /* Route list — styled like include-list / heat-list */
+    /* Route list */
     .route-list {
       display: flex;
       flex-direction: column;
       gap: 1px;
-      background: var(--cyan-border);
-      border: 1px solid var(--cyan-border);
+      background: var(--line);
+      border: 1px solid var(--line);
       margin-top: 2.5rem;
     }
 
@@ -78,19 +84,21 @@
       gap: 1.25rem;
       align-items: center;
       text-decoration: none;
-      transition: background 0.2s;
+      color: inherit;
+      transition: background .25s var(--ease);
     }
+
     .route-item:hover { background: var(--surface); }
 
     .route-item small {
       font-family: var(--mono);
-      font-size: 0.46rem;
-      color: var(--cyan);
-      letter-spacing: 0.1em;
+      font-size: 0.55rem;
+      color: var(--blue);
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      background: var(--cyan-dim);
-      border: 1px solid var(--cyan-border);
-      padding: 3px 7px;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-line);
+      padding: 4px 8px;
       text-align: center;
       line-height: 1.6;
     }
@@ -101,13 +109,13 @@
       font-weight: 700;
       font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: -0.01em;
       color: var(--white);
       margin-bottom: 0.25rem;
     }
 
     .route-item p {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--muted);
       line-height: 1.55;
       margin: 0;
@@ -115,43 +123,46 @@
 
     .route-arrow {
       font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--cyan);
-      transition: transform 0.2s;
+      font-size: 0.7rem;
+      color: var(--blue);
+      transition: transform .2s var(--ease);
     }
+
     .route-item:hover .route-arrow { transform: translateX(4px); }
 
     /* Sidebar */
     .start-sidebar { position: sticky; top: 6rem; }
 
     .sidebar-block {
-      border: 1px solid var(--cyan-border);
+      border: 1px solid var(--line);
       padding: 1.5rem;
       margin-bottom: 1.5rem;
+      background: rgba(232,226,214,.016);
     }
 
     .sidebar-title {
       font-family: var(--mono);
-      font-size: 0.52rem;
-      color: var(--cyan);
-      letter-spacing: 0.12em;
+      font-size: 0.58rem;
+      color: var(--blue);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(176,212,222,0.08);
+      border-bottom: 1px solid var(--line);
     }
 
     .principle-item {
       padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(176,212,222,0.05);
+      border-bottom: 1px solid var(--line);
     }
+
     .principle-item:last-child { border-bottom: none; }
 
     .principle-num {
       font-family: var(--mono);
-      font-size: 0.46rem;
-      color: var(--cyan);
-      letter-spacing: 0.1em;
+      font-size: 0.55rem;
+      color: var(--blue);
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 0.3rem;
     }
@@ -161,8 +172,19 @@
       font-weight: 700;
       font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: -0.01em;
       color: var(--white);
+    }
+
+    /* Status dots — amber accent, inherits .dot from styles.css */
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
     }
 
     @media (max-width: 900px) {
@@ -175,7 +197,6 @@
       .route-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .route-arrow { display: none; }
     }
-
   </style>
 </head>
 <body>
@@ -183,31 +204,29 @@
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-container">
-
     <a href="/" class="logo">
       <img src="/logo/logo-light.svg" alt="Slate & Silicon">
     </a>
-
     <div class="nav-right">
       <ul class="nav-links">
-	      <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
         <li><a href="/log/">The Log</a></li>
-	      <li><a href="/store/">The Store</a></li>
+        <li><a href="/store/">The Store</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
     </div>
-
   </div>
 </nav>
 
-<!-- ══ PAGE HERO ══ -->
+<!-- PAGE HERO -->
 <div class="page-hero z">
   <p class="tag">Entry Point // Initialization</p>
   <h1>You are not<br>distracted.<br>You are overloaded.</h1>
   <p class="body-text">This is not a collection of content. It is a structured system designed to reverse specific patterns. It removes what is unnecessary and restores what was lost.</p>
 </div>
 
-<!-- ══ TICKER ══ -->
+<!-- TICKER -->
 <div class="ticker z">
   <div class="ticker-track">
     <span class="ticker-item">Understand the system <b>//</b></span>
@@ -227,21 +246,21 @@
   </div>
 </div>
 
-<!-- ══ MAIN ══ -->
+<!-- MAIN CONTENT -->
 <div class="z">
   <div class="section">
     <div class="start-layout">
 
       <div>
 
-        <!-- WHAT CHANGED -->
+        <!-- 01 WHAT CHANGED -->
         <div class="reveal" style="margin-bottom: 4rem;">
           <p class="tag">01 // What Changed</p>
           <h2>Continuous load<br>changes the system.</h2>
           <p class="body-text" style="margin-top: 1rem;">Constant input, interruptions, and infinite feeds have changed how attention operates. The result is not a lack of discipline. It is a system under continuous load.</p>
         </div>
 
-        <!-- THE METHOD -->
+        <!-- 02 THE METHOD -->
         <div class="reveal" style="margin-bottom: 4rem;">
           <p class="tag">02 // The Method</p>
           <h2>Three moves.<br>No static.</h2>
@@ -264,7 +283,7 @@
           </div>
         </div>
 
-        <!-- WHERE TO BEGIN -->
+        <!-- 03 WHERE TO BEGIN -->
         <div class="reveal" style="margin-bottom: 4rem;">
           <p class="tag">03 // Where To Begin</p>
           <h2>Start with one<br>controlled experiment.</h2>
@@ -312,7 +331,7 @@
       <aside class="start-sidebar reveal">
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Core Principles</p>
+          <p class="sidebar-title">Core Principles</p>
           <div class="principle-item">
             <p class="principle-num">P-01</p>
             <p class="principle-text">Willpower is the wrong tool</p>
@@ -336,16 +355,16 @@
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Status</p>
+          <p class="sidebar-title">Status</p>
           <div class="status"><div class="dot"></div> Laboratory: Operational</div>
           <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> EXP-01 through EXP-05 active</div>
           <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> The Log: every Tuesday</div>
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Less input. More signal.</p>
-          <p style="font-size:0.8rem; color:var(--muted); line-height:1.65;">This is attention recovery for people who lived through the rise of the feed. The lab is open.</p>
-          <a href="/laboratory/" class="btn btn-line" style="margin-top:1.25rem;">Enter the Laboratory →</a>
+          <p class="sidebar-title">Less input. More signal.</p>
+          <p style="font-size:0.88rem; color:var(--muted); line-height:1.65;">This is attention recovery for people who lived through the rise of the feed. The lab is open.</p>
+          <a href="/laboratory/" class="content-cta" style="margin-top:1.25rem;">Enter the Laboratory →</a>
         </div>
 
       </aside>
@@ -353,30 +372,27 @@
   </div>
 </div>
 
-<!-- ══ FOOTER CTA ══ -->
+<!-- FOOTER CTA -->
 <div class="section-alt z">
   <div class="footer-cta">
     <div class="reveal">
       <p class="tag">First Move</p>
-      <h2>The lab is open.<br><span class="cyan">Start the system.</span></h2>
+      <h2>The lab is open.<br>Start the system.</h2>
       <p class="body-text">The Detox Planner is the entry point. Seven days. Three sectors. No app. Run the first experiment and report your findings.</p>
-      <div style="margin-bottom: 2rem;">
-            <a href="store/7day-detox/" class="nav-cta" style="display: inline-block; padding: 1.2rem 2.5rem;">GET THE PLANNER</a>
-        </div>
-      <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
+      <a href="/detox-planner/" class="content-cta">Get the Planner</a>
+      <p class="form-note" style="text-align:center; margin-top:1rem;">No account. No algorithm. No noise.</p>
     </div>
   </div>
 </div>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer class="z">
   <a href="/" class="footer-logo">Slate &amp; Silicon</a>
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
-    <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/terms/">Terms</a></li>
@@ -387,7 +403,9 @@
 
 <script>
   const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+    });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>

@@ -1,178 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>60-Minute Sprint Pack — Slate & Silicon</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>60-Minute Focus Sprint — Slate & Silicon</title>
+  <meta name="description" content="Deep work protocol. 60 minutes. No switching. No drift. No escape.">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
 
   <style>
-    body {
-      background: #f7f7f5;
-      color: #1a1a1a;
-      font-family: sans-serif;
-      line-height: 1.6;
+    /* ── FOCUS SPRINT SELL PAGE ─────────────────────────────
+       Expanse aesthetic. Same template as Detox Protocol.
+       Copy is tighter, more staccato — matches the sprint voice.
+    ──────────────────────────────────────────────────────── */
+
+    .sell-wrap {
+      max-width: 560px;
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(5rem, 10vw, 8rem);
     }
 
-    .container {
-      max-width: 720px;
-      margin: 80px auto;
-      padding: 0 20px;
+    .sell-tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      display: block;
     }
 
-    h1 {
-      font-size: 2rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 20px;
+    .sell-wrap h1 {
+      margin-bottom: 1rem;
     }
 
-    .sub {
-      opacity: 0.6;
-      font-size: 0.85rem;
+    .sell-sub {
+      font-family: var(--mono);
+      font-size: 0.68rem;
       letter-spacing: 0.12em;
-      margin-bottom: 40px;
+      color: var(--muted);
+      text-transform: uppercase;
+      line-height: 1.75;
+      margin-bottom: clamp(4rem, 8vw, 6rem);
     }
 
-    .block {
-      margin-bottom: 40px;
+    .sell-block {
+      margin-bottom: 1.75rem;
     }
 
-    .block p {
-      margin-bottom: 16px;
+    .sell-block p {
+      font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
     }
 
-    .divider {
-      height: 1px;
-      background: rgba(0,0,0,0.1);
-      margin: 60px 0;
+    .sell-block p:last-child { margin-bottom: 0; }
+
+    .sell-block p strong {
+      color: var(--bone);
+      font-weight: 400;
     }
 
-    .cta {
-      margin-top: 60px;
+    .sell-rule {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: clamp(2.5rem, 5vw, 4rem) 0;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border: 1px solid #1f4f52;
+    .sell-cta {
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+      margin-top: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .sell-cta-note {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
       text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      transition: all 0.2s ease;
+      margin-bottom: 3.5rem;
+      transition: color .2s var(--ease);
     }
 
-    .btn:hover {
-      background: #1f4f52;
-      color: #fff;
-    }
-
-    .quiet {
-      margin-top: 12px;
-      font-size: 0.75rem;
-      opacity: 0.5;
-    }
+    .back-link:hover { color: var(--blue); }
   </style>
 </head>
-
 <body>
 
-  <nav class="site-nav">
-  <a href="/store/" class="logo">
-    <img src="/logo/logo-dark.svg" alt="Slate & Silicon">
-  </a>
-
-  <ul class="nav-links">
-  </ul>
-</nav>
-  
-  <div class="container">
-
-    <h1>THE 60-MINUTE FOCUS SPRINT</h1>
-    <div class="sub">DEEP WORK PROTOCOL</div>
-
-    <div class="block">
-      <p>
-        You didnt lose focus.
-      </p>
-      <p>
-        It gets diluted.
-      </p>
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="block">
-      <p>
-        You sit down to work.
-        <br/>
-        The task is clear
-      </p>
-      <p>
-        But something keeps opening.
-      </p>
-      <p>
-        <strong>Tabs.</strong>
-        <br/>
-        <strong>Thoughts.</strong>
-        <br/>
-        <strong>Fragments.</strong>
-      </p>
-    </div>
-
-    <div class="block">
-      <p>
-        It's not a distraction.
-      </p>
-      <p>
-        It's lack of containment.
-      </p>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="block">
-      <p>
-        This system compresses your attention into a fixed window.
-      </p>
-      <p>
-        60 minutes.
-      </p>
-      <p>
-        No switching.
-        <br>
-        No drift.
-        <br>
-        No escape.
-      </p>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="block">
-      <p>
-        You don't extend your capacity.
-      <p>
-        You see its current limits.
-
-    <div class="cta">
-      <a 
-        href="https://slate-silicon.lemonsqueezy.com/"
-        class="btn"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        BEGIN THE SPRINT
-      </a>
-
-      <div class="quiet">
-        Printable PDF · No account · Immediate access
-      </div>
-    </div>
-
   </div>
+</nav>
+
+<div class="z">
+  <div class="section">
+    <div class="sell-wrap reveal">
+
+      <a href="/" class="back-link">← Slate &amp; Silicon</a>
+
+      <span class="sell-tag">Focus Sprint // Deep Work Protocol</span>
+
+      <h1>The 60-Minute<br>Focus Sprint.</h1>
+
+      <p class="sell-sub">Deep Work Protocol</p>
+
+      <div class="sell-block">
+        <p>You didn't lose focus.</p>
+        <p>It gets diluted.</p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <div class="sell-block">
+        <p>You sit down to work.<br>The task is clear.</p>
+        <p>But something keeps opening.</p>
+        <p><strong>Tabs.</strong><br><strong>Thoughts.</strong><br><strong>Fragments.</strong></p>
+      </div>
+
+      <div class="sell-block">
+        <p>It's not a distraction.</p>
+        <p>It's lack of containment.</p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <div class="sell-block">
+        <p>This system compresses your attention into a fixed window.</p>
+        <p>60 minutes.</p>
+        <p>No switching.<br>No drift.<br>No escape.</p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <div class="sell-block">
+        <p>You don't extend your capacity.</p>
+        <p>You see its current limits.</p>
+      </div>
+
+      <div class="sell-cta">
+        <a
+          href="https://slate-silicon.lemonsqueezy.com/"
+          class="content-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Begin the Sprint
+        </a>
+        <p class="sell-cta-note">Printable PDF &nbsp;//&nbsp; No account &nbsp;//&nbsp; Immediate access</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="z">
+  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>

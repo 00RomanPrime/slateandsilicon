@@ -1,168 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Detox Planner — Slate & Silicon</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Detox Protocol — Slate & Silicon</title>
+  <meta name="description" content="A 30-day structured extension of the detox system. Not deeper. Longer.">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
 
   <style>
-    body {
-      background: #f7f7f5;
-      color: #1a1a1a;
-      font-family: sans-serif;
-      line-height: 1.6;
+    /* ── DETOX PROTOCOL SELL PAGE ───────────────────────────
+       Expanse aesthetic. Narrow column. Copy breathes.
+       No feature grids. No urgency. No commerce chrome.
+       Price and CTA at the bottom after the copy lands.
+    ──────────────────────────────────────────────────────── */
+
+    .sell-wrap {
+      max-width: 560px;
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(5rem, 10vw, 8rem);
     }
 
-    .container {
-      max-width: 720px;
-      margin: 80px auto;
-      padding: 0 20px;
+    .sell-tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      display: block;
     }
 
-    h1 {
-      font-size: 2rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 20px;
+    .sell-wrap h1 {
+      margin-bottom: 1rem;
     }
 
-    .sub {
-      opacity: 0.6;
-      font-size: 0.85rem;
+    .sell-sub {
+      font-family: var(--mono);
+      font-size: 0.68rem;
       letter-spacing: 0.12em;
-      margin-bottom: 40px;
+      color: var(--muted);
+      text-transform: uppercase;
+      line-height: 1.75;
+      margin-bottom: clamp(4rem, 8vw, 6rem);
     }
 
-    .block {
-      margin-bottom: 40px;
+    /* Copy blocks — each stands alone, same rhythm as Expanse */
+    .sell-block {
+      margin-bottom: 1.75rem;
     }
 
-    .block p {
-      margin-bottom: 16px;
+    .sell-block p {
+      font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
     }
 
-    .divider {
-      height: 1px;
-      background: rgba(0,0,0,0.1);
-      margin: 60px 0;
+    .sell-block p:last-child { margin-bottom: 0; }
+
+    .sell-block p strong {
+      color: var(--bone);
+      font-weight: 400;
     }
 
-    .cta {
-      margin-top: 60px;
+    /* Divider — same as Expanse break */
+    .sell-rule {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: clamp(2.5rem, 5vw, 4rem) 0;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border: 1px solid #1f4f52;
+    /* CTA block — after all copy, no hurry */
+    .sell-cta {
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+      margin-top: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .sell-cta-note {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
       text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      transition: all 0.2s ease;
+      margin-bottom: 3.5rem;
+      transition: color .2s var(--ease);
     }
 
-    .btn:hover {
-      background: #1f4f52;
-      color: #fff;
-    }
-
-    .quiet {
-      margin-top: 12px;
-      font-size: 0.75rem;
-      opacity: 0.5;
-    }
+    .back-link:hover { color: var(--blue); }
   </style>
 </head>
-
 <body>
 
+<!-- NAV -->
 <nav class="site-nav">
-  <a href="/store/" class="logo">
-    <img src="/logo/logo-dark.svg" alt="Slate & Silicon">
-  </a>
-
-  <ul class="nav-links">
-  </ul>
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
+    </div>
+  </div>
 </nav>
 
-  <div class="container">
+<div class="z">
+  <div class="section">
+    <div class="sell-wrap reveal">
 
-    <h1>THE DETOX PROTOCOL</h1>
-    <div class="sub">A 30-day structured extension of the detox system
-    <br/>
-      Not deeper. Longer.
-    </div>
+      <a href="/" class="back-link">← Slate &amp; Silicon</a>
 
-    <div class="block">
-      <p>
-        The first seven days changed something.
-      </p>
-      <p>
-        Then it starts to return.
-      </p>
-    </div>
+      <span class="sell-tag">30-Day Protocol // Structured Extension</span>
 
-    <div class="block">
-      <p>
-        Old habits don't disappear.
-      </p>
-      <p>
-        <strong>They wait.</strong>
-      </p>
-    </div>
+      <h1>The Detox<br>Protocol.</h1>
 
-    <div class="divider"></div>
-
-    <div class="block">
-      <p>
-        This system extends the window.
+      <p class="sell-sub">
+        A 30-day structured extension of the detox system.<br>
+        Not deeper. Longer.
       </p>
-      <p>
-        <strong>Thirty days.</strong>
-      </p>
-      <p>
-        Long enough to see what actually shifts.  
-      </p>
-    </div>
 
-    <div class="divider"></div>
-    
-    <div class="block">
-      <p>
-        You don't add more rules.
-      </p>
-      <p>
-        You stay with the structure.  
-      </p>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="block">
-      <p>
-        That's where the real signal is.
-      </p>
-    </div>
-
-    <div class="cta">
-      <a 
-        href="https://slate-silicon.lemonsqueezy.com/"
-        class="btn"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Enter the Protocol
-      </a>
-
-      <div class="quiet">
-        Printable PDF · No account · Immediate access
+      <div class="sell-block">
+        <p>The first seven days changed something.</p>
+        <p>Then it starts to return.</p>
       </div>
-    </div>
 
+      <div class="sell-block">
+        <p>Old habits don't disappear.</p>
+        <p><strong>They wait.</strong></p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <div class="sell-block">
+        <p>This system extends the window.</p>
+        <p><strong>Thirty days.</strong></p>
+        <p>Long enough to see what actually shifts.</p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <div class="sell-block">
+        <p>You don't add more rules.</p>
+        <p>You stay with the structure.</p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <div class="sell-block">
+        <p>That's where the real signal is.</p>
+      </div>
+
+      <div class="sell-cta">
+        <a
+          href="https://slate-silicon.lemonsqueezy.com/"
+          class="content-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Enter the Protocol
+        </a>
+        <p class="sell-cta-note">Printable PDF &nbsp;//&nbsp; No account &nbsp;//&nbsp; Immediate access</p>
+      </div>
+
+    </div>
   </div>
+</div>
+
+<footer class="z">
+  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>

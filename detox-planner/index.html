@@ -1,632 +1,545 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Seven days. Three sectors. No screen required. The Slate & Silicon 7-Day Detox Planner — a structured reset for fragmented attention.">
-<title>7-Day Detox Planner — Slate &amp; Silicon</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Seven days. Three sectors. No screen required. The Slate & Silicon 7-Day Detox Planner — a structured reset for fragmented attention.">
+  <title>7-Day Detox Planner — Slate &amp; Silicon</title>
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="/css/styles.css">
- <style>
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
 
-/* ─── RESET ─────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; }
-body {
-  background: #0b0b0b;
-  color: #e8e4dc;
-  font-family: 'Georgia', 'Times New Roman', serif;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
 
-a { color: inherit; text-decoration: none; }
+  <style>
+    /* ── DETOX PLANNER — PAGE LAYER ───────────────────────────
+       Extends styles.css. Uses only brand variables.
+       No hardcoded colors. No font-family overrides.
+    ──────────────────────────────────────────────────────── */
 
-/* ─── LAYOUT ────────────────────────────────── */
-.container {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+    /* TICKER */
+    .ticker-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--line);
+      padding: 0.55rem 0;
+    }
 
-/* ─── NAV ───────────────────────────────────── */
-nav {
-  padding: 1.75rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  max-width: 100%;
-}
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 40s linear infinite;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
 
-.nav-logo img {
-  height: 28px;
-  opacity: 0.9;
-}
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
+    /* HERO */
+    .planner-hero {
+      padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+      border-bottom: 1px solid var(--line);
+    }
 
-.nav-links a {
-  font-family: 'Courier New', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  transition: color 0.2s;
-}
+    .planner-hero h1 {
+      font-size: clamp(3.4rem, 7vw, 6.4rem);
+      max-width: 14ch;
+      margin-bottom: 1.5rem;
+    }
 
-.nav-links a:hover { color: rgba(255,255,255,0.7); }
+    .planner-hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+      text-transform: none;
+      letter-spacing: -0.01em;
+    }
 
-@media (max-width: 520px) {
-  .nav-links { display: none; }
-}
+    .hero-sub {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 48ch;
+      margin-bottom: 2.5rem;
+    }
 
-/* ─── TICKER ────────────────────────────────── */
-.ticker-wrap {
-  overflow: hidden;
-  white-space: nowrap;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  padding: 0.55rem 0;
-}
+    .cta-block {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-.ticker-inner {
-  display: inline-block;
-  animation: ticker 35s linear infinite;
-  font-family: 'Courier New', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  color: rgba(255,255,255,0.18);
-  text-transform: uppercase;
-}
+    .cta-note {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
 
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
+    /* SECTION LABELS — page layer override for plain text labels */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
 
-/* ─── HERO ──────────────────────────────────── */
-.hero {
-  padding: 6rem 0 4rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+    .section-label::before {
+      content: '';
+      width: 2.2rem;
+      height: 1px;
+      background: var(--blue-line);
+    }
 
-.hero-label {
-  font-family: 'Courier New', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.25);
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+    /* SECTORS GRID */
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+      background: var(--line);
+      gap: 1px;
+      margin-bottom: 3rem;
+    }
 
-.hero-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: rgba(255,255,255,0.08);
-  max-width: 120px;
-}
+    @media (max-width: 560px) {
+      .sectors-grid { grid-template-columns: 1fr; }
+    }
 
-.hero-headline {
-  font-size: clamp(2.6rem, 7vw, 4.5rem);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin-bottom: 2rem;
-  color: #ede9e1;
-}
+    .sector-card {
+      background: var(--surface);
+      padding: 1.75rem 1.5rem;
+      transition: background .3s var(--ease);
+    }
 
-.hero-headline em {
-  font-style: italic;
-  color: rgba(237,233,225,0.55);
-}
+    .sector-card:hover {
+      background: rgba(200,160,106,.04);
+    }
 
-.hero-sub {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.42);
-  line-height: 1.75;
-  max-width: 50ch;
-  margin-bottom: 3rem;
-  font-family: 'Courier New', monospace;
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-}
+    .sector-id {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      display: block;
+    }
 
-/* ─── CTA BLOCK ─────────────────────────────── */
-.cta-block {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
+    .sector-name {
+      font-family: var(--display);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      color: var(--bone);
+      margin-bottom: 0.65rem;
+    }
 
-.btn-primary {
-  display: inline-block;
-  padding: 0.9rem 2.2rem;
-  background: #e8e4dc;
-  color: #0b0b0b;
-  font-family: 'Courier New', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: background 0.2s, transform 0.15s;
-  border: none;
-  cursor: pointer;
-}
+    .sector-desc {
+      font-family: var(--body);
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
 
-.btn-primary:hover {
-  background: #fff;
-  transform: translateY(-1px);
-}
+    /* CHANGES LIST */
+    .changes-list {
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
 
-.cta-note {
-  font-family: 'Courier New', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.2);
-  text-transform: uppercase;
-}
+    .changes-list li {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
 
-/* ─── WHAT'S INSIDE ─────────────────────────── */
-.inside-section {
-  padding: 5rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+    .change-marker {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      text-transform: uppercase;
+      min-width: 3.5rem;
+      flex-shrink: 0;
+    }
 
-.section-label {
-  font-family: 'Courier New', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.2);
-  text-transform: uppercase;
-  margin-bottom: 3rem;
-}
+    .change-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
 
-.sectors-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 3rem;
-}
+    /* PROTOCOL GRID */
+    .protocol-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line);
+      background: var(--line);
+      gap: 1px;
+    }
 
-@media (max-width: 560px) {
-  .sectors-grid { grid-template-columns: 1fr; }
-}
+    @media (max-width: 560px) {
+      .protocol-grid { grid-template-columns: 1fr; }
+    }
 
-.sector-card {
-  background: #0b0b0b;
-  padding: 1.75rem 1.5rem;
-}
+    .protocol-card {
+      background: var(--surface);
+      padding: 1.75rem 1.5rem;
+    }
 
-.sector-id {
-  font-family: 'Courier New', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.2);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  display: block;
-}
+    .protocol-num {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
 
-.sector-name {
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 0.6rem;
-  color: #e8e4dc;
-}
+    .protocol-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
 
-.sector-desc {
-  font-family: 'Courier New', monospace;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.3);
-  line-height: 1.65;
-  letter-spacing: 0.02em;
-}
+    /* PULL QUOTE */
+    .quote-block {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      text-align: center;
+      background: rgba(8,9,10,.4);
+    }
 
-/* ─── WHAT CHANGES ──────────────────────────── */
-.changes-list {
-  list-style: none;
-  margin-top: 0;
-}
+    .quote-text {
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 3.5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--muted);
+      max-width: 22ch;
+      margin: 0 auto 1.25rem;
+    }
 
-.changes-list li {
-  display: flex;
-  gap: 1.25rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  align-items: baseline;
-}
+    .quote-text strong {
+      color: var(--bone);
+      font-weight: 700;
+    }
 
-.change-marker {
-  font-family: 'Courier New', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.2);
-  text-transform: uppercase;
-  min-width: 3rem;
-  flex-shrink: 0;
-}
+    .quote-attr {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
 
-.change-text {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.45);
-  line-height: 1.6;
-}
+    /* FINAL CTA */
+    .final-cta {
+      padding: clamp(5rem, 10vw, 8rem) 0;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
 
-/* ─── PROTOCOL BLOCK ────────────────────────── */
-.protocol-section {
-  padding: 5rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+    .final-cta h2 {
+      margin-inline: auto;
+      max-width: 16ch;
+    }
 
-.protocol-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
-}
+    .final-sub {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+      max-width: 40ch;
+    }
 
-@media (max-width: 480px) {
-  .protocol-grid { grid-template-columns: 1fr; }
-}
+    .price-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-.protocol-card {
-  background: #0b0b0b;
-  padding: 1.5rem;
-}
+    .price-tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--slate);
+      text-transform: uppercase;
+      border: 1px solid var(--line-strong);
+      padding: 0.3rem 0.75rem;
+    }
 
-.protocol-num {
-  font-family: 'Courier New', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.18);
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  display: block;
-}
+    .upsell-note {
+      margin-top: 3rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--slate);
+    }
 
-.protocol-text {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.6;
-}
+    .upsell-note a {
+      color: var(--muted);
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 1px;
+      transition: color .2s var(--ease), border-color .2s var(--ease);
+    }
 
-/* ─── PULL QUOTE ────────────────────────────── */
-.quote-block {
-  padding: 5rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  text-align: center;
-}
+    .upsell-note a:hover {
+      color: var(--blue);
+      border-color: var(--blue-line);
+    }
 
-.quote-text {
-  font-size: clamp(1.2rem, 3vw, 1.7rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.45;
-  color: rgba(255,255,255,0.55);
-  max-width: 34ch;
-  margin: 0 auto 1.5rem;
-}
-
-.quote-text strong {
-  color: #e8e4dc;
-  font-weight: 400;
-}
-
-.quote-attr {
-  font-family: 'Courier New', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.18);
-  text-transform: uppercase;
-}
-
-/* ─── FINAL CTA ─────────────────────────────── */
-.final-cta {
-  padding: 6rem 0;
-  text-align: center;
-}
-
-.final-headline {
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 400;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  margin-bottom: 1.25rem;
-  color: #ede9e1;
-}
-
-.final-sub {
-  font-family: 'Courier New', monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 2.5rem;
-  line-height: 1.65;
-  max-width: 42ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.price-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.price-tag {
-  font-family: 'Courier New', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.2);
-  text-transform: uppercase;
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 0.25rem 0.7rem;
-}
-
-/* ─── FOOTER ────────────────────────────────── */
-footer {
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 2.5rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.footer-links a {
-  font-family: 'Courier New', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.2);
-  transition: color 0.2s;
-}
-
-.footer-links a:hover { color: rgba(255,255,255,0.5); }
-
-.footer-copy {
-  font-family: 'Courier New', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.12);
-  text-transform: uppercase;
-}
-
-</style>
+    /* PAGE SECTIONS */
+    .planner-section {
+      padding: clamp(3.5rem, 8vw, 6rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+  </style>
 </head>
 <body>
 
-<!-- ── NAV ──────────────────────────────────────────── -->
-<nav>
-  <a href="/" class="nav-logo">
-    <img src="/logo/logo-light.svg" alt="Slate &amp; Silicon">
-  </a>
-  <ul class="nav-links">
-    <li><a href="/start-here/">Start Here</a></li>
-    <li><a href="/laboratory/">Laboratory</a></li>
-    <li><a href="/store/">The Store</a></li>
-    <li><a href="/about/">About</a></li>
-  </ul>
+<!-- ── NAV ────────────────────────────────────────── -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate &amp; Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/store/">The Store</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
+    </div>
+  </div>
 </nav>
 
-<!-- ── TICKER ────────────────────────────────────────── -->
+<!-- ── TICKER ──────────────────────────────────────── -->
 <div class="ticker-wrap" aria-hidden="true">
   <span class="ticker-inner">
-    Seven days // No apps // No accounts // No noise //
-    Sector 01: Awareness // Sector 02: Reduction // Sector 03: The Expanse //
-    Free download // Print and use // No screen required //
-    Seven days // No apps // No accounts // No noise //
-    Sector 01: Awareness // Sector 02: Reduction // Sector 03: The Expanse //
-    Free download // Print and use // No screen required //
+    Seven days &nbsp;//&nbsp; No apps &nbsp;//&nbsp; No accounts &nbsp;//&nbsp; No noise &nbsp;//&nbsp;
+    Sector 01: Awareness &nbsp;//&nbsp; Sector 02: Reduction &nbsp;//&nbsp; Sector 03: The Expanse &nbsp;//&nbsp;
+    Free download &nbsp;//&nbsp; Print and use &nbsp;//&nbsp; No screen required &nbsp;//&nbsp;
+    Seven days &nbsp;//&nbsp; No apps &nbsp;//&nbsp; No accounts &nbsp;//&nbsp; No noise &nbsp;//&nbsp;
+    Sector 01: Awareness &nbsp;//&nbsp; Sector 02: Reduction &nbsp;//&nbsp; Sector 03: The Expanse &nbsp;//&nbsp;
+    Free download &nbsp;//&nbsp; Print and use &nbsp;//&nbsp; No screen required &nbsp;//&nbsp;
   </span>
 </div>
 
-<!-- ── HERO ──────────────────────────────────────────── -->
-<section class="hero">
-  <div class="container">
-    <p class="hero-label">SYS-04 // Free Download // Print-Ready PDF</p>
-    <h1 class="hero-headline">
-      Seven days.<br>
-      <em>No app required.</em>
-    </h1>
-    <p class="hero-sub">
-      A structured reset for fragmented attention.<br>
-      Three sectors. One analog tool.<br>
-      Run the protocol. Observe what changes.
-    </p>
-    <div class="cta-block">
-      <a href="https://slate-silicon.kit.com/b85027b5ea" class="btn-primary">
-        Get the Free Planner
+<main>
+
+  <!-- ── HERO ──────────────────────────────────────── -->
+  <section class="planner-hero">
+    <div class="container">
+      <p class="eyebrow">SYS-04 // Free Download // Print-Ready PDF</p>
+      <h1>
+        Seven days.<br>
+        <em>No app required.</em>
+      </h1>
+      <p class="hero-sub">
+        A structured reset for fragmented attention.<br>
+        Three sectors. One analog tool.<br>
+        Run the protocol. Observe what changes.
+      </p>
+      <div class="cta-block">
+        <a href="https://slate-silicon.kit.com/b85027b5ea" class="content-cta">
+          Get the Free Planner
+        </a>
+        <span class="cta-note">Free &nbsp;//&nbsp; PDF &nbsp;//&nbsp; No account required</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT'S INSIDE ────────────────────────────── -->
+  <section class="planner-section">
+    <div class="container">
+      <p class="section-label">What's Inside</p>
+
+      <div class="sectors-grid">
+        <div class="sector-card">
+          <span class="sector-id">Sector 01</span>
+          <p class="sector-name">Awareness</p>
+          <p class="sector-desc">
+            Map where your attention actually goes.
+            Track your inputs before you try to reduce them.
+            You cannot reduce what you cannot see.
+          </p>
+        </div>
+        <div class="sector-card">
+          <span class="sector-id">Sector 02</span>
+          <p class="sector-name">Reduction</p>
+          <p class="sector-desc">
+            Remove one input per day.
+            No overhaul. No willpower required.
+            Friction reduces automatically when inputs are removed.
+          </p>
+        </div>
+        <div class="sector-card">
+          <span class="sector-id">Sector 03</span>
+          <p class="sector-name">The Expanse</p>
+          <p class="sector-desc">
+            One hour daily. No screen. No agenda.
+            Observe what comes back when the noise is gone.
+            This is not productivity. It is recovery.
+          </p>
+        </div>
+      </div>
+
+      <p class="section-label" style="margin-top: 3.5rem;">What changes in 7 days</p>
+      <ul class="changes-list">
+        <li>
+          <span class="change-marker">Day 01</span>
+          <span class="change-text">You notice how often you reach for the phone without a reason.</span>
+        </li>
+        <li>
+          <span class="change-marker">Day 02</span>
+          <span class="change-text">The phantom check reflex becomes visible for the first time.</span>
+        </li>
+        <li>
+          <span class="change-marker">Day 03</span>
+          <span class="change-text">Silence starts to feel less like absence and more like space.</span>
+        </li>
+        <li>
+          <span class="change-marker">Day 04</span>
+          <span class="change-text">Your attention starts to settle before switching. This is the baseline returning.</span>
+        </li>
+        <li>
+          <span class="change-marker">Day 05</span>
+          <span class="change-text">The urge to fill every gap decreases. You can sit with an unfinished thought.</span>
+        </li>
+        <li>
+          <span class="change-marker">Day 06</span>
+          <span class="change-text">Work blocks feel longer. They are not. Your ability to stay in them has changed.</span>
+        </li>
+        <li>
+          <span class="change-marker">Day 07</span>
+          <span class="change-text">You have a baseline. The real work starts here.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── THE PROTOCOL ──────────────────────────────── -->
+  <section class="planner-section">
+    <div class="container">
+      <p class="section-label">The Protocol</p>
+      <div class="protocol-grid">
+        <div class="protocol-card">
+          <span class="protocol-num">Step 01 // Print</span>
+          <p class="protocol-text">
+            Download the PDF. Print it.
+            This is an analog tool deliberately.
+            No app. No screen. No notifications pulling you back in.
+          </p>
+        </div>
+        <div class="protocol-card">
+          <span class="protocol-num">Step 02 // Run</span>
+          <p class="protocol-text">
+            Follow the daily prompts across all three sectors.
+            One page per day. Five minutes of logging.
+            The work happens in the hours between.
+          </p>
+        </div>
+        <div class="protocol-card">
+          <span class="protocol-num">Step 03 // Observe</span>
+          <p class="protocol-text">
+            Do not try to fix anything in the first three days.
+            Observe only. The data you collect determines what needs changing.
+          </p>
+        </div>
+        <div class="protocol-card">
+          <span class="protocol-num">Step 04 // Report</span>
+          <p class="protocol-text">
+            At Day 7 you have a baseline.
+            Bring your findings to The Laboratory.
+            The next phase begins with that data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PULL QUOTE ────────────────────────────────── -->
+  <section class="quote-block">
+    <div class="container">
+      <p class="quote-text">
+        Most people don't have a discipline problem.<br>
+        <strong>They have a recovery problem.</strong>
+      </p>
+      <p class="quote-attr">Slate &amp; Silicon &nbsp;//&nbsp; Core Principle</p>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ─────────────────────────────────── -->
+  <section class="final-cta">
+    <div class="container">
+      <p class="eyebrow" style="justify-content: center;">Issued Tool</p>
+      <h2>The lab is open.<br>Start the reset.</h2>
+      <p class="final-sub">
+        Seven days. Three sectors. One analog tool.<br>
+        No subscription. No account. No noise.
+      </p>
+      <a href="https://slate-silicon.kit.com/b85027b5ea" class="content-cta">
+        Download the Free Planner
       </a>
-      <span class="cta-note">Free // PDF // No account required</span>
+      <div class="price-note">
+        <span class="price-tag">Free // PDF</span>
+        <span class="price-tag">Print &amp; Use</span>
+        <span class="price-tag">No Screen Required</span>
+      </div>
+      <p class="upsell-note">
+        Ready for the full system?
+        <a href="/store/detox-planner/">The 30-Day Protocol →</a>
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── WHAT'S INSIDE ──────────────────────────────────── -->
-<section class="inside-section">
-  <div class="container">
-    <p class="section-label">// What's Inside</p>
+</main>
 
-    <div class="sectors-grid">
-      <div class="sector-card">
-        <span class="sector-id">Sector 01</span>
-        <p class="sector-name">Awareness</p>
-        <p class="sector-desc">
-          Map where your attention actually goes.
-          Track your inputs before you try to reduce them.
-          You cannot reduce what you cannot see.
-        </p>
-      </div>
-      <div class="sector-card">
-        <span class="sector-id">Sector 02</span>
-        <p class="sector-name">Reduction</p>
-        <p class="sector-desc">
-          Remove one input per day.
-          No overhaul. No willpower required.
-          Friction reduces automatically when inputs are removed.
-        </p>
-      </div>
-      <div class="sector-card">
-        <span class="sector-id">Sector 03</span>
-        <p class="sector-name">The Expanse</p>
-        <p class="sector-desc">
-          One hour daily. No screen. No agenda.
-          Observe what comes back when the noise is gone.
-          This is not productivity. It is recovery.
-        </p>
-      </div>
-    </div>
-
-    <p class="section-label" style="margin-bottom:1.5rem; margin-top:3rem;">// What changes in 7 days</p>
-    <ul class="changes-list">
-      <li>
-        <span class="change-marker">Day 01</span>
-        <span class="change-text">You notice how often you reach for the phone without a reason.</span>
-      </li>
-      <li>
-        <span class="change-marker">Day 02</span>
-        <span class="change-text">The phantom check reflex becomes visible for the first time.</span>
-      </li>
-      <li>
-        <span class="change-marker">Day 03</span>
-        <span class="change-text">Silence starts to feel less like absence and more like space.</span>
-      </li>
-      <li>
-        <span class="change-marker">Day 04</span>
-        <span class="change-text">Your attention starts to settle before switching. This is the baseline returning.</span>
-      </li>
-      <li>
-        <span class="change-marker">Day 05</span>
-        <span class="change-text">The urge to fill every gap decreases. You can sit with an unfinished thought.</span>
-      </li>
-      <li>
-        <span class="change-marker">Day 06</span>
-        <span class="change-text">Work blocks feel longer. They are not. Your ability to stay in them has changed.</span>
-      </li>
-      <li>
-        <span class="change-marker">Day 07</span>
-        <span class="change-text">You have a baseline. The real work starts here.</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ── HOW IT WORKS ───────────────────────────────────── -->
-<section class="protocol-section">
-  <div class="container">
-    <p class="section-label">// The Protocol</p>
-    <div class="protocol-grid">
-      <div class="protocol-card">
-        <span class="protocol-num">Step 01 // Print</span>
-        <p class="protocol-text">
-          Download the PDF. Print it.
-          This is an analog tool deliberately.
-          No app. No screen. No notifications pulling you back in.
-        </p>
-      </div>
-      <div class="protocol-card">
-        <span class="protocol-num">Step 02 // Run</span>
-        <p class="protocol-text">
-          Follow the daily prompts across all three sectors.
-          One page per day. Five minutes of logging.
-          The work happens in the hours between.
-        </p>
-      </div>
-      <div class="protocol-card">
-        <span class="protocol-num">Step 03 // Observe</span>
-        <p class="protocol-text">
-          Do not try to fix anything in the first three days.
-          Observe only. The data you collect determines what needs changing.
-        </p>
-      </div>
-      <div class="protocol-card">
-        <span class="protocol-num">Step 04 // Report</span>
-        <p class="protocol-text">
-          At Day 7 you have a baseline.
-          Bring your findings to The Laboratory.
-          The next phase begins with that data.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PULL QUOTE ─────────────────────────────────────── -->
-<section class="quote-block">
-  <div class="container">
-    <p class="quote-text">
-      Most people don't have a discipline problem.<br>
-      <strong>They have a recovery problem.</strong>
-    </p>
-    <p class="quote-attr">Slate &amp; Silicon // Core Principle</p>
-  </div>
-</section>
-
-<!-- ── FINAL CTA ──────────────────────────────────────── -->
-<section class="final-cta">
-  <div class="container">
-    <h2 class="final-headline">
-      The lab is open.<br>Start the reset.
-    </h2>
-    <p class="final-sub">
-      Seven days. Three sectors. One analog tool.<br>
-      No subscription. No account. No noise.
-    </p>
-    <a href="https://slate-silicon.kit.com/b85027b5ea" class="btn-primary">
-      Download the Free Planner
-    </a>
-    <div class="price-note">
-      <span class="price-tag">Free // PDF</span>
-      <span class="price-tag">Print &amp; Use</span>
-      <span class="price-tag">No Screen Required</span>
-    </div>
-
-    <p style="margin-top:3rem; font-family:'Courier New',monospace; font-size:0.7rem; letter-spacing:0.06em; color:rgba(255,255,255,0.2);">
-      Ready for the full system?
-      <a href="/store/detox-planner/" style="color:rgba(255,255,255,0.4); border-bottom:1px solid rgba(255,255,255,0.15); padding-bottom:1px;">
-        The 30-Day Protocol →
-      </a>
-    </p>
-  </div>
-</section>
-
-<!-- ── FOOTER ─────────────────────────────────────────── -->
-<footer>
-  <div class="footer-links">
-    <a href="https://www.instagram.com/slate.silicon/">Instagram</a>
-    <a href="https://www.facebook.com/slate.silicon/">Facebook</a>
-    <a href="https://tiktok.com/@slate.silicon">TikTok</a>
-    <a href="https://www.youtube.com/@slate.silicon">YouTube</a>
-    <a href="https://www.pinterest.com/slateandsilicon/">Pinterest</a>
-    <a href="/privacy/">Privacy</a>
-    <a href="/terms/">Terms</a>
-    <a href="/contact/">Contact</a>
-  </div>
+<!-- ── FOOTER ────────────────────────────────────── -->
+<footer class="site-footer">
+  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/">Pinterest</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
   <p class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</p>
 </footer>
 

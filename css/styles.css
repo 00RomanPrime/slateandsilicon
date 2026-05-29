@@ -17,9 +17,12 @@
   --slate: #676d70;
   --line: rgba(232, 226, 214, 0.13);
   --line-strong: rgba(232, 226, 214, 0.26);
-  --blue: #7fa7b8;
-  --blue-dim: rgba(127, 167, 184, 0.12);
-  --blue-line: rgba(127, 167, 184, 0.34);
+  --blue: #c8a06a;          /* was: #7fa7b8 — amber becomes primary */
+  --blue-dim: rgba(200, 160, 106, 0.10);
+  --blue-line: rgba(200, 160, 106, 0.38);
+  --cyan: #7fa7b8;          /* add this — retain cyan for lab layer only */
+  --cyan-dim: rgba(127, 167, 184, 0.12);
+  --cyan-line: rgba(127, 167, 184, 0.34);
   --warning: #c8a06a;
   --grid: rgba(232, 226, 214, 0.045);
 

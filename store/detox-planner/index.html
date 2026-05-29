@@ -108,6 +108,17 @@
     }
 
     .back-link:hover { color: var(--blue); }
+
+    /* Suppress grid, glows, and grain — Expanse register is still and flat */
+    body {
+      background-image: none;
+      background-color: var(--bunker);
+    }
+
+    body::before,
+    body::after {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -215,3 +226,4 @@
 
 </body>
 </html>
+<!-- override applied at end intentionally -->

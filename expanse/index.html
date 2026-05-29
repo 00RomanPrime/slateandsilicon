@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Expanse — Slate & Silicon</title>
+  <meta name="description" content="What's on the other side of the noise. Not a protocol. Not a product. The thing the whole system is pointing toward.">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
+  <style>
+    /* ── THE EXPANSE — PAGE LAYER ──────────────────────────
+       Founder voice. Editorial register.
+       Long-form. No protocol. No product.
+       Narrower measure for reading comfort.
+       Amber throughout. No cyan.
+    ──────────────────────────────────────────────────────── */
+
+    .expanse-hero {
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+      border-bottom: 1px solid var(--line);
+      max-width: 760px;
+    }
+
+    .expanse-hero h1 {
+      margin-bottom: 2rem;
+    }
+
+    .expanse-hero .lede {
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 52ch;
+      font-weight: 300;
+    }
+
+    /* ESSAY BODY */
+    .expanse-body {
+      max-width: 640px;
+      padding: clamp(4rem, 8vw, 6rem) 0;
+    }
+
+    .expanse-body p {
+      font-size: clamp(1rem, 1.4vw, 1.12rem);
+      color: #c0b8ae;
+      line-height: 1.9;
+      margin-bottom: 1.85rem;
+      font-weight: 300;
+    }
+
+    .expanse-body p:last-child { margin-bottom: 0; }
+
+    .expanse-body strong {
+      color: var(--bone);
+      font-weight: 400;
+    }
+
+    .expanse-body em {
+      font-style: italic;
+      color: var(--bone);
+    }
+
+    /* Section break within essay */
+    .expanse-break {
+      display: block;
+      width: 2.2rem;
+      height: 1px;
+      background: var(--blue-line);
+      margin: 3rem 0;
+    }
+
+    /* Pull statement — short blunt line mid-essay */
+    .expanse-pull {
+      font-family: var(--display);
+      font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--bone);
+      margin: 3.5rem 0;
+      max-width: 18ch;
+    }
+
+    /* Closing note — quieter, pulls back */
+    .expanse-closing {
+      border-top: 1px solid var(--line);
+      padding-top: 3rem;
+      margin-top: 1rem;
+    }
+
+    .expanse-closing p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .expanse-closing p:last-child { margin-bottom: 0; }
+
+    /* Footer CTA — quieter than usual, no hard sell */
+    .expanse-footer-cta {
+      border-top: 1px solid var(--line);
+      padding: clamp(4rem, 8vw, 6rem) 0;
+    }
+
+    .expanse-footer-cta p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 48ch;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/store/">The Store</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero z">
+  <p class="tag">The Expanse // Beyond the Screen</p>
+  <h1>What comes<br>back.</h1>
+  <p class="body-text">Not a protocol. Not a product. The thing the whole system is pointing toward.</p>
+</div>
+
+<!-- TICKER -->
+<div class="ticker z">
+  <div class="ticker-track">
+    <span class="ticker-item">Nothing optimized <b>//</b></span>
+    <span class="ticker-item">Nothing tracked <b>//</b></span>
+    <span class="ticker-item">No agenda <b>//</b></span>
+    <span class="ticker-item">One hour <b>//</b></span>
+    <span class="ticker-item">No screen <b>//</b></span>
+    <span class="ticker-item">Observe what returns <b>//</b></span>
+    <span class="ticker-item">Nothing optimized <b>//</b></span>
+    <span class="ticker-item">Nothing tracked <b>//</b></span>
+    <span class="ticker-item">No agenda <b>//</b></span>
+    <span class="ticker-item">One hour <b>//</b></span>
+    <span class="ticker-item">No screen <b>//</b></span>
+    <span class="ticker-item">Observe what returns <b>//</b></span>
+  </div>
+</div>
+
+<!-- ESSAY -->
+<div class="z">
+  <div class="section">
+
+    <div class="expanse-hero reveal">
+      <p class="tag">Filed by the founder</p>
+      <p class="lede">
+        The experiments are designed to reduce what's running you.
+        The planner is designed to show you what's left when they do.
+        But neither of those is the point.
+        The point is what you find in the space they clear.
+      </p>
+    </div>
+
+    <div class="expanse-body reveal">
+
+      <p>
+        There's a specific kind of afternoon I remember from before all of this.
+        Before the phone was always in my hand. Before the tab count climbed past thirty
+        and stayed there. Before I stopped being able to sit somewhere without
+        reaching for something to look at.
+      </p>
+
+      <p>
+        I'm talking about the kind of afternoon where nothing was asking for you.
+        Where time moved at a different speed. Where a thought could finish itself
+        before another one interrupted it. Where boredom was just boredom —
+        not a problem to be solved with a device.
+      </p>
+
+      <p>
+        I used to think I was remembering something specific to my generation.
+        That Gen X nostalgia — before the internet followed us home,
+        before it became the room we never left.
+        But I don't think that's what it is anymore.
+      </p>
+
+      <span class="expanse-break"></span>
+
+      <p>
+        I think what I was remembering is what a mind feels like
+        when nothing external is running it.
+        When your thoughts are yours.
+        When attention isn't being harvested from you
+        by something you didn't design and can't fully see.
+      </p>
+
+      <p>
+        That's what we call The Expanse.
+        Not a philosophy. Not a brand concept.
+        Just an honest name for the thing that's missing —
+        and what it feels like when it starts to come back.
+      </p>
+
+      <div class="expanse-pull">
+        The noise isn't neutral. Silence isn't empty.
+      </div>
+
+      <p>
+        The first time most people run an experiment from the Laboratory,
+        they expect to feel productive. More focused. Cleaner.
+        What they actually report — in the early hours of a notification fast,
+        in the first screen-free morning — is discomfort.
+        A low-grade agitation. The urge to check something.
+        The feeling that they're missing information they probably need.
+      </p>
+
+      <p>
+        They're not missing anything. That feeling is withdrawal.
+        And it passes. Usually within the first two hours.
+        What's on the other side of it isn't productivity.
+      </p>
+
+      <p>
+        It's quieter than that.
+      </p>
+
+      <span class="expanse-break"></span>
+
+      <p>
+        People describe it differently. Some say they notice things they'd stopped noticing —
+        the way light moves in a room in the afternoon, sounds outside,
+        thoughts that weren't urgent but were interesting.
+        Some say they feel vaguely sad at first, then something loosens.
+        Some say they picked up a book and read it for an hour without looking up
+        and couldn't remember the last time that had happened.
+      </p>
+
+      <p>
+        None of these are productivity outcomes.
+        You can't measure them. You can't optimize for them.
+        They don't show up in a before-and-after chart.
+      </p>
+
+      <p>
+        But they're why everything else here exists.
+      </p>
+
+      <p>
+        <strong>The Laboratory runs experiments to interrupt patterns.</strong>
+        The Detox Planner creates seven days of structured reduction.
+        The Log tracks what the data shows week to week.
+        All of it — every protocol, every experiment, every piece of this system —
+        is just scaffolding built to clear enough space
+        for The Expanse to become visible.
+      </p>
+
+      <span class="expanse-break"></span>
+
+      <p>
+        I had a conversation with someone who had finished the 7-day planner.
+        She said the most surprising thing wasn't what she stopped doing.
+        It was what she started noticing she wanted to do.
+        Things she'd had intentions about for years that had never survived contact
+        with an evening of scrolling.
+      </p>
+
+      <p>
+        Writing. Not posting — writing, for no one, in a notebook.
+        Cooking something that took longer than it needed to.
+        Sitting outside after dinner without a phone.
+        <em>Just sitting.</em> Which sounds like nothing until you realize
+        you haven't done it in three years.
+      </p>
+
+      <p>
+        She didn't use the word recovery. But that's what it was.
+        The return of something she hadn't even consciously missed
+        because the absence had become so normal.
+      </p>
+
+      <div class="expanse-pull">
+        You don't notice the weight until you put it down.
+      </div>
+
+      <p>
+        I'm not going to tell you The Expanse looks the same for everyone.
+        It doesn't. It's not a destination — it's more like a condition.
+        A state the mind returns to when the load is reduced far enough.
+      </p>
+
+      <p>
+        For some people it's creative. Ideas surface that the noise had been crowding out.
+        For some it's relational — they find themselves actually present
+        in conversations instead of half-somewhere-else.
+        For some it's just rest. Real rest. Not scrolling until they fall asleep
+        but actually stopping, being still, and feeling the day end.
+      </p>
+
+      <p>
+        For me it was that afternoon light. The kind of afternoon I thought I'd lost.
+        It came back. Not all at once — slowly, in the gaps the experiments created.
+        And then I started protecting those gaps instead of filling them.
+      </p>
+
+      <span class="expanse-break"></span>
+
+      <div class="expanse-closing">
+        <p>
+          There's nothing to buy on this page.
+          No tool that gets you here directly.
+          The experiments reduce the noise.
+          The planner builds the baseline.
+          The rest is yours.
+        </p>
+        <p>
+          That's the whole point.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- QUIET FOOTER CTA -->
+    <div class="expanse-footer-cta reveal">
+      <p class="tag">If you haven't started</p>
+      <p>The Detox Planner is where most people begin. Seven days. Three sectors. No screen required. It won't get you to The Expanse directly — but it clears enough ground that you start to see it.</p>
+      <a href="/detox-planner/" class="content-cta">Start with the Planner</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="z">
+  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -5,28 +5,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Use — Slate & Silicon</title>
   <meta name="description" content="Slate & Silicon terms of use. Plain language, no unnecessary legal complexity.">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
   <style>
-    .legal-layout { display:grid; grid-template-columns:1fr 260px; gap:5rem; align-items:start; }
-    .legal-body h2 { font-size:1.3rem; margin:2.5rem 0 0.75rem; }
-    .legal-body h2:first-of-type { margin-top:0; }
-    .legal-body p { font-size:0.9rem; color:var(--muted); line-height:1.85; margin-bottom:1rem; }
-    .legal-body p strong { color:var(--white); font-weight:400; }
-    .legal-body ul { list-style:none; margin:0 0 1rem; padding:0; }
-    .legal-body ul li { font-size:0.9rem; color:var(--muted); line-height:1.75; padding:0.35rem 0; border-bottom:1px solid rgba(176,212,222,0.05); display:flex; gap:0.65rem; }
-    .legal-body ul li:last-child { border-bottom:none; }
-    .legal-body ul li::before { content:'→'; color:var(--cyan); flex-shrink:0; }
-    .legal-sidebar { position:sticky; top:6rem; }
-    .sidebar-block { border:1px solid var(--cyan-border); padding:1.5rem; margin-bottom:1.5rem; }
-    .sidebar-title { font-family:var(--mono); font-size:0.52rem; color:var(--cyan); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1.25rem; padding-bottom:0.75rem; border-bottom:1px solid rgba(176,212,222,0.08); }
-    .sidebar-nav-link { display:block; font-family:var(--mono); font-size:0.52rem; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:0.6rem 0; border-bottom:1px solid rgba(176,212,222,0.05); transition:color 0.2s; }
-    .sidebar-nav-link:last-child { border-bottom:none; }
-    .sidebar-nav-link:hover { color:var(--cyan); }
-    .updated { font-family:var(--mono); font-size:0.52rem; color:var(--slate); letter-spacing:0.08em; margin-bottom:2.5rem; display:block; }
-    @media (max-width:900px) { .legal-layout { grid-template-columns:1fr; } .legal-sidebar { position:static; } }
+    /* ── TERMS — PAGE LAYER ────────────────────────────────
+       Legal page. Identical treatment to Privacy.
+       Amber throughout. No cyan. No ticker.
+    ──────────────────────────────────────────────────────── */
+
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .legal-body h2 {
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      margin: 2.5rem 0 0.75rem;
+      letter-spacing: -0.015em;
+    }
+
+    .legal-body h2:first-of-type { margin-top: 0; }
+
+    .legal-body p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .legal-body p strong { color: var(--white); font-weight: 400; }
+
+    .legal-body ul {
+      list-style: none;
+      margin: 0 0 1rem;
+      padding: 0;
+    }
+
+    .legal-body ul li {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.75;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 0.65rem;
+    }
+
+    .legal-body ul li:last-child { border-bottom: none; }
+
+    .legal-body ul li::before {
+      content: '→';
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .legal-body a {
+      color: var(--blue);
+      border-bottom: 1px solid var(--blue-line);
+      padding-bottom: 1px;
+      transition: border-color .2s var(--ease);
+    }
+
+    .legal-body a:hover { border-color: var(--blue); }
+
+    .updated {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--slate);
+      letter-spacing: 0.1em;
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    .legal-sidebar { position: sticky; top: 6rem; }
+
+    .sidebar-block {
+      border: 1px solid var(--line);
+      background: rgba(232,226,214,.016);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-title {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--blue);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sidebar-nav-link {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--line);
+      transition: color .2s var(--ease);
+    }
+
+    .sidebar-nav-link:last-child { border-bottom: none; }
+    .sidebar-nav-link:hover { color: var(--blue); }
+    .sidebar-nav-link.active { color: var(--blue); }
+
+    .sidebar-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .sidebar-contact-link {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.75rem;
+      display: inline-block;
+      transition: opacity .2s var(--ease);
+    }
+
+    .sidebar-contact-link:hover { opacity: .72; }
+
+    @media (max-width: 900px) {
+      .legal-layout { grid-template-columns: 1fr; }
+      .legal-sidebar { position: static; }
+    }
   </style>
 </head>
 <body>
@@ -34,39 +154,29 @@
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-container">
-
     <a href="/" class="logo">
       <img src="/logo/logo-light.svg" alt="Slate & Silicon">
     </a>
-
     <div class="nav-right">
       <ul class="nav-links">
-	    </ul>
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/store/">The Store</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
     </div>
   </div>
 </nav>
 
+<!-- PAGE HERO -->
 <div class="page-hero z">
   <p class="tag">Legal // Terms</p>
   <h1>Terms of<br>Use.</h1>
   <p class="body-text">Plain language. No unnecessary complexity. If you use this site or buy something from us, here's what you're agreeing to.</p>
 </div>
 
-<div class="ticker z">
-  <div class="ticker-track">
-    <span class="ticker-item">Plain language <b>//</b></span>
-    <span class="ticker-item">No unnecessary complexity <b>//</b></span>
-    <span class="ticker-item">30-day refund policy <b>//</b></span>
-    <span class="ticker-item">Personal use only <b>//</b></span>
-    <span class="ticker-item">Don't resell our stuff <b>//</b></span>
-    <span class="ticker-item">Plain language <b>//</b></span>
-    <span class="ticker-item">No unnecessary complexity <b>//</b></span>
-    <span class="ticker-item">30-day refund policy <b>//</b></span>
-    <span class="ticker-item">Personal use only <b>//</b></span>
-    <span class="ticker-item">Don't resell our stuff <b>//</b></span>
-  </div>
-</div>
-
+<!-- MAIN -->
 <div class="z">
   <div class="section">
     <div class="legal-layout">
@@ -102,39 +212,43 @@
         <p>We may update these terms occasionally. If we make significant changes we'll note it in The Log. Continued use of the site after changes constitutes acceptance of the updated terms.</p>
 
         <h2>Questions</h2>
-        <p>If anything here is unclear or you have a specific question, <strong><a href="/contact/" style="color:var(--cyan); text-decoration:none;">contact us.</a></strong> We'd rather just talk it through.</p>
+        <p>If anything here is unclear or you have a specific question, <strong><a href="/contact/">contact us.</a></strong> We'd rather just talk it through.</p>
       </div>
 
       <aside class="legal-sidebar reveal">
+
         <div class="sidebar-block">
-          <p class="sidebar-title">// Legal Pages</p>
+          <p class="sidebar-title">Legal Pages</p>
           <a href="/privacy/" class="sidebar-nav-link">Privacy Policy</a>
-          <a href="/terms/" class="sidebar-nav-link" style="color:var(--cyan);">Terms of Use</a>
+          <a href="/terms/" class="sidebar-nav-link active">Terms of Use</a>
           <a href="/contact/" class="sidebar-nav-link">Contact</a>
         </div>
+
         <div class="sidebar-block">
-          <p class="sidebar-title">// Key Points</p>
-          <p style="font-size:0.75rem; color:var(--muted); line-height:1.7;">Personal use only. 30-day refunds. Don't resell our work. Don't spam our content. Everything else is common sense.</p>
+          <p class="sidebar-title">Key Points</p>
+          <p class="sidebar-note">Personal use only. 30-day refunds. Don't resell our work. Don't spam our content. Everything else is common sense.</p>
         </div>
+
         <div class="sidebar-block">
-          <p class="sidebar-title">// Refunds</p>
-          <p style="font-size:0.75rem; color:var(--muted); line-height:1.7; margin-bottom:0.75rem;">30-day no-questions-asked refund on all paid products.</p>
-          <a href="/contact/" style="font-family:var(--mono); font-size:0.52rem; color:var(--cyan); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">→ Contact us</a>
+          <p class="sidebar-title">Refunds</p>
+          <p class="sidebar-note" style="margin-bottom:0.75rem;">30-day no-questions-asked refund on all paid products.</p>
+          <a href="/contact/" class="sidebar-contact-link">→ Contact us</a>
         </div>
+
       </aside>
 
     </div>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="z">
   <a href="/" class="footer-logo">Slate &amp; Silicon</a>
-      <ul class="footer-links">
+  <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
-    <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/terms/">Terms</a></li>
@@ -149,5 +263,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
 </body>
 </html>

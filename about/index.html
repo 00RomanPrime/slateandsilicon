@@ -5,11 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About / Manifesto — Slate & Silicon</title>
   <meta name="description" content="We didn't lose our focus. It was engineered out of us. The Slate & Silicon manifesto — why we exist, who we're for, and what we're building.">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">  
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
   <style>
+    /* ── ABOUT / MANIFESTO — PAGE LAYER ────────────────────
+       Amber throughout. No cyan.
+       Timeline years, belief nums, for-checks — all amber.
+       Pullquote and lead borders — amber.
+    ──────────────────────────────────────────────────────── */
 
     .manifesto-hero {
       min-height: 80vh;
@@ -24,23 +34,25 @@
     .manifesto-hero h1 {
       font-family: var(--display);
       font-weight: 900;
-      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-size: clamp(3.4rem, 9vw, 8rem);
       line-height: 0.9;
       text-transform: uppercase;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       max-width: 14ch;
       margin-bottom: 2rem;
       animation: up 0.7s ease both 0.15s;
     }
 
+    /* Lead — amber left border */
     .manifesto-hero .lead {
-      font-size: 1.15rem;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
       color: var(--muted);
       max-width: 58ch;
       line-height: 1.8;
       animation: up 0.7s ease both 0.3s;
-      border-left: 2px solid var(--cyan);
+      border-left: 2px solid var(--blue);
       padding-left: 1.5rem;
+      font-weight: 300;
     }
 
     @keyframes up {
@@ -51,28 +63,27 @@
     .manifesto-body { max-width: 680px; }
 
     .manifesto-body p {
-      font-size: 1rem;
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
       color: var(--muted);
       line-height: 1.9;
       margin-bottom: 1.75rem;
+      font-weight: 300;
     }
 
-    .manifesto-body p strong {
-      color: var(--white);
-      font-weight: 400;
-    }
+    .manifesto-body p strong { color: var(--white); font-weight: 400; }
 
+    /* Pullquote — amber left border */
     .pullquote {
       font-family: var(--display);
       font-weight: 700;
-      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
       text-transform: uppercase;
-      line-height: 1.1;
+      line-height: 1.05;
       color: var(--white);
-      letter-spacing: 0.02em;
+      letter-spacing: -0.015em;
       margin: 3rem 0;
       padding-left: 1.5rem;
-      border-left: 2px solid var(--cyan);
+      border-left: 2px solid var(--blue);
     }
 
     .about-layout {
@@ -82,22 +93,30 @@
       align-items: start;
     }
 
+    /* Beliefs grid — amber border */
     .beliefs {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1px;
-      background: var(--cyan-border);
-      border: 1px solid var(--cyan-border);
+      background: var(--line);
+      border: 1px solid var(--line);
       margin-top: 2.5rem;
     }
 
-    .belief-card { background: var(--bunker); padding: 2rem; }
+    .belief-card {
+      background: var(--bunker);
+      padding: 2rem;
+      transition: background .25s var(--ease);
+    }
 
+    .belief-card:hover { background: var(--surface); }
+
+    /* Belief numbers — amber */
     .belief-num {
       font-family: var(--mono);
-      font-size: 0.5rem;
-      color: var(--cyan);
-      letter-spacing: 0.12em;
+      font-size: 0.55rem;
+      color: var(--blue);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 0.85rem;
     }
@@ -107,14 +126,15 @@
       font-weight: 700;
       font-size: 1.05rem;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: -0.01em;
       color: var(--white);
       margin-bottom: 0.65rem;
       line-height: 1.2;
     }
 
-    .belief-expand { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+    .belief-expand { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
+    /* Who it's for list */
     .for-list { list-style: none; margin-top: 2rem; }
 
     .for-item {
@@ -122,14 +142,21 @@
       grid-template-columns: auto 1fr;
       gap: 1rem;
       padding: 1.1rem 0;
-      border-bottom: 1px solid rgba(176,212,222,0.07);
+      border-bottom: 1px solid var(--line);
       align-items: start;
     }
+
     .for-item:last-child { border-bottom: none; }
 
-    .for-check { font-family: var(--mono); font-size: 0.6rem; color: var(--cyan); padding-top: 2px; }
+    /* Check arrows — amber */
+    .for-check {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--blue);
+      padding-top: 2px;
+    }
 
-    .for-text { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .for-text { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
     .for-text strong {
       color: var(--white);
@@ -139,22 +166,23 @@
       font-family: var(--display);
       font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: -0.01em;
     }
 
+    /* Not-for block — amber border */
     .not-block {
       background: var(--surface2);
-      border: 1px solid var(--cyan-border);
-      border-left: 2px solid rgba(176,212,222,0.3);
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--blue-line);
       padding: 1.75rem;
       margin-top: 2.5rem;
     }
 
     .not-title {
       font-family: var(--mono);
-      font-size: 0.52rem;
+      font-size: 0.58rem;
       color: var(--slate);
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
@@ -163,58 +191,91 @@
 
     .not-list li {
       font-family: var(--mono);
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       color: var(--slate);
       letter-spacing: 0.04em;
       display: flex;
       align-items: center;
       gap: 0.65rem;
     }
-    .not-list li::before { content: '✕'; color: rgba(176,212,222,0.25); }
 
+    /* ✕ mark — muted, not cyan */
+    .not-list li::before { content: '✕'; color: var(--slate); }
+
+    /* Sidebar */
     .about-sidebar { position: sticky; top: 6rem; }
 
-    .sidebar-block { border: 1px solid var(--cyan-border); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .sidebar-block {
+      border: 1px solid var(--line);
+      background: rgba(232,226,214,.016);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
 
     .sidebar-title {
       font-family: var(--mono);
-      font-size: 0.52rem;
-      color: var(--cyan);
-      letter-spacing: 0.12em;
+      font-size: 0.58rem;
+      color: var(--blue);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(176,212,222,0.08);
+      border-bottom: 1px solid var(--line);
     }
 
+    /* Timeline — amber years */
     .tl-item {
       display: grid;
       grid-template-columns: 48px 1fr;
       gap: 0.85rem;
       padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(176,212,222,0.05);
+      border-bottom: 1px solid var(--line);
       align-items: start;
     }
+
     .tl-item:last-child { border-bottom: none; }
 
-    .tl-year { font-family: var(--mono); font-size: 0.52rem; color: var(--cyan); letter-spacing: 0.06em; padding-top: 2px; }
-    .tl-text { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+    .tl-year {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      color: var(--blue);
+      letter-spacing: 0.06em;
+      padding-top: 2px;
+    }
 
+    .tl-text { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+    /* Platform grid — amber hover */
     .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
 
     .platform-link {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.55rem;
       color: var(--muted);
       letter-spacing: 0.07em;
       text-transform: uppercase;
       text-decoration: none;
-      border: 1px solid rgba(176,212,222,0.08);
+      border: 1px solid var(--line);
       padding: 6px 8px;
-      transition: all 0.2s;
+      transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
       text-align: center;
     }
-    .platform-link:hover { color: var(--cyan); border-color: var(--cyan-border); background: var(--cyan-dim); }
+
+    .platform-link:hover {
+      color: var(--blue);
+      border-color: var(--blue-line);
+      background: var(--blue-dim);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
 
     @media (max-width: 900px) {
       .about-layout { grid-template-columns: 1fr; }
@@ -229,33 +290,31 @@
 </head>
 <body>
 
-<!--NAV-->
+<!-- NAV -->
 <nav class="site-nav">
   <div class="nav-container">
-
     <a href="/" class="logo">
       <img src="/logo/logo-light.svg" alt="Slate & Silicon">
     </a>
-
     <div class="nav-right">
       <ul class="nav-links">
-	      <li><a href="/log/">The Log</a></li>
+        <li><a href="/start-here/">Start Here</a></li>
         <li><a href="/laboratory/">Laboratory</a></li>
-	      <li><a href="/store/">The Store</a></li>
+        <li><a href="/log/">The Log</a></li>
       </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
     </div>
-
   </div>
 </nav>
 
-<!-- ══ MANIFESTO HERO ══ -->
+<!-- MANIFESTO HERO -->
 <div class="manifesto-hero z">
   <p class="tag" style="animation: up 0.7s ease both 0s;">Manifesto // Why We Exist</p>
   <h1>We didn't lose our focus. It was taken.</h1>
   <p class="lead">This is not a wellness brand. This is not a productivity hack. This is a systems document for people who are done pretending the problem is personal.</p>
 </div>
 
-<!-- ══ TICKER ══ -->
+<!-- TICKER -->
 <div class="ticker z">
   <div class="ticker-track">
     <span class="ticker-item">The machinery of focus <b>//</b></span>
@@ -273,7 +332,7 @@
   </div>
 </div>
 
-<!-- ══ MAIN ══ -->
+<!-- MAIN -->
 <div class="z">
   <div class="section">
     <div class="about-layout">
@@ -379,7 +438,7 @@
           </ul>
 
           <div class="not-block">
-            <p class="not-title">// This is probably not for you if —</p>
+            <p class="not-title">This is probably not for you if —</p>
             <ul class="not-list">
               <li>You're looking for a dopamine hit disguised as self-improvement</li>
               <li>You want someone to tell you you're already doing great</li>
@@ -395,7 +454,7 @@
       <aside class="about-sidebar reveal">
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// The Timeline</p>
+          <p class="sidebar-title">The Timeline</p>
           <div class="tl-item"><span class="tl-year">1985</span><span class="tl-text">Grew up analog. Boredom was standard issue. Attention spans were long.</span></div>
           <div class="tl-item"><span class="tl-year">1999</span><span class="tl-text">First dial-up connection. The internet was a destination, not a constant.</span></div>
           <div class="tl-item"><span class="tl-year">2007</span><span class="tl-text">Smartphone arrives. The shift begins. Slow at first, then all at once.</span></div>
@@ -405,19 +464,18 @@
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Find Us</p>
+          <p class="sidebar-title">Find Us</p>
           <div class="platform-grid">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="platform-link">Instagram</a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener" class="platform-link">TikTok</a>
-            <a href="https://youtube.com" target="_blank" rel="noopener" class="platform-link">YouTube</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener" class="platform-link">LinkedIn</a>
-            <a href="https://pinterest.com" target="_blank" rel="noopener" class="platform-link">Pinterest</a>
-            <a href="https://facebook.com" target="_blank" rel="noopener" class="platform-link">Facebook</a>
+            <a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener" class="platform-link">Instagram</a>
+            <a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener" class="platform-link">TikTok</a>
+            <a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener" class="platform-link">YouTube</a>
+            <a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener" class="platform-link">Pinterest</a>
+            <a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener" class="platform-link">Facebook</a>
           </div>
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">// Status</p>
+          <p class="sidebar-title">Status</p>
           <div class="status"><div class="dot"></div> Lab: Operational</div>
           <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> EXP-04 Active: 47 Participants</div>
         </div>
@@ -427,28 +485,27 @@
   </div>
 </div>
 
-<!-- ══ FOOTER CTA ══ -->
+<!-- FOOTER CTA -->
 <div class="section-alt z">
   <div class="footer-cta">
     <div class="reveal">
       <p class="tag">First Move</p>
-      <h2>The lab is open.<br><span class="cyan">Come run the tests.</span></h2>
+      <h2>The lab is open.<br>Come run the tests.</h2>
       <p class="body-text">Start with the Detox Planner. Seven days. Three sectors. No app. It's the entry point to everything else we're building here.</p>
-      <a href="store/7day-detox/" class="nav-cta" style="display: inline-block; padding: 1.2rem 2.5rem;">GET THE PLANNER</a>
-        <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
+      <a href="/detox-planner/" class="content-cta">Get the Planner</a>
+      <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
     </div>
   </div>
 </div>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer class="z">
   <a href="/" class="footer-logo">Slate &amp; Silicon</a>
-      <ul class="footer-links">
+  <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
-    <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/terms/">Terms</a></li>

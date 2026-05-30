@@ -610,6 +610,41 @@
       line-height: 1.65;
     }
 
+    /* FIELD NOTE BLOCK */
+    .field-note {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+      margin-bottom: 4rem;
+    }
+
+    .field-note-byline {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.16em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .field-note p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+
+    .field-note p:last-child { margin-bottom: 0; }
+
+    .field-note p strong {
+      color: var(--bone);
+      font-weight: 400;
+      font-style: normal;
+    }
+
     /* LOG BLOCK */
     .log-block {
       background: rgba(232,226,214,.016);
@@ -756,6 +791,16 @@
           <p class="diag-footer-note">
             If either one produced something unexpected — that's the starting point.
           </p>
+        </div>
+
+        <!-- FIELD NOTE -->
+        <div class="field-note reveal">
+          <span class="field-note-byline">Field Note // Roman Prime — Lead Operator</span>
+          <p>The field diagnostics didn't exist when this protocol launched.</p>
+          <p>A social post. Ten minutes. Leave your phone in another room.</p>
+          <p>Operators reported back. <strong>The data changed what came next.</strong></p>
+          <p>That's how this system works. Version 1.0 is what we started with.</p>
+          <p>What ships next is built from what you find.</p>
         </div>
 
         <!-- PHASE 01 -->
@@ -1212,7 +1257,8 @@
 
         <div class="sidebar-block">
           <p class="sidebar-title">The 30-Day Protocol</p>
-          <p style="font-size:0.8rem; color:var(--muted); line-height:1.65; margin-bottom:1rem;">The full 12-experiment stack. All four phases. The complete system.</p>
+          <p style="font-size:0.8rem; color:var(--muted); line-height:1.65; margin-bottom:0.75rem;">The full 12-experiment stack. All four phases. The complete system.</p>
+          <p style="font-family:var(--mono); font-size:0.52rem; letter-spacing:0.12em; color:var(--blue); text-transform:uppercase; margin-bottom:1rem;">Protocol v1.0 — Active</p>
           <a href="/store/detox-planner/" class="content-cta" style="font-size:0.6rem;">Get the full system →</a>
         </div>
 

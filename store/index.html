@@ -4,210 +4,418 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Store — Slate & Silicon</title>
-  <meta name="description" content="Analog systems for rebuilding attention.">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="description" content="Analog systems for rebuilding attention. No subscriptions. No accounts. No apps. Download once, use indefinitely.">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
 
+  <style>
+    /* ── THE STORE — PAGE LAYER ────────────────────────────
+       Product / physical register. Amber throughout.
+       No cyan. Clean grid. No commerce chrome.
+    ──────────────────────────────────────────────────────── */
+
+    /* TRUST ROW */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .trust-item span {
+      color: var(--blue);
+      font-size: 0.75rem;
+    }
+
+    /* SECTION HEADER */
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      margin-bottom: 0;
+    }
+
+    /* FEATURED CARD — primary product */
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: inherit;
+      transition: background .25s var(--ease);
+    }
+
+    .featured-card:hover { background: rgba(200,160,106,.03); }
+
+    .featured-image {
+      background: var(--surface2);
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .featured-image.empty {
+      background: linear-gradient(135deg, var(--surface2) 0%, var(--bunker) 100%);
+    }
+
+    .featured-content {
+      background: var(--bunker);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Product meta — SYS-01, price */
+    .product-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .product-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 2px 8px;
+    }
+
+    .product-price {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+
+    .featured-content h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      color: var(--bone);
+      margin-bottom: 0.85rem;
+      line-height: 1.1;
+    }
+
+    .featured-content p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 42ch;
+    }
+
+    .store-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bone);
+      border: 1px solid var(--line-strong);
+      padding: 0.65rem 1rem;
+      transition: border-color .2s var(--ease), color .2s var(--ease);
+      width: fit-content;
+    }
+
+    .featured-card:hover .store-action,
+    .store-card:hover .store-action {
+      border-color: var(--blue-line);
+      color: var(--blue);
+    }
+
+    /* STORE GRID */
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .store-card {
+      background: var(--bunker);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: background .25s var(--ease);
+    }
+
+    .store-card:not(.inactive):hover { background: rgba(200,160,106,.03); }
+
+    .store-image {
+      background: var(--surface2);
+      height: 200px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .store-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .store-image.empty {
+      background: linear-gradient(135deg, var(--surface2) 0%, var(--bunker) 100%);
+    }
+
+    .store-content {
+      padding: 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .store-content h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1rem, 1.6vw, 1.3rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--bone);
+      margin-bottom: 0.5rem;
+      line-height: 1.15;
+    }
+
+    .store-content p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    /* Inactive / coming soon card */
+    .store-card.inactive {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .coming-soon-label {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.14em;
+      color: var(--slate);
+      text-transform: uppercase;
+      border: 1px solid var(--line-strong);
+      padding: 2px 8px;
+      display: inline-block;
+      margin-top: auto;
+    }
+
+    @media (max-width: 900px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-image { min-height: 220px; }
+    }
+
+    @media (max-width: 640px) {
+      .store-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
 
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-container">
-
     <a href="/" class="logo">
       <img src="/logo/logo-light.svg" alt="Slate & Silicon">
     </a>
-
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="/start-here/">Start Here</a></li>
         <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/log/">Dispatch</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
     </div>
-
   </div>
 </nav>
 
-<!-- ══ PAGE HERO ══ -->
+<!-- PAGE HERO -->
 <div class="page-hero z">
   <p class="tag">The Store // Analog Systems</p>
   <h1>Tools that<br>work offline.</h1>
-  <p class="body-text">Templates, planners, and protocols engineered for deep work. No subscriptions. No accounts. No apps. Download once, use indefinitely.</p>
-</div>
-  
-  <!-- HERO -->
-<div class="page-hero">
-  <p class="eyebrow">Issued Tools</p>
-  <h2>Requisition</h2>
-  <p class="body-text">
-    Systems designed to interrupt digital patterns and rebuild attention.
-    No apps. No accounts. No noise.
-  </p>
+  <p class="body-text">Planners and protocols engineered for deep work. No subscriptions. No accounts. No apps. Download once, use indefinitely.</p>
   <div class="trust-row">
-    <div class="trust-item"><span>↓</span><p>Instant download</p></div>
-    <div class="trust-item"><span>∞</span><p>Unlimited use</p></div>
-    <div class="trust-item"><span>○</span><p>Works offline</p></div>
-  </div>  
+    <div class="trust-item"><span>↓</span> Instant download</div>
+    <div class="trust-item"><span>∞</span> Unlimited use</div>
+    <div class="trust-item"><span>○</span> Works offline</div>
+  </div>
 </div>
 
-<!-- CONTENT -->
 <main>
 
-<!-- FEATURED -->
-  <section class="section">
-
-    <div class="section-header">
-      <p class="eyebrow">Primary System</p>
-      <h2>The Detox Protocol</h2>
-    </div>
-
-    <a href="/store/detox-planner" class="featured-card">
-
-      <div class="featured-image">
-        <img src="/assets/images/promo-protocol.png" alt="Detox Protocol">
+  <!-- FEATURED — Primary System -->
+  <div class="z">
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="eyebrow">Primary System</p>
+        <h2>The 30-Day Detox Protocol</h2>
       </div>
 
-      <div class="featured-content">
-
-        <div class="featured-meta">
-          <span>SYS-01</span>
-          <span>FULL SYSTEM / $29</span>
+      <a href="/store/detox-planner/" class="featured-card reveal">
+        <div class="featured-image empty">
+          <img src="/assets/images/promo-protocol.png" alt="30-Day Detox Protocol" onerror="this.style.display='none'">
         </div>
-
-        <h3>30-Day Detox Protocol</h3>
-
-        <p>
-          A complete system for removing dependency and restoring attention.
-        </p>
-
-        <div class="store-action">
-          <span>Enter the Protocol</span>
-        </div>
-
-      </div>
-
-    </a>
-
-  </section>
-
-  <!-- GRID -->
-  <section class="section">
-
-    <div class="section-header">
-      <p class="eyebrow">Supporting Tools</p>
-      <h2>Additional Systems</h2>
-    </div>
-
-    <div class="store-grid three-col">
-
-      <!-- 7 DAY -->
-      <a href="/store/7day-detox" class="store-card">
-        <div class="store-image">
-          <img src="/assets/images/promo-free.png" alt="7-Day Detox">
-        </div>
-
-        <div class="store-content">
-          <div class="featured-meta">
-            <span>SYS-04</span>
-            <span>PDF / FREE</span>
+        <div class="featured-content">
+          <div>
+            <div class="product-meta">
+              <span class="product-id">SYS-01</span>
+              <span class="product-price">Full System // $29</span>
+            </div>
+            <h3>30-Day Detox Protocol</h3>
+            <p>Four phases. Twelve experiments. A complete system for removing the patterns that are running your attention — and rebuilding something more durable in their place. Analog. Print once. Run it.</p>
           </div>
-
-          <h3>7-Day Detox</h3>
-          <p>Structured reset for attention.</p>
-
-          <div class="store-action">
-            <span>Free Download</span>
-          </div>
+          <span class="store-action">Enter the Protocol →</span>
         </div>
       </a>
+    </div>
+  </div>
 
-      <!-- SPRINT -->
-      <a href="/store/focus-sprint" class="store-card">
-        <div class="store-image">
-          <img src="/assets/images/promo-sprint.png" alt="Focus Sprint">
-        </div>
-
-        <div class="store-content">
-          <div class="featured-meta">
-            <span>EXP-02</span>
-            <span>SPRINT PACK / $9</span>
-          </div>
-
-          <h3>Focus Sprint</h3>
-          <p>Controlled deep work interval.</p>
-
-          <div class="store-action">
-            <span>Start the Sprint</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- FUTURE -->
-      <div class="store-card inactive">
-        <div class="store-image"></div>
-
-        <div class="store-content">
-          <div class="store-meta">
-            <span>SYS-03</span>
-            <span>IN DEVELOPMENT</span>
-          </div>
-
-          <h3>Next System</h3>
-          <p>Additional protocol in development.</p>
-
-          <div class="store-action">
-            <span>Unavailable</span>
-          </div>
-        </div>
+  <!-- GRID — Supporting Tools -->
+  <div class="z">
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="eyebrow">Supporting Tools</p>
+        <h2>Additional Systems</h2>
       </div>
 
-    </div>
+      <div class="store-grid reveal">
 
-  </section>
+        <!-- 7-DAY DETOX -->
+        <a href="/7-day-detox/" class="store-card">
+          <div class="store-image empty">
+            <img src="/assets/images/promo-free.png" alt="7-Day Detox Planner" onerror="this.style.display='none'">
+          </div>
+          <div class="store-content">
+            <div class="product-meta">
+              <span class="product-id">SYS-04</span>
+              <span class="product-price">Free Download</span>
+            </div>
+            <h3>7-Day Detox Planner</h3>
+            <p>The entry point. Seven days, three sectors, one analog tool. Map where your attention actually goes before you try to change anything.</p>
+            <span class="store-action">Get Free Download →</span>
+          </div>
+        </a>
+
+        <!-- FOCUS SPRINT -->
+        <a href="/focus-sprint/" class="store-card">
+          <div class="store-image empty">
+            <img src="/assets/images/promo-sprint.png" alt="Focus Sprint" onerror="this.style.display='none'">
+          </div>
+          <div class="store-content">
+            <div class="product-meta">
+              <span class="product-id">SYS-02</span>
+              <span class="product-price">Sprint Pack // $9</span>
+            </div>
+            <h3>60-Minute Focus Sprint</h3>
+            <p>One fixed window. No switching, no drift, no escape. A controlled deep work interval for Operators who have completed Phase 01.</p>
+            <span class="store-action">Start the Sprint →</span>
+          </div>
+        </a>
+
+        <!-- COMING SOON -->
+        <div class="store-card inactive">
+          <div class="store-image empty"></div>
+          <div class="store-content">
+            <div class="product-meta">
+              <span class="product-id">SYS-03</span>
+              <span class="product-price">In Development</span>
+            </div>
+            <h3>Next System</h3>
+            <p>Protocol in development. Built from field data returned by active Operators.</p>
+            <span class="coming-soon-label">Coming Soon</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 </main>
-</div>
 
 <!-- FOOTER CTA -->
-<section class="section-alt">
+<div class="section-alt z">
   <div class="footer-cta">
-
-    <p class="eyebrow">Start Free</p>
-
-    <h2>
-      Not ready?<br>
-      <span class="cyan">Start here.</span>
-    </h2>
-
-    <p class="body-text">
-      The 7-Day Detox is the simplest entry point into the system.
-    </p>
-
-    <a href="https://slate-silicon.kit.com/b85027b5ea" class="nav-cta">Get the Planner</a>
-
+    <div class="reveal">
+      <p class="tag">Start Free</p>
+      <h2>Not ready for the full system?<br>Start with seven days.</h2>
+      <p class="body-text">The 7-Day Detox Planner is the entry point. Free. Print it. Run the baseline. Everything else follows from what you find.</p>
+      <a href="/7-day-detox/" class="content-cta">Get the Free Planner</a>
+    </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer class="z">
-  <a href="/start-here" class="footer-logo">Slate &amp; Silicon</a>
+  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
-    <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/store/">Store</a></li>
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/terms/">Terms</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
 </footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
 </body>
 </html>

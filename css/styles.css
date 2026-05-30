@@ -783,3 +783,10 @@ p { color: var(--muted); }
   opacity: 0.25;
   pointer-events: none;
 }
+.footer-links a[href="/store/"] {
+  color: var(--blue);
+}
+
+.footer-links a[href="/store/"]:hover {
+  color: var(--bone);
+}

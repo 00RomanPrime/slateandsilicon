@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Seven days. Three sectors. No screen required. The Slate & Silicon 7-Day Detox Planner — a structured reset for fragmented attention.">
-  <title>7-Day Detox Planner — Slate &amp; Silicon</title>
+  <title>The Detox Protocol — 30-Day Expanded Attention Rebuild — Slate & Silicon</title>
+  <meta name="description" content="Four phases. Twelve experiments. Thirty days. The full system for removing digital dependency and rebuilding sustained attention. S&S-DETOX-002.">
 
   <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
 
@@ -13,321 +13,230 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/system.css?v=4">
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
 
   <style>
-    /* ── DETOX PLANNER — PAGE LAYER ───────────────────────────
-       Extends styles.css. Uses only brand variables.
-       No hardcoded colors. No font-family overrides.
+    /* ── 30-DAY DETOX PROTOCOL SELL PAGE ────────────────────
+       Expanse aesthetic. Flat dark. Copy breathes.
+       This is the big ticket — copy earns the price.
+       Specific to what's inside the PDF.
     ──────────────────────────────────────────────────────── */
 
-    /* TICKER */
-    .ticker-wrap {
-      overflow: hidden;
-      white-space: nowrap;
-      border-bottom: 1px solid var(--line);
-      padding: 0.55rem 0;
+    body {
+      background-image: none;
+      background-color: var(--bunker);
     }
 
-    .ticker-inner {
-      display: inline-block;
-      animation: ticker 40s linear infinite;
+    body::before,
+    body::after { display: none; }
+
+    .sell-wrap {
+      max-width: 560px;
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(5rem, 10vw, 8rem);
+    }
+
+    .sell-tag {
       font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.16em;
-      color: var(--slate);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
       text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      display: block;
     }
 
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
+    .sell-wrap h1 { margin-bottom: 1rem; }
 
-    /* HERO */
-    .planner-hero {
-      padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .planner-hero h1 {
-      font-size: clamp(3.4rem, 7vw, 6.4rem);
-      max-width: 14ch;
-      margin-bottom: 1.5rem;
-    }
-
-    .planner-hero h1 em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--muted);
-      text-transform: none;
-      letter-spacing: -0.01em;
-    }
-
-    .hero-sub {
+    .sell-sub {
       font-family: var(--mono);
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
       color: var(--muted);
+      text-transform: uppercase;
       line-height: 1.75;
-      max-width: 48ch;
-      margin-bottom: 2.5rem;
+      margin-bottom: clamp(4rem, 8vw, 6rem);
     }
 
-    .cta-block {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+    .sell-block { margin-bottom: 1.75rem; }
+
+    .sell-block p {
+      font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
     }
 
-    .cta-note {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      color: var(--slate);
-      text-transform: uppercase;
-    }
+    .sell-block p:last-child { margin-bottom: 0; }
 
-    /* SECTION LABELS — page layer override for plain text labels */
-    .section-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 2.5px;
-      color: var(--blue);
-      text-transform: uppercase;
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-    }
-
-    .section-label::before {
-      content: '';
-      width: 2.2rem;
-      height: 1px;
-      background: var(--blue-line);
-    }
-
-    /* SECTORS GRID */
-    .sectors-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--line);
-      background: var(--line);
-      gap: 1px;
-      margin-bottom: 3rem;
-    }
-
-    @media (max-width: 560px) {
-      .sectors-grid { grid-template-columns: 1fr; }
-    }
-
-    .sector-card {
-      background: var(--surface);
-      padding: 1.75rem 1.5rem;
-      transition: background .3s var(--ease);
-    }
-
-    .sector-card:hover {
-      background: rgba(200,160,106,.04);
-    }
-
-    .sector-id {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      color: var(--blue);
-      text-transform: uppercase;
-      margin-bottom: 0.85rem;
-      display: block;
-    }
-
-    .sector-name {
-      font-family: var(--display);
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: -0.015em;
+    .sell-block p strong {
       color: var(--bone);
-      margin-bottom: 0.65rem;
+      font-weight: 400;
     }
 
-    .sector-desc {
-      font-family: var(--body);
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* CHANGES LIST */
-    .changes-list {
-      list-style: none;
+    .sell-rule {
+      border: none;
       border-top: 1px solid var(--line);
+      margin: clamp(2.5rem, 5vw, 4rem) 0;
     }
 
-    .changes-list li {
-      display: flex;
-      gap: 1.5rem;
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--line);
-      align-items: baseline;
-    }
-
-    .change-marker {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      color: var(--blue);
-      text-transform: uppercase;
-      min-width: 3.5rem;
-      flex-shrink: 0;
-    }
-
-    .change-text {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    /* PROTOCOL GRID */
-    .protocol-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    /* What's inside — spec table */
+    .spec-table {
       border: 1px solid var(--line);
-      background: var(--line);
-      gap: 1px;
+      margin: clamp(2.5rem, 5vw, 4rem) 0;
     }
 
-    @media (max-width: 560px) {
-      .protocol-grid { grid-template-columns: 1fr; }
-    }
-
-    .protocol-card {
-      background: var(--surface);
-      padding: 1.75rem 1.5rem;
-    }
-
-    .protocol-num {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      color: var(--blue);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .protocol-text {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    /* PULL QUOTE */
-    .quote-block {
-      border-top: 1px solid var(--line);
+    .spec-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
       border-bottom: 1px solid var(--line);
-      padding: clamp(4rem, 8vw, 7rem) 0;
-      text-align: center;
-      background: rgba(8,9,10,.4);
     }
 
-    .quote-text {
-      font-family: var(--display);
-      font-size: clamp(1.6rem, 3.5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      text-transform: uppercase;
-      color: var(--muted);
-      max-width: 22ch;
-      margin: 0 auto 1.25rem;
-    }
+    .spec-row:last-child { border-bottom: none; }
 
-    .quote-text strong {
-      color: var(--bone);
-      font-weight: 700;
-    }
-
-    .quote-attr {
+    .spec-label {
       font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
       color: var(--slate);
       text-transform: uppercase;
-    }
-
-    /* FINAL CTA */
-    .final-cta {
-      padding: clamp(5rem, 10vw, 8rem) 0;
-      text-align: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .final-cta h2 {
-      margin-inline: auto;
-      max-width: 16ch;
-    }
-
-    .final-sub {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-      color: var(--muted);
-      margin: 0 auto 2.5rem;
-      line-height: 1.65;
-      max-width: 40ch;
-    }
-
-    .price-note {
+      padding: 0.85rem 1rem;
+      border-right: 1px solid var(--line);
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
     }
 
-    .price-tag {
+    .spec-value {
       font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      color: var(--slate);
-      text-transform: uppercase;
-      border: 1px solid var(--line-strong);
-      padding: 0.3rem 0.75rem;
-    }
-
-    .upsell-note {
-      margin-top: 3rem;
-      font-family: var(--mono);
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       letter-spacing: 0.06em;
-      color: var(--slate);
-    }
-
-    .upsell-note a {
       color: var(--muted);
-      border-bottom: 1px solid var(--line-strong);
-      padding-bottom: 1px;
-      transition: color .2s var(--ease), border-color .2s var(--ease);
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      line-height: 1.6;
     }
 
-    .upsell-note a:hover {
+    .spec-value.amber { color: var(--blue); }
+
+    /* Phase list */
+    .phase-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin: clamp(2rem, 4vw, 3rem) 0;
+    }
+
+    .phase-item {
+      background: var(--bunker);
+      padding: 1.25rem 1.5rem;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .phase-code {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.14em;
       color: var(--blue);
-      border-color: var(--blue-line);
+      text-transform: uppercase;
+      padding-top: 2px;
     }
 
-    /* PAGE SECTIONS */
-    .planner-section {
-      padding: clamp(3.5rem, 8vw, 6rem) 0;
-      border-bottom: 1px solid var(--line);
+    .phase-name {
+      font-size: 0.9rem;
+      color: var(--bone);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .phase-name span {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--slate);
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    .phase-days {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--slate);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    /* CTA block */
+    .sell-cta {
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+      margin-top: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .sell-cta-note {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .sell-price {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--bone);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+
+    .sell-price span {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--slate);
+      letter-spacing: 0.1em;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-left: 0.5rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 3.5rem;
+      transition: color .2s var(--ease);
+    }
+
+    .back-link:hover { color: var(--blue); }
+
+    .guarantee-note {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      color: var(--slate);
+      margin-top: 1.25rem;
+      line-height: 1.65;
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ────────────────────────────────────────── -->
+<!-- NAV -->
 <nav class="site-nav">
   <div class="nav-container">
     <a href="/" class="logo">
@@ -345,203 +254,177 @@
   </div>
 </nav>
 
-<!-- ── TICKER ──────────────────────────────────────── -->
-<div class="ticker-wrap" aria-hidden="true">
-  <span class="ticker-inner">
-    Seven days &nbsp;//&nbsp; No apps &nbsp;//&nbsp; No accounts &nbsp;//&nbsp; No noise &nbsp;//&nbsp;
-    Sector 01: Awareness &nbsp;//&nbsp; Sector 02: Reduction &nbsp;//&nbsp; Sector 03: The Expanse &nbsp;//&nbsp;
-    Free download &nbsp;//&nbsp; Print and use &nbsp;//&nbsp; No screen required &nbsp;//&nbsp;
-    Seven days &nbsp;//&nbsp; No apps &nbsp;//&nbsp; No accounts &nbsp;//&nbsp; No noise &nbsp;//&nbsp;
-    Sector 01: Awareness &nbsp;//&nbsp; Sector 02: Reduction &nbsp;//&nbsp; Sector 03: The Expanse &nbsp;//&nbsp;
-    Free download &nbsp;//&nbsp; Print and use &nbsp;//&nbsp; No screen required &nbsp;//&nbsp;
-  </span>
+<div class="z">
+  <div class="section">
+    <div class="sell-wrap reveal">
+
+      <a href="/store/" class="back-link">← The Store</a>
+
+      <span class="sell-tag">S&S-DETOX-002 // 30-Day Protocol // Paid</span>
+
+      <h1>The Detox<br>Protocol.</h1>
+
+      <p class="sell-sub">
+        30-Day Expanded Attention Rebuild.<br>
+        Beyond the 7-Day Starter.
+      </p>
+
+      <!-- OPENING -->
+      <div class="sell-block">
+        <p>The first seven days changed something.</p>
+        <p>Then it starts to return.</p>
+      </div>
+
+      <div class="sell-block">
+        <p>Old habits don't disappear.</p>
+        <p><strong>They wait.</strong></p>
+      </div>
+
+      <div class="sell-block">
+        <p>Seven days establishes a baseline.</p>
+        <p>Thirty days changes the default.</p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <!-- WHAT'S INSIDE — spec table -->
+      <div class="sell-block">
+        <p>What's inside:</p>
+      </div>
+
+      <div class="spec-table">
+        <div class="spec-row">
+          <span class="spec-label">Phases</span>
+          <span class="spec-value amber">4 — Detox / Rebuild / Reinforce / Integrate</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Experiments</span>
+          <span class="spec-value amber">12 — EXP-01 through EXP-12</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Duration</span>
+          <span class="spec-value">30 days</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Format</span>
+          <span class="spec-value">Print-ready PDF // 20 pages</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Includes</span>
+          <span class="spec-value">Habit Stacking Map // Digital Friction Arsenal // 30-Day Debrief</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">System</span>
+          <span class="spec-value">Analog. No app. No account. No screen required.</span>
+        </div>
+      </div>
+
+      <hr class="sell-rule">
+
+      <!-- THE PHASES -->
+      <div class="sell-block">
+        <p>The four-phase structure:</p>
+      </div>
+
+      <div class="phase-list">
+        <div class="phase-item">
+          <span class="phase-code">Phase 01</span>
+          <div class="phase-name">Detox
+            <span>Diagnose and disrupt. Establish baseline. Run EXP-01 through EXP-04.</span>
+          </div>
+          <span class="phase-days">Days 1–7</span>
+        </div>
+        <div class="phase-item">
+          <span class="phase-code">Phase 02</span>
+          <div class="phase-name">Rebuild
+            <span>Introduce Lab protocols one at a time. Stack deliberately. EXP-05 through EXP-08.</span>
+          </div>
+          <span class="phase-days">Days 8–14</span>
+        </div>
+        <div class="phase-item">
+          <span class="phase-code">Phase 03</span>
+          <div class="phase-name">Reinforce
+            <span>Stress-test the system. Run 3 concurrently. EXP-09 through EXP-12.</span>
+          </div>
+          <span class="phase-days">Days 15–21</span>
+        </div>
+        <div class="phase-item">
+          <span class="phase-code">Phase 04</span>
+          <div class="phase-name">Integrate
+            <span>Full 12-experiment stack. The friction techniques become the default state.</span>
+          </div>
+          <span class="phase-days">Days 22–30</span>
+        </div>
+      </div>
+
+      <hr class="sell-rule">
+
+      <!-- THE APPROACH -->
+      <div class="sell-block">
+        <p>You don't add more rules.</p>
+        <p>You stay with the structure.</p>
+        <p>One new friction technique per phase. By Day 14 you're running four concurrently. By Day 30 you don't notice them anymore.</p>
+      </div>
+
+      <div class="sell-block">
+        <p>That's the signal.</p>
+        <p><strong>When the friction disappears, the system is working.</strong></p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <!-- WHAT'S ALSO IN THE PDF -->
+      <div class="sell-block">
+        <p>Also included:</p>
+        <p><strong>The Digital Friction Arsenal</strong> — 8 techniques ranked by effectiveness and difficulty. Deployed sequentially across the 30 days.</p>
+        <p><strong>The Habit Stacking Map</strong> — visual diagram showing how the 12 experiments chain together across all four phases.</p>
+        <p><strong>The 30-Day Debrief</strong> — the most important document in the system. Completed on Day 30. What changed, what held, what comes next.</p>
+      </div>
+
+      <hr class="sell-rule">
+
+      <!-- CLOSER -->
+      <div class="sell-block">
+        <p>This is not a 30-day challenge.</p>
+        <p>It's a 30-day controlled environment.</p>
+        <p>The difference is the data you walk away with.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="sell-cta">
+        <div class="sell-price">$29 <span>One-time // Yours to keep</span></div>
+        <a
+          href="https://slate-silicon.lemonsqueezy.com/checkout/buy/760323de-0c5e-46f3-86e1-cc683d0eecc9?embed=1"
+          class="content-cta lemonsqueezy-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Enter the Protocol
+        </a>
+        <p class="sell-cta-note">Printable PDF &nbsp;//&nbsp; 20 pages &nbsp;//&nbsp; Immediate access</p>
+        <p class="guarantee-note">30-day refund policy. If it didn't work, email us. No friction.</p>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-<main>
-
-  <!-- ── HERO ──────────────────────────────────────── -->
-  <section class="planner-hero">
-    <div class="container">
-      <p class="eyebrow">SYS-04 // Free Download // Print-Ready PDF</p>
-      <h1>
-        Seven days.<br>
-        <em>No app required.</em>
-      </h1>
-      <p class="hero-sub">
-        A structured reset for fragmented attention.<br>
-        Three sectors. One analog tool.<br>
-        Run the protocol. Observe what changes.
-      </p>
-      <div class="cta-block">
-        <a href="https://slate-silicon.kit.com/b85027b5ea" class="content-cta">
-          Get the Free Planner
-        </a>
-        <span class="cta-note">Free &nbsp;//&nbsp; PDF &nbsp;//&nbsp; No account required</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHAT'S INSIDE ────────────────────────────── -->
-  <section class="planner-section">
-    <div class="container">
-      <p class="section-label">What's Inside</p>
-
-      <div class="sectors-grid">
-        <div class="sector-card">
-          <span class="sector-id">Sector 01</span>
-          <p class="sector-name">Awareness</p>
-          <p class="sector-desc">
-            Map where your attention actually goes.
-            Track your inputs before you try to reduce them.
-            You cannot reduce what you cannot see.
-          </p>
-        </div>
-        <div class="sector-card">
-          <span class="sector-id">Sector 02</span>
-          <p class="sector-name">Reduction</p>
-          <p class="sector-desc">
-            Remove one input per day.
-            No overhaul. No willpower required.
-            Friction reduces automatically when inputs are removed.
-          </p>
-        </div>
-        <div class="sector-card">
-          <span class="sector-id">Sector 03</span>
-          <p class="sector-name">The Expanse</p>
-          <p class="sector-desc">
-            One hour daily. No screen. No agenda.
-            Observe what comes back when the noise is gone.
-            This is not productivity. It is recovery.
-          </p>
-        </div>
-      </div>
-
-      <p class="section-label" style="margin-top: 3.5rem;">What changes in 7 days</p>
-      <ul class="changes-list">
-        <li>
-          <span class="change-marker">Day 01</span>
-          <span class="change-text">You notice how often you reach for the phone without a reason.</span>
-        </li>
-        <li>
-          <span class="change-marker">Day 02</span>
-          <span class="change-text">The phantom check reflex becomes visible for the first time.</span>
-        </li>
-        <li>
-          <span class="change-marker">Day 03</span>
-          <span class="change-text">Silence starts to feel less like absence and more like space.</span>
-        </li>
-        <li>
-          <span class="change-marker">Day 04</span>
-          <span class="change-text">Your attention starts to settle before switching. This is the baseline returning.</span>
-        </li>
-        <li>
-          <span class="change-marker">Day 05</span>
-          <span class="change-text">The urge to fill every gap decreases. You can sit with an unfinished thought.</span>
-        </li>
-        <li>
-          <span class="change-marker">Day 06</span>
-          <span class="change-text">Work blocks feel longer. They are not. Your ability to stay in them has changed.</span>
-        </li>
-        <li>
-          <span class="change-marker">Day 07</span>
-          <span class="change-text">You have a baseline. The real work starts here.</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── THE PROTOCOL ──────────────────────────────── -->
-  <section class="planner-section">
-    <div class="container">
-      <p class="section-label">The Protocol</p>
-      <div class="protocol-grid">
-        <div class="protocol-card">
-          <span class="protocol-num">Step 01 // Print</span>
-          <p class="protocol-text">
-            Download the PDF. Print it.
-            This is an analog tool deliberately.
-            No app. No screen. No notifications pulling you back in.
-          </p>
-        </div>
-        <div class="protocol-card">
-          <span class="protocol-num">Step 02 // Run</span>
-          <p class="protocol-text">
-            Follow the daily prompts across all three sectors.
-            One page per day. Five minutes of logging.
-            The work happens in the hours between.
-          </p>
-        </div>
-        <div class="protocol-card">
-          <span class="protocol-num">Step 03 // Observe</span>
-          <p class="protocol-text">
-            Do not try to fix anything in the first three days.
-            Observe only. The data you collect determines what needs changing.
-          </p>
-        </div>
-        <div class="protocol-card">
-          <span class="protocol-num">Step 04 // Report</span>
-          <p class="protocol-text">
-            At Day 7 you have a baseline.
-            Bring your findings to The Laboratory.
-            The next phase begins with that data.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── PULL QUOTE ────────────────────────────────── -->
-  <section class="quote-block">
-    <div class="container">
-      <p class="quote-text">
-        Most people don't have a discipline problem.<br>
-        <strong>They have a recovery problem.</strong>
-      </p>
-      <p class="quote-attr">Slate &amp; Silicon &nbsp;//&nbsp; Core Principle</p>
-    </div>
-  </section>
-
-  <!-- ── FINAL CTA ─────────────────────────────────── -->
-  <section class="final-cta">
-    <div class="container">
-      <p class="eyebrow" style="justify-content: center;">Issued Tool</p>
-      <h2>The lab is open.<br>Start the reset.</h2>
-      <p class="final-sub">
-        Seven days. Three sectors. One analog tool.<br>
-        No subscription. No account. No noise.
-      </p>
-      <a href="https://slate-silicon.kit.com/b85027b5ea" class="content-cta">
-        Download the Free Planner
-      </a>
-      <div class="price-note">
-        <span class="price-tag">Free // PDF</span>
-        <span class="price-tag">Print &amp; Use</span>
-        <span class="price-tag">No Screen Required</span>
-      </div>
-      <p class="upsell-note">
-        Ready for the full system?
-        <a href="/store/detox-planner/">The 30-Day Protocol →</a>
-      </p>
-    </div>
-  </section>
-
-</main>
-
-<!-- ── FOOTER ────────────────────────────────────── -->
 <footer class="z">
+  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
   <ul class="footer-links">
-    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
-    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
-    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
-    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
-    <li><a href="/store/">Store</a></li>
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/terms/">Terms</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
 </footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>

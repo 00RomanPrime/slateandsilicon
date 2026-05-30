@@ -4,17 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Laboratory — Slate & Silicon</title>
-  <meta name="description" content="A collection of small experiments for reducing digital noise and rebuilding attention. Run the test. Measure the output. Report the findings.">
+  <meta name="description" content="A collection of small experiments for reducing digital noise and rebuilding attention. Field diagnostics, protocols, and a 30-day system for cognitive recovery.">
 
   <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ84PSHRX9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XZ84PSHRX9');
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,122 +15,46 @@
   <link rel="stylesheet" href="/css/system.css?v=4">
 
   <style>
-    /* ── LABORATORY — PAGE LAYER ───────────────────────────
-       Cyan is PERMITTED here on experiment codes, IDs,
-       status indicators, and lab stat values only.
-       Structural chrome (borders, sidebar titles, dividers)
-       uses brand line variables — not cyan.
+    /* ── LABORATORY — PAGE LAYER ────────────────────────────
+       Cyan PERMITTED on experiment/diagnostic codes only.
+       Active status, exp IDs, diag IDs, phase codes — cyan.
+       Structural chrome, sidebar titles, dividers — amber/line.
+       Phase difficulty uses its own muted palette.
     ──────────────────────────────────────────────────────── */
 
+    /* TWO-COLUMN LAYOUT */
     .lab-layout {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: 1fr 280px;
       gap: 5rem;
       align-items: start;
     }
 
-    /* Experiment list — structural border uses --line, not cyan */
-    .exp-list {
+    /* STICKY SIDEBAR */
+    .lab-sidebar {
+      position: sticky;
+      top: 6rem;
       display: flex;
       flex-direction: column;
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      margin-top: 2.5rem;
+      gap: 0;
     }
 
-    .exp-item {
-      background: var(--bunker);
-      padding: 1.75rem;
-      display: grid;
-      grid-template-columns: 72px 1fr auto;
-      gap: 1.5rem;
-      align-items: start;
-      text-decoration: none;
-      color: inherit;
-      transition: background .25s var(--ease);
-    }
-
-    .exp-item:hover { background: var(--surface); }
-
-    .exp-id-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 2px;
-    }
-
-    /* EXP codes — cyan correct here, this is the lab layer */
-    .exp-id {
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      color: var(--cyan);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--cyan-dim);
-      border: 1px solid var(--cyan-line);
-      padding: 3px 7px;
-      white-space: nowrap;
-    }
-
-    .exp-status {
-      font-family: var(--mono);
-      font-size: 0.48rem;
-      color: var(--slate);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-top: 0.5rem;
-    }
-
-    /* Active status — cyan correct, system indicator */
-    .exp-status.active { color: var(--cyan); }
-
-    .exp-title {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(1rem, 1.6vw, 1.3rem);
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-      line-height: 1.15;
-    }
-
-    .exp-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 0.85rem;
-    }
-
-    /* Arrow — cyan correct, directional indicator in lab context */
-    .exp-arrow {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--cyan);
-      transition: transform .2s var(--ease);
-      padding-top: 2px;
-    }
-
-    .exp-item:hover .exp-arrow { transform: translateX(4px); }
-
-    /* Sidebar */
-    .lab-sidebar { position: sticky; top: 6rem; }
-
-    /* Sidebar block — amber border, surface background */
     .sidebar-block {
       border: 1px solid var(--line);
+      border-bottom: none;
       background: rgba(232,226,214,.016);
       padding: 1.5rem;
-      margin-bottom: 1.5rem;
     }
 
-    /* Sidebar title — amber, navigational label not a code */
+    .sidebar-block:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
     .sidebar-title {
       font-family: var(--mono);
-      font-size: 0.58rem;
+      font-size: 0.55rem;
       color: var(--blue);
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
@@ -148,8 +64,8 @@
     .sidebar-stat {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 0.6rem 0;
+      align-items: baseline;
+      padding: 0.55rem 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -157,60 +73,587 @@
 
     .sidebar-stat-label {
       font-family: var(--mono);
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       color: var(--muted);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    /* Stat values — cyan correct, lab data readout */
+    /* Lab stat values — cyan correct, data readout */
     .sidebar-stat-val {
       font-family: var(--display);
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: var(--cyan);
     }
 
-    .protocol-note {
-      font-size: 0.85rem;
+    .sidebar-stat-val.text {
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      font-weight: 400;
+      letter-spacing: 0.06em;
       color: var(--muted);
-      line-height: 1.65;
+      text-transform: uppercase;
+    }
+
+    /* Protocol rules in sidebar */
+    .sidebar-rule {
       padding: 0.75rem 0;
       border-bottom: 1px solid var(--line);
     }
 
-    .protocol-note:last-child { border-bottom: none; }
+    .sidebar-rule:last-child { border-bottom: none; }
 
-    /* Protocol rule labels — cyan correct, lab protocol codes */
-    .protocol-note strong {
-      display: block;
+    .sidebar-rule-id {
       font-family: var(--mono);
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       color: var(--cyan);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.35rem;
+      display: block;
+      margin-bottom: 0.3rem;
     }
 
-    /* Status row — inherits .dot and .status from styles.css */
+    .sidebar-rule-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Status dot row */
     .status {
       display: flex;
       align-items: center;
       gap: 0.6rem;
       font-family: var(--mono);
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: var(--muted);
       letter-spacing: 0.06em;
+      padding: 0.4rem 0;
     }
 
+    /* FIELD DIAGNOSTICS BLOCK */
+    .diagnostics-block {
+      background: rgba(200,160,106,.03);
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--blue);
+      padding: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .diag-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* Diag badge — amber, structural label */
+    .diag-badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      background: var(--blue-dim);
+      color: var(--blue);
+      border: 1px solid var(--blue-line);
+      padding: 0.2rem 0.65rem;
+      text-transform: uppercase;
+    }
+
+    .diag-badge.neutral {
+      background: rgba(232,226,214,.04);
+      color: var(--slate);
+      border-color: var(--line);
+    }
+
+    .diagnostics-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      color: var(--bone);
+      margin-bottom: 0.85rem;
+    }
+
+    .diagnostics-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 56ch;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .diag-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .diag-card {
+      background: var(--bunker);
+      padding: 1.75rem;
+      transition: background .25s var(--ease);
+    }
+
+    .diag-card:hover { background: var(--surface); }
+
+    /* Diag IDs — cyan correct, these are diagnostic codes */
+    .diag-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .diag-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--bone);
+      margin-bottom: 0.6rem;
+    }
+
+    .diag-instruction {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .diag-time {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+
+    .diag-footer-note {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--slate);
+      letter-spacing: 0.07em;
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* PHASE BLOCKS */
+    .phase-block {
+      margin-bottom: 4rem;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    /* Phase number — cyan correct, system code */
+    .phase-number {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .phase-name {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--bone);
+      text-transform: uppercase;
+    }
+
+    .phase-days {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* Phase difficulty — uses its own muted color palette */
+    .phase-difficulty {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.12em;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .phase-difficulty.low {
+      border-color: rgba(100,200,150,0.25);
+      color: rgba(100,200,150,0.7);
+    }
+
+    .phase-difficulty.medium {
+      border-color: rgba(200,160,106,0.35);
+      color: rgba(200,160,106,0.8);
+    }
+
+    .phase-difficulty.high {
+      border-color: rgba(220,100,80,0.25);
+      color: rgba(220,100,80,0.7);
+    }
+
+    .phase-difficulty.full {
+      border-color: rgba(180,130,255,0.25);
+      color: rgba(180,130,255,0.7);
+    }
+
+    .phase-intro {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 58ch;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    /* EXPERIMENT GRID */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .exp-card {
+      background: var(--bunker);
+      padding: 1.75rem;
+      position: relative;
+      transition: background .25s var(--ease);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .exp-card:hover { background: var(--surface); }
+
+    .exp-card.locked {
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .exp-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Exp IDs — cyan correct, experiment codes */
+    .exp-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+
+    /* Status badges */
+    .exp-status {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.12em;
+      padding: 0.18rem 0.5rem;
+      text-transform: uppercase;
+      border: 1px solid;
+    }
+
+    /* Active — green, correct for live status */
+    .exp-status.active {
+      border-color: rgba(100,200,150,0.3);
+      color: rgba(100,200,150,0.9);
+      background: rgba(100,200,150,0.04);
+    }
+
+    /* Loading — amber, in progress */
+    .exp-status.loading {
+      border-color: var(--blue-line);
+      color: var(--blue);
+      background: var(--blue-dim);
+    }
+
+    /* Pending — muted, locked */
+    .exp-status.pending {
+      border-color: var(--line-strong);
+      color: var(--slate);
+    }
+
+    .exp-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--bone);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .exp-name.pending-text { color: var(--slate); }
+
+    .exp-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .exp-meta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-tag {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+
+    .exp-arrow {
+      position: absolute;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--slate);
+      transition: color .2s var(--ease), transform .2s var(--ease);
+    }
+
+    .exp-card:hover .exp-arrow {
+      color: var(--blue);
+      transform: translateX(3px);
+    }
+
+    /* PHASE 04 INTEGRATE BLOCK */
+    .integrate-block {
+      background: rgba(180,130,255,0.025);
+      border: 1px solid rgba(180,130,255,0.12);
+      border-left: 2px solid rgba(180,130,255,0.3);
+      padding: 2.5rem;
+    }
+
+    .integrate-label {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.16em;
+      color: rgba(180,130,255,0.6);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .integrate-block h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      color: var(--bone);
+      margin-bottom: 0.85rem;
+    }
+
+    .integrate-block p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 52ch;
+      margin-bottom: 1.75rem;
+    }
+
+    .integrate-stack-label {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.12em;
+      color: var(--slate);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .integrate-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stack-pill {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid rgba(180,130,255,0.18);
+      color: rgba(180,130,255,0.6);
+      text-transform: uppercase;
+    }
+
+    .integrate-store-link {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+    }
+
+    .integrate-store-link a {
+      color: rgba(180,130,255,0.7);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(180,130,255,0.2);
+      padding-bottom: 1px;
+      transition: opacity .2s var(--ease);
+    }
+
+    .integrate-store-link a:hover { opacity: 0.72; }
+
+    /* LAB STATS GRID */
+    .lab-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 3rem;
+    }
+
+    .stat-cell {
+      background: var(--bunker);
+      padding: 1.5rem;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.14em;
+      color: var(--slate);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* Stat values — cyan correct, lab data readout */
+    .stat-value {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--cyan);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .stat-value.text-val {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding-top: 0.4rem;
+      display: block;
+    }
+
+    /* PROTOCOL RULES */
+    .protocol-notes {
+      border-top: 1px solid var(--line);
+      padding-top: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .protocol-rule {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+
+    .protocol-rule:last-child { border-bottom: none; }
+
+    /* Rule IDs — cyan correct, protocol codes */
+    .rule-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      min-width: 5rem;
+      flex-shrink: 0;
+    }
+
+    .rule-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* LOG BLOCK */
+    .log-block {
+      background: rgba(232,226,214,.016);
+      border: 1px solid var(--line);
+      padding: 2.5rem;
+      margin-bottom: 5rem;
+      text-align: center;
+    }
+
+    .log-block-label {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      color: var(--slate);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .log-block h2 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      margin-bottom: 0.85rem;
+      margin-inline: auto;
+      max-width: 16ch;
+    }
+
+    .log-block p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      max-width: 42ch;
+      margin-inline: auto;
+      line-height: 1.65;
+    }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .lab-layout { grid-template-columns: 1fr; }
       .lab-sidebar { position: static; }
     }
 
-    @media (max-width: 720px) {
-      .exp-item { grid-template-columns: 1fr; gap: 0.75rem; }
-      .exp-arrow { display: none; }
+    @media (max-width: 640px) {
+      .exp-grid { grid-template-columns: 1fr; }
+      .diag-grid { grid-template-columns: 1fr; }
+      .lab-stats { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -223,7 +666,7 @@
       <img src="/logo/logo-light.svg" alt="Slate & Silicon">
     </a>
     <div class="nav-right">
-            <ul class="nav-links">
+      <ul class="nav-links">
         <li><a href="/start-here/">Start Here</a></li>
         <li><a href="/laboratory/">Laboratory</a></li>
         <li><a href="/log/">The Log</a></li>
@@ -236,9 +679,9 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero z">
-  <p class="tag">Laboratory // Active Experiments</p>
+  <p class="tag">Laboratory // Active System</p>
   <h1>The<br>Laboratory.</h1>
-  <p class="body-text">A collection of small experiments for reducing digital noise and rebuilding attention. Run the test. Measure the output. Report the findings. This is not inspiration content — it's systems documentation.</p>
+  <p class="body-text">Small experiments for reducing digital noise and rebuilding attention. Run the test. Measure the output. Report the findings. This is not inspiration content — it's systems documentation.</p>
 </div>
 
 <!-- TICKER -->
@@ -247,114 +690,161 @@
     <span class="ticker-item">Run the test <b>//</b></span>
     <span class="ticker-item">Measure the output <b>//</b></span>
     <span class="ticker-item">Report the findings <b>//</b></span>
+    <span class="ticker-item">DIAG-01 // 5 Minutes of Silence <b>//</b></span>
+    <span class="ticker-item">DIAG-02 // 10 Minutes No Phone <b>//</b></span>
     <span class="ticker-item">EXP-01 // Signal Audit <b>//</b></span>
-    <span class="ticker-item">EXP-02 // Notification Fast <b>//</b></span>
-    <span class="ticker-item">EXP-03 // Single Task Block <b>//</b></span>
-    <span class="ticker-item">EXP-04 // Evening Shutdown <b>//</b></span>
+    <span class="ticker-item">EXP-04 // Grayscale 24 <b>//</b></span>
+    <span class="ticker-item">EXP-08 // Notification Kill <b>//</b></span>
+    <span class="ticker-item">EXP-12 // Social Fast <b>//</b></span>
     <span class="ticker-item">Run the test <b>//</b></span>
     <span class="ticker-item">Measure the output <b>//</b></span>
     <span class="ticker-item">Report the findings <b>//</b></span>
+    <span class="ticker-item">DIAG-01 // 5 Minutes of Silence <b>//</b></span>
+    <span class="ticker-item">DIAG-02 // 10 Minutes No Phone <b>//</b></span>
     <span class="ticker-item">EXP-01 // Signal Audit <b>//</b></span>
-    <span class="ticker-item">EXP-02 // Notification Fast <b>//</b></span>
-    <span class="ticker-item">EXP-03 // Single Task Block <b>//</b></span>
-    <span class="ticker-item">EXP-04 // Evening Shutdown <b>//</b></span>
+    <span class="ticker-item">EXP-04 // Grayscale 24 <b>//</b></span>
+    <span class="ticker-item">EXP-08 // Notification Kill <b>//</b></span>
+    <span class="ticker-item">EXP-12 // Social Fast <b>//</b></span>
   </div>
 </div>
 
-<!-- MAIN -->
+<!-- MAIN — TWO COLUMN -->
 <div class="z">
   <div class="section">
     <div class="lab-layout">
 
+      <!-- PRIMARY CONTENT COLUMN -->
       <div>
 
-        <!-- EXPERIMENTS -->
-        <div class="reveal">
-          <p class="tag">EXP // Active Experiments</p>
-          <h2>Run one.<br>Observe what changes.</h2>
-          <div class="exp-list">
+        <!-- FIELD DIAGNOSTICS -->
+        <div class="diagnostics-block reveal">
+          <div class="diag-header">
+            <span class="diag-badge">Field Diagnostics</span>
+            <span class="diag-badge neutral">No Setup Required</span>
+          </div>
+          <h2 class="diagnostics-title">Start here.<br>Before the experiments.</h2>
+          <p class="diagnostics-desc">
+            These are not experiments. They are diagnostic moments.
+            No protocol. No tracking. No commitment.
+            Run one right now. Notice what shows up.
+            That observation is the starting point for everything else.
+          </p>
 
-            <a href="/lab/exp-01/" class="exp-item">
-              <div class="exp-id-block">
+          <div class="diag-grid">
+            <div class="diag-card">
+              <span class="diag-id">DIAG-01 // Pre-Experiment Diagnostic</span>
+              <p class="diag-name">5 Minutes of Silence</p>
+              <p class="diag-instruction">
+                Set a timer for 5 minutes. No phone. No screen. No audio.
+                Sit with it. Notice what your mind reaches for, and when.
+                You're not trying to relax — you're reading the baseline.
+              </p>
+              <span class="diag-time">Duration: 5 min // Observation only</span>
+            </div>
+
+            <div class="diag-card">
+              <span class="diag-id">DIAG-02 // Pre-Experiment Diagnostic</span>
+              <p class="diag-name">10 Minutes, No Phone</p>
+              <p class="diag-instruction">
+                Leave your phone in another room. Not silenced — removed.
+                Wait 10 minutes. Notice when the impulse to check it arrives.
+                Notice what triggered it. That's the data.
+              </p>
+              <span class="diag-time">Duration: 10 min // Observation only</span>
+            </div>
+          </div>
+
+          <p class="diag-footer-note">
+            If either one produced something unexpected — that's the starting point.
+          </p>
+        </div>
+
+        <!-- PHASE 01 -->
+        <div class="phase-block reveal">
+          <div class="phase-header">
+            <span class="phase-number">Phase 01</span>
+            <span class="phase-name">Detox</span>
+            <span class="phase-difficulty low">Low Friction</span>
+            <span class="phase-days">Days 1–7</span>
+          </div>
+          <p class="phase-intro">
+            This phase is diagnostic. You're not trying to fix anything yet — you're establishing a baseline.
+            See what's already running before you change anything. EXP-01 is the starting point.
+          </p>
+          <div class="exp-grid">
+
+            <a href="/lab/exp-01/" class="exp-card">
+              <div class="exp-card-top">
                 <span class="exp-id">EXP-01</span>
                 <span class="exp-status active">Active</span>
               </div>
-              <div>
-                <h3 class="exp-title">Signal Audit</h3>
-                <p class="exp-desc">Track where your attention actually goes. Map your 24-hour attention cycle and identify the leakage windows. Standard first-run diagnostic before any other protocol.</p>
-                <div class="chip-row">
-                  <span class="chip">Diagnostic</span>
-                  <span class="chip">Attention</span>
-                  <span class="chip">Start Here</span>
-                </div>
+              <p class="exp-name">7-Day Detox Planner</p>
+              <p class="exp-desc">
+                Run the baseline protocol. Establish your attention baseline
+                before introducing any new friction.
+                This is the first run — everything else is built on what you find here.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Diagnostic</span>
+                <span class="exp-tag">7 days</span>
+                <span class="exp-tag">Start Here</span>
               </div>
               <span class="exp-arrow">→</span>
             </a>
 
-            <a href="/lab/exp-02/" class="exp-item">
-              <div class="exp-id-block">
+            <a href="/lab/exp-02/" class="exp-card">
+              <div class="exp-card-top">
                 <span class="exp-id">EXP-02</span>
-                <span class="exp-status">Loading</span>
+                <span class="exp-status active">Active</span>
               </div>
-              <div class="experiment-card hidden-exp">
-                <h3 class="exp-title">Notification Fast</h3>
-                <p class="exp-desc">Remove all non-essential inputs for 24 hours. All notifications off. Measure the cognitive residue that clears when the feed goes quiet.</p>
-                <div class="chip-row">
-                  <span class="chip">Behavioral</span>
-                  <span class="chip">24hr</span>
-                  <span class="chip">Digital Friction</span>
-                </div>
+              <p class="exp-name">Attention Audit</p>
+              <p class="exp-desc">
+                Map your 24-hour attention cycle and identify your leakage windows.
+                Complete the Focus Heatmap honestly.
+                Most operators are surprised by the 8pm window.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Diagnostic</span>
+                <span class="exp-tag">24 hr</span>
+                <span class="exp-tag">Phase 01, Day 2</span>
               </div>
               <span class="exp-arrow">→</span>
             </a>
 
-            <a href="/lab/exp-03/" class="exp-item">
-              <div class="exp-id-block">
+            <a href="/lab/exp-03/" class="exp-card">
+              <div class="exp-card-top">
                 <span class="exp-id">EXP-03</span>
-                <span class="exp-status">Pending</span>
+                <span class="exp-status active">Active</span>
               </div>
-              <div class="experiment-card hidden-exp">
-                <h3 class="exp-title">Single Task Block</h3>
-                <p class="exp-desc">Work without switching for a fixed window. One tab. One task. One hour. The simplest deep work protocol you'll ever run — and the hardest to maintain.</p>
-                <div class="chip-row">
-                  <span class="chip">Deep Work</span>
-                  <span class="chip">Focus</span>
-                  <span class="chip">90-min variant</span>
-                </div>
+              <p class="exp-name">The Expanse Hour</p>
+              <p class="exp-desc">
+                One full hour daily. No screen, no agenda, no objective.
+                Walk, sit, observe. This is not rest and it's not productivity.
+                It's the thing the whole system is working toward — practice it early.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Analog</span>
+                <span class="exp-tag">60 min daily</span>
+                <span class="exp-tag">Phase 01</span>
               </div>
               <span class="exp-arrow">→</span>
             </a>
 
-            <a href="/lab/exp-04/" class="exp-item">
-              <div class="exp-id-block">
+            <a href="/lab/exp-04/" class="exp-card">
+              <div class="exp-card-top">
                 <span class="exp-id">EXP-04</span>
-                <span class="exp-status">Pending</span>
+                <span class="exp-status active">Active</span>
               </div>
-              <div class="experiment-card hidden-exp">
-                <h3 class="exp-title">Evening Shutdown</h3>
-                <p class="exp-desc">Close your day deliberately instead of drifting. Hard cutoff at 2000. Measuring cognitive residue against next-morning output quality across 8 weeks of participant data.</p>
-                <div class="chip-row">
-                  <span class="chip">Protocol</span>
-                  <span class="chip">2000 Cutoff</span>
-                  <span class="chip">Sleep Quality</span>
-                </div>
-              </div>
-              <span class="exp-arrow">→</span>
-            </a>
-
-            <a href="/lab/exp-05/" class="exp-item">
-              <div class="exp-id-block">
-                <span class="exp-id">EXP-05</span>
-                <span class="exp-status">Pending</span>
-              </div>
-              <div class="experiment-card hidden-exp">
-                <h3 class="exp-title">Analog Morning</h3>
-                <p class="exp-desc">Delay digital input for the first hour. No phone. No screen. Analog only from initialization through the first 60 minutes. The first 90 minutes determine the day.</p>
-                <div class="chip-row">
-                  <span class="chip">Morning</span>
-                  <span class="chip">Analog</span>
-                  <span class="chip">Initialization</span>
-                </div>
+              <p class="exp-name">Grayscale 24</p>
+              <p class="exp-desc">
+                Set your phone to black and white for 24 continuous hours.
+                Test the neural pull of color icons.
+                This is a controlled variable test, not a lifestyle commitment.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Behavioral</span>
+                <span class="exp-tag">24 hr</span>
+                <span class="exp-tag">Phase 01, Day 4</span>
               </div>
               <span class="exp-arrow">→</span>
             </a>
@@ -362,14 +852,287 @@
           </div>
         </div>
 
-        <hr class="rule" style="margin: 4rem 0;">
+        <!-- PHASE 02 -->
+        <div class="phase-block reveal">
+          <div class="phase-header">
+            <span class="phase-number">Phase 02</span>
+            <span class="phase-name">Rebuild</span>
+            <span class="phase-difficulty medium">Medium Friction</span>
+            <span class="phase-days">Days 8–14</span>
+          </div>
+          <p class="phase-intro">
+            Introduce one friction technique at a time. By Day 14 you'll be running four concurrently.
+            The sequence matters — let each one settle before adding the next. Phase 01 is the prerequisite.
+          </p>
+          <div class="exp-grid">
 
-        <!-- CTA BLOCK -->
-        <div class="reveal">
-          <p class="tag">Baseline // Run This First</p>
-          <h2>Start with<br>the reset.</h2>
-          <p class="body-text" style="margin-top: 1rem; margin-bottom: 2rem;">If you haven't run the baseline yet, begin there. The Detox Planner is the entry point to everything else we're building here.</p>
-          <a href="/detox-planner/" class="btn btn-fill">Get the Planner</a>
+            <a href="/lab/exp-05/" class="exp-card">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-05</span>
+                <span class="exp-status loading">Loading</span>
+              </div>
+              <p class="exp-name">App Deletion</p>
+              <p class="exp-desc">
+                Delete all social apps from your home screen.
+                Browser-only access if needed. The login friction breaks the impulse loop.
+                Most impulse checks abort before login completes.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Behavioral</span>
+                <span class="exp-tag">7 days</span>
+                <span class="exp-tag">Phase 02, Day 8</span>
+              </div>
+              <span class="exp-arrow">→</span>
+            </a>
+
+            <a href="/lab/exp-06/" class="exp-card">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-06</span>
+                <span class="exp-status loading">Loading</span>
+              </div>
+              <p class="exp-name">The Analog Anchor</p>
+              <p class="exp-desc">
+                All notes and task-capture done on paper for one full week.
+                No digital notes. Test whether analog slows the thought
+                or deepens it. The answer surprises most operators.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Analog</span>
+                <span class="exp-tag">7 days</span>
+                <span class="exp-tag">Phase 02, Days 8–14</span>
+              </div>
+              <span class="exp-arrow">→</span>
+            </a>
+
+            <a href="/lab/exp-07/" class="exp-card">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-07</span>
+                <span class="exp-status loading">Loading</span>
+              </div>
+              <p class="exp-name">18:00 Shutdown</p>
+              <p class="exp-desc">
+                All screens off at 20:00. Not reading, not watching, not checking.
+                The shutdown is a structural boundary, not a reward.
+                It protects next-day cognitive capacity.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Protocol</span>
+                <span class="exp-tag">Daily</span>
+                <span class="exp-tag">Phase 02</span>
+              </div>
+              <span class="exp-arrow">→</span>
+            </a>
+
+            <a href="/lab/exp-08/" class="exp-card">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-08</span>
+                <span class="exp-status loading">Loading</span>
+              </div>
+              <p class="exp-name">Notification Kill</p>
+              <p class="exp-desc">
+                All push notifications disabled. Email checked at 9am, 1pm, 5pm only.
+                The first 72 hours produce phantom notification anxiety.
+                This is the withdrawal curve. It drops.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Behavioral</span>
+                <span class="exp-tag">Ongoing</span>
+                <span class="exp-tag">Phase 02, Day 9</span>
+              </div>
+              <span class="exp-arrow">→</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- PHASE 03 -->
+        <div class="phase-block reveal">
+          <div class="phase-header">
+            <span class="phase-number">Phase 03</span>
+            <span class="phase-name">Reinforce</span>
+            <span class="phase-difficulty high">High Friction</span>
+            <span class="phase-days">Days 15–21</span>
+          </div>
+          <p class="phase-intro">
+            Stress-test the system. Run 3 experiments concurrently. Identify breaking points.
+            This is the hardest phase. EXP-12 in particular — the first 72 hours will feel like something is missing.
+            That feeling is the data. Write it down.
+          </p>
+          <div class="exp-grid">
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-09</span>
+                <span class="exp-status pending">Unlocks Day 15</span>
+              </div>
+              <p class="exp-name pending-text">Phone Distance</p>
+              <p class="exp-desc">
+                Phone stored in a separate room during all work blocks.
+                Not silenced — removed entirely. A silent phone on the desk
+                still degrades focus by 20%. Remove the variable.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Structural</span>
+                <span class="exp-tag">Ongoing</span>
+                <span class="exp-tag">Phase 03, Day 15</span>
+              </div>
+            </div>
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-10</span>
+                <span class="exp-status pending">Unlocks Day 16</span>
+              </div>
+              <p class="exp-name pending-text">Screen Time Lock</p>
+              <p class="exp-desc">
+                Set hard daily screen time limits via OS parental controls.
+                Treat yourself as the user being protected.
+                The override prompt is the moment of awareness.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Structural</span>
+                <span class="exp-tag">Daily</span>
+                <span class="exp-tag">Phase 03, Day 16</span>
+              </div>
+            </div>
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-11</span>
+                <span class="exp-status pending">Unlocks Day 17</span>
+              </div>
+              <p class="exp-name pending-text">Analog Morning</p>
+              <p class="exp-desc">
+                Zero screen contact for the first 60 minutes of every day.
+                Paper, pen, silence, and the ledger only.
+                The morning is the highest-leverage window. Protect it.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Analog</span>
+                <span class="exp-tag">60 min daily</span>
+                <span class="exp-tag">Phase 03</span>
+              </div>
+            </div>
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-12</span>
+                <span class="exp-status pending">Unlocks Day 15</span>
+              </div>
+              <p class="exp-name pending-text">Social Media Fast</p>
+              <p class="exp-desc">
+                All social platforms, off, for 7 days. Not reduced — removed.
+                This is the highest-impact experiment in the system.
+                It works best after the earlier phases have given you something to return to.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Behavioral</span>
+                <span class="exp-tag">7 days</span>
+                <span class="exp-tag">Phase 03, Days 15–21</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PHASE 04 -->
+        <div class="phase-block reveal">
+          <div class="phase-header">
+            <span class="phase-number">Phase 04</span>
+            <span class="phase-name">Integrate</span>
+            <span class="phase-difficulty full">Full Stack</span>
+            <span class="phase-days">Days 22–30</span>
+          </div>
+          <div class="integrate-block">
+            <span class="integrate-label">Phase 04 // Integration Protocol</span>
+            <h3>The system becomes automatic.<br>The Expanse deepens.</h3>
+            <p>
+              By Day 30, the friction techniques are no longer friction.
+              They are the default state. Full 12-experiment stack active.
+              Daily Ledger filled every day. The Expanse logged every evening.
+              Day 30: complete the 30-Day Debrief.
+            </p>
+            <span class="integrate-stack-label">Active Stack in Phase 04</span>
+            <div class="integrate-stack">
+              <span class="stack-pill">DIAG-01</span>
+              <span class="stack-pill">DIAG-02</span>
+              <span class="stack-pill">EXP-01</span>
+              <span class="stack-pill">EXP-02</span>
+              <span class="stack-pill">EXP-03</span>
+              <span class="stack-pill">EXP-04</span>
+              <span class="stack-pill">EXP-05</span>
+              <span class="stack-pill">EXP-06</span>
+              <span class="stack-pill">EXP-07</span>
+              <span class="stack-pill">EXP-08</span>
+              <span class="stack-pill">EXP-09</span>
+              <span class="stack-pill">EXP-10</span>
+              <span class="stack-pill">EXP-11</span>
+              <span class="stack-pill">EXP-12</span>
+            </div>
+            <p class="integrate-store-link">
+              The 30-Day Protocol is available in The Store →
+              <a href="/store/detox-planner/">Get the full system</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- LAB STATS -->
+        <div class="reveal" style="margin-bottom: 3rem;">
+          <p class="tag" style="margin-bottom: 1.5rem;">Lab Status</p>
+          <div class="lab-stats">
+            <div class="stat-cell">
+              <span class="stat-label">Field Diagnostics</span>
+              <span class="stat-value">2</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Active Experiments</span>
+              <span class="stat-value">4</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Total Experiments</span>
+              <span class="stat-value">12</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Protocol Duration</span>
+              <span class="stat-value">30<span style="font-size:1rem;">d</span></span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">The Log</span>
+              <span class="stat-value text-val">Tuesdays</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROTOCOL RULES -->
+        <div class="reveal" style="margin-bottom: 4rem;">
+          <p class="tag" style="margin-bottom: 1.5rem;">Protocol Notes</p>
+          <div class="protocol-notes">
+            <div class="protocol-rule">
+              <span class="rule-id">Rule 01</span>
+              <span class="rule-text">Run one experiment at a time. Stacking protocols before Phase 02 contaminates the data.</span>
+            </div>
+            <div class="protocol-rule">
+              <span class="rule-id">Rule 02</span>
+              <span class="rule-text">Observe for a minimum of 72 hours before drawing conclusions. Your first reaction is not your finding.</span>
+            </div>
+            <div class="protocol-rule">
+              <span class="rule-id">Rule 03</span>
+              <span class="rule-text">If a protocol is running, let it run. Stopping early means the data is incomplete — and incomplete data is harder to act on than difficult data.</span>
+            </div>
+            <div class="protocol-rule">
+              <span class="rule-id">Rule 04</span>
+              <span class="rule-text">Start with the diagnostics. Even if you think you know your baseline, run them. The number is usually different from what people expect.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOG CTA -->
+        <div class="log-block reveal">
+          <p class="log-block-label">Join The Laboratory</p>
+          <h2>Run the experiments.<br>Report back.</h2>
+          <p>Every Tuesday a new dispatch drops in The Log. Field data from active experiments, protocol updates, and one thing to run this week. No inspiration. Just systems.</p>
+          <script async data-uid="68998098aa" src="https://slate-silicon.kit.com/68998098aa/index.js"></script>
+          <p class="form-note" style="margin-top: 0.75rem;">No account. No algorithm. No noise.</p>
         </div>
 
       </div>
@@ -380,36 +1143,78 @@
         <div class="sidebar-block">
           <p class="sidebar-title">Lab Stats</p>
           <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Field Diagnostics</span>
+            <span class="sidebar-stat-val">2</span>
+          </div>
+          <div class="sidebar-stat">
             <span class="sidebar-stat-label">Active Experiments</span>
-            <span class="sidebar-stat-val">5</span>
+            <span class="sidebar-stat-val">4</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Total Experiments</span>
+            <span class="sidebar-stat-val">12</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Phases</span>
+            <span class="sidebar-stat-val">4</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Protocol Duration</span>
+            <span class="sidebar-stat-val text">30 days</span>
           </div>
           <div class="sidebar-stat">
             <span class="sidebar-stat-label">Since</span>
-            <span class="sidebar-stat-val">2024</span>
+            <span class="sidebar-stat-val text">2024</span>
           </div>
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">Protocol Notes</p>
-          <div class="protocol-note">
-            <strong>Rule 01</strong>
-            Run one experiment at a time. Stacking protocols contaminates the data.
+          <p class="sidebar-title">Protocol Rules</p>
+          <div class="sidebar-rule">
+            <span class="sidebar-rule-id">Rule 01</span>
+            <span class="sidebar-rule-text">One experiment at a time.</span>
           </div>
-          <div class="protocol-note">
-            <strong>Rule 02</strong>
-            Observe for a minimum of 72 hours before drawing conclusions.
+          <div class="sidebar-rule">
+            <span class="sidebar-rule-id">Rule 02</span>
+            <span class="sidebar-rule-text">Observe 72 hours minimum before conclusions.</span>
           </div>
-          <div class="protocol-note">
-            <strong>Rule 03</strong>
-            Report findings in The Log. Community data improves the experiment.
+          <div class="sidebar-rule">
+            <span class="sidebar-rule-id">Rule 03</span>
+            <span class="sidebar-rule-text">If it's running, let it run.</span>
+          </div>
+          <div class="sidebar-rule">
+            <span class="sidebar-rule-id">Rule 04</span>
+            <span class="sidebar-rule-text">Start with the diagnostics.</span>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <p class="sidebar-title">Active Phase</p>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Current</span>
+            <span class="sidebar-stat-val text">Phase 01</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Days</span>
+            <span class="sidebar-stat-val text">1–7</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Friction</span>
+            <span class="sidebar-stat-val text">Low</span>
           </div>
         </div>
 
         <div class="sidebar-block">
           <p class="sidebar-title">Status</p>
           <div class="status"><div class="dot"></div> Laboratory: Operational</div>
-          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> The Log: every Tuesday</div>
-          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> EXP-04 collecting data</div>
+          <div class="status" style="margin-top:0.5rem;"><div class="dot"></div> EXP-01 through EXP-04 active</div>
+          <div class="status" style="margin-top:0.5rem;"><div class="dot"></div> The Log: every Tuesday</div>
+        </div>
+
+        <div class="sidebar-block">
+          <p class="sidebar-title">The 30-Day Protocol</p>
+          <p style="font-size:0.8rem; color:var(--muted); line-height:1.65; margin-bottom:1rem;">The full 12-experiment stack. All four phases. The complete system.</p>
+          <a href="/store/detox-planner/" class="content-cta" style="font-size:0.6rem;">Get the full system →</a>
         </div>
 
       </aside>
@@ -417,26 +1222,12 @@
   </div>
 </div>
 
-<!-- FOOTER CTA -->
-<div class="section-alt z">
-  <div class="footer-cta">
-    <div class="reveal">
-      <p class="tag">Join The Laboratory</p>
-      <h2>Run the experiments.<br>Report back.</h2>
-      <p class="body-text">Every week a new dispatch drops in The Log. Field data from active experiments, protocol updates, and one thing to run this week. No inspiration. Just systems.</p>
-      <script async data-uid="68998098aa" src="https://slate-silicon.kit.com/68998098aa/index.js"></script>
-      <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
-    </div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer class="z">
-  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/store/">Store</a></li>

@@ -30,12 +30,12 @@
   <link rel="stylesheet" href="/css/system.css?v=4">
 
   <style>
-    /* ── THE LOG — PAGE LAYER ───────────────────────────────
+    /* ── THE  — PAGE LAYER ───────────────────────────────
        Editorial / newsletter layer. Amber throughout.
        No cyan — this is not the lab experiment layer.
     ──────────────────────────────────────────────────────── */
 
-    .log-layout {
+    .-layout {
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 5rem;
@@ -268,7 +268,7 @@
     }
 
     /* Sidebar */
-    .log-sidebar { position: sticky; top: 6rem; }
+    .-sidebar { position: sticky; top: 6rem; }
 
     .sidebar-block {
       border: 1px solid var(--line);
@@ -362,8 +362,8 @@
     }
 
     @media (max-width: 900px) {
-      .log-layout { grid-template-columns: 1fr; }
-      .log-sidebar { position: static; }
+      .-layout { grid-template-columns: 1fr; }
+      .-sidebar { position: static; }
     }
 
     @media (max-width: 720px) {
@@ -378,14 +378,14 @@
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-container">
-    <a href="/" class="logo">
-      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    <a href="/" class="o">
+      <img src="/o/o-light.svg" alt="Slate & Silicon">
     </a>
     <div class="nav-right">
             <ul class="nav-links">
         <li><a href="/start-here/">Start Here</a></li>
         <li><a href="/laboratory/">Laboratory</a></li>
-        <li><a href="/log/">Dispatch</a></li>
+        <li><a href="//">Dispatch</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
       <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
@@ -423,7 +423,7 @@
 <!-- MAIN -->
 <div class="z">
   <div class="section">
-    <div class="log-layout">
+    <div class="-layout">
 
       <div>
 
@@ -431,7 +431,7 @@
         <div class="reveal">
           <p class="tag">Latest Dispatch</p>
           <div class="issue-list">
-            <a href="/log/issue-001/" class="issue-card featured">
+            <a href="//issue-001/" class="issue-card featured">
               <div class="featured-top">
                 <span class="featured-badge">Latest Issue</span>
                 <span class="featured-issue-num">Issue #001 // 2025</span>
@@ -440,7 +440,7 @@
                 <span class="issue-tag">Initialization</span>
                 <span class="issue-tag">EXP-01</span>
               </div>
-              <h2 class="issue-title">The Sunrise. And Why The Log Exists.</h2>
+              <h2 class="issue-title">The Sunrise. And Why The Dispatch Exists.</h2>
               <p class="issue-excerpt">I got off work early one afternoon with every intention of living a real life for a few hours. By sunrise I was still online and I couldn't tell you why. The first transmission — what that morning revealed, EXP-01 for this week, and one field observation that says everything about where we're starting from.</p>
               <div class="featured-meta">
                 <span class="featured-meta-item">5 min read</span>
@@ -451,8 +451,6 @@
           </div>
         </div>
 
-        <!--
-        ARCHIVE — uncomment when Issue 002 is live
         <div class="reveal" style="margin-top:3rem;">
           <p class="tag">Archive // All Issues</p>
           <div class="issue-list">
@@ -463,7 +461,7 @@
               <div class="issue-num-block"><span class="issue-num">1</span><span class="issue-label">Issue</span></div>
               <div class="issue-body">
                 <div class="issue-meta"><span class="issue-date">2025</span><span class="issue-tag">Initialization</span></div>
-                <h3 class="issue-title">The Sunrise. And Why The Log Exists.</h3>
+                <h3 class="issue-title">The Sunrise. And Why The Dispatch Exists.</h3>
                 <p class="issue-excerpt">The first transmission. What a sunrise at 6am revealed about a pattern that had been running for years. EXP-01 for this week.</p>
               </div>
               <div class="issue-action"><span class="issue-read">5 min</span><span class="issue-arrow">→</span></div>
@@ -471,8 +469,6 @@
 
           </div>
         </div>
-        END ARCHIVE -->
-
       </div>
 
       <!-- SIDEBAR -->
@@ -488,7 +484,7 @@
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">Log Stats</p>
+          <p class="sidebar-title">Dispatch Stats</p>
           <div class="sidebar-stat"><span class="sidebar-stat-label">Total Issues</span><span class="sidebar-stat-val">1</span></div>
           <div class="sidebar-stat"><span class="sidebar-stat-label">Since</span><span class="sidebar-stat-val">2025</span></div>
         </div>
@@ -520,7 +516,7 @@
 <div class="section-alt z">
   <div class="footer-cta">
     <div class="reveal">
-      <p class="tag">Join The Log</p>
+      <p class="tag">Join The Dispatch</p>
       <h2>Every Tuesday.<br>One transmission.</h2>
       <p class="body-text">Field data from active experiments. Protocol updates. One thing to run this week. No filler. No fluff. Transmitted every Tuesday — unsubscribe any time.</p>
       <script async data-uid="68998098aa" src="https://slate-silicon.kit.com/68998098aa/index.js"></script>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue 002 — The Dispatch — Slate & Silicon</title>
+  <meta name="description" content="The second transmission from The Dispatch. Silence reveals the unexpected. DIAG-01 for this week.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Slate & Silicon">
+<meta property="og:title" content="Issue 002: The Quiet Is Louder Than You Expected. — Slate & Silicon">
+<meta property="og:description" content="The second transmission. Silence reveals the unexpected. DIAG-01 for this week.">
+<meta property="og:url" content="https://slateandsilicon.com/log/issue-002/">
+<meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@slate.silicon">
+<meta name="twitter:title" content="Issue 002: The Quiet Is Louder Than You Expected. — Slate & Silicon">
+<meta name="twitter:description" content="The second transmission from The Dispatch. Silence reveals the unexpected. DIAG-01 for this week.">
+<meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
+  <style>
+    /* ── LOG ISSUE 002 — PAGE LAYER ────────────────────────
+       Editorial long-form. Same register as The Expanse.
+       Narrow reading column. Copy breathes.
+       Amber throughout. No cyan.
+    ──────────────────────────────────────────────────────── */
+
+    /* Issue header */
+    .issue-header {
+      max-width: 640px;
+      padding: clamp(4rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .issue-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .issue-badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 3px 9px;
+    }
+
+    .issue-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+    }
+
+    .issue-header h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    .issue-lede {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 54ch;
+      font-weight: 300;
+      border-left: 2px solid var(--blue);
+      padding-left: 1.5rem;
+    }
+
+    /* Issue body */
+    .issue-body {
+      max-width: 640px;
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    }
+
+    .issue-body p {
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      color: #c0b8ae;
+      line-height: 1.95;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+
+    .issue-body p:last-child { margin-bottom: 0; }
+
+    .issue-body strong {
+      color: var(--bone);
+      font-weight: 400;
+    }
+
+    .issue-body em {
+      font-style: italic;
+      color: var(--bone);
+    }
+
+    /* Section headers within issue */
+    .issue-section {
+      margin: clamp(3rem, 6vw, 5rem) 0 2rem;
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .issue-section-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .issue-section h2 {
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      margin-bottom: 2rem;
+      max-width: 20ch;
+    }
+
+    /* Experiment block — slightly elevated surface */
+    .exp-block {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--blue);
+      padding: 2rem 2rem 2rem 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .exp-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .exp-block p:last-child { margin-bottom: 0; }
+
+    .exp-block strong { color: var(--bone); font-weight: 400; }
+
+    /* Field observation — quieter, indented */
+    .obs-block {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+
+    .obs-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .obs-block p:last-child { margin-bottom: 0; }
+
+    /* Transmission footer */
+    .issue-footer {
+      border-top: 1px solid var(--line);
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      max-width: 640px;
+    }
+
+    .issue-footer-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .issue-footer-meta span {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+
+    .issue-footer-meta a {
+      color: var(--muted);
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 1px;
+      text-decoration: none;
+      transition: color .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .issue-footer-meta a:hover {
+      color: var(--blue);
+      border-color: var(--blue-line);
+    }
+
+    /* Nav breadcrumb */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color .2s var(--ease);
+      display: block;
+    }
+
+    .back-link:hover { color: var(--blue); }
+
+    /* Subscribe nudge at bottom */
+    .issue-subscribe {
+      background: rgba(232,226,214,.016);
+      border: 1px solid var(--line);
+      padding: 2rem;
+      margin-top: clamp(3rem, 6vw, 5rem);
+      max-width: 640px;
+    }
+
+    .issue-subscribe p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/log/">Dispatch</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ISSUE -->
+<div class="z">
+  <div class="section">
+
+    <!-- ISSUE HEADER -->
+    <div class="issue-header reveal">
+      <div class="issue-meta-row">
+        <span class="issue-badge">Issue 002</span>
+        <span class="issue-id">Diagnostic // 2025</span>
+        <span class="issue-id">5 min read</span>
+      </div>
+      <h1>The Queit<br>Is Louder Than<br>You Expected.</h1>
+      <p class="issue-lede">
+        The second transmission from The Log. Every Tuesday from here, a field report. Data from active recovery. One thing to sit with this week.
+      </p>
+    </div>
+
+    <!-- ISSUE BODY -->
+    <div class="issue-body reveal">
+
+      <!-- FIELD NOTE -->
+      <span class="issue-section-label" style="margin-top: clamp(3rem, 6vw, 5rem); display: block;">SIGNAL TWO // RUN THIS WEEK</span>
+
+      <p>
+        There's a moment nobody warns you about.
+      </p>
+
+      <p>
+        Not the anxiety. Not the phantom reach for the phone. Those you expect once someone names them.
+      </p>
+
+      <p>
+        The moment I mean is the one that comes after.
+      </p>
+
+      <p>
+        When it actually gets quiet.
+      </p>
+
+      <p>
+        And the quiet feels wrong.
+      </p>
+
+      <p>
+        Not peaceful. Not restorative. Wrong. Like a room where something is missing. Like a conversation that ended too abruptly. Like a signal that dropped and your nervous system is still scanning — still listening for the next input that isn't coming.
+      </p>
+
+      <p>
+        That's the part that stopped me cold.
+      </p>
+
+      <p>
+        I thought the discomfort would be about the phone. About missing something. About the pull toward the feed.
+      </p>
+
+      <p>
+        It wasn't.
+      </p>
+
+      <p>
+        The discomfort was the silence itself.
+      </p>
+
+      <p>
+        Which means somewhere along the way, quiet stopped being the default. It became the absence of something. The gap between inputs. The thing you tolerate until the next notification arrives.
+      </p>
+
+      <p>
+        I don't know exactly when that happened.
+      </p>
+
+      <p>
+        I know it happened slowly. Quietly. Without anyone deciding it.
+      </p>
+
+      <p>
+        And I know that if silence now feels like deprivation — that's not a personality trait. That's a nervous system that's been trained.
+      </p>
+      
+      <!-- DIAG-01 -->
+      <div class="issue-section">
+        <span class="issue-section-label">DIAG-01 // 5 Minutes of Silence — Run This First</span>
+        <h2>Before you diagnose anything, run this first.</h2>
+
+        <div class="exp-block">
+          <p>
+            This week there's only one thing to do. And it isn't a challenge.
+          </p>
+          <p>
+            Set a timer for five minutes.
+          </p>
+          <p>
+            No phone. No screen. No audio. No task.
+          </p>
+          <p>
+            Sit with it.
+          </p>
+          <p>
+            Don't try to relax. Don't try to clear your head. Don't try to do anything.
+          </p>
+          <p>
+            Just notice what your mind reaches for — and when.
+          </p>
+          <p>
+            That's the data.
+          </p>
+          <p>
+            Not the discomfort. Not the restlessness. Not whether you made it the full five minutes.
+          </p>
+          <p>
+            The data is what showed up when the input stopped.
+          </p>
+          <p>
+            That's where this starts. Not with a system. Not with rules. With a reading.
+          </p>
+          <p>
+            DIAG-01 // 5 MINUTES OF SILENCE // OBSERVATION ONLY
+          </p>
+          <p>
+            If something unexpected showed up — that's the starting point.
+          </p>    
+        
+        </div>
+      </div>
+
+      <!-- FIELD OBSERVATION -->
+      <div class="issue-section">
+        <span class="issue-section-label">Field Note // This Week</span>
+
+        <div class="obs-block">
+          <p>
+            The pre-experiments aren't warm-ups.
+          </p>
+          <p>
+            They're diagnostics.
+          </p>
+          <p>
+            Most recovery frameworks skip this part entirely. They hand you a protocol before you've read your own baseline. That's like adjusting the antenna before you know what signal you're trying to receive.
+          </p>
+          <p>
+            Slate & Silicon doesn't start with the fix.
+          </p>
+          <p>
+            It starts with the observation.
+          </p>
+          <p>
+            Run DIAG-01 once before next Tuesday.
+          </p>
+          <p>
+            That's the only ask.
+          </p>
+         
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TRANSMISSION FOOTER -->
+    <div class="issue-footer reveal">
+      <div class="issue-footer-meta">
+        <span>Roman Prime — Lead Operator  //  Issue 002</span>
+        <span>Next transmission: Issue 003 — coming soon</span>
+        <span>
+          <a href="https://slate-silicon.kit.com/b85027b5ea">Subscribe to The Log</a>
+          &nbsp;//&nbsp;
+          <a href="/log/">Back to archive</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- SUBSCRIBE NUDGE -->
+    <div class="issue-subscribe reveal">
+      <p>Issue 003 ships next Tuesday. Field data from DIAG-01 — and what tends to show up when you actually sit with it. Every Tuesday. No noise.</p>
+      <a href="https://slate-silicon.kit.com/b85027b5ea" class="content-cta">Subscribe to The Dispatch</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="z">
+  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

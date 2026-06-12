@@ -1,1 +1,449 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue 003 — The Dispatch — Slate & Silicon</title>
+  <meta name="description" content="The third transmission from The Dispatch. What showed up when the silence arrived. Field data from DIAG-01.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Slate & Silicon">
+  <meta property="og:title" content="Issue 003: What Showed Up. — Slate & Silicon">
+  <meta property="og:description" content="The third transmission. Field data from DIAG-01. What tends to show up when the input stops.">
+  <meta property="og:url" content="https://slateandsilicon.com/log/issue-003/">
+  <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@slate.silicon">
+  <meta name="twitter:title" content="Issue 003: What Showed Up. — Slate & Silicon">
+  <meta name="twitter:description" content="The third transmission from The Dispatch. Field data from DIAG-01. What tends to show up when the input stops.">
+  <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
+  <style>
+    .issue-header {
+      max-width: 640px;
+      padding: clamp(4rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .issue-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .issue-badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 3px 9px;
+    }
+
+    .issue-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+    }
+
+    .issue-header h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    .issue-lede {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 54ch;
+      font-weight: 300;
+      border-left: 2px solid var(--blue);
+      padding-left: 1.5rem;
+    }
+
+    .issue-body {
+      max-width: 640px;
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    }
+
+    .issue-body p {
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      color: #c0b8ae;
+      line-height: 1.95;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+
+    .issue-body p:last-child { margin-bottom: 0; }
+
+    .issue-body strong {
+      color: var(--bone);
+      font-weight: 400;
+    }
+
+    .issue-body em {
+      font-style: italic;
+      color: var(--bone);
+    }
+
+    .issue-section {
+      margin: clamp(3rem, 6vw, 5rem) 0 2rem;
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .issue-section-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .issue-section h2 {
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      margin-bottom: 2rem;
+      max-width: 20ch;
+    }
+
+    .exp-block {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--blue);
+      padding: 2rem 2rem 2rem 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .exp-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .exp-block p:last-child { margin-bottom: 0; }
+
+    .exp-block strong { color: var(--bone); font-weight: 400; }
+
+    .obs-block {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+
+    .obs-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .obs-block p:last-child { margin-bottom: 0; }
+
+    .issue-footer {
+      border-top: 1px solid var(--line);
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      max-width: 640px;
+    }
+
+    .issue-footer-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .issue-footer-meta span {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+
+    .issue-footer-meta a {
+      color: var(--muted);
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 1px;
+      text-decoration: none;
+      transition: color .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .issue-footer-meta a:hover {
+      color: var(--blue);
+      border-color: var(--blue-line);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color .2s var(--ease);
+      display: block;
+    }
+
+    .back-link:hover { color: var(--blue); }
+
+    .issue-subscribe {
+      background: rgba(232,226,214,.016);
+      border: 1px solid var(--line);
+      padding: 2rem;
+      margin-top: clamp(3rem, 6vw, 5rem);
+      max-width: 640px;
+    }
+
+    .issue-subscribe p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/log/">Dispatch</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ISSUE -->
+<div class="z">
+  <div class="section">
+
+    <!-- ISSUE HEADER -->
+    <div class="issue-header reveal">
+      <div class="issue-meta-row">
+        <span class="issue-badge">Issue 003</span>
+        <span class="issue-id">Field Data // 2026</span>
+        <span class="issue-id">5 min read</span>
+      </div>
+      <h1>What<br>Showed Up.</h1>
+      <p class="issue-lede">
+        The third transmission from The Log. Last week you were asked to sit in silence for five minutes. This is what tends to show up when you do.
+      </p>
+    </div>
+
+    <!-- ISSUE BODY -->
+    <div class="issue-body reveal">
+
+      <span class="issue-section-label" style="margin-top: clamp(3rem, 6vw, 5rem); display: block;">SIGNAL THREE // FIELD DATA</span>
+
+      <p>
+        Last week the only ask was five minutes.
+      </p>
+
+      <p>
+        No system. No rules. Just a timer, a stopped input, and whatever arrived in the space after.
+      </p>
+
+      <p>
+        Some of you ran it once and didn't think much of it.
+      </p>
+
+      <p>
+        Some of you ran it and couldn't make it to five minutes.
+      </p>
+
+      <p>
+        Some of you made it — and felt something you didn't expect.
+      </p>
+
+      <p>
+        All of that is data.
+      </p>
+
+      <p>
+        Here's what tends to show up. Not always in this order. Not always all at once. But consistently enough that it's worth naming.
+      </p>
+
+      <p>
+        The first thing is the reach. Before thirty seconds is up, something in you moves toward the phone. Not because you decided to. Not because anything happened. Just — the hand moves. The attention flicks. The impulse fires before the thought does.
+      </p>
+
+      <p>
+        That's not a habit. That's a conditioned response. The kind that runs below the level of decision.
+      </p>
+
+      <p>
+        The second thing is the justification. Right behind the reach comes a reason. <em>I should check if anyone responded. I need to remember to send that message. What if something came in.</em> The mind constructs an emergency out of nothing. Not because anything is wrong. Because the reach needs a story.
+      </p>
+
+      <p>
+        The third thing — and this is the one that stops people — is the discomfort with their own thoughts.
+      </p>
+
+      <p>
+        Not anxiety. Not distress. Just an unfamiliarity. Like stepping into a room you haven't been in for a long time and not being sure what to do with yourself inside it.
+      </p>
+
+      <p>
+        Your own mind, unmediated, feels like somewhere you don't quite live anymore.
+      </p>
+
+      <p>
+        That's the reading DIAG-01 is designed to surface.
+      </p>
+
+      <p>
+        Not whether you can sit still. Not whether you have discipline. Whether the silence feels like yours — or like something that belongs to someone who existed before all of this.
+      </p>
+
+      <!-- DIAG-01 CLOSE / DIAG-02 INTRO -->
+      <div class="issue-section">
+        <span class="issue-section-label">DIAG-02 // 10 Minutes, No Phone — Run This Next</span>
+        <h2>The phone leaves the room this week.</h2>
+
+        <div class="exp-block">
+          <p>
+            DIAG-01 was about silence. What your mind reaches for when the input stops.
+          </p>
+          <p>
+            DIAG-02 is about removal. Specifically: what changes when the phone isn't just silenced — but gone.
+          </p>
+          <p>
+            Not in your pocket. Not face-down on the desk. In another room.
+          </p>
+          <p>
+            Set a timer for ten minutes. Leave the phone behind. Go somewhere else in your space.
+          </p>
+          <p>
+            You don't need to do anything with the ten minutes. Work. Sit. Make something. It doesn't matter.
+          </p>
+          <p>
+            What you're watching for: when does the impulse to check it arrive. What triggered it. Was it boredom. A thought. A noise. Nothing at all.
+          </p>
+          <p>
+            Notice if you feel slightly less yourself without it in the room. That sensation is worth sitting with.
+          </p>
+          <p>
+            DIAG-02 // 10 MINUTES, NO PHONE // OBSERVATION ONLY
+          </p>
+          <p>
+            Run it once before next Tuesday. That's the only ask.
+          </p>
+        </div>
+      </div>
+
+      <!-- FIELD NOTE -->
+      <div class="issue-section">
+        <span class="issue-section-label">Field Note // Roman Prime — Lead Operator</span>
+
+        <div class="obs-block">
+          <p>
+            The reach isn't the problem.
+          </p>
+          <p>
+            The reach is the data.
+          </p>
+          <p>
+            Most frameworks treat the impulse to check your phone as something to suppress. A failure of discipline. Something to push through on the way to better behavior.
+          </p>
+          <p>
+            It isn't. It's a signal. It tells you exactly what your nervous system has been trained to expect — and how fast it expects it.
+          </p>
+          <p>
+            You don't recover by ignoring the signal. You recover by reading it first.
+          </p>
+          <p>
+            That's what both diagnostics are for.
+          </p>
+          <p>
+            Run DIAG-02 this week. Bring what you find back to Issue 004.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TRANSMISSION FOOTER -->
+    <div class="issue-footer reveal">
+      <div class="issue-footer-meta">
+        <span>Roman Prime — Lead Operator  //  Issue 003</span>
+        <span>Next transmission: Issue 004 — coming Tuesday</span>
+        <span>
+          <a href="https://slate-silicon.kit.com/b85027b5ea">Subscribe to The Log</a>
+          &nbsp;//&nbsp;
+          <a href="/log/">Back to archive</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- SUBSCRIBE NUDGE -->
+    <div class="issue-subscribe reveal">
+      <p>Issue 004 ships next Tuesday. Field data from DIAG-02 — and what the phone being out of the room actually changes. Every Tuesday. No noise.</p>
+      <a href="https://slate-silicon.kit.com/b85027b5ea" class="content-cta">Subscribe to The Dispatch</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="z">
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/store/">Store</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/FAQ/">FAQ</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

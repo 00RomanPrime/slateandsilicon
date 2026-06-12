@@ -65,17 +65,17 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- INTERNAL SELL PAGES -->
+  <!-- STORE PRODUCT PAGES -->
   <url>
-    <loc>https://slateandsilicon.com/7-day-detox/</loc>
+    <loc>https://slateandsilicon.com/store/7day-detox/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://slateandsilicon.com/focus-sprint/</loc>
+    <loc>https://slateandsilicon.com/store/focus-sprint/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- LEGAL -->
@@ -95,6 +95,24 @@
     <loc>https://slateandsilicon.com/contact/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://slateandsilicon.com/FAQ/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://slateandsilicon.com/log/issue-002/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://slateandsilicon.com/log/issue-003/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

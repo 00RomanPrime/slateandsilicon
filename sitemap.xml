@@ -59,12 +59,7 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://slateandsilicon.com/store/detox-planner/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+  
   <!-- STORE PRODUCT PAGES -->
   <url>
     <loc>https://slateandsilicon.com/store/7day-detox/</loc>

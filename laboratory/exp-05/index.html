@@ -1,328 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EXP-05 — App Deletion | Slate & Silicon</title>
-<meta name="description" content="Test what happens to your behavior when the fastest path to your attention is removed. EXP-05: App Deletion. Filed under The Lab.">
-<meta property="og:title" content="EXP-05 — App Deletion | Slate & Silicon">
-<meta property="og:description" content="Test what happens to your behavior when the fastest path to your attention is removed.">
-<meta property="og:type" content="article">
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/system.css?v=4">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #0f0d0b;
-    --paper: #f0ebe3;
-    --amber: #c8a06a;
-    --ash: #6b6560;
-    --surface: #161310;
-    --rule: #1e1b18;
-    --muted: #9a9088;
-    --body-text: #c0b8b0;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXP-05 — App Deletion | Slate & Silicon</title>
+  <meta name="description" content="Test what happens to your behavior when the fastest path to your attention is removed. EXP-05: App Deletion. Filed under The Lab.">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Slate & Silicon">
+  <meta property="og:title" content="EXP-05 — App Deletion | Slate & Silicon">
+  <meta property="og:description" content="Test what happens to your behavior when the fastest path to your attention is removed.">
+  <meta property="og:url" content="https://slateandsilicon.com/lab/exp-05/">
+  <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-  body {
-    background: var(--ink);
-    color: var(--body-text);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    min-height: 100vh;
-  }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@slate.silicon">
+  <meta name="twitter:title" content="EXP-05 — App Deletion | Slate & Silicon">
+  <meta name="twitter:description" content="Test what happens to your behavior when the fastest path to your attention is removed.">
+  <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
 
-  a { color: inherit; text-decoration: none; }
-  a:hover { color: var(--paper); }
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
 
-  /* ── NAV ── */
-  .site-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 48px;
-    border-bottom: 1px solid var(--rule);
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
 
-  .nav-brand {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    font-weight: 300;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--paper);
-  }
+  <style>
+    .exp-header {
+      max-width: 640px;
+      padding: clamp(4rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--line);
+    }
 
-  .nav-brand span { color: var(--amber); }
+    .exp-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
 
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
+    .exp-badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 3px 9px;
+    }
 
-  .nav-links a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ash);
-    transition: color 0.2s;
-  }
+    .exp-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+    }
 
-  .nav-links a:hover { color: var(--amber); }
+    .exp-header h1 {
+      margin-bottom: 1.5rem;
+    }
 
-  /* ── LAYOUT ── */
-  .page-wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 80px 40px 140px;
-  }
+    .exp-lede {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 54ch;
+      font-weight: 300;
+      border-left: 2px solid var(--blue);
+      padding-left: 1.5rem;
+    }
 
-  /* ── EXPERIMENT HEADER ── */
-  .exp-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.1s forwards;
-  }
+    .exp-body {
+      max-width: 640px;
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    }
 
-  .exp-code {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--amber);
-  }
+    .exp-body p {
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      color: #c0b8ae;
+      line-height: 1.95;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
 
-  .exp-divider {
-    width: 40px;
-    height: 1px;
-    background: var(--rule);
-  }
+    .exp-body p:last-child { margin-bottom: 0; }
 
-  .exp-status {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ash);
-  }
+    .exp-body strong {
+      color: var(--bone);
+      font-weight: 400;
+    }
 
-  .exp-status.closed { color: var(--ash); }
+    .exp-body em {
+      font-style: italic;
+      color: var(--bone);
+    }
 
-  .exp-title {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: clamp(30px, 5vw, 48px);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--paper);
-    letter-spacing: -0.01em;
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.2s forwards;
-  }
+    .exp-section {
+      margin: clamp(3rem, 6vw, 5rem) 0 2rem;
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+    }
 
-  .exp-objective {
-    font-size: 17px;
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 600px;
-    margin-bottom: 60px;
-    padding-bottom: 60px;
-    border-bottom: 1px solid var(--rule);
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.3s forwards;
-  }
+    .exp-section-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
 
-  /* ── META STRIP ── */
-  .exp-meta {
-    display: flex;
-    gap: 48px;
-    margin-bottom: 72px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.4s forwards;
-  }
+    .exp-section h2 {
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      margin-bottom: 2rem;
+      max-width: 24ch;
+    }
 
-  .meta-item {}
+    .exp-block {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--blue);
+      padding: 2rem 2rem 2rem 1.75rem;
+      margin: 2rem 0;
+    }
 
-  .meta-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--ash);
-    margin-bottom: 6px;
-  }
+    .exp-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
 
-  .meta-value {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--amber);
-    letter-spacing: 0.05em;
-  }
+    .exp-block p:last-child { margin-bottom: 0; }
+    .exp-block strong { color: var(--bone); font-weight: 400; }
+    .exp-block em { font-style: italic; color: var(--bone); }
 
-  /* ── FIELD NOTE BODY ── */
-  .field-note {
-    opacity: 0;
-    animation: fadeUp 1s ease 0.5s forwards;
-  }
+    .obs-block {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
 
-  .field-note p {
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 1.85;
-    color: var(--body-text);
-    margin-bottom: 28px;
-  }
+    .obs-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-style: italic;
+    }
 
-  .field-note p:last-child { margin-bottom: 0; }
+    .obs-block p:last-child { margin-bottom: 0; }
 
-  .field-note p em {
-    font-style: italic;
-    color: var(--paper);
-  }
+    .exp-footer {
+      border-top: 1px solid var(--line);
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      max-width: 640px;
+    }
 
-  .field-note p strong {
-    font-weight: 400;
-    color: var(--paper);
-  }
+    .exp-footer-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
 
-  /* ── SECTION BREAK ── */
-  .section-break {
-    border: none;
-    border-top: 1px solid var(--rule);
-    margin: 56px 0;
-  }
+    .exp-footer-meta span {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
 
-  /* ── PULL QUOTE ── */
-  .pull-quote {
-    padding: 36px 0 36px 28px;
-    border-left: 2px solid var(--amber);
-    margin: 56px 0;
-  }
+    .back-link {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color .2s var(--ease);
+    }
 
-  .pull-quote p {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.6;
-    color: var(--paper);
-    font-style: italic;
-  }
-
-  /* ── OBSERVATION BLOCK ── */
-  .obs-block {
-    background: var(--surface);
-    padding: 36px 32px;
-    margin: 56px 0;
-    border-left: 2px solid var(--rule);
-  }
-
-  .obs-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 20px;
-  }
-
-  .obs-block p {
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--muted);
-    margin-bottom: 16px;
-  }
-
-  .obs-block p:last-child { margin-bottom: 0; }
-
-  /* ── FOOTER ── */
-  .site-footer {
-    border-top: 1px solid var(--rule);
-    padding: 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  .footer-brand {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ash);
-  }
-
-  .footer-brand span { color: var(--amber); }
-
-  .footer-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-  }
-
-  .footer-links a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ash);
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--amber); }
-
-  /* ── SIGNATURE ── */
-  .rp-sig {
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid var(--rule);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ash);
-  }
-
-  .rp-sig span { color: var(--amber); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (max-width: 640px) {
-    .site-nav { padding: 20px 24px; }
-    .nav-links { display: none; }
-    .page-wrap { padding: 56px 24px 100px; }
-    .exp-meta { flex-wrap: wrap; gap: 28px; }
-    .site-footer { flex-direction: column; gap: 24px; align-items: flex-start; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, .reveal { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
-  }
-</style>
+    .back-link:hover { color: var(--blue); }
+  </style>
 </head>
 <body>
 
@@ -333,131 +207,154 @@
       <img src="/logo/logo-light.svg" alt="Slate & Silicon">
     </a>
     <div class="nav-right">
-            <ul class="nav-links">
+      <ul class="nav-links">
         <li><a href="/start-here/">Start Here</a></li>
         <li><a href="/laboratory/">Laboratory</a></li>
         <li><a href="/log/">Dispatch</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
-      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get the Planner</a>
     </div>
   </div>
 </nav>
 
-<!-- MAIN -->
-<main class="page-wrap">
+<!-- EXP PAGE -->
+<div class="z">
+  <div class="section">
 
-  <!-- HEADER -->
-  <div class="exp-eyebrow">
-    <span class="exp-code">EXP-05</span>
-    <div class="exp-divider"></div>
-    <span class="exp-status closed">Closed — Rebuild</span>
-  </div>
+    <a href="/laboratory/" class="back-link">← The Laboratory</a>
 
-  <h1 class="exp-title">App Deletion</h1>
-
-  <p class="exp-objective">
-    Test what happens to your behavior when the fastest path to your attention is removed.
-  </p>
-
-  <!-- META -->
-  <div class="exp-meta">
-    <div class="meta-item">
-      <div class="meta-label">Designation</div>
-      <div class="meta-value">EXP-05</div>
+    <!-- HEADER -->
+    <div class="exp-header reveal">
+      <div class="exp-meta-row">
+        <span class="exp-badge">EXP-05</span>
+        <span class="exp-id">App Deletion // 2026</span>
+        <span class="exp-id">Status: Closed — Rebuild</span>
+      </div>
+      <h1>The fastest path<br>to your attention.</h1>
+      <p class="exp-lede">
+        Test what happens to your behavior when it's removed.
+      </p>
     </div>
-    <div class="meta-item">
-      <div class="meta-label">Phase</div>
-      <div class="meta-value">Rebuild</div>
+
+    <!-- BODY -->
+    <div class="exp-body reveal">
+
+      <span class="exp-section-label" style="margin-top: clamp(3rem, 6vw, 5rem); display: block;">EXP-05 // Field Note</span>
+
+      <p>You run this experiment when you notice the world going on around you and realize you're not in it.</p>
+
+      <p>That's the only trigger you need.</p>
+
+      <p>The home screen without its apps looks wrong. Clock. Search bar. Twelve empty slots where the reflexes used to live. You know the apps are still there — one search, one download, thirty seconds away. That knowledge is the first thing you bargain with.</p>
+
+      <p>The morning is easy. Weather. News. The things you were supposedly checking for anyway. That part holds.</p>
+
+      <p>Then comes mid-morning: the notification you can't see. The check that used to take two taps now takes a login, a two-factor prompt, and a page that loads sideways. You get there, scroll for a few minutes, then close it down and start again next time.</p>
+
+      <p>By mid-afternoon, it's a chore. You start asking a question you didn't use to ask: <em>Is this worth it?</em> Not as a philosophical exercise. Quietly, in the background, is whatever I'm about to see worth the login? Most of the time, the answer is no. You don't make that decision consciously. You just feel the friction and put the phone down.</p>
+
+      <p>That's the mechanism doing its job without you noticing.</p>
+
+      <p>Evening is where the system gets gamed. Tabs left open. Remember me. A workaround so the sequence doesn't have to run again. You start to notice which apps you're willing to log into and which ones you let go.</p>
+
+      <!-- PULL -->
+      <div class="exp-section">
+        <span class="exp-section-label">Observation // Gravity Wells</span>
+
+        <div class="obs-block">
+          <p>The ones you chase are the gravity wells. The rest quietly disappear.</p>
+          <p>That's information.</p>
+        </div>
+      </div>
+
+      <p>Night one: restless. Not anxious. Something quieter. An itch in the back of your skull that normally gets scratched by input. Without it, your own thoughts filled the space — louder than anything on the feed. You stayed up longer than you needed to. Not scrolling. Just awake.</p>
+
+      <p>Day two: you went back to the App Store. Got as far as reinstalling two before you stopped. Sat with it. Deleted them again. The evening ended earlier. Getting to sleep wasn't a negotiation.</p>
+
+      <p>Morning of day three: you reached for the weather. That was it. No scan. No sweep. The fifteen minutes of eyes-open scrolling that used to happen before you got out of bed — it wasn't there, because there was nothing to feed it.</p>
+
+      <p>Coming home that afternoon, you took your phone out of your pocket and put it in the bowl by the door. Same bowl as the keys. Same logic.</p>
+
+      <!-- PULL -->
+      <div class="exp-section">
+        <span class="exp-section-label">Observation // The Tool</span>
+
+        <div class="obs-block">
+          <p>A tool has a place. You didn't decide to do that. It just happened.</p>
+        </div>
+      </div>
+
+      <p>The habit isn't the app. The habit is the reflex the app was built to serve.</p>
+
+      <p>Remove the app and the reflex is still there — you can watch it look for something to attach to.</p>
+
+      <p>Social media was built to socialize. What it became is a preference engine tuned not to what you need from other people, but to what keeps you watching.</p>
+
+      <p>Once you see that, the question changes. It stops being about discipline. It starts being about intention.</p>
+
+      <p><strong>That's a different problem. One you can actually work with.</strong></p>
+
+      <!-- MECHANISM BLOCK -->
+      <div class="exp-section">
+        <span class="exp-section-label">EXP-05 // What the Data Shows</span>
+        <h2>Remove the app. Watch the reflex.</h2>
+
+        <div class="exp-block">
+          <p>
+            The friction isn't the punishment. The friction is the information.
+          </p>
+          <p>
+            Every time you feel the login sequence and put the phone down, that's the experiment working — not you failing to resist.
+          </p>
+          <p>
+            The question was never whether you could delete the apps. The question was <strong>what the reflex does when it has nowhere to go.</strong>
+          </p>
+          <p>
+            Watch which apps you're willing to chase through two-factor authentication. Watch which ones you quietly abandon. That list is more honest than anything you'd say about your habits out loud.
+          </p>
+          <p>
+            EXP-05 // CLOSED — REBUILD PHASE
+          </p>
+        </div>
+      </div>
+
+      <!-- FIELD NOTE -->
+      <div class="exp-section">
+        <span class="exp-section-label">Field Note // Roman Prime — Operator 00</span>
+
+        <div class="obs-block">
+          <p>
+            Remove the app and the reflex is still there — you can watch it look for something to attach to.
+          </p>
+          <p>
+            It stops being about discipline. It starts being about intention.
+          </p>
+          <p>
+            That's a different problem. One you can actually work with.
+          </p>
+        </div>
+      </div>
+
     </div>
-    <div class="meta-item">
-      <div class="meta-label">Status</div>
-      <div class="meta-value">Closed</div>
+
+    <!-- PAGE FOOTER -->
+    <div class="exp-footer reveal">
+      <div class="exp-footer-meta">
+        <span>Roman Prime — Operator 00  //  EXP-05</span>
+        <span>Filed: 2026 // Phase: Rebuild // Status: Closed</span>
+      </div>
     </div>
-    <div class="meta-item">
-      <div class="meta-label">Filed</div>
-      <div class="meta-value">2026</div>
-    </div>
-  </div>
-
-  <!-- FIELD NOTE -->
-  <div class="field-note">
-
-    <p>You run this experiment when you notice the world going on around you and realize you're not in it.</p>
-    <p>That's the only trigger you need.</p>
-
-    <hr class="section-break">
-
-    <p>The home screen without its apps looks wrong. Clock. Search bar. Twelve empty slots where the reflexes used to live. You know the apps are still there — one search, one download, thirty seconds away. That knowledge is the first thing you bargain with.</p>
-
-    <p>The morning is easy. Weather. News. The things you were supposedly checking for anyway. That part holds.</p>
-
-    <p>Then comes mid-morning: the notification you can't see. The check that used to take two taps now takes a login, a two-factor prompt, and a page that loads sideways. You get there, scroll for a few minutes, then close it down and start again next time.</p>
-
-    <p>By mid-afternoon, it's a chore. You start asking a question you didn't use to ask: <em>Is this worth it?</em> Not as a philosophical exercise. Quietly, in the background, is whatever I'm about to see worth the login? Most of the time, the answer is no. You don't make that decision consciously. You just feel the friction and put the phone down.</p>
-
-    <p>That's the mechanism doing its job without you noticing.</p>
-
-    <p>Evening is where the system gets gamed. Tabs left open. Remember me. A workaround so the sequence doesn't have to run again. You start to notice which apps you're willing to log into and which ones you let go.</p>
 
   </div>
-
-  <div class="pull-quote reveal">
-    <p>The ones you chase are the gravity wells. The rest quietly disappear.</p>
-  </div>
-
-  <div class="field-note reveal">
-    <p>That's information.</p>
-
-    <hr class="section-break">
-
-    <p>Night one: restless. Not anxious. Something quieter. An itch in the back of your skull that normally gets scratched by input. Without it, your own thoughts filled the space — louder than anything on the feed. You stayed up longer than you needed to. Not scrolling. Just awake.</p>
-
-    <p>Day two: you went back to the App Store. Got as far as reinstalling two before you stopped. Sat with it. Deleted them again. The evening ended earlier. Getting to sleep wasn't a negotiation.</p>
-
-    <p>Morning of day three: you reached for the weather. That was it. No scan. No sweep. The fifteen minutes of eyes-open scrolling that used to happen before you got out of bed — it wasn't there, because there was nothing to feed it.</p>
-
-    <p>Coming home that afternoon, you took your phone out of your pocket and put it in the bowl by the door. Same bowl as the keys. Same logic.</p>
-  </div>
-
-  <div class="pull-quote reveal">
-    <p>A tool has a place. You didn't decide to do that. It just happened.</p>
-  </div>
-
-  <div class="field-note reveal">
-
-    <hr class="section-break">
-
-    <p>The habit isn't the app. The habit is the reflex the app was built to serve.</p>
-
-    <p>Remove the app and the reflex is still there — you can watch it look for something to attach to.</p>
-
-    <p>Social media was built to socialize. What it became is a preference engine tuned not to what you need from other people, but to what keeps you watching.</p>
-
-    <p>Once you see that, the question changes. It stops being about discipline. It starts being about intention.</p>
-
-    <p><strong>That's a different problem. One you can actually work with.</strong></p>
-
-  </div>
-
-  <div class="obs-block reveal">
-    <div class="obs-label">Field Observation</div>
-    <p>The friction isn't the punishment. The friction is the information. Every time you feel the login sequence and put the phone down, that's the experiment working — not you failing to resist.</p>
-    <p>The question was never whether you could delete the apps. The question was what the reflex does when it has nowhere to go.</p>
-  </div>
-
-  <div class="rp-sig reveal">
-    — <span>Roman Prime</span> / Operator 00
-  </div>
-
-</main>
+</div>
 
 <!-- FOOTER -->
 <footer class="z">
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/store/">Store</a></li>
@@ -470,16 +367,10 @@
 </footer>
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 
 </body>

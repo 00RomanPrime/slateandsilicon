@@ -32,6 +32,13 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- THE LAB -->
+  <url>
+    <loc>https://slateandsilicon.com/lab/exp-05/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- THE DISPATCH -->
   <url>
     <loc>https://slateandsilicon.com/log/</loc>
@@ -41,6 +48,36 @@
 
   <url>
     <loc>https://slateandsilicon.com/log/issue-001/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://slateandsilicon.com/log/issue-002/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://slateandsilicon.com/log/issue-003/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://slateandsilicon.com/log/issue-004/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://slateandsilicon.com/log/issue-005/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://slateandsilicon.com/log/issue-006/</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
@@ -59,7 +96,6 @@
     <priority>0.7</priority>
   </url>
 
-  
   <!-- STORE PRODUCT PAGES -->
   <url>
     <loc>https://slateandsilicon.com/store/7day-detox/</loc>
@@ -95,18 +131,6 @@
   <url>
     <loc>https://slateandsilicon.com/FAQ/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://slateandsilicon.com/log/issue-002/</loc>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://slateandsilicon.com/log/issue-003/</loc>
-    <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
 

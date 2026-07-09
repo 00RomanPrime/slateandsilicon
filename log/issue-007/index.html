@@ -1,1 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue 007 — The Dispatch — Slate & Silicon</title>
+  <meta name="description" content="The seventh transmission from The Dispatch. DIAG-03: the overnight phone diagnostic. Where does your phone sleep?">
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Slate & Silicon">
+  <meta property="og:title" content="Issue 007: Where Does Your Phone Sleep? — Slate & Silicon">
+  <meta property="og:description" content="The seventh transmission. DIAG-03. One night, one room change, one thing to notice.">
+  <meta property="og:url" content="https://slateandsilicon.com/log/issue-007/">
+  <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@slate.silicon">
+  <meta name="twitter:title" content="Issue 007: Where Does Your Phone Sleep? — Slate & Silicon">
+  <meta name="twitter:description" content="The seventh transmission. DIAG-03. One night, one room change, one thing to notice.">
+  <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Issue 007: Where Does Your Phone Sleep?",
+    "description": "The seventh transmission from The Dispatch. DIAG-03: the overnight phone diagnostic.",
+    "url": "https://slateandsilicon.com/log/issue-007/",
+    "datePublished": "2026-07-12T09:00:00-05:00",
+    "author": {
+      "@type": "Person",
+      "name": "Roman Prime",
+      "url": "https://slateandsilicon.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Slate & Silicon",
+      "url": "https://slateandsilicon.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://slateandsilicon.com/logo/logo-light.svg"
+      }
+    },
+    "image": "https://slateandsilicon.com/assets/images/og-default.png",
+    "mainEntityOfPage": "https://slateandsilicon.com/log/issue-007/"
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
+  <style>
+    .issue-header {
+      max-width: 640px;
+      padding: clamp(4rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .issue-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .issue-badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 3px 9px;
+    }
+
+    .issue-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+    }
+
+    .issue-header h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    .issue-lede {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 54ch;
+      font-weight: 300;
+      border-left: 2px solid var(--blue);
+      padding-left: 1.5rem;
+    }
+
+    .issue-body {
+      max-width: 640px;
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    }
+
+    .issue-body p {
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      color: #c0b8ae;
+      line-height: 1.95;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+
+    .issue-body p:last-child { margin-bottom: 0; }
+
+    .issue-body strong {
+      color: var(--bone);
+      font-weight: 400;
+    }
+
+    .issue-body em {
+      font-style: italic;
+      color: var(--bone);
+    }
+
+    .issue-section {
+      margin: clamp(3rem, 6vw, 5rem) 0 2rem;
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .issue-section-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .issue-section h2 {
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      margin-bottom: 2rem;
+      max-width: 22ch;
+    }
+
+    .obs-block {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+
+    .obs-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .obs-block p:last-child { margin-bottom: 0; }
+
+    .issue-footer {
+      border-top: 1px solid var(--line);
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      max-width: 640px;
+    }
+
+    .issue-footer-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .issue-footer-meta span {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+
+    .issue-subscribe {
+      background: rgba(232,226,214,.016);
+      border: 1px solid var(--line);
+      padding: 2rem;
+      margin-top: clamp(3rem, 6vw, 5rem);
+      max-width: 640px;
+    }
+
+    .issue-subscribe p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/log/">Dispatch</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get the Planner</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ISSUE -->
+<div class="z">
+  <div class="section">
+
+    <!-- HEADER -->
+    <div class="issue-header reveal">
+      <div class="issue-meta-row">
+        <span class="issue-badge">Issue 007</span>
+        <span class="issue-id">DIAG-03 // 2026</span>
+        <span class="issue-id">3 min read</span>
+      </div>
+      <h1>Where Does Your<br>Phone Sleep?</h1>
+      <p class="issue-lede">
+        The seventh transmission from The Dispatch. Not a trick question. The answer tells you more than you'd think.
+      </p>
+    </div>
+
+    <!-- BODY -->
+    <div class="issue-body reveal">
+
+      <span class="issue-section-label" style="margin-top: clamp(3rem, 6vw, 5rem); display: block;">Signal Seven // DIAG-03</span>
+
+      <p>Where does your phone sleep?</p>
+
+      <p>Not a trick question. Think about it for a second before you answer. Nightstand. Under the pillow. Charging on the floor within arm's reach of the bed. However you answered, there's a decent chance the answer is: close enough to touch without sitting up.</p>
+
+      <p>This week's diagnostic is smaller than last time, and it only takes one night.</p>
+
+      <p>Put the phone somewhere else. Not off. Somewhere else. Another room, a bag, a drawer you'd have to get out of bed for. Then just notice what happens.</p>
+
+      <p>Most people report the same three things, in this order: a check for it that doesn't land on anything, because it's not there. A longer stretch of just lying there before sleep actually shows up. And a specific kind of morning: waking up before checking anything, instead of the other way around.</p>
+
+      <p>That's DIAG-03. The overnight test. It's not about sleep hygiene. It's about finding out how much of your night was actually being run by something in the next room.</p>
+
+      <!-- FIELD NOTE -->
+      <div class="issue-section">
+        <span class="issue-section-label">Field Note // Roman Prime — Lead Operator</span>
+
+        <div class="obs-block">
+          <p>
+            Run it once this week. If something happened worth mentioning, reply to this. I read them.
+          </p>
+          <p>
+            Also ran EXP-05 again this month. Apps off the home screen, one layer deeper, and a look at which ones you go back for anyway. <a href="/log/issue-006/">Field notes are in Issue 006</a> if you want the long version.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="issue-section">
+        <span class="issue-section-label">Full Protocol // The 7-Day Planner</span>
+
+        <p>If you want to run all twelve, the full 7-Day Planner is free at slateandsilicon.com. It uses your actual Screen Time data. It doesn't tell you what to think. It just shows you what's already there.</p>
+
+        <a href="https://slate-silicon.kit.com/1bce10c281" class="content-cta">Get the Free Planner</a>
+      </div>
+
+    </div>
+
+    <!-- TRANSMISSION FOOTER -->
+    <div class="issue-footer reveal">
+      <div class="issue-footer-meta">
+        <span>Roman Prime — Lead Operator  //  Issue 007</span>
+        <span>Next transmission: Issue 008 — coming Tuesday</span>
+      </div>
+    </div>
+
+    <!-- SUBSCRIBE NUDGE -->
+    <div class="issue-subscribe reveal">
+      <p>Issue 008 ships next Tuesday. Every Tuesday. No noise.</p>
+      <a href="https://slate-silicon.kit.com/0c7c8b09a2" class="content-cta">Subscribe to The Dispatch</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="z">
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/store/">Store</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/FAQ/">FAQ</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Slate & Silicon">
 <meta property="og:title" content="The Laboratory — Slate & Silicon">
-<meta property="og:description" content="Four phases. Twelve experiments. A 30-day system for removing digital dependency and rebuilding sustained attention. Run the test. Measure the output.">
+<meta property="og:description" content="Five phases. Twelve experiments. A 30-day system for observing attention and deciding what deserves to remain.">
 <meta property="og:url" content="https://slateandsilicon.com/laboratory/">
 <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@slate.silicon">
 <meta name="twitter:title" content="The Laboratory — Slate & Silicon">
-<meta name="twitter:description" content="Four phases. Twelve experiments. A 30-day system for removing digital dependency and rebuilding sustained attention. Run the test. Measure the output.">
+<meta name="twitter:description" content="Five phases. Twelve experiments. A 30-day system for observing attention and deciding what deserves to remain.">
 <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
   <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
 
@@ -36,6 +36,15 @@
        Structural chrome, sidebar titles, dividers — amber/line.
        Phase difficulty uses its own muted palette.
     ──────────────────────────────────────────────────────── */
+
+    /* Page-scoped fix: .section has no horizontal inset at desktop widths
+       sitewide (only page-hero does) — mirror page-hero's inset here so
+       this page's content lines up on both sides. Scoped to this page only;
+       does not touch the shared .section rule in styles.css. */
+    .z > .section {
+      width: min(var(--max), calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
 
     /* TWO-COLUMN LAYOUT */
     .lab-layout {
@@ -94,7 +103,6 @@
       text-transform: uppercase;
     }
 
-    /* Lab stat values — cyan correct, data readout */
     .sidebar-stat-val {
       font-family: var(--display);
       font-weight: 700;
@@ -111,7 +119,6 @@
       text-transform: uppercase;
     }
 
-    /* Protocol rules in sidebar */
     .sidebar-rule {
       padding: 0.75rem 0;
       border-bottom: 1px solid var(--line);
@@ -135,7 +142,6 @@
       line-height: 1.6;
     }
 
-    /* Status dot row */
     .status {
       display: flex;
       align-items: center;
@@ -164,7 +170,6 @@
       flex-wrap: wrap;
     }
 
-    /* Diag badge — amber, structural label */
     .diag-badge {
       font-family: var(--mono);
       font-size: 0.55rem;
@@ -217,7 +222,6 @@
 
     .diag-card:hover { background: var(--surface); }
 
-    /* Diag IDs — cyan correct, these are diagnostic codes */
     .diag-id {
       font-family: var(--mono);
       font-size: 0.55rem;
@@ -277,7 +281,6 @@
       flex-wrap: wrap;
     }
 
-    /* Phase number — cyan correct, system code */
     .phase-number {
       font-family: var(--mono);
       font-size: 0.55rem;
@@ -304,7 +307,6 @@
       white-space: nowrap;
     }
 
-    /* Phase difficulty — uses its own muted color palette */
     .phase-difficulty {
       font-family: var(--mono);
       font-size: 0.52rem;
@@ -376,7 +378,6 @@
       margin-bottom: 1.25rem;
     }
 
-    /* Exp IDs — cyan correct, experiment codes */
     .exp-id {
       font-family: var(--mono);
       font-size: 0.55rem;
@@ -385,7 +386,6 @@
       text-transform: uppercase;
     }
 
-    /* Status badges */
     .exp-status {
       font-family: var(--mono);
       font-size: 0.5rem;
@@ -395,21 +395,18 @@
       border: 1px solid;
     }
 
-    /* Active — green, correct for live status */
     .exp-status.active {
       border-color: rgba(100,200,150,0.3);
       color: rgba(100,200,150,0.9);
       background: rgba(100,200,150,0.04);
     }
 
-    /* Loading — amber, in progress */
     .exp-status.loading {
       border-color: var(--blue-line);
       color: var(--blue);
       background: var(--blue-dim);
     }
 
-    /* Pending — muted, locked */
     .exp-status.pending {
       border-color: var(--line-strong);
       color: var(--slate);
@@ -464,7 +461,7 @@
       transform: translateX(3px);
     }
 
-    /* PHASE 04 INTEGRATE BLOCK */
+    /* CLOSING / REINTEGRATION BLOCK */
     .integrate-block {
       background: rgba(180,130,255,0.025);
       border: 1px solid rgba(180,130,255,0.12);
@@ -528,22 +525,12 @@
       text-transform: uppercase;
     }
 
-    .integrate-store-link {
+    .integrate-note {
       font-family: var(--mono);
       font-size: 0.65rem;
       letter-spacing: 0.07em;
       color: var(--muted);
     }
-
-    .integrate-store-link a {
-      color: rgba(180,130,255,0.7);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(180,130,255,0.2);
-      padding-bottom: 1px;
-      transition: opacity .2s var(--ease);
-    }
-
-    .integrate-store-link a:hover { opacity: 0.72; }
 
     /* LAB STATS GRID */
     .lab-stats {
@@ -570,7 +557,6 @@
       display: block;
     }
 
-    /* Stat values — cyan correct, lab data readout */
     .stat-value {
       font-family: var(--display);
       font-weight: 700;
@@ -608,7 +594,6 @@
 
     .protocol-rule:last-child { border-bottom: none; }
 
-    /* Rule IDs — cyan correct, protocol codes */
     .rule-id {
       font-family: var(--mono);
       font-size: 0.55rem;
@@ -731,7 +716,7 @@
 <div class="page-hero z">
   <p class="tag">Laboratory // Active System</p>
   <h1>The<br>Laboratory.</h1>
-  <p class="body-text">Small experiments for reducing digital noise and rebuilding attention. Participants in the laboratory are called Operators. Run the test. Measure the output. Report the findings. This is not inspiration content — it's systems documentation.</p>
+  <p class="body-text">Small experiments for reducing digital noise and rebuilding attention. Run the test. Measure the output. Report the findings. This is not inspiration content — it's systems documentation.</p>
 </div>
 
 <!-- TICKER -->
@@ -740,21 +725,17 @@
     <span class="ticker-item">Run the test <b>//</b></span>
     <span class="ticker-item">Measure the output <b>//</b></span>
     <span class="ticker-item">Report the findings <b>//</b></span>
-    <span class="ticker-item">DIAG-01 // 5 Minutes of Silence <b>//</b></span>
-    <span class="ticker-item">DIAG-02 // 10 Minutes No Phone <b>//</b></span>
-    <span class="ticker-item">EXP-01 // Signal Audit <b>//</b></span>
-    <span class="ticker-item">EXP-04 // Grayscale 24 <b>//</b></span>
+    <span class="ticker-item">EXP-01 // Attention Ecology Map <b>//</b></span>
+    <span class="ticker-item">EXP-06 // The Analog Anchor <b>//</b></span>
     <span class="ticker-item">EXP-08 // Notification Kill <b>//</b></span>
-    <span class="ticker-item">EXP-12 // Social Fast <b>//</b></span>
+    <span class="ticker-item">EXP-12 // Social Media Fast <b>//</b></span>
     <span class="ticker-item">Run the test <b>//</b></span>
     <span class="ticker-item">Measure the output <b>//</b></span>
     <span class="ticker-item">Report the findings <b>//</b></span>
-    <span class="ticker-item">DIAG-01 // 5 Minutes of Silence <b>//</b></span>
-    <span class="ticker-item">DIAG-02 // 10 Minutes No Phone <b>//</b></span>
-    <span class="ticker-item">EXP-01 // Signal Audit <b>//</b></span>
-    <span class="ticker-item">EXP-04 // Grayscale 24 <b>//</b></span>
+    <span class="ticker-item">EXP-01 // Attention Ecology Map <b>//</b></span>
+    <span class="ticker-item">EXP-06 // The Analog Anchor <b>//</b></span>
     <span class="ticker-item">EXP-08 // Notification Kill <b>//</b></span>
-    <span class="ticker-item">EXP-12 // Social Fast <b>//</b></span>
+    <span class="ticker-item">EXP-12 // Social Media Fast <b>//</b></span>
   </div>
 </div>
 
@@ -781,7 +762,7 @@
 
           <div class="diag-grid">
             <div class="diag-card">
-              <span class="diag-id">DIAG-01 // Pre-Experiment Diagnostic</span>
+              <span class="diag-id">Try This First</span>
               <p class="diag-name">5 Minutes of Silence</p>
               <p class="diag-instruction">
                 Set a timer for 5 minutes. No phone. No screen. No audio.
@@ -792,7 +773,7 @@
             </div>
 
             <div class="diag-card">
-              <span class="diag-id">DIAG-02 // Pre-Experiment Diagnostic</span>
+              <span class="diag-id">Try This Next</span>
               <p class="diag-name">10 Minutes, No Phone</p>
               <p class="diag-instruction">
                 Leave your phone in another room. Not silenced. Removed.
@@ -810,309 +791,327 @@
 
         <!-- FIELD NOTE -->
         <div class="field-note reveal">
-          <span class="field-note-byline">Field Note // Roman Prime — Lead Operator</span>
-          <p>The field diagnostics didn't exist when this protocol launched.</p>
-          <p>A social post. Ten minutes. Leave your phone in another room.</p>
-          <p>Operators reported back. <strong>The data changed what came next.</strong></p>
-          <p>That's how this system works. Version 1.0 is what we started with.</p>
-          <p>What ships next is built from what you find.</p>
+          <span class="field-note-byline">Field Note // Roman Prime</span>
+          <p>A notification goes off in a crowded room. It wasn't even my phone.</p>
+          <p>I'd already reached, already checked, before I decided to.</p>
+          <p><strong>Set the boundaries on purpose and the feed stops being where you land every time you're bored.</strong></p>
         </div>
 
-        <!-- PHASE 01 -->
+        <!-- PHASE 01 — BASELINE & CONTRAST -->
         <div class="phase-block reveal">
           <div class="phase-header">
             <span class="phase-number">Phase 01</span>
-            <span class="phase-name">Detox</span>
-            <span class="phase-difficulty low">Low Friction</span>
-            <span class="phase-days">Days 1–7</span>
+            <span class="phase-name">Baseline & Contrast</span>
+            <span class="phase-difficulty low">Observation Only</span>
+            <span class="phase-days">Days 1–6</span>
           </div>
           <p class="phase-intro">
-            This phase is diagnostic. You're not trying to fix anything yet. You're establishing a baseline.
-            See what's already running before you change anything. EXP-01 is the starting point.
+            This phase asks nothing of you. No fix, no correction, no should.
+            It only wants your data, held up and reflected back so you can see the shape of what's already happening.
+            It doesn't intervene. It watches.
           </p>
           <div class="exp-grid">
 
-            <a href="/store/7day-detox/" class="exp-card">
+            <div class="exp-card locked">
               <div class="exp-card-top">
                 <span class="exp-id">EXP-01</span>
-                <span class="exp-status active">Active</span>
+                <span class="exp-status pending">In Development</span>
               </div>
-              <p class="exp-name">7-Day Detox Planner</p>
+              <p class="exp-name pending-text">Attention Ecology Map</p>
               <p class="exp-desc">
-                Run the baseline protocol. Establish your attention baseline
-                before introducing any new friction.
-                This is the first run. Everything else is built on what you find here.
+                Map the previous seven days of device evidence before anything changes:
+                notifications, screen time, device openings, and your own honest sense
+                of the pull to check. No target shape. No wrong result.
               </p>
               <div class="exp-meta">
                 <span class="exp-tag">Diagnostic</span>
-                <span class="exp-tag">7 days</span>
-                <span class="exp-tag">Start Here</span>
+                <span class="exp-tag">Day 1</span>
+                <span class="exp-tag">Phase 01</span>
               </div>
-              <span class="exp-arrow">→</span>
-            </a>
+            </div>
 
-            <a href="/lab/exp-02/" class="exp-card">
+            <div class="exp-card locked">
               <div class="exp-card-top">
                 <span class="exp-id">EXP-02</span>
-                <span class="exp-status loading">Loading</span>
+                <span class="exp-status pending">In Development</span>
               </div>
-              <p class="exp-name">Attention Audit</p>
+              <p class="exp-name pending-text">The Expanse Hour</p>
               <p class="exp-desc">
-                Map your 24-hour attention cycle and identify your leakage windows.
-                Complete the Focus Heatmap honestly.
-                Operators are consistently surprised by the 8pm window.
-              </p>
-              <div class="exp-meta">
-                <span class="exp-tag">Diagnostic</span>
-                <span class="exp-tag">24 hr</span>
-                <span class="exp-tag">Phase 01, Day 2</span>
-              </div>
-              <span class="exp-arrow">→</span>
-            </a>
-
-            <a href="/lab/exp-03/" class="exp-card">
-              <div class="exp-card-top">
-                <span class="exp-id">EXP-03</span>
-                <span class="exp-status loading">Loading</span>
-              </div>
-              <p class="exp-name">The Expanse Hour</p>
-              <p class="exp-desc">
-                One full hour daily. No screen, no agenda, no objective.
-                Walk, sit, observe. This is not rest and it's not productivity.
-                It's the thing the whole system is working toward — practice it early.
+                Five sessions across this phase. One hour, no screen, no agenda —
+                direct contrast against ordinary digital behavior. Not a preview.
+                By Day 30 it becomes clear it was the whole thing, in miniature.
               </p>
               <div class="exp-meta">
                 <span class="exp-tag">Analog</span>
-                <span class="exp-tag">60 min daily</span>
+                <span class="exp-tag">5 sessions</span>
                 <span class="exp-tag">Phase 01</span>
               </div>
-              <span class="exp-arrow">→</span>
-            </a>
+            </div>
 
-            <a href="/lab/exp-04/" class="exp-card">
+            <div class="exp-card locked">
               <div class="exp-card-top">
-                <span class="exp-id">EXP-04</span>
-                <span class="exp-status loading">Loading</span>
+                <span class="exp-id">EXP-03</span>
+                <span class="exp-status pending">In Development</span>
               </div>
-              <p class="exp-name">Grayscale 24</p>
+              <p class="exp-name pending-text">Grayscale 24</p>
               <p class="exp-desc">
-                Set your phone to black and white for 24 continuous hours.
-                Test the neural pull of color icons.
-                This is a controlled variable test, not a lifestyle commitment.
+                One full day with the phone in grayscale. Nothing else changes —
+                not the apps, not the notifications, not the use. The test is
+                whether visual familiarity shifts once color leaves the interface.
               </p>
               <div class="exp-meta">
                 <span class="exp-tag">Behavioral</span>
-                <span class="exp-tag">24 hr</span>
-                <span class="exp-tag">Phase 01, Day 4</span>
+                <span class="exp-tag">Day 3</span>
+                <span class="exp-tag">Phase 01</span>
               </div>
-              <span class="exp-arrow">→</span>
-            </a>
+            </div>
 
           </div>
         </div>
 
-        <!-- PHASE 02 -->
+        <!-- PHASE 02 — FRICTION & AWARENESS -->
         <div class="phase-block reveal">
           <div class="phase-header">
             <span class="phase-number">Phase 02</span>
-            <span class="phase-name">Rebuild</span>
+            <span class="phase-name">Friction & Awareness</span>
             <span class="phase-difficulty medium">Medium Friction</span>
-            <span class="phase-days">Days 8–14</span>
+            <span class="phase-days">Days 7–14</span>
           </div>
           <p class="phase-intro">
-            Introduce one friction technique at a time. By Day 14 you'll be running four concurrently.
-            The sequence matters. Let each one settle before adding the next. Phase 01 is the prerequisite.
+            You're moving out of baseline and contrast, into testing entry, interruption, and reflexive access.
+            This phase asks you to notice the exact moment your hand moves before your attention catches up —
+            then introduces controlled friction so it stops being automatic.
           </p>
           <div class="exp-grid">
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-04</span>
+                <span class="exp-status pending">In Development</span>
+              </div>
+              <p class="exp-name pending-text">Context Switch Audit</p>
+              <p class="exp-desc">
+                One day. An honest tally of how often attention changes direction
+                around a digital surface — no categorizing, no timestamping, just
+                a mark for every noticed switch. The number is the data.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Diagnostic</span>
+                <span class="exp-tag">Day 7</span>
+                <span class="exp-tag">Phase 02</span>
+              </div>
+            </div>
 
             <a href="/laboratory/exp-05/" class="exp-card">
               <div class="exp-card-top">
                 <span class="exp-id">EXP-05</span>
-                <span class="exp-status active">Active</span>
+                <span class="exp-status active">Live — Needs Review</span>
               </div>
-              <p class="exp-name">App Deletion</p>
+              <p class="exp-name">Home-Screen Friction</p>
               <p class="exp-desc">
-                Delete all social apps from your home screen.
-                Browser-only access if needed. The login friction breaks the impulse loop.
-                Most impulse checks abort before login completes.
+                Three days. Remove your top three to five apps from the home screen —
+                not the apps themselves. They stay installed, still reachable by search.
+                The test is whether losing the visible route changes reflexive access.
               </p>
               <div class="exp-meta">
                 <span class="exp-tag">Behavioral</span>
-                <span class="exp-tag">7 days</span>
-                <span class="exp-tag">Phase 02, Day 8</span>
-              </div>
-              <span class="exp-arrow">→</span>
-            </a>
-
-            <a href="/lab/exp-06/" class="exp-card">
-              <div class="exp-card-top">
-                <span class="exp-id">EXP-06</span>
-                <span class="exp-status loading">Loading</span>
-              </div>
-              <p class="exp-name">The Analog Anchor</p>
-              <p class="exp-desc">
-                All notes and task-capture done on paper for one full week.
-                No digital notes. Test whether analog slows the thought
-                or deepens it. Operators are consistently surprised by the answer.
-              </p>
-              <div class="exp-meta">
-                <span class="exp-tag">Analog</span>
-                <span class="exp-tag">7 days</span>
-                <span class="exp-tag">Phase 02, Days 8–14</span>
-              </div>
-              <span class="exp-arrow">→</span>
-            </a>
-
-            <a href="/lab/exp-07/" class="exp-card">
-              <div class="exp-card-top">
-                <span class="exp-id">EXP-07</span>
-                <span class="exp-status loading">Loading</span>
-              </div>
-              <p class="exp-name">20:00 Shutdown</p>
-              <p class="exp-desc">
-                All screens off at 20:00. Not reading, not watching, not checking.
-                The shutdown is a structural boundary, not a reward.
-                It protects next-day cognitive capacity.
-              </p>
-              <div class="exp-meta">
-                <span class="exp-tag">Protocol</span>
-                <span class="exp-tag">Daily</span>
+                <span class="exp-tag">3 days</span>
                 <span class="exp-tag">Phase 02</span>
               </div>
               <span class="exp-arrow">→</span>
             </a>
 
-            <a href="/lab/exp-08/" class="exp-card">
+            <div class="exp-card locked">
               <div class="exp-card-top">
-                <span class="exp-id">EXP-08</span>
-                <span class="exp-status loading">Loading</span>
+                <span class="exp-id">EXP-06</span>
+                <span class="exp-status pending">In Development</span>
               </div>
-              <p class="exp-name">Notification Kill</p>
+              <p class="exp-name pending-text">The Analog Anchor</p>
               <p class="exp-desc">
-                All push notifications disabled. Email checked at 9am, 1pm, 5pm only.
-                The first 72 hours produce phantom notification anxiety.
-                This is the withdrawal curve. It drops.
+                Four days. One physical object catches a thought, task, or unresolved
+                problem before it can pull you toward a screen. Necessary digital use
+                stays available — this isn't a ban, it's a detour.
               </p>
               <div class="exp-meta">
-                <span class="exp-tag">Behavioral</span>
-                <span class="exp-tag">Ongoing</span>
-                <span class="exp-tag">Phase 02, Day 9</span>
+                <span class="exp-tag">Analog</span>
+                <span class="exp-tag">4 days</span>
+                <span class="exp-tag">Phase 02</span>
               </div>
-              <span class="exp-arrow">→</span>
-            </a>
+            </div>
 
           </div>
         </div>
 
-        <!-- PHASE 03 -->
+        <!-- PHASE 03 — BOUNDARY BUILDING -->
         <div class="phase-block reveal">
           <div class="phase-header">
             <span class="phase-number">Phase 03</span>
-            <span class="phase-name">Reinforce</span>
+            <span class="phase-name">Boundary Building</span>
             <span class="phase-difficulty high">High Friction</span>
-            <span class="phase-days">Days 15–21</span>
+            <span class="phase-days">Days 15–20</span>
           </div>
           <p class="phase-intro">
-            Stress-test the system. Run 3 experiments concurrently. Identify breaking points.
-            This is the hardest phase. EXP-12 in particular. The first 72 hours will feel like something is missing.
-            That feeling is the data. Write it down.
+            You're moving from noticing automatic entry to constructing something sturdier around it.
+            This phase tests evening closure, notification authority, and physical distance from the phone —
+            boundaries built on purpose, in daylight, before you need them.
           </p>
           <div class="exp-grid">
 
             <div class="exp-card locked">
               <div class="exp-card-top">
-                <span class="exp-id">EXP-09</span>
-                <span class="exp-status pending">Unlocks Day 15</span>
+                <span class="exp-id">EXP-07</span>
+                <span class="exp-status pending">In Development</span>
               </div>
-              <p class="exp-name pending-text">Phone Distance</p>
+              <p class="exp-name pending-text">Evening Shutdown</p>
               <p class="exp-desc">
-                Phone stored in a separate room during all work blocks.
-                Not silenced. Removed entirely. A silent phone on the desk
-                still pulls on your attention. Remove the variable entirely.
+                Three nights. Screen-based visual input ends at a shutdown point you
+                choose and hold for all three nights. Not a sleep requirement —
+                a clear end so the day stops being indefinitely extended by screens.
               </p>
               <div class="exp-meta">
-                <span class="exp-tag">Structural</span>
-                <span class="exp-tag">Ongoing</span>
-                <span class="exp-tag">Phase 03, Day 15</span>
-              </div>
-            </div>
-
-            <div class="exp-card locked">
-              <div class="exp-card-top">
-                <span class="exp-id">EXP-10</span>
-                <span class="exp-status pending">Unlocks Day 16</span>
-              </div>
-              <p class="exp-name pending-text">Screen Time Lock</p>
-              <p class="exp-desc">
-                Set hard daily screen time limits via OS parental controls.
-                Treat yourself as the user being protected.
-                The override prompt is the moment of awareness.
-              </p>
-              <div class="exp-meta">
-                <span class="exp-tag">Structural</span>
-                <span class="exp-tag">Daily</span>
-                <span class="exp-tag">Phase 03, Day 16</span>
-              </div>
-            </div>
-
-            <div class="exp-card locked">
-              <div class="exp-card-top">
-                <span class="exp-id">EXP-11</span>
-                <span class="exp-status pending">Unlocks Day 17</span>
-              </div>
-              <p class="exp-name pending-text">Analog Morning</p>
-              <p class="exp-desc">
-                Zero screen contact for the first 60 minutes of every day.
-                Paper, pen, silence, and the ledger only.
-                The morning is the highest-leverage window. Protect it.
-              </p>
-              <div class="exp-meta">
-                <span class="exp-tag">Analog</span>
-                <span class="exp-tag">60 min daily</span>
+                <span class="exp-tag">Protocol</span>
+                <span class="exp-tag">3 nights</span>
                 <span class="exp-tag">Phase 03</span>
               </div>
             </div>
 
             <div class="exp-card locked">
               <div class="exp-card-top">
-                <span class="exp-id">EXP-12</span>
-                <span class="exp-status pending">Unlocks Day 15</span>
+                <span class="exp-id">EXP-08</span>
+                <span class="exp-status pending">In Development</span>
               </div>
-              <p class="exp-name pending-text">Social Media Fast</p>
+              <p class="exp-name pending-text">Notification Kill</p>
               <p class="exp-desc">
-                All social platforms, off, for 7 days. Not reduced. Removed.
-                This is the highest-impact experiment in the system.
-                It works best after the earlier phases have given you something to return to.
+                One setup day, then a background condition that holds for the rest
+                of the protocol. Turn off everything that isn't a genuine, immediate
+                need — calls, texts, safety and work essentials stay on.
               </p>
               <div class="exp-meta">
                 <span class="exp-tag">Behavioral</span>
-                <span class="exp-tag">7 days</span>
-                <span class="exp-tag">Phase 03, Days 15–21</span>
+                <span class="exp-tag">Ongoing</span>
+                <span class="exp-tag">Phase 03</span>
+              </div>
+            </div>
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-09</span>
+                <span class="exp-status pending">In Development</span>
+              </div>
+              <p class="exp-name pending-text">Phone Distance</p>
+              <p class="exp-desc">
+                Three continuity blocks. The phone leaves the room — not silenced,
+                physically removed — for one meaningful task at a time. Retrieving
+                it for ordinary checking ends the block; that's a result, not a failure.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Structural</span>
+                <span class="exp-tag">3 blocks</span>
+                <span class="exp-tag">Phase 03</span>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- PHASE 04 -->
+        <!-- PHASE 04 — RUNWAY -->
         <div class="phase-block reveal">
           <div class="phase-header">
             <span class="phase-number">Phase 04</span>
-            <span class="phase-name">Integrate</span>
-            <span class="phase-difficulty full">Full Stack</span>
-            <span class="phase-days">Days 22–30</span>
+            <span class="phase-name">Runway</span>
+            <span class="phase-difficulty high">High Friction</span>
+            <span class="phase-days">Days 21–23</span>
           </div>
-          <div class="integrate-block">
-            <span class="integrate-label">Phase 04 // Integration Protocol</span>
-            <h3>The system becomes automatic.<br>The Expanse deepens.</h3>
+          <p class="phase-intro">
+            Boundary construction is behind you. This phase prepares for the final feed closure by moving
+            social media out of continuous background availability and into a place you choose —
+            consolidated, budgeted, then narrowed to one last window before it closes.
+          </p>
+          <div class="exp-grid">
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-10</span>
+                <span class="exp-status pending">In Development</span>
+              </div>
+              <p class="exp-name pending-text">Digital Off-Ramp</p>
+              <p class="exp-desc">
+                Three staged days. Consolidated access, then a time budget, then one
+                final planned window before the fast begins. Social media stays
+                available throughout — access just stops being a background default.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Structural</span>
+                <span class="exp-tag">3 stages</span>
+                <span class="exp-tag">Phase 04</span>
+              </div>
+            </div>
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-11</span>
+                <span class="exp-status pending">In Development</span>
+              </div>
+              <p class="exp-name pending-text">Analog Morning</p>
+              <p class="exp-desc">
+                Three mornings, running alongside the Off-Ramp. One physical,
+                non-screen action before the digital environment enters —
+                protecting the day's first movement before the feed defines it.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Analog</span>
+                <span class="exp-tag">3 mornings</span>
+                <span class="exp-tag">Phase 04</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PHASE 05 — EXPANSE -->
+        <div class="phase-block reveal">
+          <div class="phase-header">
+            <span class="phase-number">Phase 05</span>
+            <span class="phase-name">Expanse</span>
+            <span class="phase-difficulty full">Full Stack</span>
+            <span class="phase-days">Days 24–30</span>
+          </div>
+          <p class="phase-intro">
+            The narrowed runway is behind you. For seven consecutive days, feed-first consumption closes.
+            Not a test of willpower — the clearing the whole protocol has been pointing toward.
+          </p>
+          <div class="exp-grid">
+
+            <div class="exp-card locked">
+              <div class="exp-card-top">
+                <span class="exp-id">EXP-12</span>
+                <span class="exp-status pending">In Development</span>
+              </div>
+              <p class="exp-name pending-text">Social Media Fast</p>
+              <p class="exp-desc">
+                Seven consecutive days. No feed-first consumption — no feeds, reels,
+                shorts, or profile wandering. Direct communication stays open.
+                Communicate directly. Don't enter the feed.
+              </p>
+              <div class="exp-meta">
+                <span class="exp-tag">Behavioral</span>
+                <span class="exp-tag">7 days</span>
+                <span class="exp-tag">Phase 05</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="integrate-block" style="margin-top: 1px;">
+            <span class="integrate-label">After Day 30 // Reintegration</span>
+            <h3>You didn't build the Expanse.<br>You cleared the view.</h3>
             <p>
-              Full 12-experiment stack. The friction techniques become the default state.
-              <a href="/expanse/" style="color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-line);">The Expanse deepens →</a>
+              The measured protocol closes after Day 30. Reintegration decides what
+              remains permanent, situational, repeatable, adapted, or closed.
+              What you do with it after that isn't part of the protocol.
             </p>
-            <span class="integrate-stack-label">Active Stack in Phase 04</span>
+            <span class="integrate-stack-label">Full Stack — All 12 Experiments</span>
             <div class="integrate-stack">
-              <span class="stack-pill">DIAG-01</span>
-              <span class="stack-pill">DIAG-02</span>
               <span class="stack-pill">EXP-01</span>
               <span class="stack-pill">EXP-02</span>
               <span class="stack-pill">EXP-03</span>
@@ -1125,13 +1124,8 @@
               <span class="stack-pill">EXP-10</span>
               <span class="stack-pill">EXP-11</span>
               <span class="stack-pill">EXP-12</span>
-        </div>
-          <p class="integrate-store-link">
-          The 30-Day Protocol is available now — $39 →
-          <a href="https://slate-silicon.lemonsqueezy.com/checkout/buy/760323de-0c5e-46f3-86e1-cc683d0eecc9?embed=1" class="lemonsqueezy-button">Get the protocol</a>
-          <span style="font-family:var(--mono); font-size:0.75em; color:var(--muted);"> · </span>
-          <a href="https://slateandsilicon.gumroad.com/l/30-day-detox" target="_blank" rel="noopener" style="color:var(--muted);">Gumroad</a>
-        </p>
+            </div>
+            <p class="integrate-note">The full 30-Day Attention Recovery Protocol is available now as a complete, standalone system — <a href="https://www.etsy.com/listing/4569134436/30-day-attention-recovery-protocol-self" target="_blank" rel="noopener" style="color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-line);">get it here</a> ($77, founding price).</p>
           </div>
         </div>
 
@@ -1144,12 +1138,12 @@
               <span class="stat-value">2</span>
             </div>
             <div class="stat-cell">
-              <span class="stat-label">Active Experiments</span>
-              <span class="stat-value">4</span>
-            </div>
-            <div class="stat-cell">
               <span class="stat-label">Total Experiments</span>
               <span class="stat-value">12</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Phases</span>
+              <span class="stat-value">5</span>
             </div>
             <div class="stat-cell">
               <span class="stat-label">Protocol Duration</span>
@@ -1168,19 +1162,19 @@
           <div class="protocol-notes">
             <div class="protocol-rule">
               <span class="rule-id">Rule 01</span>
-              <span class="rule-text">Run one experiment at a time. Stacking protocols before Phase 02 contaminates the data.</span>
+              <span class="rule-text">Run one experiment at a time. Stacking conditions before the protocol calls for it contaminates the data.</span>
             </div>
             <div class="protocol-rule">
               <span class="rule-id">Rule 02</span>
-              <span class="rule-text">Observe for a minimum of 72 hours before drawing conclusions. Your first reaction is not your finding.</span>
+              <span class="rule-text">Observe honestly before drawing conclusions. Your first reaction is not your finding.</span>
             </div>
             <div class="protocol-rule">
               <span class="rule-id">Rule 03</span>
-              <span class="rule-text">If a protocol is running, let it run. Stopping early means the data is incomplete — and incomplete data is harder to act on than difficult data.</span>
+              <span class="rule-text">If a condition is running, let it run. Stopping early means the data is incomplete.</span>
             </div>
             <div class="protocol-rule">
               <span class="rule-id">Rule 04</span>
-              <span class="rule-text">Start with the diagnostics. Even if you think you know your baseline, run them. The number is usually different from what people expect.</span>
+              <span class="rule-text">Start with the diagnostics. Even if you think you know your baseline, run them.</span>
             </div>
           </div>
         </div>
@@ -1206,24 +1200,16 @@
             <span class="sidebar-stat-val">2</span>
           </div>
           <div class="sidebar-stat">
-            <span class="sidebar-stat-label">Active Experiments</span>
-            <span class="sidebar-stat-val">4</span>
-          </div>
-          <div class="sidebar-stat">
             <span class="sidebar-stat-label">Total Experiments</span>
             <span class="sidebar-stat-val">12</span>
           </div>
           <div class="sidebar-stat">
             <span class="sidebar-stat-label">Phases</span>
-            <span class="sidebar-stat-val">4</span>
+            <span class="sidebar-stat-val">5</span>
           </div>
           <div class="sidebar-stat">
             <span class="sidebar-stat-label">Protocol Duration</span>
             <span class="sidebar-stat-val text">30 days</span>
-          </div>
-          <div class="sidebar-stat">
-            <span class="sidebar-stat-label">Since</span>
-            <span class="sidebar-stat-val text">2024</span>
           </div>
         </div>
 
@@ -1235,7 +1221,7 @@
           </div>
           <div class="sidebar-rule">
             <span class="sidebar-rule-id">Rule 02</span>
-            <span class="sidebar-rule-text">Observe 72 hours minimum before conclusions.</span>
+            <span class="sidebar-rule-text">Observe honestly before conclusions.</span>
           </div>
           <div class="sidebar-rule">
             <span class="sidebar-rule-id">Rule 03</span>
@@ -1248,34 +1234,29 @@
         </div>
 
         <div class="sidebar-block">
-          <p class="sidebar-title">Active Phase</p>
+          <p class="sidebar-title">Where To Start</p>
           <div class="sidebar-stat">
-            <span class="sidebar-stat-label">Current</span>
-            <span class="sidebar-stat-val text">Phase 01</span>
+            <span class="sidebar-stat-label">First Experiment</span>
+            <span class="sidebar-stat-val text">EXP-01</span>
           </div>
           <div class="sidebar-stat">
-            <span class="sidebar-stat-label">Days</span>
-            <span class="sidebar-stat-val text">1–7</span>
-          </div>
-          <div class="sidebar-stat">
-            <span class="sidebar-stat-label">Friction</span>
-            <span class="sidebar-stat-val text">Low</span>
+            <span class="sidebar-stat-label">First Phase</span>
+            <span class="sidebar-stat-val text">Baseline & Contrast</span>
           </div>
         </div>
 
         <div class="sidebar-block">
           <p class="sidebar-title">Status</p>
           <div class="status"><div class="dot"></div> Laboratory: Operational</div>
-          <div class="status" style="margin-top:0.5rem;"><div class="dot"></div> EXP-01 through EXP-04 active</div>
+          <div class="status" style="margin-top:0.5rem;"><div class="dot"></div> EXP-05 live, rest in development</div>
           <div class="status" style="margin-top:0.5rem;"><div class="dot"></div> The Dispatch: every Tuesday</div>
         </div>
 
         <div class="sidebar-block">
           <p class="sidebar-title">The 30-Day Protocol</p>
-          <p style="font-size:0.8rem; color:var(--muted); line-height:1.65; margin-bottom:0.75rem;">The full 12-experiment stack. All four phases. The complete system.</p>
-          <p style="font-family:var(--mono); font-size:0.52rem; letter-spacing:0.12em; color:var(--blue); text-transform:uppercase; margin-bottom:1rem;">S&S-DETOX-002 — Edition 01 // $39</p>
-          <a href="https://slate-silicon.lemonsqueezy.com/checkout/buy/760323de-0c5e-46f3-86e1-cc683d0eecc9?embed=1" class="lemonsqueezy-button content-cta" style="font-size:0.6rem; display:block; margin-bottom:0.75rem;">Get the protocol →</a>
-          <a href="https://slateandsilicon.gumroad.com/l/30-day-detox" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:0.52rem; letter-spacing:0.08em; color:var(--muted); text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--line);">Also on Gumroad →</a>
+          <p style="font-size:0.8rem; color:var(--muted); line-height:1.65; margin-bottom:0.75rem;">The full 12-experiment stack. All five phases. The complete system.</p>
+          <p style="font-family:var(--mono); font-size:0.52rem; letter-spacing:0.12em; color:var(--blue); text-transform:uppercase; margin-bottom:1rem;">Founding Price — $77</p>
+          <a href="https://www.etsy.com/listing/4569134436/30-day-attention-recovery-protocol-self" target="_blank" rel="noopener" class="content-cta" style="font-size:0.6rem; display:block;">Get the protocol →</a>
         </div>
 
       </aside>
@@ -1288,7 +1269,7 @@
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/store/">Store</a></li>
@@ -1297,7 +1278,7 @@
     <li><a href="/contact/">Contact</a></li>
     <li><a href="/FAQ/">FAQ</a></li>
   </ul>
-  <span class="footer-copy">© 202r Slate &amp; Silicon. All systems operational.</span>
+  <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
 </footer>
 
 <script>
@@ -1306,6 +1287,5 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
-    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 </body>
 </html>

@@ -35,6 +35,14 @@
        No cyan. Clean grid. No commerce chrome.
     ──────────────────────────────────────────────────────── */
 
+    /* Page-scoped fix: mirrors the same inset applied on Laboratory —
+       .section has no horizontal inset at desktop widths sitewide
+       (only page-hero does). Scoped to this page only. */
+    .z > .section {
+      width: min(var(--max), calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
     /* TRUST ROW */
     .trust-row {
       display: flex;
@@ -111,7 +119,7 @@
       justify-content: space-between;
     }
 
-    /* Product meta — SYS-01, price */
+    /* Product meta — SKU, price */
     .product-meta {
       display: flex;
       align-items: center;
@@ -146,8 +154,18 @@
       text-transform: uppercase;
       letter-spacing: -0.015em;
       color: var(--bone);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.5rem;
       line-height: 1.1;
+    }
+
+    .featured-subhead {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+      margin-bottom: 1rem;
+      font-style: normal;
+      text-transform: none;
     }
 
     .featured-content p {
@@ -179,10 +197,10 @@
       color: var(--blue);
     }
 
-    /* STORE GRID */
+    /* STORE GRID — two supporting items only */
     .store-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1px;
       background: var(--line);
       border: 1px solid var(--line);
@@ -245,9 +263,9 @@
       flex: 1;
     }
 
-    /* Inactive / coming soon card */
+    /* Inactive / pending card */
     .store-card.inactive {
-      opacity: 0.45;
+      opacity: 0.55;
       pointer-events: none;
     }
 
@@ -261,6 +279,7 @@
       padding: 2px 8px;
       display: inline-block;
       margin-top: auto;
+      width: fit-content;
     }
 
     @media (max-width: 900px) {
@@ -288,6 +307,9 @@
         <li><a href="/log/">Dispatch</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
+      <!-- D-04 NOTE: nav CTA confirmed intentional (RP, this session) — the
+           Kit-form free planner is separate from the store's 7-Day Planner
+           product, which goes paid once reworked to CORE's standard. -->
       <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
     </div>
   </div>
@@ -312,23 +334,29 @@
     <div class="section">
       <div class="section-header reveal">
         <p class="eyebrow">Primary System</p>
-        <h2>The 30-Day Detox Protocol</h2>
+        <h2>The 30-Day Attention Recovery Protocol</h2>
       </div>
 
-      <a href="/detox-planner/" class="featured-card reveal">
+      <!-- D-04 NOTE: image is new CORE product photography (RP, this session) —
+           replaces the earlier stub of pulling CORE's raw Etsy gallery image.
+           File staged as promo-core.png; needs upload to /assets/images/
+           on the repo before this path resolves live. -->
+      <a href="https://www.etsy.com/listing/4569134436/30-day-attention-recovery-protocol-self"
+         target="_blank" rel="noopener" class="featured-card reveal">
         <div class="featured-image empty">
-          <img src="/assets/images/promo-protocol.png" alt="30-Day Detox Protocol" onerror="this.style.display='none'">
+          <img src="/assets/images/promo-core.png" alt="30-Day Attention Recovery Protocol" onerror="this.style.display='none'">
         </div>
         <div class="featured-content">
           <div>
             <div class="product-meta">
-              <span class="product-id">SYS-01</span>
-              <span class="product-price">Full System // $39</span>
+              <span class="product-id">SS-CORE-BUNDLE</span>
+              <span class="product-price">Founding Cohort // $77</span>
             </div>
-            <h3>30-Day Detox Protocol</h3>
-            <p>Four phases. Twelve experiments. A complete system for removing the patterns that are running your attention — and rebuilding something more durable in their place. Analog. Print once. Run it.</p>
+            <h3>30-Day Attention Recovery Protocol</h3>
+            <p class="featured-subhead">A Self-Guided Attention Protocol</p>
+            <p>Thirty days. Twelve structured experiments. Five phases, moving from observation toward a real seven-day reset. This is the complete system — the full protocol plus all three companion references, built to work as one.</p>
           </div>
-          <span class="store-action">Enter the Protocol →</span>
+          <span class="store-action">View on Etsy →</span>
         </div>
       </a>
     </div>
@@ -344,49 +372,29 @@
 
       <div class="store-grid reveal">
 
-        <!-- 7-DAY DETOX -->
-        <a href="/store/7day-detox/" class="store-card">
+        <!-- SPRINT PACK — link confirmed (RP, this session) -->
+        <a href="https://www.etsy.com/listing/4517228728/deep-work-planner-printable-focus-timer"
+           target="_blank" rel="noopener" class="store-card">
           <div class="store-image empty">
-            <img src="/assets/images/promo-free.png" alt="7-Day Detox Planner" onerror="this.style.display='none'">
+            <img src="/assets/images/promo-sprint.png" alt="60-Minute Sprint Pack" onerror="this.style.display='none'">
           </div>
           <div class="store-content">
             <div class="product-meta">
-              <span class="product-id">SYS-04</span>
-              <span class="product-price">Free Download</span>
+              <span class="product-id">S&amp;S-SPRINT-060</span>
+              <span class="product-price">Sprint Pack // $20</span>
             </div>
-            <h3>7-Day Detox Planner</h3>
-            <p>The entry point. Seven days, three sectors, one analog tool. Map where your attention actually goes before you try to change anything.</p>
-            <span class="store-action">Get Free Download →</span>
+            <h3>60-Minute Sprint Pack</h3>
+            <p>A focused sprint system for the hour you actually have.</p>
+            <span class="store-action">Get the Sprint Pack →</span>
           </div>
         </a>
 
-        <!-- FOCUS SPRINT -->
-        <a href="/store/focus-sprint/" class="store-card">
-          <div class="store-image empty">
-            <img src="/assets/images/promo-sprint.png" alt="Focus Sprint" onerror="this.style.display='none'">
-          </div>
-          <div class="store-content">
-            <div class="product-meta">
-              <span class="product-id">SYS-02</span>
-              <span class="product-price">Sprint Pack // $9</span>
-            </div>
-            <h3>60-Minute Focus Sprint</h3>
-            <p>One fixed window. No switching, no drift, no escape. A controlled deep work interval. One hour, one task, no exit. Runs best after the 7-Day baseline.</p>
-            <span class="store-action">Start the Sprint →</span>
-          </div>
-        </a>
-
-        <!-- COMING SOON -->
+        <!-- 7-DAY PLANNER — no SKU, no price, no link, per handoff -->
         <div class="store-card inactive">
           <div class="store-image empty"></div>
           <div class="store-content">
-            <div class="product-meta">
-              <span class="product-id">SYS-03</span>
-              <span class="product-price">In Development</span>
-            </div>
-            <h3>Next System</h3>
-            <p>Protocol in development. Built from field data returned by active Operators.</p>
-            <span class="coming-soon-label">Coming Soon</span>
+            <h3>7-Day Planner</h3>
+            <p>In development — getting the same visual treatment as the full protocol before it's ready.</p>
           </div>
         </div>
 
@@ -396,24 +404,12 @@
 
 </main>
 
-<!-- FOOTER CTA -->
-<div class="section-alt z">
-  <div class="footer-cta">
-    <div class="reveal">
-      <p class="tag">The Entry Point</p>
-      <h2>Not ready for the full system?<br>Start with seven days.</h2>
-      <p class="body-text">The 7-Day Detox Planner is the entry point. Free. Print it. Run the baseline. Everything else follows from what you find.</p>
-      <a href="/7-day-detox/" class="content-cta">Get the Free Planner</a>
-    </div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer class="z">
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/store/">Store</a></li>
@@ -421,7 +417,7 @@
     <li><a href="/terms/">Terms</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
-  <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
+  <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
 </footer>
 
 <script>

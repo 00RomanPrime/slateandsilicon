@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EXP-05 — App Deletion | Slate & Silicon</title>
-  <meta name="description" content="Test what happens to your behavior when the fastest path to your attention is removed. EXP-05: App Deletion. Filed under The Lab.">
+  <title>EXP-05 — Home-Screen Friction | Slate & Silicon</title>
+  <meta name="description" content="Test what happens to your behavior when the fastest path to your attention is removed. EXP-05: Home-Screen Friction.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Slate & Silicon">
-  <meta property="og:title" content="EXP-05 — App Deletion | Slate & Silicon">
+  <meta property="og:title" content="EXP-05 — Home-Screen Friction | Slate & Silicon">
   <meta property="og:description" content="Test what happens to your behavior when the fastest path to your attention is removed.">
-  <meta property="og:url" content="https://slateandsilicon.com/lab/exp-05/">
+  <!-- D-04 flag, already logged: this og:url reads /lab/exp-05/, actual path is /laboratory/exp-05/ — not touched here, technical fix -->
+  <meta property="og:url" content="https://slateandsilicon.com/laboratory/exp-05/">
   <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +20,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@slate.silicon">
-  <meta name="twitter:title" content="EXP-05 — App Deletion | Slate & Silicon">
+  <meta name="twitter:title" content="EXP-05 — Home-Screen Friction | Slate & Silicon">
   <meta name="twitter:description" content="Test what happens to your behavior when the fastest path to your attention is removed.">
   <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
 
@@ -76,6 +77,16 @@
       font-weight: 300;
       border-left: 2px solid var(--blue);
       padding-left: 1.5rem;
+    }
+
+    .exp-ack {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.8;
+      max-width: 54ch;
+      font-weight: 300;
+      font-style: italic;
+      margin-top: 1.5rem;
     }
 
     .exp-body {
@@ -228,12 +239,16 @@
     <div class="exp-header reveal">
       <div class="exp-meta-row">
         <span class="exp-badge">EXP-05</span>
-        <span class="exp-id">App Deletion // 2026</span>
-        <span class="exp-id">Status: Closed — Rebuild</span>
+        <span class="exp-id">Home-Screen Friction // 2026</span>
+        <!-- Status placeholder: update to "Live // Dispatch #XXX" once D-04 deploys and the launch issue number is confirmed. Do not invent a number. -->
+        <span class="exp-id">Status: Finalized</span>
       </div>
       <h1>The fastest path<br>to your attention.</h1>
       <p class="exp-lede">
         Test what happens to your behavior when it's removed.
+      </p>
+      <p class="exp-ack">
+        An earlier version of this experiment proved more disruptive than useful during internal testing — this is the refined version.
       </p>
     </div>
 
@@ -246,33 +261,33 @@
 
       <p>That's the only trigger you need.</p>
 
-      <p>The home screen without its apps looks wrong. Clock. Search bar. Twelve empty slots where the reflexes used to live. You know the apps are still there. One search, one download, thirty seconds away. That knowledge is the first thing you bargain with.</p>
+      <p>The home screen without them looks wrong. Three empty squares where the reflexes used to live. You know the apps are still there — installed, signed in, one swipe and a search away. That knowledge is the first thing you bargain with.</p>
 
-      <p>The morning is easy. Weather. News. The things you were supposedly checking for anyway. That part holds.</p>
+      <p>The morning is easy. Weather. The alarm you already dismissed. The things you were reaching for anyway. That part holds.</p>
 
-      <p>Then comes mid-morning: the notification you can't see. The check that used to take two taps now takes a login, a two-factor prompt, and a page that loads sideways. You get there, scroll for a few minutes, then close it down and start again next time.</p>
+      <p>Then comes mid-morning: your thumb finds the empty square before your brain catches up. Nothing there. You stand for a second holding a phone that hasn't done anything wrong, wondering what you were actually trying to do. Then you either swipe over to find it, or you don't.</p>
 
-      <p>By mid-afternoon, it's a chore. You start asking a question you didn't use to ask: <em>Is this worth it?</em> Not as a philosophical exercise. Quietly, in the background, is whatever I'm about to see worth the login? Most of the time, the answer is no. You don't make that decision consciously. You just feel the friction and put the phone down.</p>
+      <p>By mid-afternoon, it's a question you didn't use to ask: <em>Is this worth a swipe and a search?</em> Not as a philosophical exercise. Quietly, in the background, is whatever I'm about to look at worth the extra three seconds? Most of the time the answer is no. You don't make that decision consciously. You just feel the small delay and put the phone down.</p>
 
       <p>That's the mechanism doing its job without you noticing.</p>
 
-      <p>Evening is where the system gets gamed. Tabs left open. Remember me. A workaround so the sequence doesn't have to run again. You start to notice which apps you're willing to log into and which ones you let go.</p>
+      <p>Evening is where the system gets gamed. You start memorizing exactly where an app sits in the search results. A folder appears, holding the three you moved, tucked one screen over — technically still gone, functionally back. You start to notice which apps you're willing to go looking for and which ones you let go.</p>
 
       <!-- PULL -->
       <div class="exp-section">
         <span class="exp-section-label">Observation // Gravity Wells</span>
 
         <div class="obs-block">
-          <p>The ones you chase are the gravity wells. The rest quietly disappear.</p>
+          <p>The ones you go looking for are the gravity wells. The rest quietly disappear.</p>
           <p>That's information.</p>
         </div>
       </div>
 
-      <p>Night one: Restless. Not anxious. Something quieter. An itch in the back of your skull that normally gets scratched by input. Without it, your own thoughts filled the space, louder than anything on the feed. You stayed up longer than you needed to. Not scrolling. Just awake.</p>
+      <p>Night one: restless. Not anxious. Something quieter. An itch in the back of your skull that normally gets scratched by input. Without the icon there to catch your eye, your own thoughts filled the space, louder than anything on the feed. You stayed up longer than you needed to. Not scrolling. Just awake.</p>
 
-      <p>Day two: You went back to the App Store. Got as far as reinstalling two before you stopped. Sat with it. Deleted them again. The evening ended earlier. Getting to sleep wasn't a negotiation.</p>
+      <p>Day two: you built the folder. Looked at it sitting there, three icons deep, exactly as reachable as before. Deleted the folder instead. The evening ended earlier. Getting to sleep wasn't a negotiation.</p>
 
-      <p>Morning of day three: you reached for the weather. That was it. No scan. No sweep. The fifteen minutes of eyes-open scrolling that used to happen before you got out of bed — it wasn't there, because there was nothing to feed it.</p>
+      <p>Morning of day three: you reached for the weather. That was it. No scan. No sweep. The fifteen minutes of eyes-open scrolling that used to happen before you got out of bed — it wasn't there, because there was no icon there to start it.</p>
 
       <p>Coming home that afternoon, you took your phone out of your pocket and put it in the bowl by the door. Same bowl as the keys. Same logic.</p>
 
@@ -287,7 +302,7 @@
 
       <p>The habit isn't the app. The habit is the reflex the app was built to serve.</p>
 
-      <p>Remove the app and the reflex is still there; you can watch it look for something to attach to.</p>
+      <p>Move the app and the reflex is still there; you can watch it look for something to attach to.</p>
 
       <p>Social media was built to socialize. What it became is a preference engine tuned not to what you need from other people, but to what keeps you watching.</p>
 
@@ -298,23 +313,23 @@
       <!-- MECHANISM BLOCK -->
       <div class="exp-section">
         <span class="exp-section-label">EXP-05 // What the Data Shows</span>
-        <h2>Remove the app. Watch the reflex.</h2>
+        <h2>Move the app. Watch the reflex.</h2>
 
         <div class="exp-block">
           <p>
             The friction isn't the punishment. The friction is the information.
           </p>
           <p>
-            Every time you feel the login sequence and put the phone down, that's the experiment working, not you failing to resist.
+            Every time you feel that half-second of nothing and put the phone down, that's the experiment working, not you failing at anything.
           </p>
           <p>
-            The question was never whether you could delete the apps. The question was <strong>what the reflex does when it has nowhere to go.</strong>
+            The question was never whether you could remove three icons. The question was <strong>what the reflex does when it has nowhere to land.</strong>
           </p>
           <p>
-            Watch which apps you're willing to chase through two-factor authentication. Watch which ones you quietly abandon. That list is more honest than anything you'd say about your habits out loud.
+            Watch which apps you're willing to search for by name. Watch which ones you quietly stop looking for. That list is more honest than anything you'd say about your habits out loud.
           </p>
           <p>
-            EXP-05 // CLOSED — REBUILD PHASE
+            EXP-05 // FINALIZED
           </p>
         </div>
       </div>
@@ -325,7 +340,7 @@
 
         <div class="obs-block">
           <p>
-            Remove the app and the reflex is still there; you can watch it look for something to attach to.
+            Move the app and the reflex is still there; you can watch it look for something to attach to.
           </p>
           <p>
             It stops being about discipline. It starts being about intention.
@@ -342,7 +357,7 @@
     <div class="exp-footer reveal">
       <div class="exp-footer-meta">
         <span>Roman Prime — Operator 00  //  EXP-05</span>
-        <span>Filed: 2026 // Phase: Rebuild // Status: Closed</span>
+        <span>Filed: 2026 // Phase: Friction & Awareness // Status: Finalized</span>
       </div>
     </div>
 

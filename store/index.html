@@ -35,14 +35,6 @@
        No cyan. Clean grid. No commerce chrome.
     ──────────────────────────────────────────────────────── */
 
-    /* Page-scoped fix: mirrors the same inset applied on Laboratory —
-       .section has no horizontal inset at desktop widths sitewide
-       (only page-hero does). Scoped to this page only. */
-    .z > .section {
-      width: min(var(--max), calc(100% - 2.5rem));
-      margin: 0 auto;
-    }
-
     /* TRUST ROW */
     .trust-row {
       display: flex;
@@ -307,6 +299,9 @@
         <li><a href="/log/">Dispatch</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
+      <!-- D-04 NOTE: nav CTA confirmed intentional (RP, this session) — the
+           Kit-form free planner is separate from the store's 7-Day Planner
+           product, which goes paid once reworked to CORE's standard. -->
       <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get the Planner</a>
     </div>
   </div>

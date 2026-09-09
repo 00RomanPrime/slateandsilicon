@@ -30,12 +30,12 @@
   <link rel="stylesheet" href="/css/system.css?v=4">
 
   <style>
-    /* ── THE LOG  — PAGE LAYER ───────────────────────────────
+    /* ── THE  — PAGE LAYER ───────────────────────────────
        Editorial / newsletter layer. Amber throughout.
        No cyan — this is not the lab experiment layer.
     ──────────────────────────────────────────────────────── */
 
-    .log-layout {
+    .-layout {
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 5rem;
@@ -268,7 +268,7 @@
     }
 
     /* Sidebar */
-    .log-sidebar { position: sticky; top: 6rem; }
+    .-sidebar { position: sticky; top: 6rem; }
 
     .sidebar-block {
       border: 1px solid var(--line);
@@ -362,8 +362,8 @@
     }
 
     @media (max-width: 900px) {
-    .log-layout { grid-template-columns: 1fr; }
-      .log-sidebar { position: static; }
+      .-layout { grid-template-columns: 1fr; }
+      .-sidebar { position: static; }
     }
 
     @media (max-width: 720px) {
@@ -423,7 +423,7 @@
 <!-- MAIN -->
 <div class="z">
   <div class="section">
-    <div class="log-layout">
+    <div class="-layout">
 
       <div>
 
@@ -431,20 +431,19 @@
         <div class="reveal">
           <p class="tag">Latest Dispatch</p>
           <div class="issue-list">
-            <a href="/log/issue-007/" class="issue-card featured">
+            <a href="/log/issue-008/" class="issue-card featured">
               <div class="featured-top">
                 <span class="featured-badge">Latest Issue</span>
-                <span class="featured-issue-num">Issue #007 // 2026</span>
+                <span class="featured-issue-num">Issue #008 // 2026</span>
               </div>
               <div class="issue-meta">
                 <span class="issue-tag">Field Note</span>
-                <span class="issue-tag">DIAG-03</span>
               </div>
-              <h2 class="issue-title">Where Does Your Phone Sleep?</h2>
-              <p class="issue-excerpt">The seventh transmission. DIAG-03 — the overnight phone diagnostic. Not a trick question. One night, one room change, one thing to notice when you wake up.</p>
+              <h2 class="issue-title">The Transition, Not The Total.</h2>
+              <p class="issue-excerpt">The eighth transmission. Same screen time, different day — the number that actually matters isn't how long, it's how often something got interrupted.</p>
               <div class="featured-meta">
-                <span class="featured-meta-item">3 min read</span>
-                <span class="featured-meta-item">Issue 007</span>
+                <span class="featured-meta-item">2 min read</span>
+                <span class="featured-meta-item">Issue 008</span>
                 <span class="featured-meta-item cta">→ Read this issue</span>
               </div>
             </a>
@@ -455,6 +454,17 @@
           <p class="tag">Archive // All Issues</p>
           <div class="issue-list">
 
+            <div class="archive-label">2026</div>
+
+            <a href="/log/issue-007/" class="issue-card">
+              <div class="issue-num-block"><span class="issue-num">7</span><span class="issue-label">Issue</span></div>
+              <div class="issue-body">
+                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span><span class="issue-tag">DIAG-03</span></div>
+                <h3 class="issue-title">Where Does Your Phone Sleep?</h3>
+                <p class="issue-excerpt">The seventh transmission. DIAG-03 — the overnight phone diagnostic. Not a trick question. One night, one room change, one thing to notice when you wake up.</p>
+              </div>
+              <div class="issue-action"><span class="issue-read">3 min</span><span class="issue-arrow">→</span></div>
+            </a>
             <div class="archive-label">2026</div>
 
             <a href="/log/issue-006/" class="issue-card">
@@ -544,7 +554,7 @@
 
         <div class="sidebar-block">
           <p class="sidebar-title">Dispatch Stats</p>
-          <div class="sidebar-stat"><span class="sidebar-stat-label">Total Issues</span><span class="sidebar-stat-val">7</span></div>
+          <div class="sidebar-stat"><span class="sidebar-stat-label">Total Issues</span><span class="sidebar-stat-val">8</span></div>
           <div class="sidebar-stat"><span class="sidebar-stat-label">Since</span><span class="sidebar-stat-val">2025</span></div>
         </div>
 
@@ -562,9 +572,9 @@
 
         <div class="sidebar-block">
           <p class="sidebar-title">Transmission Status</p>
-          <div class="status"><div class="dot"></div> Issue 007: Transmitted</div>
-          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Transmitted: 7 issues</div>
-          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Issue 008: Coming Tuesday</div>
+          <div class="status"><div class="dot"></div> Issue 008: Transmitted</div>
+          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Transmitted: 8 issues</div>
+          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Issue 009: Coming Tuesday</div>
         </div>
 
       </aside>

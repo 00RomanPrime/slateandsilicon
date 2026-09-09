@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue 008 — The Dispatch — Slate & Silicon</title>
+  <meta name="description" content="The eighth transmission from The Dispatch. Screen time counts minutes. It should be counting transitions.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Slate & Silicon">
+  <meta property="og:title" content="Issue 008: The Transition, Not The Total — Slate & Silicon">
+  <meta property="og:description" content="The eighth transmission. Same screen time, different day — the number that matters is how often something got interrupted.">
+  <meta property="og:url" content="https://slateandsilicon.com/log/issue-008/">
+  <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@slate.silicon">
+  <meta name="twitter:title" content="Issue 008: The Transition, Not The Total — Slate & Silicon">
+  <meta name="twitter:description" content="The eighth transmission. Same screen time, different day — the number that matters is how often something got interrupted.">
+  <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Issue 008: The Transition, Not The Total",
+    "description": "The eighth transmission from The Dispatch. Screen time counts minutes. It should be counting transitions.",
+    "url": "https://slateandsilicon.com/log/issue-008/",
+    "datePublished": "2026-09-09T09:00:00-05:00",
+    "author": {
+      "@type": "Person",
+      "name": "Roman Prime",
+      "url": "https://slateandsilicon.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Slate & Silicon",
+      "url": "https://slateandsilicon.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://slateandsilicon.com/logo/logo-light.svg"
+      }
+    },
+    "image": "https://slateandsilicon.com/assets/images/og-default.png",
+    "mainEntityOfPage": "https://slateandsilicon.com/log/issue-008/"
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
+  <style>
+    .issue-header {
+      max-width: 640px;
+      padding: clamp(4rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .issue-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .issue-badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 3px 9px;
+    }
+
+    .issue-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+    }
+
+    .issue-header h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    .issue-lede {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 54ch;
+      font-weight: 300;
+      border-left: 2px solid var(--blue);
+      padding-left: 1.5rem;
+    }
+
+    .issue-body {
+      max-width: 640px;
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    }
+
+    .issue-body p {
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      color: #c0b8ae;
+      line-height: 1.95;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+
+    .issue-body p:last-child { margin-bottom: 0; }
+
+    .issue-body strong {
+      color: var(--bone);
+      font-weight: 400;
+    }
+
+    .issue-body em {
+      font-style: italic;
+      color: var(--bone);
+    }
+
+    .issue-section {
+      margin: clamp(3rem, 6vw, 5rem) 0 2rem;
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .issue-section-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .issue-section h2 {
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      margin-bottom: 2rem;
+      max-width: 22ch;
+    }
+
+    .obs-block {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+
+    .obs-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .obs-block p:last-child { margin-bottom: 0; }
+
+    .issue-footer {
+      border-top: 1px solid var(--line);
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      max-width: 640px;
+    }
+
+    .issue-footer-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .issue-footer-meta span {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+
+    .issue-subscribe {
+      background: rgba(232,226,214,.016);
+      border: 1px solid var(--line);
+      padding: 2rem;
+      margin-top: clamp(3rem, 6vw, 5rem);
+      max-width: 640px;
+    }
+
+    .issue-subscribe p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/log/">Dispatch</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get the Planner</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ISSUE -->
+<div class="z">
+  <div class="section">
+
+    <!-- HEADER -->
+    <div class="issue-header reveal">
+      <div class="issue-meta-row">
+        <span class="issue-badge">Issue 008</span>
+        <span class="issue-id">2026</span>
+        <span class="issue-id">2 min read</span>
+      </div>
+      <h1>The Transition,<br>Not The Total.</h1>
+      <p class="issue-lede">
+        The eighth transmission from The Dispatch. Two people can carry the same screen time and have completely different days. Here's the number that actually explains the difference.
+      </p>
+    </div>
+
+    <!-- BODY -->
+    <div class="issue-body reveal">
+
+      <span class="issue-section-label" style="margin-top: clamp(3rem, 6vw, 5rem); display: block;">Signal Eight</span>
+
+      <p>You can measure a day in screen time and learn almost nothing.</p>
+
+      <p>Two people can each carry three hours on a phone. One watched a film start to finish. The other opened six apps fifty times between meetings. Same number. Different day, entirely.</p>
+
+      <p>The number that actually matters isn't how long. It's how often something else got interrupted to make room for it.</p>
+
+      <p>There's a name worth using for that: fragmentation. Not "distraction," which blames the person. Not "addiction," which turns a Tuesday into a diagnosis. Fragmentation just means the thing you were doing didn't get to finish before something else took over.</p>
+
+      <p>A few kinds of transition, worth telling apart:</p>
+
+      <p><strong>A chosen one.</strong> You finished the chapter, then checked messages.<br>
+      <strong>A requested one.</strong> Someone needed an answer, so you gave it.<br>
+      <strong>An automatic one.</strong> You opened the phone without remembering deciding to.<br>
+      <strong>An avoidant one.</strong> The work got uncomfortable, so you found something easier.<br>
+      <strong>An unclear one.</strong> You genuinely don't know why you picked it up.</p>
+
+      <p>None of those diagnose you. They just make something visible that's usually invisible.</p>
+
+      <p>The 30-Day Attention Recovery Protocol starts by mapping exactly this — which kind of transition is actually yours, before anything else changes. It's live now, as a full bundle with its companion references.</p>
+
+      <!-- CTA -->
+      <div class="issue-section">
+        <span class="issue-section-label">Full Protocol // Attention Recovery Protocol</span>
+
+        <p>The full bundle includes the 30-day manuscript plus its three companion references — Setup, Boundaries &amp; Exceptions, and the Instrument itself. It's live now.</p>
+
+        <a href="https://www.etsy.com/listing/4569134436/30-day-attention-recovery-protocol-self" class="content-cta">Get the Attention Recovery Protocol</a>
+      </div>
+
+    </div>
+
+    <!-- TRANSMISSION FOOTER -->
+    <div class="issue-footer reveal">
+      <div class="issue-footer-meta">
+        <span>Roman Prime — Lead Operator  //  Issue 008</span>
+        <span>Next transmission: Issue 009 — coming Tuesday</span>
+      </div>
+    </div>
+
+    <!-- SUBSCRIBE NUDGE -->
+    <div class="issue-subscribe reveal">
+      <p>Issue 009 ships next Tuesday. Every Tuesday. No noise.</p>
+      <a href="https://slate-silicon.kit.com/0c7c8b09a2" class="content-cta">Subscribe to The Dispatch</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="z">
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/store/">Store</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/FAQ/">FAQ</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

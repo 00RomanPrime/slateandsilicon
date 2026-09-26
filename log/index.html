@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Dispatch — Slate & Silicon</title>
-  <meta name="description" content="The Slate & Silicon weekly dispatch. Field notes, experiment data, and one thing to run this week. Transmitted every Tuesday.">
+  <meta name="description" content="The Slate & Silicon Dispatch. Long-form field notes on attention and cognitive recovery. Published every Friday.">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Slate & Silicon">
 <meta property="og:title" content="The Dispatch — Slate & Silicon">
-<meta property="og:description" content="Weekly field notes from the laboratory. Experiment data, protocol updates, and one thing to run this week. Transmitted every Tuesday.">
+<meta property="og:description" content="Weekly field notes from the Laboratory. Long-form pieces on attention, fragmentation, and cognitive recovery. Published every Friday.">
 <meta property="og:url" content="https://slateandsilicon.com/log/">
 <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
 <meta property="og:image:width" content="1200">
@@ -19,9 +19,11 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@slate.silicon">
 <meta name="twitter:title" content="The Dispatch — Slate & Silicon">
-<meta name="twitter:description" content="Weekly field notes from the laboratory. Experiment data, protocol updates, and one thing to run this week. Transmitted every Tuesday.">
+<meta name="twitter:description" content="Weekly field notes from the Laboratory. Long-form pieces on attention, fragmentation, and cognitive recovery. Published every Friday.">
 <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
   <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="/logo/favicon-24.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,12 +32,12 @@
   <link rel="stylesheet" href="/css/system.css?v=4">
 
   <style>
-    /* ── THE  — PAGE LAYER ───────────────────────────────
+    /* ── THE LOG — PAGE LAYER ───────────────────────────────
        Editorial / newsletter layer. Amber throughout.
        No cyan — this is not the lab experiment layer.
     ──────────────────────────────────────────────────────── */
 
-    .-layout {
+    .log-layout {
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 5rem;
@@ -228,18 +230,45 @@
       color: var(--blue);
     }
 
-    /* Archive month label */
-    .archive-label {
+    /* Archive section label — distinct from month/year dividers below */
+    .archive-heading {
       font-family: var(--mono);
-      font-size: 0.55rem;
-      color: var(--slate);
-      letter-spacing: 0.14em;
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.85rem 1.75rem;
-      background: var(--surface);
-      border-bottom: 1px solid var(--line);
-      border-top: 1px solid var(--line);
-      margin-top: 1px;
+      margin: 0 0 0.75rem;
+    }
+
+    /* ── ARCHIVAL TREATMENT ─────────────────────────────────────
+       Condenses the prior numbered-issue section into a 2-column
+       grid (4 rows of 2) so it reads as a compact index rather than
+       full editorial cards — density signals "archived," not color.
+       Full amber styling is retained; nothing recolored here.
+    ──────────────────────────────────────────────────────────── */
+    .log-archive {
+      margin-top: clamp(4rem, 7vw, 6rem);
+      padding-top: clamp(2.5rem, 5vw, 3.5rem);
+      border-top: 1px solid var(--line-strong);
+    }
+
+    .log-archive .issue-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+    }
+
+    .log-archive .issue-card {
+      grid-template-columns: 52px 1fr;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .log-archive .issue-num { font-size: 1.7rem; }
+    .log-archive .issue-excerpt { display: none; }
+    .log-archive .issue-action { display: none; }
+
+    @media (max-width: 720px) {
+      .log-archive .issue-list { grid-template-columns: 1fr; }
     }
 
     /* Load more */
@@ -267,8 +296,9 @@
       border-color: var(--blue-line);
     }
 
-    /* Sidebar */
-    .-sidebar { position: sticky; top: 6rem; }
+    /* Sidebar — fixed: was ".-sidebar", didn't match the "log-sidebar"
+       element class below, so sticky positioning never applied. */
+    .log-sidebar { position: sticky; top: 6rem; }
 
     .sidebar-block {
       border: 1px solid var(--line);
@@ -362,8 +392,8 @@
     }
 
     @media (max-width: 900px) {
-      .-layout { grid-template-columns: 1fr; }
-      .-sidebar { position: static; }
+      .log-layout { grid-template-columns: 1fr; }
+      .log-sidebar { position: static; }
     }
 
     @media (max-width: 720px) {
@@ -388,7 +418,7 @@
         <li><a href="/log/">Dispatch</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
-      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get the Planner</a>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get Starting Position</a>
     </div>
   </div>
 </nav>
@@ -397,33 +427,20 @@
 <div class="page-hero z">
   <p class="tag">The Dispatch // Weekly Transmission</p>
   <h1>The<br>Dispatch.</h1>
-  <p class="body-text">Every Tuesday. One transmission from the field. Experiment data, protocol updates, and one thing to run this week. No filler. No noise.</p>
+  <p class="body-text">Every Friday. Long-form field notes on attention, fragmentation, and cognitive recovery. No filler. No noise.</p>
 </div>
 
-<!-- TICKER -->
-<div class="ticker z">
-  <div class="ticker-track">
-    <span class="ticker-item">Transmitted every Tuesday <b>//</b></span>
-    <span class="ticker-item">Field notes <b>//</b></span>
-    <span class="ticker-item">Experiment data <b>//</b></span>
-    <span class="ticker-item">Protocol updates <b>//</b></span>
-    <span class="ticker-item">One thing to run this week <b>//</b></span>
-    <span class="ticker-item">No filler <b>//</b></span>
-    <span class="ticker-item">No noise <b>//</b></span>
-    <span class="ticker-item">Transmitted every Tuesday <b>//</b></span>
-    <span class="ticker-item">Field notes <b>//</b></span>
-    <span class="ticker-item">Experiment data <b>//</b></span>
-    <span class="ticker-item">Protocol updates <b>//</b></span>
-    <span class="ticker-item">One thing to run this week <b>//</b></span>
-    <span class="ticker-item">No filler <b>//</b></span>
-    <span class="ticker-item">No noise <b>//</b></span>
-  </div>
+<div class="site-ticker" aria-hidden="true">
+  <span class="site-ticker-inner">
+    The Dispatch <b>//</b> Published every Friday <b>//</b> Long-form field notes <b>//</b> Attention &amp; cognitive recovery <b>//</b> No filler <b>//</b> No noise <b>//</b>
+    The Dispatch <b>//</b> Published every Friday <b>//</b> Long-form field notes <b>//</b> Attention &amp; cognitive recovery <b>//</b> No filler <b>//</b> No noise <b>//</b>
+  </span>
 </div>
 
 <!-- MAIN -->
 <div class="z">
   <div class="section">
-    <div class="-layout">
+    <div class="log-layout">
 
       <div>
 
@@ -431,89 +448,53 @@
         <div class="reveal">
           <p class="tag">Latest Dispatch</p>
           <div class="issue-list">
-            <a href="/log/issue-008/" class="issue-card featured">
+            <a href="/log/screen-time-doesnt-tell-you-this/" class="issue-card featured">
               <div class="featured-top">
-                <span class="featured-badge">Latest Issue</span>
-                <span class="featured-issue-num">Issue #008 // 2026</span>
+                <span class="featured-badge">Latest Dispatch</span>
+                <span class="featured-issue-num">September 18, 2026</span>
               </div>
               <div class="issue-meta">
                 <span class="issue-tag">Field Note</span>
               </div>
-              <h2 class="issue-title">The Transition, Not The Total.</h2>
-              <p class="issue-excerpt">The eighth transmission. Same screen time, different day — the number that actually matters isn't how long, it's how often something got interrupted.</p>
+              <h2 class="issue-title">Screen Time Doesn't Tell You This.</h2>
+              <p class="issue-excerpt">Two people can carry the same screen time and live completely different days. The number that actually explains the difference isn't how long — it's how often something got interrupted.</p>
               <div class="featured-meta">
-                <span class="featured-meta-item">2 min read</span>
-                <span class="featured-meta-item">Issue 008</span>
-                <span class="featured-meta-item cta">→ Read this issue</span>
+                <span class="featured-meta-item">4 min read</span>
+                <span class="featured-meta-item cta">→ Read this piece</span>
               </div>
             </a>
           </div>
         </div>
 
-        <div class="reveal" style="margin-top:3rem;">
-          <p class="tag">Archive // All Issues</p>
+        <!--
+          NEXT LONG-FORM POST GOES HERE, ABOVE the .log-archive block.
+          When the next Friday post ships: move "Screen Time Doesn't
+          Tell You This" out of the featured slot above into a plain
+          (non-featured) .issue-card here, using the same card markup
+          the archive uses below — but WITHOUT the .log-archive wrapper,
+          since it's still current-era content, just not the latest.
+          The .log-archive divider always marks the boundary between
+          current-format posts (above) and the retired numbered run
+          (below) — it never moves.
+        -->
+
+        <div class="reveal log-archive">
+          <p class="tag">Archive // Prior Dispatch Format (Issues 001–008)</p>
+          <p class="archive-heading">The Dispatch ran as a numbered weekly transmission through Issue 008, retired in favor of the long-form format above. Preserved as published.</p>
           <div class="issue-list">
 
-            <div class="archive-label">2026</div>
-
-            <a href="/log/issue-007/" class="issue-card">
-              <div class="issue-num-block"><span class="issue-num">7</span><span class="issue-label">Issue</span></div>
+<a href="/log/issue-001/" class="issue-card">
+              <div class="issue-num-block"><span class="issue-num">1</span><span class="issue-label">Issue</span></div>
               <div class="issue-body">
-                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span><span class="issue-tag">DIAG-03</span></div>
-                <h3 class="issue-title">Where Does Your Phone Sleep?</h3>
-                <p class="issue-excerpt">The seventh transmission. DIAG-03 — the overnight phone diagnostic. Not a trick question. One night, one room change, one thing to notice when you wake up.</p>
-              </div>
-              <div class="issue-action"><span class="issue-read">3 min</span><span class="issue-arrow">→</span></div>
-            </a>
-            <div class="archive-label">2026</div>
-
-            <a href="/log/issue-006/" class="issue-card">
-              <div class="issue-num-block"><span class="issue-num">6</span><span class="issue-label">Issue</span></div>
-              <div class="issue-body">
-                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span><span class="issue-tag">DIAG-02</span></div>
-                <h3 class="issue-title">What the First Experiment Actually Shows You.</h3>
-                <p class="issue-excerpt">Week six. DIAG-02 results and EXP-05. The data isn't in whether you can hold the ten minutes. It's in the first ninety seconds — the reach that happens before you've decided to reach.</p>
-              </div>
-              <div class="issue-action"><span class="issue-read">4 min</span><span class="issue-arrow">→</span></div>
-            </a>
-            <div class="archive-label">2026</div>
-
-            <a href="/log/issue-005/" class="issue-card">
-              <div class="issue-num-block"><span class="issue-num">5</span><span class="issue-label">Issue</span></div>
-              <div class="issue-body">
-                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span><span class="issue-tag">DIAG-02</span></div>
-                <h3 class="issue-title">10 Minutes. No Phone.</h3>
-                <p class="issue-excerpt">Week four. DIAG-02. The question isn't whether you can do it — the question is what happens in the first 90 seconds. That's where the data is.</p>
-              </div>
-              <div class="issue-action"><span class="issue-read">4 min</span><span class="issue-arrow">→</span></div>
-            </a>
-            <div class="archive-label">2026</div>
-
-            <a href="/log/issue-004/" class="issue-card">
-              <div class="issue-num-block"><span class="issue-num">4</span><span class="issue-label">Issue</span></div>
-              <div class="issue-body">
-                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span>
-                <span class="issue-tag">DIAG-01</span></div>
-                <h3 class="issue-title">The Loop Doesn't Know You Stopped.</h3>
-                <p class="issue-excerpt">Week three. The five-minute silence didn't produce calm — it produced discomfort, and that discomfort is data. What the retrieval loop is actually doing when the input disappears.</p>
-              </div>
-              <div class="issue-action"><span class="issue-read">4 min</span><span class="issue-arrow">→</span></div>
-            </a>
-            <div class="archive-label">2026</div>
-
-            <a href="/log/issue-003/" class="issue-card">
-              <div class="issue-num-block"><span class="issue-num">3</span><span class="issue-label">Issue</span></div>
-              <div class="issue-body">
-                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Data</span>
-                <span class="issue-tag">DIAG-01</span><span class="issue-tag">DIAG-02</span></div>
-                <h3 class="issue-title">What Showed Up.</h3>
-                <p class="issue-excerpt">Last week the only ask was five minutes. Something showed up — the reach, the justification, the unfamiliarity with your own mind. Field data from DIAG-01, and the next diagnostic: the phone leaves the room.</p>
+                <div class="issue-meta"><span class="issue-date">2024</span><span class="issue-tag">Initialization</span>
+                <span class="issue-tag">EXP-01</span></div>
+                <h3 class="issue-title">The Sunrise. And Why The Dispatch Exists.</h3>
+                <p class="issue-excerpt">The first transmission. What a sunrise at 6am revealed about a pattern that had been running for years. EXP-01 for this week.</p>
               </div>
               <div class="issue-action"><span class="issue-read">5 min</span><span class="issue-arrow">→</span></div>
             </a>
-            <div class="archive-label">2026</div>
 
-            <a href="/log/issue-002/" class="issue-card">
+<a href="/log/issue-002/" class="issue-card">
               <div class="issue-num-block"><span class="issue-num">2</span><span class="issue-label">Issue</span></div>
               <div class="issue-body">
                 <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Diagnostic</span>
@@ -523,17 +504,67 @@
               </div>
               <div class="issue-action"><span class="issue-read">5 min</span><span class="issue-arrow">→</span></div>
             </a>
-            <div class="archive-label">2026</div>
 
-            <a href="/log/issue-001/" class="issue-card">
-              <div class="issue-num-block"><span class="issue-num">1</span><span class="issue-label">Issue</span></div>
+<a href="/log/issue-003/" class="issue-card">
+              <div class="issue-num-block"><span class="issue-num">3</span><span class="issue-label">Issue</span></div>
               <div class="issue-body">
-                <div class="issue-meta"><span class="issue-date">2025</span><span class="issue-tag">Initialization</span>
-                <span class="issue-tag">EXP-01</span></div>
-                <h3 class="issue-title">The Sunrise. And Why The Dispatch Exists.</h3>
-                <p class="issue-excerpt">The first transmission. What a sunrise at 6am revealed about a pattern that had been running for years. EXP-01 for this week.</p>
+                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Data</span>
+                <span class="issue-tag">DIAG-01</span><span class="issue-tag">DIAG-02</span></div>
+                <h3 class="issue-title">What Showed Up.</h3>
+                <p class="issue-excerpt">Last week the only ask was five minutes. Something showed up — the reach, the justification, the unfamiliarity with your own mind. Field data from DIAG-01, and the next diagnostic: the phone leaves the room.</p>
               </div>
               <div class="issue-action"><span class="issue-read">5 min</span><span class="issue-arrow">→</span></div>
+            </a>
+
+<a href="/log/issue-004/" class="issue-card">
+              <div class="issue-num-block"><span class="issue-num">4</span><span class="issue-label">Issue</span></div>
+              <div class="issue-body">
+                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span>
+                <span class="issue-tag">DIAG-01</span></div>
+                <h3 class="issue-title">The Loop Doesn't Know You Stopped.</h3>
+                <p class="issue-excerpt">Week three. The five-minute silence didn't produce calm — it produced discomfort, and that discomfort is data. What the retrieval loop is actually doing when the input disappears.</p>
+              </div>
+              <div class="issue-action"><span class="issue-read">4 min</span><span class="issue-arrow">→</span></div>
+            </a>
+
+<a href="/log/issue-005/" class="issue-card">
+              <div class="issue-num-block"><span class="issue-num">5</span><span class="issue-label">Issue</span></div>
+              <div class="issue-body">
+                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span><span class="issue-tag">DIAG-02</span></div>
+                <h3 class="issue-title">10 Minutes. No Phone.</h3>
+                <p class="issue-excerpt">Week four. DIAG-02. The question isn't whether you can do it — the question is what happens in the first 90 seconds. That's where the data is.</p>
+              </div>
+              <div class="issue-action"><span class="issue-read">4 min</span><span class="issue-arrow">→</span></div>
+            </a>
+
+<a href="/log/issue-006/" class="issue-card">
+              <div class="issue-num-block"><span class="issue-num">6</span><span class="issue-label">Issue</span></div>
+              <div class="issue-body">
+                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span><span class="issue-tag">DIAG-02</span></div>
+                <h3 class="issue-title">What the First Experiment Actually Shows You.</h3>
+                <p class="issue-excerpt">Week six. DIAG-02 results and EXP-05. The data isn't in whether you can hold the ten minutes. It's in the first ninety seconds — the reach that happens before you've decided to reach.</p>
+              </div>
+              <div class="issue-action"><span class="issue-read">4 min</span><span class="issue-arrow">→</span></div>
+            </a>
+
+<a href="/log/issue-007/" class="issue-card">
+              <div class="issue-num-block"><span class="issue-num">7</span><span class="issue-label">Issue</span></div>
+              <div class="issue-body">
+                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span><span class="issue-tag">DIAG-03</span></div>
+                <h3 class="issue-title">Where Does Your Phone Sleep?</h3>
+                <p class="issue-excerpt">The seventh transmission. DIAG-03 — the overnight phone diagnostic. Not a trick question. One night, one room change, one thing to notice when you wake up.</p>
+              </div>
+              <div class="issue-action"><span class="issue-read">3 min</span><span class="issue-arrow">→</span></div>
+            </a>
+
+<a href="/log/issue-008/" class="issue-card">
+              <div class="issue-num-block"><span class="issue-num">8</span><span class="issue-label">Issue</span></div>
+              <div class="issue-body">
+                <div class="issue-meta"><span class="issue-date">2026</span><span class="issue-tag">Field Note</span></div>
+                <h3 class="issue-title">The Transition, Not The Total.</h3>
+                <p class="issue-excerpt">The eighth transmission. Same screen time, different day — the number that actually matters isn't how long, it's how often something got interrupted.</p>
+              </div>
+              <div class="issue-action"><span class="issue-read">2 min</span><span class="issue-arrow">→</span></div>
             </a>
 
           </div>
@@ -543,19 +574,26 @@
       <!-- SIDEBAR -->
       <aside class="log-sidebar reveal">
 
+        <!--
+          SIDEBAR "JOIN THE DISPATCH" — DISABLED (RP confirmed, this session).
+          Kit form uid 0c7c8b09a2 confirmed not active. Held commented out
+          rather than deleted — reactivate once there's a working form.
+
         <div class="sidebar-block">
           <p class="sidebar-title">Join The Dispatch</p>
           <div class="sidebar-subscribe">
-            <p>Every Tuesday. One transmission. Field data, protocol updates, and one thing to run this week.</p>
+            <p>New field notes on attention and cognitive recovery, published every Friday. Get on the list — no fixed send schedule beyond that yet.</p>
           </div>
           <script async data-uid="0c7c8b09a2" src="https://slate-silicon.kit.com/0c7c8b09a2/index.js"></script>
           <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
         </div>
+        -->
+
 
         <div class="sidebar-block">
           <p class="sidebar-title">Dispatch Stats</p>
-          <div class="sidebar-stat"><span class="sidebar-stat-label">Total Issues</span><span class="sidebar-stat-val">8</span></div>
-          <div class="sidebar-stat"><span class="sidebar-stat-label">Since</span><span class="sidebar-stat-val">2025</span></div>
+          <div class="sidebar-stat"><span class="sidebar-stat-label">Total Dispatches</span><span class="sidebar-stat-val">9</span></div>
+          <div class="sidebar-stat"><span class="sidebar-stat-label">Since</span><span class="sidebar-stat-val">2024</span></div>
         </div>
 
         <!--
@@ -572,9 +610,9 @@
 
         <div class="sidebar-block">
           <p class="sidebar-title">Transmission Status</p>
-          <div class="status"><div class="dot"></div> Issue 008: Transmitted</div>
-          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Transmitted: 8 issues</div>
-          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Issue 009: Coming Tuesday</div>
+          <div class="status"><div class="dot"></div> Latest: Screen Time Doesn't Tell You This</div>
+          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Published: 9 total</div>
+          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Next Dispatch: Friday</div>
         </div>
 
       </aside>
@@ -582,18 +620,25 @@
   </div>
 </div>
 
-<!-- FOOTER CTA -->
+<!--
+  FOOTER CTA "JOIN THE DISPATCH" — DISABLED (RP confirmed, this session).
+  Kit form uid 0c7c8b09a2 confirmed not active. This section exists only
+  to host that form, so disabling the whole block rather than leaving
+  promise-copy with no working form behind it. Held commented out —
+  reactivate once there's a working form.
+
 <div class="section-alt z">
   <div class="footer-cta">
     <div class="reveal">
       <p class="tag">Join The Dispatch</p>
-      <h2>Every Tuesday.<br>One transmission.</h2>
-      <p class="body-text">Field data from active experiments. Protocol updates. One thing to run this week. No filler. No fluff. Transmitted every Tuesday — unsubscribe any time.</p>
+      <h2>Every Friday.<br>One field note.</h2>
+      <p class="body-text">Long-form field notes on attention, fragmentation, and cognitive recovery. No filler. No fluff. Get on the list — no fixed send schedule beyond publish day yet.</p>
       <script async data-uid="0c7c8b09a2" src="https://slate-silicon.kit.com/0c7c8b09a2/index.js"></script>
       <p class="form-note" style="text-align:center; margin-top:0.5rem;">No account. No algorithm. No noise.</p>
     </div>
   </div>
 </div>
+-->
 
 <!-- FOOTER -->
 <footer class="z">

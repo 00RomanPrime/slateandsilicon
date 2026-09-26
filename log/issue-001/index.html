@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Issue 001 — The Dispatch — Slate & Silicon</title>
-  <meta name="description" content="The first transmission from The Log. The sunrise. Why the lab exists. EXP-01 for this week.">
+  <meta name="description" content="The first transmission from The Dispatch. The sunrise. Why the lab exists. EXP-01 for this week.">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Slate & Silicon">
@@ -51,6 +51,8 @@
   </script>
   
   <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="/logo/favicon-24.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -268,6 +270,106 @@
       line-height: 1.7;
       margin-bottom: 1.25rem;
     }
+    /* ── FLOATING NUDGE ──────────────────────────────────────
+       Persistent soft-sell while reading an archived issue.
+       Same flat-card treatment as .exp-block/.sidebar-block —
+       no shadow, no effects (box-shadow appears twice in the
+       whole stylesheet; staying consistent with that restraint).
+       Dismissible — a fixed element the reader can't clear away
+       reads as exactly the "look-at-me" energy this was built to avoid.
+    ──────────────────────────────────────────────────────── */
+    .floating-nudge {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 290px;
+      background: var(--bunker);
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--blue);
+      padding: 1.4rem 1.4rem 1.2rem;
+      z-index: 40;
+    }
+
+    .floating-nudge-close {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      color: var(--slate);
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: color .2s var(--ease);
+    }
+
+    .floating-nudge-close:hover { color: var(--blue); }
+
+    .floating-nudge-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.85rem;
+    }
+
+    .floating-nudge-cta {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--bunker);
+      background: var(--blue);
+      font-weight: 700;
+      padding: 0.75rem 0.85rem;
+      text-decoration: none;
+      margin-bottom: 0.6rem;
+      transition: opacity .2s var(--ease);
+    }
+
+    .floating-nudge-cta:hover { opacity: 0.85; }
+
+    .floating-nudge-sub {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--slate);
+      letter-spacing: 0.03em;
+      text-align: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .floating-nudge-note {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.6rem;
+      font-weight: 300;
+    }
+
+    .floating-nudge-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid var(--blue-line);
+    }
+
+    .floating-nudge-link:hover { opacity: 0.75; }
+
+    @media (max-width: 640px) {
+      .floating-nudge {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        width: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -285,7 +387,7 @@
         <li><a href="/log/">Dispatch</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
-      <a class="nav-cta" href="https://slate-silicon.kit.com/b85027b5ea">Get the Planner</a>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get Starting Position</a>
     </div>
   </div>
 </nav>
@@ -301,9 +403,9 @@
         <span class="issue-id">Initialization // 2025</span>
         <span class="issue-id">5 min read</span>
       </div>
-      <h1>The Sunrise.<br>And Why The<br>Log Exists.</h1>
+      <h1>The Sunrise.<br>And Why The<br>Dispatch Exists.</h1>
       <p class="issue-lede">
-        The first transmission from The Log. What a sunrise at 6am revealed about a pattern that had been running for years. EXP-01 for this week. One field observation that says everything about where we're starting from.
+        The first transmission from The Dispatch. What a sunrise at 6am revealed about a pattern that had been running for years. EXP-01 for this week. One field observation that says everything about where we're starting from.
       </p>
     </div>
 
@@ -311,7 +413,7 @@
     <div class="issue-body reveal">
 
       <!-- FIELD NOTE -->
-      <span class="issue-section-label" style="margin-top: clamp(3rem, 6vw, 5rem); display: block;">Field Note // Roman Prime — Lead Operator</span>
+      <span class="issue-section-label" style="margin-top: clamp(3rem, 6vw, 5rem); display: block;">Field Note // Roman Prime — Operator 00</span>
 
       <p>
         I got off work early one afternoon with every intention of living a real life for a few hours. Watch something. Play some games. Decompress. The kind of evening that used to feel like enough.
@@ -342,7 +444,7 @@
       </p>
 
       <p>
-        This is the first transmission from The Log. Every Tuesday from here, a field report. Data from active experiments. One thing to run this week. No inspiration content. No hustle framing. Just what's actually happening in the lab.
+        This is the first transmission from The Dispatch. Every Tuesday from here, a field report. Data from active experiments. One thing to run this week. No inspiration content. No hustle framing. Just what's actually happening in the lab.
       </p>
 
       <p>
@@ -395,7 +497,7 @@
     <!-- TRANSMISSION FOOTER -->
     <div class="issue-footer reveal">
       <div class="issue-footer-meta">
-        <span>Roman Prime — Lead Operator  //  Issue 001</span>
+        <span>Roman Prime — Operator 00  //  Issue 001</span>
         <span>Next transmission: Issue 002 — coming soon</span>
       </div>
     </div>
@@ -403,7 +505,6 @@
     <!-- SUBSCRIBE NUDGE -->
     <div class="issue-subscribe reveal">
       <p>Issue 002 drops next. Field data from EXP-01 — what the Signal Audit turns up when you actually run it. Every Tuesday. No noise.</p>
-      <a href="https://slate-silicon.kit.com/b85027b5ea" class="content-cta">Subscribe to The Dispatch</a>
     </div>
 
   </div>
@@ -414,7 +515,7 @@
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://tiktok.com/@roman.prime78" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
     <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
     <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a href="/store/">Store</a></li>
@@ -425,12 +526,29 @@
   </ul>
   <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
 </footer>
+<!-- FLOATING NUDGE — locked D-02 copy, standard block across all 8 archived issues -->
+<div class="floating-nudge" id="floating-nudge">
+  <button class="floating-nudge-close" id="floating-nudge-close" aria-label="Dismiss">×</button>
+  <p class="floating-nudge-label">Starting Position</p>
+  <a href="https://slate-silicon.kit.com/1bce10c281" class="floating-nudge-cta">Get Starting Position →</a>
+  <p class="floating-nudge-sub">Free. No account. No screen required.</p>
+  <p class="floating-nudge-note">You don't need permission. CORE is the structured version of what Starting Position already showed you.</p>
+  <a href="https://www.etsy.com/listing/4569134436/30-day-attention-recovery-protocol-self" target="_blank" rel="noopener" class="floating-nudge-link">Get CORE →</a>
+</div>
+
 <script>
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const nudge = document.getElementById('floating-nudge');
+  const nudgeClose = document.getElementById('floating-nudge-close');
+  if (nudge && nudgeClose) {
+    nudgeClose.addEventListener('click', () => { nudge.style.display = 'none'; });
+  }
 </script>
 
 </body>
 </html>
+

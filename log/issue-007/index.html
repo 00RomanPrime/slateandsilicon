@@ -52,6 +52,8 @@
   </script>
 
   <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="/logo/favicon-24.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,6 +207,106 @@
       line-height: 1.7;
       margin-bottom: 1.25rem;
     }
+    /* ── FLOATING NUDGE ──────────────────────────────────────
+       Persistent soft-sell while reading an archived issue.
+       Same flat-card treatment as .exp-block/.sidebar-block —
+       no shadow, no effects (box-shadow appears twice in the
+       whole stylesheet; staying consistent with that restraint).
+       Dismissible — a fixed element the reader can't clear away
+       reads as exactly the "look-at-me" energy this was built to avoid.
+    ──────────────────────────────────────────────────────── */
+    .floating-nudge {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 290px;
+      background: var(--bunker);
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--blue);
+      padding: 1.4rem 1.4rem 1.2rem;
+      z-index: 40;
+    }
+
+    .floating-nudge-close {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      color: var(--slate);
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: color .2s var(--ease);
+    }
+
+    .floating-nudge-close:hover { color: var(--blue); }
+
+    .floating-nudge-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.85rem;
+    }
+
+    .floating-nudge-cta {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--bunker);
+      background: var(--blue);
+      font-weight: 700;
+      padding: 0.75rem 0.85rem;
+      text-decoration: none;
+      margin-bottom: 0.6rem;
+      transition: opacity .2s var(--ease);
+    }
+
+    .floating-nudge-cta:hover { opacity: 0.85; }
+
+    .floating-nudge-sub {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--slate);
+      letter-spacing: 0.03em;
+      text-align: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .floating-nudge-note {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.6rem;
+      font-weight: 300;
+    }
+
+    .floating-nudge-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid var(--blue-line);
+    }
+
+    .floating-nudge-link:hover { opacity: 0.75; }
+
+    @media (max-width: 640px) {
+      .floating-nudge {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        width: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -222,7 +324,7 @@
         <li><a href="/log/">Dispatch</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
-      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get the Planner</a>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get Starting Position</a>
     </div>
   </div>
 </nav>
@@ -263,7 +365,7 @@
 
       <!-- FIELD NOTE -->
       <div class="issue-section">
-        <span class="issue-section-label">Field Note // Roman Prime — Lead Operator</span>
+        <span class="issue-section-label">Field Note // Roman Prime — Operator 00</span>
 
         <div class="obs-block">
           <p>
@@ -274,22 +376,12 @@
           </p>
         </div>
       </div>
-
-      <!-- CTA -->
-      <div class="issue-section">
-        <span class="issue-section-label">Full Protocol // The 7-Day Planner</span>
-
-        <p>If you want to run all twelve, the full 7-Day Planner is free at slateandsilicon.com. It uses your actual Screen Time data. It doesn't tell you what to think. It just shows you what's already there.</p>
-
-        <a href="https://slate-silicon.kit.com/1bce10c281" class="content-cta">Get the Free Planner</a>
-      </div>
-
     </div>
 
     <!-- TRANSMISSION FOOTER -->
     <div class="issue-footer reveal">
       <div class="issue-footer-meta">
-        <span>Roman Prime — Lead Operator  //  Issue 007</span>
+        <span>Roman Prime — Operator 00  //  Issue 007</span>
         <span>Next transmission: Issue 008 — coming Tuesday</span>
       </div>
     </div>
@@ -297,7 +389,6 @@
     <!-- SUBSCRIBE NUDGE -->
     <div class="issue-subscribe reveal">
       <p>Issue 008 ships next Tuesday. Every Tuesday. No noise.</p>
-      <a href="https://slate-silicon.kit.com/0c7c8b09a2" class="content-cta">Subscribe to The Dispatch</a>
     </div>
 
   </div>
@@ -320,12 +411,29 @@
   <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
 </footer>
 
+<!-- FLOATING NUDGE — locked D-02 copy, standard block across all 8 archived issues -->
+<div class="floating-nudge" id="floating-nudge">
+  <button class="floating-nudge-close" id="floating-nudge-close" aria-label="Dismiss">×</button>
+  <p class="floating-nudge-label">Starting Position</p>
+  <a href="https://slate-silicon.kit.com/1bce10c281" class="floating-nudge-cta">Get Starting Position →</a>
+  <p class="floating-nudge-sub">Free. No account. No screen required.</p>
+  <p class="floating-nudge-note">You don't need permission. CORE is the structured version of what Starting Position already showed you.</p>
+  <a href="https://www.etsy.com/listing/4569134436/30-day-attention-recovery-protocol-self" target="_blank" rel="noopener" class="floating-nudge-link">Get CORE →</a>
+</div>
+
 <script>
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const nudge = document.getElementById('floating-nudge');
+  const nudgeClose = document.getElementById('floating-nudge-close');
+  if (nudge && nudgeClose) {
+    nudgeClose.addEventListener('click', () => { nudge.style.display = 'none'; });
+  }
 </script>
 
 </body>
 </html>
+

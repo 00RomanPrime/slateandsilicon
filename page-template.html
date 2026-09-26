@@ -7,54 +7,71 @@
   <meta name="description" content="PAGE DESCRIPTION">
   <meta name="robots" content="noindex">
 
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow+Condensed:wght@300;700;900&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
-  <!-- Adjust path depth: ../ for sub-pages, ../../ for sub-sub-pages -->
-  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Open Graph — fill in per page before removing noindex -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Slate & Silicon">
+  <meta property="og:title" content="PAGE TITLE — Slate & Silicon">
+  <meta property="og:description" content="PAGE DESCRIPTION">
+  <meta property="og:url" content="https://slateandsilicon.com/PAGE-PATH/">
+  <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@slate.silicon">
+  <meta name="twitter:title" content="PAGE TITLE — Slate & Silicon">
+  <meta name="twitter:description" content="PAGE DESCRIPTION">
+  <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="/logo/favicon-24.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Always absolute paths — every live page on the site links CSS this
+       way regardless of folder depth. Do not use relative ../ paths. -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
-<nav class="z">
-  <a href="/" class="logo">Slate <em>&</em> Silicon</a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/foundry/">The Foundry</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/store/">The Store</a></li>
-    <li><a href="/log/">The Log</a></li>
-  </ul>
-  <a href="/detox-planner/" class="nav-cta">→ Free Planner</a>
-  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/log/">Dispatch</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get Starting Position</a>
+    </div>
+  </div>
 </nav>
 
-<!-- ══ PAGE HERO ══ -->
+<!-- PAGE HERO -->
 <div class="page-hero z">
   <p class="tag">SECTION CODE // PAGE TITLE</p>
   <h1>Page heading<br>goes here.</h1>
   <p class="body-text">A short description of this page's purpose. Keep it direct. One or two sentences maximum.</p>
 </div>
 
-<!-- ══ TICKER ══ -->
-<div class="ticker z">
-  <div class="ticker-track">
-    <span class="ticker-item">Forge your attention <b>//</b></span>
-    <span class="ticker-item">Reclaim your reality <b>//</b></span>
-    <span class="ticker-item">Focus isn't a feeling — it's a system <b>//</b></span>
-    <span class="ticker-item">Willpower is finite — design around it <b>//</b></span>
-    <span class="ticker-item">Build the focus <b>//</b></span>
-    <span class="ticker-item">See the world <b>//</b></span>
-    <span class="ticker-item">The machinery of focus. The beauty of presence <b>//</b></span>
-    <!-- Duplicate for seamless loop -->
-    <span class="ticker-item">Forge your attention <b>//</b></span>
-    <span class="ticker-item">Reclaim your reality <b>//</b></span>
-    <span class="ticker-item">Focus isn't a feeling — it's a system <b>//</b></span>
-    <span class="ticker-item">Willpower is finite — design around it <b>//</b></span>
-    <span class="ticker-item">Build the focus <b>//</b></span>
-    <span class="ticker-item">See the world <b>//</b></span>
-    <span class="ticker-item">The machinery of focus. The beauty of presence <b>//</b></span>
-  </div>
+<!-- SITE TICKER — remove this block entirely if the page doesn't need one.
+     Content below is placeholder — replace with page-specific lines before
+     removing noindex. Standing rule: activate (don't leave commented out)
+     once real content is in. -->
+<div class="site-ticker z" aria-hidden="true">
+  <span class="site-ticker-inner">
+    Placeholder line one <b>//</b> Placeholder line two <b>//</b> Placeholder line three <b>//</b>
+    Placeholder line one <b>//</b> Placeholder line two <b>//</b> Placeholder line three <b>//</b>
+  </span>
 </div>
 
 <!-- ══ MAIN CONTENT ══
@@ -73,45 +90,41 @@
   </div>
 </div>
 
-<!-- ══ FOOTER CTA ══ -->
+<!-- FOOTER CTA — placeholder uses the standard content-cta button pattern.
+     Point href at the correct Kit form or internal page before removing
+     noindex. Do not invent a new Kit ID — confirm the correct one first. -->
 <div class="section-alt z">
   <div class="footer-cta">
     <div class="reveal">
       <p class="tag">Final Directive</p>
-      <h2>Stop scrolling.<br>Start <span class="cyan">seeing.</span></h2>
-      <p class="body-text">You've spent 10+ years building everyone else's digital empire. It's time to rebuild your own attention span. The first move takes 30 seconds.</p>
-      <div class="form">
-        <input type="email" placeholder="engineer@domain.com">
-        <button>→ Download Free</button>
-      </div>
+      <h2>Section closer<br>goes here.</h2>
+      <p class="body-text">Closing paragraph. Keep it in voice — direct, no urgency, no manufactured pressure.</p>
+      <a href="#" class="content-cta">CTA text →</a>
       <p class="form-note" style="text-align:center; margin-top:1rem;">No account. No algorithm. No noise.</p>
     </div>
   </div>
 </div>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer class="z">
-  <a href="/" class="footer-logo">Slate &amp; Silicon</a>
   <ul class="footer-links">
-    <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
-    <li><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a></li>
-    <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
-    <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
-    <li><a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest</a></li>
-    <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/store/">Store</a></li>
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/terms/">Terms</a></li>
     <li><a href="/contact/">Contact</a></li>
+    <li><a href="/FAQ/">FAQ</a></li>
   </ul>
-  <span class="footer-copy">© 2025 Slate &amp; Silicon. All systems operational.</span>
+  <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
 </footer>
 
-<!-- ══ JS: Reveal on scroll ══ -->
 <script>
   const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 

@@ -438,6 +438,37 @@ p { color: var(--muted); }
 .fw-pct { color: rgba(127,167,184,.2); font-family: var(--display); font-size: clamp(3rem, 7vw, 6rem); line-height: .9; margin-bottom: .5rem; }
 
 .ticker { display: none; }
+/* SITE TICKER — shared component, all pages. Width-safe: content is
+   duplicated back-to-back and animates 0 → -50%, so it loops cleanly
+   regardless of viewport or text length. Separate from .sell-ticker
+   on /detox-planner/ — that one stays untouched. */
+.site-ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+  padding: 0.55rem 0;
+}
+
+.site-ticker-inner {
+  display: inline-block;
+  animation: site-ticker 70s linear infinite;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--slate);
+  text-transform: uppercase;
+}
+
+.site-ticker-inner b {
+  color: var(--blue);
+  font-weight: 400;
+  margin: 0 0.5rem;
+}
+
+@keyframes site-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 .status, .chip, .include-list li, .heat-list li, .planner-top, .planner-footer, .meter-note, .meter-labels span { font-family: var(--body); letter-spacing: .06em; }
 .status { color: var(--blue); font-size: .78rem; }
 .dot { background: var(--blue); animation: none; }

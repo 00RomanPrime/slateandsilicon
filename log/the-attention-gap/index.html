@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Gap Matters More Than The Trigger — Slate & Silicon</title>
+  <meta name="description" content="What triggers the pull to check your phone matters less than what happens in the half-second after you notice it. Four shapes the gap can take, and why none of them is a verdict.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Slate & Silicon">
+  <meta property="og:title" content="The Gap Matters More Than The Trigger — Slate & Silicon">
+  <meta property="og:description" content="Most advice about attention starts with the trigger. The more useful question is what happens in the gap right after you notice the pull — and it falls into one of four recognizable shapes.">
+  <meta property="og:url" content="https://slateandsilicon.com/log/the-attention-gap/">
+  <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@slate.silicon">
+  <meta name="twitter:title" content="The Gap Matters More Than The Trigger — Slate & Silicon">
+  <meta name="twitter:description" content="Most advice about attention starts with the trigger. The more useful question is what happens in the gap right after you notice the pull — and it falls into one of four recognizable shapes.">
+  <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Happens In The Gap Matters More Than What Triggered It",
+    "description": "What triggers the pull to check your phone matters less than what happens in the half-second after you notice it. Four shapes the gap can take, and why none of them is a verdict.",
+    "url": "https://slateandsilicon.com/log/the-attention-gap/",
+    "datePublished": "2026-10-04T09:00:00-05:00",
+    "dateModified": "2026-10-04T09:00:00-05:00",
+    "author": {
+      "@type": "Person",
+      "name": "Roman Prime",
+      "url": "https://slateandsilicon.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Slate & Silicon",
+      "url": "https://slateandsilicon.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://slateandsilicon.com/logo/logo-light.svg"
+      }
+    },
+    "image": "https://slateandsilicon.com/assets/images/og-default.png",
+    "mainEntityOfPage": "https://slateandsilicon.com/log/the-attention-gap/"
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/system.css?v=4">
+
+  <style>
+    .issue-header {
+      max-width: 640px;
+      padding: clamp(4rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .issue-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .issue-badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      border: 1px solid var(--blue-line);
+      background: var(--blue-dim);
+      padding: 3px 9px;
+    }
+
+    .issue-id {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+    }
+
+    .issue-header h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    .issue-lede {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 54ch;
+      font-weight: 300;
+      border-left: 2px solid var(--blue);
+      padding-left: 1.5rem;
+    }
+
+    .issue-body {
+      max-width: 640px;
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    }
+
+    .issue-body p {
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      color: #c0b8ae;
+      line-height: 1.95;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+
+    .issue-body p:last-child { margin-bottom: 0; }
+
+    .issue-body strong {
+      color: var(--bone);
+      font-weight: 400;
+    }
+
+    .issue-body em {
+      font-style: italic;
+      color: var(--bone);
+    }
+
+    .issue-section {
+      margin: clamp(3rem, 6vw, 5rem) 0 2rem;
+      padding-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .issue-section-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .issue-section h2 {
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      margin-bottom: 2rem;
+      max-width: 22ch;
+    }
+
+    .obs-block {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+
+    .obs-block p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .obs-block p:last-child { margin-bottom: 0; }
+
+    .issue-footer {
+      border-top: 1px solid var(--line);
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      max-width: 640px;
+    }
+
+    .issue-footer-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .issue-footer-meta span {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+
+    .issue-cta-secondary {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--slate);
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 2px;
+      transition: color .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .issue-cta-secondary:hover {
+      color: var(--blue);
+      border-color: var(--blue-line);
+    }
+
+    .issue-subscribe {
+      background: rgba(232,226,214,.016);
+      border: 1px solid var(--line);
+      padding: 2rem;
+      margin-top: clamp(3rem, 6vw, 5rem);
+      max-width: 640px;
+    }
+
+    .issue-subscribe p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/logo/logo-light.svg" alt="Slate & Silicon">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/start-here/">Start Here</a></li>
+        <li><a href="/laboratory/">Laboratory</a></li>
+        <li><a href="/log/">Articles</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="nav-cta" href="https://slate-silicon.kit.com/1bce10c281">Get Starting Position</a>
+    </div>
+  </div>
+</nav>
+
+<!-- POST -->
+<div class="z">
+  <div class="section">
+
+    <!-- HEADER -->
+    <div class="issue-header reveal">
+      <div class="issue-meta-row">
+        <span class="issue-badge">Field Report</span>
+        <span class="issue-id">October 4, 2026</span>
+        <span class="issue-id">5 min read</span>
+      </div>
+      <h1>The Gap Matters More<br>Than The Trigger.</h1>
+      <p class="issue-lede">
+        Everyone wants to know what triggered the pull. The more useful question is what happened right after you noticed it.
+      </p>
+    </div>
+
+    <!-- BODY -->
+    <div class="issue-body reveal">
+
+      <p>Most advice about attention starts with the trigger. Find out what causes the urge to check your phone, and you can supposedly remove it — turn off the notification, delete the app, identify the boring meeting or the anxious thought that sent you reaching. This isn't wrong, exactly. But it skips over a moment that matters more than the trigger itself: the gap.</p>
+
+      <div class="issue-section">
+        <span class="issue-section-label">What The Gap Actually Is</span>
+        <h2>What the gap actually is.</h2>
+
+        <p>The gap is the space between noticing a pull and doing anything about it. It might last half a second. It might last three. Most of the time, nobody notices it happening at all, because it moves fast enough to feel like nothing happened — the phone was just suddenly in hand.</p>
+
+        <p>But something did happen in that gap, every time. It just tends to fall into one of four recognizable shapes.</p>
+      </div>
+
+      <div class="issue-section">
+        <span class="issue-section-label">Four Shapes The Gap Can Take</span>
+        <h2>Four shapes the gap can take.</h2>
+
+        <p><strong>Drift.</strong> You noticed the pull, and kept going anyway. Awareness happened, but it didn't change the outcome — the noticing and the action ran on separate tracks.<br>
+        <strong>Pause.</strong> You noticed, and just stopped. No decision got made yet. Just a beat of stillness where the pull lost its momentum without anything actively pushing back against it.<br>
+        <strong>Override.</strong> You noticed, and pushed through the pull using effort alone. This one often gets mistaken for the healthiest option, because it looks like discipline from the outside. It's also the least sustainable of the four — it works until the effort runs out, and then it stops working all at once.<br>
+        <strong>Redirect.</strong> You noticed, and actually did something else instead. Not by force, not by white-knuckling through the urge — just a genuine choice to spend the moment differently.</p>
+      </div>
+
+      <div class="issue-section">
+        <span class="issue-section-label">Why None Of These Are A Verdict</span>
+        <h2>Why none of these are a verdict.</h2>
+
+        <p>It would be easy to rank these — redirect as the goal, drift as the failure, override as the grinding middle ground. That's not actually useful, and it's not how the gap works in real life. A person might override a pull during a work deadline and it's exactly the right tool for that hour. The same person might drift through a pull on a lazy Sunday and it costs nothing. The four shapes aren't a ladder to climb. They're just four different things that can happen in the same second, and most people default to one of them almost every time, without ever realizing they had other options available.</p>
+
+        <p>That default is the actual pattern worth noticing — not because it needs fixing immediately, but because a pattern you can't see isn't a pattern you can ever choose to change.</p>
+      </div>
+
+      <div class="issue-section">
+        <span class="issue-section-label">Why The Trigger Matters Less Than It Seems To</span>
+        <h2>Why the trigger matters less than it seems to.</h2>
+
+        <p>Removing a trigger is often genuinely useful — fewer notifications, a phone left in another room, a different route through a morning. But triggers multiply faster than they can be eliminated. There will always be another one: a lull in conversation, a boring stretch of a task, a text that could theoretically be answered later but wasn't. Chasing every trigger down is a losing game, because the world keeps producing more of them.</p>
+
+        <p>The gap doesn't multiply the same way. It's the same moment, every time, regardless of what caused it. Learning to actually notice which of the four shapes shows up there is a skill that transfers across every trigger at once, instead of solving one trigger and leaving the next hundred untouched.</p>
+      </div>
+
+      <div class="issue-section">
+        <span class="issue-section-label">Where This Fits Into The Protocol</span>
+        <h2>Where this fits into the protocol.</h2>
+
+        <p>This is exactly the kind of observation the 30-Day Attention Recovery Protocol is built around — not eliminating triggers one by one, but building the capacity to actually notice what happens in the moment after a pull arrives, regardless of what caused it. The protocol's early instruments ask you to observe before intervening, on purpose. The gap is the same principle, applied to a single second instead of a full day.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="issue-section">
+        <span class="issue-section-label">Attention Recovery Protocol</span>
+        <p>The 30-Day Attention Recovery Protocol is where this observation becomes a full practice — thirty days, five phases, built around exactly this kind of noticing.</p>
+        <a href="/attention-recovery-protocol/" class="content-cta">See the Protocol →</a><br>
+        <a href="https://www.etsy.com/listing/4569134436/30-day-attention-recovery-protocol-self" class="issue-cta-secondary">Already decided? Get it on Etsy →</a>
+      </div>
+
+    </div>
+
+    <!-- TRANSMISSION FOOTER -->
+    <div class="issue-footer reveal">
+      <div class="issue-footer-meta">
+        <span>Roman Prime — Operator 00</span>
+      </div>
+    </div>
+
+    <!--
+      SUBSCRIBE NUDGE — INTENTIONALLY DISABLED.
+      Reactivate once traffic warrants it (RP, Oct 2026). Not tied to the
+      prior Dispatch cadence question — that product is retired. If
+      reactivated, this needs its own capture copy, not Dispatch's.
+
+    <div class="issue-subscribe reveal">
+      <p>{{SUBSCRIBE_COPY}}</p>
+      <a href="https://slate-silicon.kit.com/0c7c8b09a2" class="content-cta">Subscribe</a>
+    </div>
+    -->
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="z">
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/slate.silicon/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.facebook.com/slate.silicon/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://tiktok.com/@slate.silicon" target="_blank" rel="noopener">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@slate.silicon" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://www.pinterest.com/slateandsilicon/" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a href="/store/">Store</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/FAQ/">FAQ</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Slate &amp; Silicon. All systems operational.</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

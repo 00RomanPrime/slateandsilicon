@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Dispatch — Slate & Silicon</title>
-  <meta name="description" content="The Slate & Silicon Dispatch. Long-form field notes on attention and cognitive recovery. Published every Friday.">
+  <title>Articles — Slate & Silicon</title>
+  <meta name="description" content="Long-form articles on attention, fragmentation, and cognitive recovery. Field reports and observations on how attention actually works.">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Slate & Silicon">
-<meta property="og:title" content="The Dispatch — Slate & Silicon">
-<meta property="og:description" content="Weekly field notes from the Laboratory. Long-form pieces on attention, fragmentation, and cognitive recovery. Published every Friday.">
+<meta property="og:title" content="Articles — Slate & Silicon">
+<meta property="og:description" content="Long-form articles from the Laboratory on attention, fragmentation, and cognitive recovery. Field reports and observations. No filler.">
 <meta property="og:url" content="https://slateandsilicon.com/log/">
 <meta property="og:image" content="https://slateandsilicon.com/assets/images/og-default.png">
 <meta property="og:image:width" content="1200">
@@ -18,8 +18,8 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@slate.silicon">
-<meta name="twitter:title" content="The Dispatch — Slate & Silicon">
-<meta name="twitter:description" content="Weekly field notes from the Laboratory. Long-form pieces on attention, fragmentation, and cognitive recovery. Published every Friday.">
+<meta name="twitter:title" content="Articles — Slate & Silicon">
+<meta name="twitter:description" content="Long-form articles from the Laboratory on attention, fragmentation, and cognitive recovery. Field reports and observations. No filler.">
 <meta name="twitter:image" content="https://slateandsilicon.com/assets/images/og-default.png">
   <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
   <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16.png">
@@ -67,6 +67,11 @@
     }
 
     .issue-card:hover { background: var(--surface); }
+
+    /* Article card — no issue-number column (post-Dispatch format) */
+    .issue-card.article {
+      grid-template-columns: 1fr auto;
+    }
 
     /* Featured card — amber left border */
     .issue-card.featured {
@@ -400,6 +405,7 @@
       .issue-card { grid-template-columns: 48px 1fr; }
       .issue-action { display: none; }
       .issue-card.featured { padding: 1.5rem; }
+      .issue-card.article { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -425,15 +431,15 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero z">
-  <p class="tag">Articles // Weekly Transmission</p>
-  <h1>Dispatch.</h1>
-  <p class="body-text">Every Friday. Long-form field notes on attention, fragmentation, and cognitive recovery. No filler. No noise.</p>
+  <p class="tag">Articles // Field Reports</p>
+  <h1>Articles.</h1>
+  <p class="body-text">Long-form articles on attention, fragmentation, and cognitive recovery. A new one every Monday. No filler. No noise.</p>
 </div>
 
 <div class="site-ticker" aria-hidden="true">
   <span class="site-ticker-inner">
-    Articles <b>//</b> Published every Friday <b>//</b> Long-form field notes <b>//</b> Attention &amp; cognitive recovery <b>//</b> No filler <b>//</b> No noise <b>//</b>
-    Articles <b>//</b> Published every Friday <b>//</b> Long-form field notes <b>//</b> Attention &amp; cognitive recovery <b>//</b> No filler <b>//</b> No noise <b></span></span></div>
+    Articles <b>//</b> Every Monday <b>//</b> Long-form <b>//</b> Field reports <b>//</b> Attention &amp; cognitive recovery <b>//</b> No filler <b>//</b> No noise <b>//</b>
+    Articles <b>//</b> Every Monday <b>//</b> Long-form <b>//</b> Field reports <b>//</b> Attention &amp; cognitive recovery <b>//</b> No filler <b>//</b> No noise <b>//</b>
   </span>
 </div>
 
@@ -444,38 +450,50 @@
 
       <div>
 
-        <!-- LATEST DISPATCH -->
+        <!-- LATEST ARTICLE -->
         <div class="reveal">
           <p class="tag">Latest Article</p>
           <div class="issue-list">
-            <a href="/log/screen-time-doesnt-tell-you-this/" class="issue-card featured">
+            <a href="/log/the-attention-gap/" class="issue-card featured">
               <div class="featured-top">
                 <span class="featured-badge">Latest Article</span>
-                <span class="featured-issue-num">September 18, 2026</span>
+                <span class="featured-issue-num">October 4, 2026</span>
               </div>
               <div class="issue-meta">
-                <span class="issue-tag">Field Note</span>
+                <span class="issue-tag">Field Report</span>
               </div>
-              <h2 class="issue-title">Screen Time Doesn't Tell You This.</h2>
-              <p class="issue-excerpt">Two people can carry the same screen time and live completely different days. The number that actually explains the difference isn't how long — it's how often something got interrupted.</p>
+              <h2 class="issue-title">The Gap Matters More Than The Trigger.</h2>
+              <p class="issue-excerpt">Everyone wants to know what triggered the pull. The more useful question is what happened right after you noticed it — and it tends to fall into one of four recognizable shapes.</p>
               <div class="featured-meta">
-                <span class="featured-meta-item">4 min read</span>
+                <span class="featured-meta-item">5 min read</span>
                 <span class="featured-meta-item cta">→ Read this piece</span>
               </div>
             </a>
           </div>
         </div>
 
+        <!-- EARLIER ARTICLES (newest first) -->
+        <div class="reveal">
+          <p class="archive-heading" style="margin-top:2.5rem;">Earlier Articles</p>
+          <div class="issue-list" style="margin-top:0;">
+            <a href="/log/screen-time-doesnt-tell-you-this/" class="issue-card article">
+              <div class="issue-body">
+                <div class="issue-meta"><span class="issue-date">September 18, 2026</span><span class="issue-tag">Field Report</span></div>
+                <h3 class="issue-title">Screen Time Doesn't Tell You This.</h3>
+                <p class="issue-excerpt">Two people can carry the same screen time and live completely different days. The number that actually explains the difference isn't how long — it's how often something got interrupted.</p>
+              </div>
+              <div class="issue-action"><span class="issue-read">4 min</span><span class="issue-arrow">→</span></div>
+            </a>
+          </div>
+        </div>
+
         <!--
-          NEXT LONG-FORM POST GOES HERE, ABOVE the .log-archive block.
-          When the next Friday post ships: move "Screen Time Doesn't
-          Tell You This" out of the featured slot above into a plain
-          (non-featured) .issue-card here, using the same card markup
-          the archive uses below — but WITHOUT the .log-archive wrapper,
-          since it's still current-era content, just not the latest.
-          The .log-archive divider always marks the boundary between
-          current-format posts (above) and the retired numbered run
-          (below) — it never moves.
+          NEXT ARTICLE: when the next piece ships, move the current featured
+          article into the "Earlier Articles" list above (newest first, plain
+          .issue-card.article markup) and put the new piece in the featured
+          slot. Bump the sidebar counts (Articles, Published). The .log-archive divider below always
+          marks the boundary between articles (above) and the retired numbered
+          Dispatch run (below) — it never moves.
         -->
 
         <div class="reveal log-archive">
@@ -575,9 +593,11 @@
       <aside class="log-sidebar reveal">
 
         <!--
-          SIDEBAR "JOIN THE DISPATCH" — DISABLED (RP confirmed, this session).
-          Kit form uid 0c7c8b09a2 confirmed not active. Held commented out
-          rather than deleted — reactivate once there's a working form.
+          SIDEBAR EMAIL CAPTURE — DISABLED (RP confirmed). Kit form uid
+          0c7c8b09a2 confirmed not active, and The Dispatch is retired.
+          The commented copy below is Dispatch-era and stale: do NOT
+          reactivate as written. Needs new capture copy and a working form
+          once traffic warrants it.
 
         <div class="sidebar-block">
           <p class="sidebar-title">Join The Dispatch</p>
@@ -591,8 +611,9 @@
 
 
         <div class="sidebar-block">
-          <p class="sidebar-title">Article Stats</p>
-          <div class="sidebar-stat"><span class="sidebar-stat-label">Total Articles</span><span class="sidebar-stat-val">9</span></div>
+          <p class="sidebar-title">Archive Stats</p>
+          <div class="sidebar-stat"><span class="sidebar-stat-label">Articles</span><span class="sidebar-stat-val">2</span></div>
+          <div class="sidebar-stat"><span class="sidebar-stat-label">Dispatch Archive</span><span class="sidebar-stat-val">8</span></div>
           <div class="sidebar-stat"><span class="sidebar-stat-label">Since</span><span class="sidebar-stat-val">2024</span></div>
         </div>
 
@@ -609,10 +630,10 @@
         -->
 
         <div class="sidebar-block">
-          <p class="sidebar-title">Transmission Status</p>
-          <div class="status"><div class="dot"></div> Latest: Screen Time Doesn't Tell You This</div>
-          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Published: 9 total</div>
-          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Next Article: Monday</div>
+          <p class="sidebar-title">Article Status</p>
+          <div class="status"><div class="dot"></div> Latest: The Gap Matters More Than The Trigger</div>
+          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Published: 2 articles</div>
+          <div class="status" style="margin-top:0.65rem;"><div class="dot"></div> Next article: Monday</div>
         </div>
 
       </aside>
@@ -621,11 +642,11 @@
 </div>
 
 <!--
-  FOOTER CTA "JOIN THE DISPATCH" — DISABLED (RP confirmed, this session).
-  Kit form uid 0c7c8b09a2 confirmed not active. This section exists only
-  to host that form, so disabling the whole block rather than leaving
-  promise-copy with no working form behind it. Held commented out —
-  reactivate once there's a working form.
+  FOOTER EMAIL CAPTURE — DISABLED (RP confirmed). Kit form uid
+  0c7c8b09a2 confirmed not active, and The Dispatch is retired. This
+  section exists only to host that form. The commented copy below is
+  Dispatch-era and stale: do NOT reactivate as written. Needs new
+  capture copy and a working form once traffic warrants it.
 
 <div class="section-alt z">
   <div class="footer-cta">
